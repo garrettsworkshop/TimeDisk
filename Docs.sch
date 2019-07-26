@@ -14,30 +14,12 @@ Comment2 ""
 Comment3 ""
 Comment4 ""
 $EndDescr
-Wire Wire Line
-	8850 2250 8850 2350
-Wire Wire Line
-	9450 1950 9450 2050
-Wire Wire Line
-	4650 1950 4650 2050
-Wire Wire Line
-	4050 2350 4050 2250
-Text Notes 800  2050 2    50   ~ 0
-Acc~CAS~
-Wire Wire Line
-	3150 1900 2550 1900
 Wire Bus Line
 	4300 950  4300 1600
 Wire Bus Line
 	4900 950  4900 1600
 Text Notes 4300 1700 0    40   ~ 0
 Allow CS, OE, WE
-Text Notes 3700 1750 0    40   ~ 0
-Latch addr. attr.\nSwitch ext. ROM
-Text Notes 800  2350 2    50   ~ 0
-~RAS~
-Text Notes 800  1900 2    50   ~ 0
-Ref~CAS~
 Text Notes 1500 1100 0    40   ~ 0
 S7
 Text Notes 6600 850  0    104  ~ 0
@@ -190,10 +172,6 @@ Text Notes 9300 1100 0    40   ~ 0
 S5
 Text Notes 9900 1100 0    40   ~ 0
 S6
-Text Notes 8500 1750 0    40   ~ 0
-Latch addr. attr.\nSwitch ext. ROM
-Text Notes 6700 1750 0    40   ~ 0
-Disallow CS, OE, WE\nIncrement addr. if attr.
 Wire Wire Line
 	6150 1250 8250 1250
 Wire Wire Line
@@ -202,20 +180,6 @@ Wire Wire Line
 	6150 1450 7350 1450
 Wire Bus Line
 	1300 850  1300 1700
-Wire Wire Line
-	7350 1800 7350 1900
-Wire Wire Line
-	3150 1900 3150 1800
-Wire Wire Line
-	2550 1800 2550 1900
-Wire Wire Line
-	3450 2350 3450 2250
-Wire Wire Line
-	2850 2350 3450 2350
-Wire Wire Line
-	2850 2250 2850 2350
-Text Notes 1900 1750 0    40   ~ 0
-Disallow CS, OE, WE\nIncrement addr. if attr.
 Text Notes 1300 1650 0    40   ~ 0
 Latch WR data
 Text Notes 5100 1100 0    40   ~ 0
@@ -346,154 +310,26 @@ Wire Wire Line
 	4900 1000 5200 1000
 Wire Wire Line
 	5200 1000 5200 1100
-Wire Wire Line
-	9700 2400 9750 2500
-Wire Wire Line
-	9700 2500 9750 2400
-Wire Wire Line
-	9150 2500 9700 2500
-Wire Wire Line
-	9150 2400 9700 2400
-Wire Wire Line
-	9100 2500 9150 2400
-Wire Wire Line
-	9100 2400 9150 2500
-Wire Wire Line
-	9100 2500 4950 2500
-Wire Wire Line
-	4950 2400 9100 2400
-Wire Wire Line
-	4900 2400 4950 2500
-Wire Wire Line
-	4900 2500 4950 2400
-Wire Wire Line
-	4350 2500 4900 2500
-Wire Wire Line
-	4350 2400 4900 2400
-Wire Wire Line
-	4300 2500 4350 2400
-Wire Wire Line
-	4300 2400 4350 2500
-Wire Wire Line
-	900  2400 4300 2400
-Wire Wire Line
-	4300 2500 900  2500
-Text Notes 800  2500 2    50   ~ 0
-RA
-Wire Wire Line
-	2250 2050 2250 1950
-Wire Wire Line
-	2250 1950 4650 1950
-Wire Wire Line
-	5250 2350 5250 2250
-Wire Wire Line
-	5250 2250 8850 2250
-Wire Wire Line
-	1050 2350 1050 2250
-Wire Wire Line
-	1050 2250 2850 2250
-Wire Wire Line
-	900  2350 1050 2350
-Wire Wire Line
-	8850 2350 10050 2350
-Wire Wire Line
-	10050 2350 10050 2250
-Wire Wire Line
-	3450 2250 4050 2250
-Wire Wire Line
-	7950 1900 7950 1800
-Wire Wire Line
-	7950 1900 7350 1900
-Wire Wire Line
-	9450 2100 9450 2200
-Wire Wire Line
-	4650 2100 4650 2200
-Text Notes 800  2200 2    50   ~ 0
-~CAS~
-Wire Wire Line
-	2250 2200 2250 2100
-Wire Wire Line
-	3150 2200 3150 2100
-Wire Wire Line
-	2550 2100 2550 2200
-Wire Wire Line
-	2250 2100 2550 2100
-Wire Wire Line
-	7350 2100 7350 2200
-Wire Wire Line
-	7950 2200 7950 2100
-Wire Wire Line
-	7950 2200 7350 2200
-Wire Wire Line
-	7950 2100 9450 2100
-Wire Wire Line
-	4650 2200 6150 2200
-Wire Wire Line
-	6150 2200 6150 2100
-Wire Wire Line
-	6150 2100 7350 2100
-Wire Wire Line
-	9450 2200 10350 2200
-Wire Wire Line
-	10350 2200 10350 2100
-Wire Wire Line
-	4650 2050 6450 2050
-Wire Wire Line
-	6450 2050 6450 1950
-Wire Wire Line
-	6450 1950 9450 1950
-Wire Wire Line
-	900  2200 2250 2200
-Wire Wire Line
-	900  2050 2250 2050
-Wire Wire Line
-	3150 1800 7350 1800
-Wire Wire Line
-	900  1800 2550 1800
-Wire Wire Line
-	3150 2100 4650 2100
-Wire Wire Line
-	2550 2200 3150 2200
-Wire Wire Line
-	4050 2350 5250 2350
-Text Notes 4550 3400 0    50   ~ 0
+Text Notes 4550 3350 0    50   ~ 0
 CSEN = S4 | S5 | S6 | S7 @ C7M\n\nRAMROM~CS~ = ~IOSEL or IOSTRB~\nRAMCS = CSEN & RAMSEL\nROM~OE~ = CSEN & (IOSEL | (IOSTRB & IOROMEN)) & R~W~\nROM~WE~ = CSEN & (IOSEL | (IOSTRB & IOROMEN)) & ~R~W
-Text Notes 1350 3400 0    50   ~ 0
-PHI0reg = PHI0 @ C7M\nS[3:0] = (~PHI0~ & PHI0reg) ? 1 : \n          (S==0) ? 0 : S+1 @ C7M\nSyncCnt[1:0] = SYNC ? 2’b11 : \n                SyncCnt==0 ? 0 :\n                SyncCnt-1 @ C7M in S3
-Text Notes 7200 3500 0    50   ~ 0
-RA[10:8] = S4 ? Addr[10:8] : Addr[21:19] @ C7M\nRA[7:0] = RAMSEL ? (S4 ? Addr[7:0] : Addr[18:11]) : \n           IOSEL ? 8’h00 : Bank[7:0] @ C7M\n\nRA[19] = Addr[19]\nRA[18:11] = RAMSEL ? Addr[18:11] : { SyncCnt[2:0]!=0, Bank[5:0] }\nRA[10:0] = Addr[10:0]
-Text Notes 1300 3650 0    100  ~ 0
+Text Notes 1350 3100 0    50   ~ 0
+PHI0reg = PHI0 @ C7M\nS[3:0] = (~PHI0~ & PHI0reg) ? 1 : \n          (S==0) ? 0 : S+1 @ C7M
+Text Notes 1300 3350 0    100  ~ 0
 Select signals (registered)
 Text Notes 1300 2850 0    100  ~ 0
 State Synchronization
 Text Notes 4500 2850 0    100  ~ 0
 ROM / SRAM Control
-Text Notes 1350 4500 0    50   ~ 0
+Text Notes 1350 4200 0    50   ~ 0
 BankSEL = S3 ? (A==XXXF & DEVSEL & REGEN) : BankSEL @ C7M\nRAMSEL = S3 ? (A==XXX3 & DEVSEL & REGEN) : RAMSEL @ C7M\nAddrHSEL = S3 ? (A==XXX2 & DEVSEL & REGEN) : AddrHSEL @ C7M\nAddrMSEL = S3 ? (A==XXX1 & DEVSEL & REGEN) : AddrMSEL @ C7M\nAddrLSEL = S3 ? (A==XXX0 & DEVSEL & REGEN) : AddrLSEL @ C7M\n\nREGEN = (IOSEL & S3) ? 1 : REGEN @ C7M\nIOROMEN = (A==XXFF & IOSTRB & S3) ? 0 :\n            (A==XX00 & IOSEL & S3) ? 1 :\n            IOROMEN @ C7M
 Text Notes 7150 2850 0    100  ~ 0
 Address Bus Routing
-Text Notes 7150 3750 0    100  ~ 0
+Text Notes 7150 3700 0    100  ~ 0
 6502-Accessible Registers
-Text Notes 7200 4200 0    50   ~ 0
-Addr[19:16] = (S6 & AddrHSEL & ~R~W) ? D[3:0] : Addr[19:16] @ C7M\nAddr[15:8] = (S6 if AddrMSEL & ~R~W) ? D[7:0] : Addr[15:8] @ C7M\nAddr[7:0] = (S6 if AddrLSEL & ~R~W) ? D[7:0] : Addr[7:0] @ C7M\nif (RAMSEL & S1) Addr[19:0]++ @ C7M\nBank[7:0] = (S6 & BANKREG & ~R~W) ? D[7:0] : Bank[7:0] @ C7M
-Text Notes 7150 4450 0    100  ~ 0
+Text Notes 7150 4400 0    100  ~ 0
 Data Bus Routing
-Text Notes 7200 5000 0    50   ~ 0
-RD[7:0] = (~DEVSEL~ | R~W~) ? 8’bZ : D[7:0]\nD[7:0] = (~CSEN~ | ~DEVSEL~ | ~R~W) ? 8’bZ :\n          AddrHSEL ? {4’hF, Addr[22:16]} : \n          AddrMSEL ? Addr[15:8] : \n          AddrLSEL ? Addr[7:0]
-Wire Wire Line
-	10350 2100 10400 2100
-Wire Wire Line
-	7950 1800 10400 1800
-Wire Wire Line
-	10050 2250 10400 2250
-Wire Wire Line
-	9450 2050 10400 2050
-Wire Wire Line
-	10400 2400 9750 2400
-Wire Wire Line
-	9750 2500 10400 2500
-Text Notes 10000 1750 0    40   ~ 0
-Latch WR data
+Text Notes 7200 4950 0    50   ~ 0
+RD[7:0] = (~DEVSEL~ | R~W~) ? 8’bZ : D[7:0]\nD[7:0] = (~CSEN~ | ~DEVSEL~ | ~R~W) ? 8’bZ :\n          AddrHSEL ? {4’hF, Addr[22:16]} : \n          AddrMSEL ? Addr[15:8] : \n          AddrLSEL ? Addr[7:0] :\n          RD[7:0]
 Wire Wire Line
 	10300 1000 10400 1000
 Wire Wire Line
@@ -502,4 +338,18 @@ Wire Wire Line
 	10350 1300 10400 1300
 Wire Wire Line
 	10350 1450 10400 1450
+Text Notes 7200 3450 0    50   ~ 0
+RA[10:8] = S4 ? Addr[10:8] : Addr[21:19] @ C7M\nRA[7:0] = RAMSEL ? (S4 ? Addr[7:0] : Addr[18:11]) : \n           IOSEL ? 8’h00 : Bank[7:0] @ C7M\n\nRA[19] = Addr[19]\nRA[18:12] = RAMSEL ? Addr[18:12] : { Bank[6:0] }\nRA[11:0] = Addr[11:0]
+Text Notes 7200 4150 0    50   ~ 0
+Addr[19:16] = (S6 & AddrHSEL & ~R~W) ? D[3:0] : Addr[19:16] @ C7M\nAddr[15:8] = (S6 if AddrMSEL & ~R~W) ? D[7:0] : Addr[15:8] @ C7M\nAddr[7:0] = (S6 if AddrLSEL & ~R~W) ? D[7:0] : Addr[7:0] @ C7M\nif (RAMSEL & S1) Addr[19:0]++ @ C7M\nBank[7:0] = (S6 & BankSEL & ~R~W) ? D[7:0] : Bank[7:0] @ C7M
+Text Notes 10000 1750 0    40   ~ 0
+Latch WR data
+Text Notes 1900 1750 0    40   ~ 0
+Disallow CS, OE, WE\nIncrement addr. if attr.
+Text Notes 6700 1750 0    40   ~ 0
+Disallow CS, OE, WE\nIncrement addr. if attr.
+Text Notes 3700 1750 0    40   ~ 0
+Latch addr. attr.\nSwitch ext. ROM
+Text Notes 8500 1750 0    40   ~ 0
+Latch addr. attr.\nEn/disable IO ROM
 $EndSCHEMATC
