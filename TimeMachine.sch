@@ -432,8 +432,6 @@ Connection ~ 3800 5100
 Wire Wire Line
 	3800 5100 3900 5100
 Connection ~ 3900 5100
-Text Label 2800 1500 2    50   ~ 0
-~INH~
 Text Label 2800 1800 2    50   ~ 0
 ~IOSEL~
 Text Label 4300 1300 0    50   ~ 0
@@ -1546,7 +1544,7 @@ Entry Wire Line
 Entry Wire Line
 	4700 4100 4600 4000
 Wire Bus Line
-	2400 5400 4700 5400
+	2400 5700 4700 5700
 Entry Wire Line
 	6200 4300 6100 4400
 Entry Wire Line
@@ -1805,7 +1803,6 @@ Wire Wire Line
 	5100 4100 4800 4100
 Entry Wire Line
 	4700 3800 4800 3900
-Connection ~ 4700 5400
 Wire Bus Line
 	2300 6100 6200 6100
 Wire Wire Line
@@ -1945,63 +1942,21 @@ F 3 "" H 6700 2100 50  0001 C CNN
 $EndComp
 Wire Wire Line
 	6200 1650 6200 1750
-Connection ~ 5600 1650
-Wire Wire Line
-	5400 1650 5400 1850
-Wire Wire Line
-	5600 1650 5400 1650
-Connection ~ 5400 2050
-Wire Wire Line
-	5600 2050 5400 2050
 Wire Wire Line
 	5600 1650 6200 1650
 Wire Wire Line
 	5600 1850 6200 1850
-$Comp
-L power:GND #PWR0104
-U 1 1 5D553337
-P 5400 2050
-F 0 "#PWR0104" H 5400 1800 50  0001 C CNN
-F 1 "GND" H 5400 1900 50  0000 C CNN
-F 2 "" H 5400 2050 50  0001 C CNN
-F 3 "" H 5400 2050 50  0001 C CNN
-	1    5400 2050
-	1    0    0    -1  
-$EndComp
-$Comp
-L Device:C_Small C22
-U 1 1 5D552FB7
-P 5400 1950
-F 0 "C22" H 5450 2000 50  0000 L CNN
-F 1 "6p" H 5450 1900 50  0000 L CNN
-F 2 "stdpads:C_0805" H 5400 1950 50  0001 C CNN
-F 3 "~" H 5400 1950 50  0001 C CNN
-	1    5400 1950
-	-1   0    0    -1  
-$EndComp
-$Comp
-L Device:C_Small C23
-U 1 1 5D551238
-P 5600 1950
-F 0 "C23" H 5650 2000 50  0000 L CNN
-F 1 "6p" H 5650 1900 50  0000 L CNN
-F 2 "stdpads:C_0805" H 5600 1950 50  0001 C CNN
-F 3 "~" H 5600 1950 50  0001 C CNN
-	1    5600 1950
-	1    0    0    -1  
-$EndComp
 $Comp
 L Device:Crystal_Small Y1
 U 1 1 5D320127
 P 5600 1750
 F 0 "Y1" V 5550 1850 50  0000 L CNN
 F 1 "32k768" V 5650 1850 50  0000 L CNN
-F 2 "stdpads:Crystal_HC49-SMD" H 5600 1750 50  0001 C CNN
+F 2 "Crystal_C26-LF_D2.1mm_L6.5mm_Horizontal_1EP_style1" H 5600 1750 50  0001 C CNN
 F 3 "~" H 5600 1750 50  0001 C CNN
 	1    5600 1750
 	0    1    1    0   
 $EndComp
-Connection ~ 5600 1850
 Text Label 6200 2250 2    50   ~ 0
 A0
 Text Label 6200 1950 2    50   ~ 0
@@ -2330,14 +2285,20 @@ Wire Wire Line
 	9200 4250 9200 4650
 Connection ~ 9200 4650
 NoConn ~ 9800 4650
+Text Label 2800 1500 2    50   ~ 0
+RA18
+Wire Wire Line
+	2800 1500 2200 1500
+Entry Wire Line
+	2100 1600 2200 1500
 Wire Bus Line
-	4700 5200 4700 5400
+	2100 1600 2100 4200
 Wire Bus Line
-	4700 5400 4700 5700
+	2100 4200 2400 4200
 Wire Bus Line
 	2300 600  2300 2800
 Wire Bus Line
-	2400 4200 2400 5400
+	2400 4200 2400 5700
 Wire Bus Line
 	4800 600  4800 3300
 Wire Bus Line
@@ -2357,5 +2318,5 @@ Wire Bus Line
 Wire Bus Line
 	2000 2800 2000 4300
 Wire Bus Line
-	4700 3600 4700 5400
+	4700 3600 4700 5700
 $EndSCHEMATC
