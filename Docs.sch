@@ -352,4 +352,40 @@ Text Notes 7200 3900 0    50   ~ 0
 Addr[19:16] = (S6 & AddrHSEL & ~R~W) ? D[3:0] : Addr[19:16] @ C7M\nAddr[15:8] = (S6 if AddrMSEL & ~R~W) ? D[7:0] : Addr[15:8] @ C7M\nAddr[7:0] = (S6 if AddrLSEL & ~R~W) ? D[7:0] : Addr[7:0] @ C7M\nif (RAMSEL & S1) Addr[19:0]++ @ C7M\nBank[7:0] = (S6 & BankSEL & ~R~W) ? D[7:0] : Bank[7:0] @ C7M
 Text Notes 4350 3300 0    50   ~ 0
 DBEN = ~S2~ @ C7M\n\nRAMROMCS = RAMSEL | IOSEL | (IOSTRB & IOROMEN)\nRAMCS = RAMSEL\nROMCS = RAMROMCSgb & (IOSEL | (IOSTRB & IOROMEN))
+Wire Wire Line
+	3700 1850 3750 1950
+Wire Wire Line
+	3750 1950 6700 1950
+Wire Wire Line
+	6700 1950 6750 1850
+Wire Wire Line
+	6750 1850 8500 1850
+Wire Wire Line
+	8500 1850 8550 1950
+Wire Wire Line
+	8550 1950 10400 1950
+Wire Wire Line
+	1950 1850 3700 1850
+Wire Wire Line
+	1950 1850 1900 1950
+Wire Wire Line
+	1900 1950 900  1950
+Wire Wire Line
+	4300 2000 4350 2100
+Wire Wire Line
+	4350 2100 7300 2100
+Wire Wire Line
+	7300 2100 7350 2000
+Wire Wire Line
+	7350 2000 9100 2000
+Wire Wire Line
+	9100 2000 9150 2100
+Wire Wire Line
+	9150 2100 10400 2100
+Wire Wire Line
+	2550 2000 4300 2000
+Wire Wire Line
+	2550 2000 2500 2100
+Wire Wire Line
+	900  2100 2500 2100
 $EndSCHEMATC
