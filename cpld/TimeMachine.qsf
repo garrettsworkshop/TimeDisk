@@ -49,7 +49,6 @@ set_global_assignment -name MAX_CORE_JUNCTION_TEMP 85
 set_global_assignment -name VERILOG_FILE TimeMachine.v
 set_global_assignment -name MAX7000_DEVICE_IO_STANDARD TTL
 set_location_assignment PIN_1 -to nRES
-set_location_assignment PIN_2 -to PHI1
 set_location_assignment PIN_8 -to A[13]
 set_location_assignment PIN_4 -to D[6]
 set_location_assignment PIN_5 -to D[7]
@@ -100,3 +99,17 @@ set_location_assignment PIN_80 -to D[4]
 set_location_assignment PIN_81 -to D[5]
 set_location_assignment PIN_83 -to C7M
 set_location_assignment PIN_84 -to C7M_2
+set_location_assignment PIN_2 -to PHI1in
+set_global_assignment -name SYNTH_TIMING_DRIVEN_SYNTHESIS OFF
+set_global_assignment -name MAX7000_IGNORE_LCELL_BUFFERS OFF
+set_global_assignment -name AUTO_LCELL_INSERTION OFF
+set_global_assignment -name SYNTH_MESSAGE_LEVEL HIGH
+set_location_assignment LC52 -to Bank[1]
+set_location_assignment LC54 -to Bank[2]
+set_location_assignment LC64 -to IOROMEN
+set_location_assignment LC55 -to Bank[3]
+set_location_assignment LC60 -to Bank[5]
+set_location_assignment LC58 -to Bank[4]
+set_location_assignment LC50 -to Bank[0]
+set_location_assignment LC62 -to Bank[6]
+set_location_assignment LC63 -to REGEN

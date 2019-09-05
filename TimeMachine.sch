@@ -384,10 +384,8 @@ Text Label 4300 4300 0    50   ~ 0
 RA12
 Text Label 4300 3600 0    50   ~ 0
 RA17
-Text Label 4300 2200 0    50   ~ 0
+Text Label 4300 2300 0    50   ~ 0
 7Mr
-Wire Wire Line
-	4300 2300 4300 2200
 Text Label 2800 1900 2    50   ~ 0
 RAMROM~CS~
 Wire Wire Line
@@ -434,9 +432,9 @@ Wire Wire Line
 Connection ~ 3900 5100
 Text Label 2800 1800 2    50   ~ 0
 ~IOSEL~
-Text Label 4300 1300 0    50   ~ 0
+Text Label 4300 1400 0    50   ~ 0
 R~W~
-Text Label 2800 1300 2    50   ~ 0
+Text Label 4300 1300 0    50   ~ 0
 ~DEVSEL~
 Text Label 2800 2100 2    50   ~ 0
 A0
@@ -722,13 +720,13 @@ F 3 "" H 2650 7550 50  0001 C CNN
 	1    2650 7550
 	1    0    0    -1  
 $EndComp
-Text Label 4300 1400 0    50   ~ 0
-A15
 Text Label 4300 1500 0    50   ~ 0
-A14
+A15
 Text Label 4300 1600 0    50   ~ 0
-A13
+A14
 Text Label 4300 1700 0    50   ~ 0
+A13
+Text Label 4300 2200 0    50   ~ 0
 A12
 Text Label 4300 2900 0    50   ~ 0
 D0
@@ -1367,13 +1365,13 @@ Entry Wire Line
 Entry Wire Line
 	2300 2800 2400 2900
 Entry Wire Line
-	4800 1300 4700 1400
-Entry Wire Line
 	4800 1400 4700 1500
 Entry Wire Line
 	4800 1500 4700 1600
 Entry Wire Line
 	4800 1600 4700 1700
+Entry Wire Line
+	4800 2100 4700 2200
 Entry Wire Line
 	4600 2000 4500 1900
 Entry Wire Line
@@ -1628,17 +1626,17 @@ Wire Wire Line
 Wire Wire Line
 	4300 2900 4500 2900
 Wire Wire Line
-	4300 1400 4700 1400
-Wire Wire Line
 	4300 1500 4700 1500
 Wire Wire Line
 	4300 1600 4700 1600
+Wire Wire Line
+	4300 1700 4700 1700
 Wire Wire Line
 	4300 1800 4500 1800
 Wire Wire Line
 	4300 1900 4500 1900
 Wire Wire Line
-	4300 1700 4700 1700
+	4300 2200 4700 2200
 Wire Bus Line
 	600  700  4600 700 
 Wire Wire Line
@@ -1947,7 +1945,7 @@ Wire Wire Line
 Wire Wire Line
 	5600 1850 6200 1850
 $Comp
-L Device:Crystal_Small Y1
+L Device:Crystal_GND3_Small Y1
 U 1 1 5D320127
 P 5600 1750
 F 0 "Y1" V 5550 1850 50  0000 L CNN
@@ -2285,16 +2283,18 @@ Wire Wire Line
 	9200 4250 9200 4650
 Connection ~ 9200 4650
 NoConn ~ 9800 4650
-Text Label 2800 1500 2    50   ~ 0
+Text Label 2800 1300 2    50   ~ 0
 RA18
-Wire Wire Line
-	2800 1500 2200 1500
 Entry Wire Line
-	2100 1600 2200 1500
-Wire Bus Line
-	2100 1600 2100 4200
+	2100 1400 2200 1300
 Wire Bus Line
 	2100 4200 2400 4200
+Wire Wire Line
+	2200 1300 2800 1300
+Wire Bus Line
+	2100 1400 2100 4200
+Text Label 2800 1500 2    50   ~ 0
+~INH~
 Wire Bus Line
 	2300 600  2300 2800
 Wire Bus Line
@@ -2319,4 +2319,15 @@ Wire Bus Line
 	2000 2800 2000 4300
 Wire Bus Line
 	4700 3600 4700 5700
+$Comp
+L power:GND #PWR?
+U 1 1 5D855455
+P 5500 1750
+F 0 "#PWR?" H 5500 1500 50  0001 C CNN
+F 1 "GND" H 5505 1577 50  0000 C CNN
+F 2 "" H 5500 1750 50  0001 C CNN
+F 3 "" H 5500 1750 50  0001 C CNN
+	1    5500 1750
+	1    0    0    -1  
+$EndComp
 $EndSCHEMATC
