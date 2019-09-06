@@ -1,10 +1,10 @@
-module TimeMachine(C7M, PHI1in, nRES,
+module TimeMachine(C7M, C7M_2, PHI1in, nRES,
 				   A, RA, nWE, D, RD,
 				   nDEVSEL, nIOSEL, nIOSTRB, nINH,
 				   nRAMROMCS, RAMROMCSgb, RAMCS, nROMCS);
 
 	/* Clock, Reset */
-	input C7M, PHI1in; // Clock inputs
+	input C7M, C7M_2, PHI1in; // Clock inputs
 	input nRES; // Reset
 
 	/* PHI1 Delay */
@@ -25,19 +25,11 @@ module TimeMachine(C7M, PHI1in, nRES,
 	input nDEVSEL, nIOSEL, nIOSTRB; // Card select signals
 	input [15:0] A; // 6502 address bus
 	input nWE; // 6502 R/W
-	output [19:0] RA; // ROM and RAM dual-function address pins
-	assign RA[19] = Addr[19];
-	assign RA[18] = ~nDEVSEL ? Addr[18] : Bank[6];
-	assign RA[17] = ~nDEVSEL ? Addr[17] : Bank[5];
-	assign RA[16] = ~nDEVSEL ? Addr[16] : Bank[4];
-	assign RA[15] = ~nDEVSEL ? Addr[15] : Bank[3];
-	assign RA[14] = ~nDEVSEL ? Addr[14] : Bank[2];
-	assign RA[13] = ~nDEVSEL ? Addr[13] : Bank[1];
-	assign RA[12] = ~nDEVSEL ? Addr[12] : Bank[0];
-	assign RA[11] = ~nDEVSEL ? Addr[11] : A[11];
-	/*assign RA[18:11] = (~nIOSTRB & FullIOEN) ? Bank+1 :
+	output [18:0] RA; // ROM and RAM dual-function address pins
+	//assign RA[19] = Addr[19];
+	assign RA[18:11] = (~nIOSTRB & FullIOEN) ? Bank+1 :
 		(~nIOSTRB & ~FullIOEN) ? {7'b0000001, Bank[0]} : 
-		(~ASel & nIOSEL & nIOSTRB) ? Addr[18:11] : 8'h00;*/
+		(nIOSEL & nIOSTRB) ? Addr[18:11] : 8'h00;
 	assign RA[10:0] = Addr[10:0];
 
 	/* Data Bus Routing */
@@ -49,7 +41,7 @@ module TimeMachine(C7M, PHI1in, nRES,
 	wire DOE = CSDBEN & nWE & RAMROMCSgb &
 		((~nDEVSEL & REGEN) | ~nIOSEL | (~nIOSTRB & IOROMEN));
 	wire [7:0] Dout = (nDEVSEL | RAMSELA) ? RD[7:0] :
-		AddrHSELA ? {4'hF, Addr[19:16]} : 
+		AddrHSELA ? {4'hF, 1'b0, Addr[18:16]} : 
 		AddrMSELA ? {Addr[15:11], Addr[10:8]} : 
 		AddrLSELA ? Addr[7:0] : 8'h00; 
 	inout [7:0] D = DOE ? Dout : 8'bZ;
@@ -67,7 +59,7 @@ module TimeMachine(C7M, PHI1in, nRES,
 
   	/* 6502-accessible Registers */
 	reg [7:0] Bank = 8'h00; // Bank register for ROM access
-	reg [19:0] Addr; // Address register bits 19:0
+	reg [18:0] Addr; // Address register bits 19:0
 	
 	/* Increment Control */
 	reg IncAddrL = 0, IncAddrM = 0, IncAddrH = 0;
@@ -116,7 +108,7 @@ module TimeMachine(C7M, PHI1in, nRES,
 			REGEN <= 1'b0;
 			IOROMEN <= 1'b0;
 			CSDBEN <= 1'b0;
-			Addr <= 20'h00000;
+			Addr <= 19'h00000;
 			Bank <= 8'h00;
 			FullIOEN <= 1'b0;
 			IncAddrL <= 1'b0;
@@ -160,11 +152,11 @@ module TimeMachine(C7M, PHI1in, nRES,
 			end
 			if (S==3 & IncAddrH) begin
 				IncAddrH <= 0;
-				Addr[19:16] <= Addr[19:16]+1;
+				Addr[18:16] <= Addr[18:16]+1;
 			end
 			
 			// Set register during S6 if accessed.
-			if (S==6) begin
+			if (S==5) begin
 				if (BankWR) Bank[7:0] <= D[7:0]; // Bank
 				if (SetWR) FullIOEN <= D[7:0] == 8'hE5;
 				
@@ -172,7 +164,7 @@ module TimeMachine(C7M, PHI1in, nRES,
 				IncAddrM <= AddrLWR & Addr[7] & ~D[7];
 				IncAddrH <= AddrMWR & Addr[15] & ~D[7];
 				
-				if (AddrHWR) Addr[19:16] <= D[3:0]; // Addr hi
+				if (AddrHWR) Addr[18:16] <= D[2:0]; // Addr hi
 				if (AddrMWR) Addr[15:8] <= D[7:0]; // Addr mid
 				if (AddrLWR) Addr[7:0] <= D[7:0]; // Addr lo
 			end
