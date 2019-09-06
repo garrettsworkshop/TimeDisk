@@ -1,5 +1,5 @@
 Analysis & Synthesis report for TimeMachine
-Thu Sep 05 22:32:41 2019
+Fri Sep 06 13:20:33 2019
 Quartus II 32-bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
 
 
@@ -42,7 +42,7 @@ applicable agreement for further details.
 +-------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                  ;
 +-----------------------------+-------------------------------------------------+
-; Analysis & Synthesis Status ; Successful - Thu Sep 05 22:32:41 2019           ;
+; Analysis & Synthesis Status ; Successful - Fri Sep 06 13:20:33 2019           ;
 ; Quartus II 32-bit Version   ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition ;
 ; Revision Name               ; TimeMachine                                     ;
 ; Top-level Entity Name       ; TimeMachine                                     ;
@@ -252,7 +252,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus II 32-bit Analysis & Synthesis
     Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
-    Info: Processing started: Thu Sep 05 22:32:36 2019
+    Info: Processing started: Fri Sep 06 13:20:27 2019
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off TimeMachine -c TimeMachine
 Warning (20028): Parallel compilation is not licensed and has been disabled
 Info (12021): Found 1 design units, including 1 entities, in source file timemachine.v
@@ -300,8 +300,8 @@ Info (21057): Implemented 151 device resources after synthesis - the final resou
 Info (144001): Generated suppressed messages file Z:/Repos/TimeMachine/cpld/output_files/TimeMachine.map.smsg
 Info: Quartus II 32-bit Analysis & Synthesis was successful. 0 errors, 13 warnings
     Info: Peak virtual memory: 312 megabytes
-    Info: Processing ended: Thu Sep 05 22:32:41 2019
-    Info: Elapsed time: 00:00:05
+    Info: Processing ended: Fri Sep 06 13:20:33 2019
+    Info: Elapsed time: 00:00:06
     Info: Total CPU time (on all processors): 00:00:06
 
 

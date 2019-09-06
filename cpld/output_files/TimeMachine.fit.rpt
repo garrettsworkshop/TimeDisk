@@ -1,5 +1,5 @@
 Fitter report for TimeMachine
-Thu Sep 05 22:32:46 2019
+Fri Sep 06 13:20:38 2019
 Quartus II 32-bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
 
 
@@ -54,7 +54,7 @@ applicable agreement for further details.
 +-----------------------------------------------------------------------------+
 ; Fitter Summary                                                              ;
 +---------------------------+-------------------------------------------------+
-; Fitter Status             ; Successful - Thu Sep 05 22:32:46 2019           ;
+; Fitter Status             ; Successful - Fri Sep 06 13:20:38 2019           ;
 ; Quartus II 32-bit Version ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition ;
 ; Revision Name             ; TimeMachine                                     ;
 ; Top-level Entity Name     ; TimeMachine                                     ;
@@ -107,7 +107,7 @@ The pin-out file can be found in Z:/Repos/TimeMachine/cpld/output_files/TimeMach
 ; Global signals               ; 2                 ;
 ; Shareable expanders          ; 3 / 128 ( 2 % )   ;
 ; Parallel expanders           ; 0 / 120 ( 0 % )   ;
-; Cells using turbo bit        ; 41 / 128 ( 32 % ) ;
+; Cells using turbo bit        ; 40 / 128 ( 31 % ) ;
 ; Maximum fan-out              ; 39                ;
 ; Highest non-global fan-out   ; 38                ;
 ; Total fan-out                ; 679               ;
@@ -678,8 +678,8 @@ Warning (20028): Parallel compilation is not licensed and has been disabled
 Info (119006): Selected device EPM7128SLC84-15 for design "TimeMachine"
 Info: Quartus II 32-bit Fitter was successful. 0 errors, 1 warning
     Info: Peak virtual memory: 287 megabytes
-    Info: Processing ended: Thu Sep 05 22:32:46 2019
-    Info: Elapsed time: 00:00:03
-    Info: Total CPU time (on all processors): 00:00:03
+    Info: Processing ended: Fri Sep 06 13:20:38 2019
+    Info: Elapsed time: 00:00:04
+    Info: Total CPU time (on all processors): 00:00:04
 
 
