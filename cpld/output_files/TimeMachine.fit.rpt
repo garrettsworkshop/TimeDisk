@@ -1,5 +1,5 @@
 Fitter report for TimeMachine
-Fri Sep 06 13:20:38 2019
+Fri Sep 06 17:27:25 2019
 Quartus II 32-bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
 
 
@@ -54,7 +54,7 @@ applicable agreement for further details.
 +-----------------------------------------------------------------------------+
 ; Fitter Summary                                                              ;
 +---------------------------+-------------------------------------------------+
-; Fitter Status             ; Successful - Fri Sep 06 13:20:38 2019           ;
+; Fitter Status             ; Successful - Fri Sep 06 17:27:25 2019           ;
 ; Quartus II 32-bit Version ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition ;
 ; Revision Name             ; TimeMachine                                     ;
 ; Top-level Entity Name     ; TimeMachine                                     ;
@@ -66,24 +66,24 @@ applicable agreement for further details.
 +---------------------------+-------------------------------------------------+
 
 
-+--------------------------------------------------------------------------------------------------------------+
-; Fitter Settings                                                                                              ;
-+----------------------------------------------------------------------------+-----------------+---------------+
-; Option                                                                     ; Setting         ; Default Value ;
-+----------------------------------------------------------------------------+-----------------+---------------+
-; Device                                                                     ; EPM7128SLC84-15 ;               ;
-; Use smart compilation                                                      ; Off             ; Off           ;
-; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation ; On              ; On            ;
-; Enable compact report table                                                ; Off             ; Off           ;
-; Optimize Multi-Corner Timing                                               ; Off             ; Off           ;
-; Optimize Timing for ECOs                                                   ; Off             ; Off           ;
-; Regenerate full fit report during ECO compiles                             ; Off             ; Off           ;
-; Optimize IOC Register Placement for Timing                                 ; Normal          ; Normal        ;
-; Fitter Initial Placement Seed                                              ; 1               ; 1             ;
-; Slow Slew Rate                                                             ; Off             ; Off           ;
-; Fitter Effort                                                              ; Auto Fit        ; Auto Fit      ;
-; Force Fitter to Avoid Periphery Placement Warnings                         ; Off             ; Off           ;
-+----------------------------------------------------------------------------+-----------------+---------------+
++--------------------------------------------------------------------------------------------------------------------+
+; Fitter Settings                                                                                                    ;
++----------------------------------------------------------------------------+-----------------------+---------------+
+; Option                                                                     ; Setting               ; Default Value ;
++----------------------------------------------------------------------------+-----------------------+---------------+
+; Device                                                                     ; EPM7128SLC84-15       ;               ;
+; Optimize Timing for ECOs                                                   ; On                    ; Off           ;
+; Regenerate full fit report during ECO compiles                             ; On                    ; Off           ;
+; Optimize IOC Register Placement for Timing                                 ; Pack All IO Registers ; Normal        ;
+; Slow Slew Rate                                                             ; On                    ; Off           ;
+; Fitter Effort                                                              ; Standard Fit          ; Auto Fit      ;
+; Use smart compilation                                                      ; Off                   ; Off           ;
+; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation ; On                    ; On            ;
+; Enable compact report table                                                ; Off                   ; Off           ;
+; Optimize Multi-Corner Timing                                               ; Off                   ; Off           ;
+; Fitter Initial Placement Seed                                              ; 1                     ; 1             ;
+; Force Fitter to Avoid Periphery Placement Warnings                         ; Off                   ; Off           ;
++----------------------------------------------------------------------------+-----------------------+---------------+
 
 
 +--------------+
@@ -107,7 +107,7 @@ The pin-out file can be found in Z:/Repos/TimeMachine/cpld/output_files/TimeMach
 ; Global signals               ; 2                 ;
 ; Shareable expanders          ; 3 / 128 ( 2 % )   ;
 ; Parallel expanders           ; 0 / 120 ( 0 % )   ;
-; Cells using turbo bit        ; 40 / 128 ( 31 % ) ;
+; Cells using turbo bit        ; 15 / 128 ( 12 % ) ;
 ; Maximum fan-out              ; 39                ;
 ; Highest non-global fan-out   ; 38                ;
 ; Total fan-out                ; 679               ;
@@ -153,29 +153,29 @@ The pin-out file can be found in Z:/Repos/TimeMachine/cpld/output_files/TimeMach
 +-----------+-------+----------+-----+-----------------+----------------+------------+---------------+--------------+----------------------+-------+----------------------+---------------------+
 ; Name      ; Pin # ; I/O Bank ; LAB ; Output Register ; Slow Slew Rate ; Open Drain ; TRI Primitive ; I/O Standard ; Location assigned by ; Load  ; Output Enable Source ; Output Enable Group ;
 +-----------+-------+----------+-----+-----------------+----------------+------------+---------------+--------------+----------------------+-------+----------------------+---------------------+
-; RAMCS     ; 45    ; --       ; 5   ; no              ; no             ; no         ; no            ; TTL          ; User                 ; 10 pF ; -                    ; -                   ;
-; RA[0]     ; 48    ; --       ; 5   ; no              ; no             ; no         ; no            ; TTL          ; Fitter               ; 10 pF ; -                    ; -                   ;
-; RA[10]    ; 50    ; --       ; 5   ; no              ; no             ; no         ; no            ; TTL          ; Fitter               ; 10 pF ; -                    ; -                   ;
-; RA[11]    ; 51    ; --       ; 5   ; no              ; no             ; no         ; no            ; TTL          ; User                 ; 10 pF ; -                    ; -                   ;
-; RA[12]    ; 60    ; --       ; 6   ; no              ; no             ; no         ; no            ; TTL          ; User                 ; 10 pF ; -                    ; -                   ;
-; RA[13]    ; 69    ; --       ; 7   ; no              ; no             ; no         ; no            ; TTL          ; User                 ; 10 pF ; -                    ; -                   ;
-; RA[14]    ; 67    ; --       ; 7   ; no              ; no             ; no         ; no            ; TTL          ; User                 ; 10 pF ; -                    ; -                   ;
-; RA[15]    ; 46    ; --       ; 5   ; no              ; no             ; no         ; no            ; TTL          ; User                 ; 10 pF ; -                    ; -                   ;
-; RA[16]    ; 61    ; --       ; 6   ; no              ; no             ; no         ; no            ; TTL          ; User                 ; 10 pF ; -                    ; -                   ;
-; RA[17]    ; 68    ; --       ; 7   ; no              ; no             ; no         ; no            ; TTL          ; User                 ; 10 pF ; -                    ; -                   ;
-; RA[18]    ; 64    ; --       ; 7   ; no              ; no             ; no         ; no            ; TTL          ; Fitter               ; 10 pF ; -                    ; -                   ;
-; RA[1]     ; 65    ; --       ; 7   ; no              ; no             ; no         ; no            ; TTL          ; Fitter               ; 10 pF ; -                    ; -                   ;
-; RA[2]     ; 63    ; --       ; 7   ; no              ; no             ; no         ; no            ; TTL          ; Fitter               ; 10 pF ; -                    ; -                   ;
-; RA[3]     ; 55    ; --       ; 6   ; no              ; no             ; no         ; no            ; TTL          ; Fitter               ; 10 pF ; -                    ; -                   ;
-; RA[4]     ; 54    ; --       ; 6   ; no              ; no             ; no         ; no            ; TTL          ; Fitter               ; 10 pF ; -                    ; -                   ;
-; RA[5]     ; 56    ; --       ; 6   ; no              ; no             ; no         ; no            ; TTL          ; Fitter               ; 10 pF ; -                    ; -                   ;
-; RA[6]     ; 58    ; --       ; 6   ; no              ; no             ; no         ; no            ; TTL          ; Fitter               ; 10 pF ; -                    ; -                   ;
-; RA[7]     ; 57    ; --       ; 6   ; no              ; no             ; no         ; no            ; TTL          ; Fitter               ; 10 pF ; -                    ; -                   ;
-; RA[8]     ; 52    ; --       ; 5   ; no              ; no             ; no         ; no            ; TTL          ; Fitter               ; 10 pF ; -                    ; -                   ;
-; RA[9]     ; 49    ; --       ; 5   ; no              ; no             ; no         ; no            ; TTL          ; Fitter               ; 10 pF ; -                    ; -                   ;
-; nINH      ; 15    ; --       ; 2   ; no              ; no             ; yes        ; no            ; TTL          ; User                 ; 10 pF ; -                    ; -                   ;
-; nRAMROMCS ; 20    ; --       ; 2   ; no              ; no             ; no         ; no            ; TTL          ; User                 ; 10 pF ; -                    ; -                   ;
-; nROMCS    ; 17    ; --       ; 2   ; no              ; no             ; no         ; no            ; TTL          ; User                 ; 10 pF ; -                    ; -                   ;
+; RAMCS     ; 45    ; --       ; 5   ; no              ; yes            ; no         ; no            ; TTL          ; User                 ; 10 pF ; -                    ; -                   ;
+; RA[0]     ; 48    ; --       ; 5   ; no              ; yes            ; no         ; no            ; TTL          ; Fitter               ; 10 pF ; -                    ; -                   ;
+; RA[10]    ; 50    ; --       ; 5   ; no              ; yes            ; no         ; no            ; TTL          ; Fitter               ; 10 pF ; -                    ; -                   ;
+; RA[11]    ; 51    ; --       ; 5   ; no              ; yes            ; no         ; no            ; TTL          ; User                 ; 10 pF ; -                    ; -                   ;
+; RA[12]    ; 60    ; --       ; 6   ; no              ; yes            ; no         ; no            ; TTL          ; User                 ; 10 pF ; -                    ; -                   ;
+; RA[13]    ; 69    ; --       ; 7   ; no              ; yes            ; no         ; no            ; TTL          ; User                 ; 10 pF ; -                    ; -                   ;
+; RA[14]    ; 67    ; --       ; 7   ; no              ; yes            ; no         ; no            ; TTL          ; User                 ; 10 pF ; -                    ; -                   ;
+; RA[15]    ; 46    ; --       ; 5   ; no              ; yes            ; no         ; no            ; TTL          ; User                 ; 10 pF ; -                    ; -                   ;
+; RA[16]    ; 61    ; --       ; 6   ; no              ; yes            ; no         ; no            ; TTL          ; User                 ; 10 pF ; -                    ; -                   ;
+; RA[17]    ; 68    ; --       ; 7   ; no              ; yes            ; no         ; no            ; TTL          ; User                 ; 10 pF ; -                    ; -                   ;
+; RA[18]    ; 64    ; --       ; 7   ; no              ; yes            ; no         ; no            ; TTL          ; Fitter               ; 10 pF ; -                    ; -                   ;
+; RA[1]     ; 65    ; --       ; 7   ; no              ; yes            ; no         ; no            ; TTL          ; Fitter               ; 10 pF ; -                    ; -                   ;
+; RA[2]     ; 63    ; --       ; 7   ; no              ; yes            ; no         ; no            ; TTL          ; Fitter               ; 10 pF ; -                    ; -                   ;
+; RA[3]     ; 55    ; --       ; 6   ; no              ; yes            ; no         ; no            ; TTL          ; Fitter               ; 10 pF ; -                    ; -                   ;
+; RA[4]     ; 54    ; --       ; 6   ; no              ; yes            ; no         ; no            ; TTL          ; Fitter               ; 10 pF ; -                    ; -                   ;
+; RA[5]     ; 56    ; --       ; 6   ; no              ; yes            ; no         ; no            ; TTL          ; Fitter               ; 10 pF ; -                    ; -                   ;
+; RA[6]     ; 58    ; --       ; 6   ; no              ; yes            ; no         ; no            ; TTL          ; Fitter               ; 10 pF ; -                    ; -                   ;
+; RA[7]     ; 57    ; --       ; 6   ; no              ; yes            ; no         ; no            ; TTL          ; Fitter               ; 10 pF ; -                    ; -                   ;
+; RA[8]     ; 52    ; --       ; 5   ; no              ; yes            ; no         ; no            ; TTL          ; Fitter               ; 10 pF ; -                    ; -                   ;
+; RA[9]     ; 49    ; --       ; 5   ; no              ; yes            ; no         ; no            ; TTL          ; Fitter               ; 10 pF ; -                    ; -                   ;
+; nINH      ; 15    ; --       ; 2   ; no              ; yes            ; yes        ; no            ; TTL          ; User                 ; 10 pF ; -                    ; -                   ;
+; nRAMROMCS ; 20    ; --       ; 2   ; no              ; yes            ; no         ; no            ; TTL          ; User                 ; 10 pF ; -                    ; -                   ;
+; nROMCS    ; 17    ; --       ; 2   ; no              ; yes            ; no         ; no            ; TTL          ; User                 ; 10 pF ; -                    ; -                   ;
 +-----------+-------+----------+-----+-----------------+----------------+------------+---------------+--------------+----------------------+-------+----------------------+---------------------+
 
 
@@ -184,22 +184,22 @@ The pin-out file can be found in Z:/Repos/TimeMachine/cpld/output_files/TimeMach
 +-------+-------+----------+-----+-----------------------+--------------------+--------+----------------+-----------------+----------------+------------+--------------+----------------------+-------+----------------------+---------------------+
 ; Name  ; Pin # ; I/O Bank ; LAB ; Combinational Fan-Out ; Registered Fan-Out ; Global ; Input Register ; Output Register ; Slow Slew Rate ; Open Drain ; I/O Standard ; Location assigned by ; Load  ; Output Enable Source ; Output Enable Group ;
 +-------+-------+----------+-----+-----------------------+--------------------+--------+----------------+-----------------+----------------+------------+--------------+----------------------+-------+----------------------+---------------------+
-; D[0]  ; 75    ; --       ; 8   ; 6                     ; 0                  ; no     ; no             ; no              ; no             ; no         ; TTL          ; User                 ; 10 pF ; DOE~5                ; -                   ;
-; D[1]  ; 76    ; --       ; 8   ; 6                     ; 0                  ; no     ; no             ; no              ; no             ; no         ; TTL          ; User                 ; 10 pF ; DOE~5                ; -                   ;
-; D[2]  ; 77    ; --       ; 8   ; 6                     ; 0                  ; no     ; no             ; no              ; no             ; no         ; TTL          ; User                 ; 10 pF ; DOE~5                ; -                   ;
-; D[3]  ; 79    ; --       ; 8   ; 5                     ; 0                  ; no     ; no             ; no              ; no             ; no         ; TTL          ; User                 ; 10 pF ; DOE~5                ; -                   ;
-; D[4]  ; 80    ; --       ; 8   ; 5                     ; 0                  ; no     ; no             ; no              ; no             ; no         ; TTL          ; User                 ; 10 pF ; DOE~5                ; -                   ;
-; D[5]  ; 81    ; --       ; 8   ; 5                     ; 0                  ; no     ; no             ; no              ; no             ; no         ; TTL          ; User                 ; 10 pF ; DOE~5                ; -                   ;
-; D[6]  ; 4     ; --       ; 1   ; 5                     ; 0                  ; no     ; no             ; no              ; no             ; no         ; TTL          ; User                 ; 10 pF ; DOE~5                ; -                   ;
-; D[7]  ; 5     ; --       ; 1   ; 7                     ; 0                  ; no     ; no             ; no              ; no             ; no         ; TTL          ; User                 ; 10 pF ; DOE~5                ; -                   ;
-; RD[0] ; 41    ; --       ; 4   ; 1                     ; 0                  ; no     ; no             ; no              ; no             ; no         ; TTL          ; User                 ; 10 pF ; RDOE~1               ; -                   ;
-; RD[1] ; 40    ; --       ; 4   ; 1                     ; 0                  ; no     ; no             ; no              ; no             ; no         ; TTL          ; User                 ; 10 pF ; RDOE~1               ; -                   ;
-; RD[2] ; 39    ; --       ; 4   ; 1                     ; 0                  ; no     ; no             ; no              ; no             ; no         ; TTL          ; User                 ; 10 pF ; RDOE~1               ; -                   ;
-; RD[3] ; 37    ; --       ; 4   ; 1                     ; 0                  ; no     ; no             ; no              ; no             ; no         ; TTL          ; User                 ; 10 pF ; RDOE~1               ; -                   ;
-; RD[4] ; 36    ; --       ; 4   ; 1                     ; 0                  ; no     ; no             ; no              ; no             ; no         ; TTL          ; User                 ; 10 pF ; RDOE~1               ; -                   ;
-; RD[5] ; 35    ; --       ; 4   ; 1                     ; 0                  ; no     ; no             ; no              ; no             ; no         ; TTL          ; User                 ; 10 pF ; RDOE~1               ; -                   ;
-; RD[6] ; 34    ; --       ; 4   ; 1                     ; 0                  ; no     ; no             ; no              ; no             ; no         ; TTL          ; User                 ; 10 pF ; RDOE~1               ; -                   ;
-; RD[7] ; 44    ; --       ; 5   ; 1                     ; 0                  ; no     ; no             ; no              ; no             ; no         ; TTL          ; User                 ; 10 pF ; RDOE~1               ; -                   ;
+; D[0]  ; 75    ; --       ; 8   ; 6                     ; 0                  ; no     ; no             ; no              ; yes            ; no         ; TTL          ; User                 ; 10 pF ; DOE~5                ; -                   ;
+; D[1]  ; 76    ; --       ; 8   ; 6                     ; 0                  ; no     ; no             ; no              ; yes            ; no         ; TTL          ; User                 ; 10 pF ; DOE~5                ; -                   ;
+; D[2]  ; 77    ; --       ; 8   ; 6                     ; 0                  ; no     ; no             ; no              ; yes            ; no         ; TTL          ; User                 ; 10 pF ; DOE~5                ; -                   ;
+; D[3]  ; 79    ; --       ; 8   ; 5                     ; 0                  ; no     ; no             ; no              ; yes            ; no         ; TTL          ; User                 ; 10 pF ; DOE~5                ; -                   ;
+; D[4]  ; 80    ; --       ; 8   ; 5                     ; 0                  ; no     ; no             ; no              ; yes            ; no         ; TTL          ; User                 ; 10 pF ; DOE~5                ; -                   ;
+; D[5]  ; 81    ; --       ; 8   ; 5                     ; 0                  ; no     ; no             ; no              ; yes            ; no         ; TTL          ; User                 ; 10 pF ; DOE~5                ; -                   ;
+; D[6]  ; 4     ; --       ; 1   ; 5                     ; 0                  ; no     ; no             ; no              ; yes            ; no         ; TTL          ; User                 ; 10 pF ; DOE~5                ; -                   ;
+; D[7]  ; 5     ; --       ; 1   ; 7                     ; 0                  ; no     ; no             ; no              ; yes            ; no         ; TTL          ; User                 ; 10 pF ; DOE~5                ; -                   ;
+; RD[0] ; 41    ; --       ; 4   ; 1                     ; 0                  ; no     ; no             ; no              ; yes            ; no         ; TTL          ; User                 ; 10 pF ; RDOE~1               ; -                   ;
+; RD[1] ; 40    ; --       ; 4   ; 1                     ; 0                  ; no     ; no             ; no              ; yes            ; no         ; TTL          ; User                 ; 10 pF ; RDOE~1               ; -                   ;
+; RD[2] ; 39    ; --       ; 4   ; 1                     ; 0                  ; no     ; no             ; no              ; yes            ; no         ; TTL          ; User                 ; 10 pF ; RDOE~1               ; -                   ;
+; RD[3] ; 37    ; --       ; 4   ; 1                     ; 0                  ; no     ; no             ; no              ; yes            ; no         ; TTL          ; User                 ; 10 pF ; RDOE~1               ; -                   ;
+; RD[4] ; 36    ; --       ; 4   ; 1                     ; 0                  ; no     ; no             ; no              ; yes            ; no         ; TTL          ; User                 ; 10 pF ; RDOE~1               ; -                   ;
+; RD[5] ; 35    ; --       ; 4   ; 1                     ; 0                  ; no     ; no             ; no              ; yes            ; no         ; TTL          ; User                 ; 10 pF ; RDOE~1               ; -                   ;
+; RD[6] ; 34    ; --       ; 4   ; 1                     ; 0                  ; no     ; no             ; no              ; yes            ; no         ; TTL          ; User                 ; 10 pF ; RDOE~1               ; -                   ;
+; RD[7] ; 44    ; --       ; 5   ; 1                     ; 0                  ; no     ; no             ; no              ; yes            ; no         ; TTL          ; User                 ; 10 pF ; RDOE~1               ; -                   ;
 +-------+-------+----------+-----+-----------------------+--------------------+--------+----------------+-----------------+----------------+------------+--------------+----------------------+-------+----------------------+---------------------+
 
 
@@ -678,7 +678,7 @@ Warning (20028): Parallel compilation is not licensed and has been disabled
 Info (119006): Selected device EPM7128SLC84-15 for design "TimeMachine"
 Info: Quartus II 32-bit Fitter was successful. 0 errors, 1 warning
     Info: Peak virtual memory: 287 megabytes
-    Info: Processing ended: Fri Sep 06 13:20:38 2019
+    Info: Processing ended: Fri Sep 06 17:27:25 2019
     Info: Elapsed time: 00:00:04
     Info: Total CPU time (on all processors): 00:00:04
 

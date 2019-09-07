@@ -155,7 +155,7 @@ module TimeMachine(C7M, C7M_2, PHI1in, nRES,
 				Addr[18:16] <= Addr[18:16]+1;
 			end
 			
-			// Set register during S6 if accessed.
+			// Set register at end of S5 if accessed.
 			if (S==5) begin
 				if (BankWR) Bank[7:0] <= D[7:0]; // Bank
 				if (SetWR) FullIOEN <= D[7:0] == 8'hE5;
