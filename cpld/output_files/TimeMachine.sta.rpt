@@ -1,5 +1,5 @@
 TimeQuest Timing Analyzer report for TimeMachine
-Fri Sep 06 17:27:33 2019
+Sat Sep 07 21:17:25 2019
 Quartus II 32-bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
 
 
@@ -93,7 +93,7 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +-------+---------+---------------+
 ; Clock ; Slack   ; End Point TNS ;
 +-------+---------+---------------+
-; C7M   ; -47.000 ; -1546.000     ;
+; C7M   ; -47.000 ; -1533.000     ;
 +-------+---------+---------------+
 
 
@@ -169,10 +169,6 @@ No paths to report.
 ; -46.000 ; S[2]      ; IncAddrM ; C7M          ; C7M         ; 1.000        ; 0.000      ; 43.000     ;
 ; -46.000 ; S[1]      ; IncAddrM ; C7M          ; C7M         ; 1.000        ; 0.000      ; 43.000     ;
 ; -25.000 ; S[2]      ; CSDBEN   ; C7M          ; C7M         ; 1.000        ; 0.000      ; 22.000     ;
-; -25.000 ; S[2]      ; IOROMEN  ; C7M          ; C7M         ; 1.000        ; 0.000      ; 22.000     ;
-; -25.000 ; S[1]      ; IOROMEN  ; C7M          ; C7M         ; 1.000        ; 0.000      ; 22.000     ;
-; -25.000 ; S[0]      ; IOROMEN  ; C7M          ; C7M         ; 1.000        ; 0.000      ; 22.000     ;
-; -25.000 ; IOROMEN   ; IOROMEN  ; C7M          ; C7M         ; 1.000        ; 0.000      ; 22.000     ;
 ; -25.000 ; S[0]      ; REGEN    ; C7M          ; C7M         ; 1.000        ; 0.000      ; 22.000     ;
 ; -25.000 ; S[2]      ; REGEN    ; C7M          ; C7M         ; 1.000        ; 0.000      ; 22.000     ;
 ; -25.000 ; S[1]      ; REGEN    ; C7M          ; C7M         ; 1.000        ; 0.000      ; 22.000     ;
@@ -232,6 +228,10 @@ No paths to report.
 ; -25.000 ; IncAddrM  ; Addr[9]  ; C7M          ; C7M         ; 1.000        ; 0.000      ; 22.000     ;
 ; -25.000 ; Addr[8]   ; Addr[9]  ; C7M          ; C7M         ; 1.000        ; 0.000      ; 22.000     ;
 ; -25.000 ; S[1]      ; Addr[10] ; C7M          ; C7M         ; 1.000        ; 0.000      ; 22.000     ;
+; -25.000 ; S[2]      ; Addr[10] ; C7M          ; C7M         ; 1.000        ; 0.000      ; 22.000     ;
+; -25.000 ; S[0]      ; Addr[10] ; C7M          ; C7M         ; 1.000        ; 0.000      ; 22.000     ;
+; -25.000 ; Addr[10]  ; Addr[10] ; C7M          ; C7M         ; 1.000        ; 0.000      ; 22.000     ;
+; -25.000 ; IncAddrM  ; Addr[10] ; C7M          ; C7M         ; 1.000        ; 0.000      ; 22.000     ;
 +---------+-----------+----------+--------------+-------------+--------------+------------+------------+
 
 
@@ -256,6 +256,9 @@ No paths to report.
 ; 5.000  ; S[2]      ; S[2]     ; C7M          ; C7M         ; 0.000        ; 0.000      ; 9.000      ;
 ; 5.000  ; S[0]      ; S[2]     ; C7M          ; C7M         ; 0.000        ; 0.000      ; 9.000      ;
 ; 5.000  ; IOROMEN   ; IOROMEN  ; C7M          ; C7M         ; 0.000        ; 0.000      ; 9.000      ;
+; 5.000  ; S[2]      ; IOROMEN  ; C7M          ; C7M         ; 0.000        ; 0.000      ; 9.000      ;
+; 5.000  ; S[1]      ; IOROMEN  ; C7M          ; C7M         ; 0.000        ; 0.000      ; 9.000      ;
+; 5.000  ; S[0]      ; IOROMEN  ; C7M          ; C7M         ; 0.000        ; 0.000      ; 9.000      ;
 ; 5.000  ; Addr[0]   ; Addr[0]  ; C7M          ; C7M         ; 0.000        ; 0.000      ; 9.000      ;
 ; 5.000  ; Addr[1]   ; Addr[1]  ; C7M          ; C7M         ; 0.000        ; 0.000      ; 9.000      ;
 ; 5.000  ; Addr[15]  ; Addr[15] ; C7M          ; C7M         ; 0.000        ; 0.000      ; 9.000      ;
@@ -276,9 +279,6 @@ No paths to report.
 ; 5.000  ; Addr[7]   ; Addr[7]  ; C7M          ; C7M         ; 0.000        ; 0.000      ; 9.000      ;
 ; 5.000  ; Addr[8]   ; Addr[8]  ; C7M          ; C7M         ; 0.000        ; 0.000      ; 9.000      ;
 ; 18.000 ; S[2]      ; CSDBEN   ; C7M          ; C7M         ; 0.000        ; 0.000      ; 22.000     ;
-; 18.000 ; S[2]      ; IOROMEN  ; C7M          ; C7M         ; 0.000        ; 0.000      ; 22.000     ;
-; 18.000 ; S[1]      ; IOROMEN  ; C7M          ; C7M         ; 0.000        ; 0.000      ; 22.000     ;
-; 18.000 ; S[0]      ; IOROMEN  ; C7M          ; C7M         ; 0.000        ; 0.000      ; 22.000     ;
 ; 18.000 ; S[0]      ; REGEN    ; C7M          ; C7M         ; 0.000        ; 0.000      ; 22.000     ;
 ; 18.000 ; S[2]      ; REGEN    ; C7M          ; C7M         ; 0.000        ; 0.000      ; 22.000     ;
 ; 18.000 ; S[1]      ; REGEN    ; C7M          ; C7M         ; 0.000        ; 0.000      ; 22.000     ;
@@ -461,13 +461,13 @@ No paths to report.
 ;  A[1]     ; C7M        ; 46.000  ; 46.000  ; Rise       ; C7M             ;
 ;  A[2]     ; C7M        ; 46.000  ; 46.000  ; Rise       ; C7M             ;
 ;  A[3]     ; C7M        ; 46.000  ; 46.000  ; Rise       ; C7M             ;
-;  A[4]     ; C7M        ; 24.000  ; 24.000  ; Rise       ; C7M             ;
-;  A[5]     ; C7M        ; 24.000  ; 24.000  ; Rise       ; C7M             ;
-;  A[6]     ; C7M        ; 24.000  ; 24.000  ; Rise       ; C7M             ;
-;  A[7]     ; C7M        ; 24.000  ; 24.000  ; Rise       ; C7M             ;
-;  A[8]     ; C7M        ; 24.000  ; 24.000  ; Rise       ; C7M             ;
-;  A[9]     ; C7M        ; 24.000  ; 24.000  ; Rise       ; C7M             ;
-;  A[10]    ; C7M        ; 24.000  ; 24.000  ; Rise       ; C7M             ;
+;  A[4]     ; C7M        ; 11.000  ; 11.000  ; Rise       ; C7M             ;
+;  A[5]     ; C7M        ; 11.000  ; 11.000  ; Rise       ; C7M             ;
+;  A[6]     ; C7M        ; 11.000  ; 11.000  ; Rise       ; C7M             ;
+;  A[7]     ; C7M        ; 11.000  ; 11.000  ; Rise       ; C7M             ;
+;  A[8]     ; C7M        ; 11.000  ; 11.000  ; Rise       ; C7M             ;
+;  A[9]     ; C7M        ; 11.000  ; 11.000  ; Rise       ; C7M             ;
+;  A[10]    ; C7M        ; 11.000  ; 11.000  ; Rise       ; C7M             ;
 ; D[*]      ; C7M        ; 24.000  ; 24.000  ; Rise       ; C7M             ;
 ;  D[0]     ; C7M        ; 24.000  ; 24.000  ; Rise       ; C7M             ;
 ;  D[1]     ; C7M        ; 24.000  ; 24.000  ; Rise       ; C7M             ;
@@ -480,7 +480,7 @@ No paths to report.
 ; PHI1in    ; C7M        ; 101.000 ; 101.000 ; Rise       ; C7M             ;
 ; nDEVSEL   ; C7M        ; 46.000  ; 46.000  ; Rise       ; C7M             ;
 ; nIOSEL    ; C7M        ; 24.000  ; 24.000  ; Rise       ; C7M             ;
-; nIOSTRB   ; C7M        ; 24.000  ; 24.000  ; Rise       ; C7M             ;
+; nIOSTRB   ; C7M        ; 11.000  ; 11.000  ; Rise       ; C7M             ;
 ; nWE       ; C7M        ; 46.000  ; 46.000  ; Rise       ; C7M             ;
 +-----------+------------+---------+---------+------------+-----------------+
 
@@ -490,18 +490,18 @@ No paths to report.
 +-----------+------------+---------+---------+------------+-----------------+
 ; Data Port ; Clock Port ; Rise    ; Fall    ; Clock Edge ; Clock Reference ;
 +-----------+------------+---------+---------+------------+-----------------+
-; A[*]      ; C7M        ; -16.000 ; -16.000 ; Rise       ; C7M             ;
-;  A[0]     ; C7M        ; -16.000 ; -16.000 ; Rise       ; C7M             ;
-;  A[1]     ; C7M        ; -16.000 ; -16.000 ; Rise       ; C7M             ;
-;  A[2]     ; C7M        ; -16.000 ; -16.000 ; Rise       ; C7M             ;
-;  A[3]     ; C7M        ; -16.000 ; -16.000 ; Rise       ; C7M             ;
-;  A[4]     ; C7M        ; -16.000 ; -16.000 ; Rise       ; C7M             ;
-;  A[5]     ; C7M        ; -16.000 ; -16.000 ; Rise       ; C7M             ;
-;  A[6]     ; C7M        ; -16.000 ; -16.000 ; Rise       ; C7M             ;
-;  A[7]     ; C7M        ; -16.000 ; -16.000 ; Rise       ; C7M             ;
-;  A[8]     ; C7M        ; -16.000 ; -16.000 ; Rise       ; C7M             ;
-;  A[9]     ; C7M        ; -16.000 ; -16.000 ; Rise       ; C7M             ;
-;  A[10]    ; C7M        ; -16.000 ; -16.000 ; Rise       ; C7M             ;
+; A[*]      ; C7M        ; -3.000  ; -3.000  ; Rise       ; C7M             ;
+;  A[0]     ; C7M        ; -3.000  ; -3.000  ; Rise       ; C7M             ;
+;  A[1]     ; C7M        ; -3.000  ; -3.000  ; Rise       ; C7M             ;
+;  A[2]     ; C7M        ; -3.000  ; -3.000  ; Rise       ; C7M             ;
+;  A[3]     ; C7M        ; -3.000  ; -3.000  ; Rise       ; C7M             ;
+;  A[4]     ; C7M        ; -3.000  ; -3.000  ; Rise       ; C7M             ;
+;  A[5]     ; C7M        ; -3.000  ; -3.000  ; Rise       ; C7M             ;
+;  A[6]     ; C7M        ; -3.000  ; -3.000  ; Rise       ; C7M             ;
+;  A[7]     ; C7M        ; -3.000  ; -3.000  ; Rise       ; C7M             ;
+;  A[8]     ; C7M        ; -3.000  ; -3.000  ; Rise       ; C7M             ;
+;  A[9]     ; C7M        ; -3.000  ; -3.000  ; Rise       ; C7M             ;
+;  A[10]    ; C7M        ; -3.000  ; -3.000  ; Rise       ; C7M             ;
 ; D[*]      ; C7M        ; -16.000 ; -16.000 ; Rise       ; C7M             ;
 ;  D[0]     ; C7M        ; -16.000 ; -16.000 ; Rise       ; C7M             ;
 ;  D[1]     ; C7M        ; -16.000 ; -16.000 ; Rise       ; C7M             ;
@@ -513,8 +513,8 @@ No paths to report.
 ;  D[7]     ; C7M        ; -16.000 ; -16.000 ; Rise       ; C7M             ;
 ; PHI1in    ; C7M        ; -12.000 ; -12.000 ; Rise       ; C7M             ;
 ; nDEVSEL   ; C7M        ; -16.000 ; -16.000 ; Rise       ; C7M             ;
-; nIOSEL    ; C7M        ; -16.000 ; -16.000 ; Rise       ; C7M             ;
-; nIOSTRB   ; C7M        ; -16.000 ; -16.000 ; Rise       ; C7M             ;
+; nIOSEL    ; C7M        ; -3.000  ; -3.000  ; Rise       ; C7M             ;
+; nIOSTRB   ; C7M        ; -3.000  ; -3.000  ; Rise       ; C7M             ;
 ; nWE       ; C7M        ; -16.000 ; -16.000 ; Rise       ; C7M             ;
 +-----------+------------+---------+---------+------------+-----------------+
 
@@ -1025,7 +1025,7 @@ No dedicated SERDES Receiver circuitry present in device or used in design
 Info: *******************************************************************
 Info: Running Quartus II 32-bit TimeQuest Timing Analyzer
     Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
-    Info: Processing started: Fri Sep 06 17:27:30 2019
+    Info: Processing started: Sat Sep 07 21:17:22 2019
 Info: Command: quartus_sta TimeMachine -c TimeMachine
 Info: qsta_default_script.tcl version: #1
 Warning (20028): Parallel compilation is not licensed and has been disabled
@@ -1041,7 +1041,7 @@ Critical Warning (332148): Timing requirements not met
 Info (332146): Worst-case setup slack is -47.000
     Info (332119):     Slack End Point TNS Clock 
     Info (332119): ========= ============= =====================
-    Info (332119):   -47.000     -1546.000 C7M 
+    Info (332119):   -47.000     -1533.000 C7M 
 Info (332146): Worst-case hold slack is 5.000
     Info (332119):     Slack End Point TNS Clock 
     Info (332119): ========= ============= =====================
@@ -1056,8 +1056,8 @@ Info (332001): The selected device family is not supported by the report_metasta
 Info (332102): Design is not fully constrained for setup requirements
 Info (332102): Design is not fully constrained for hold requirements
 Info: Quartus II 32-bit TimeQuest Timing Analyzer was successful. 0 errors, 4 warnings
-    Info: Peak virtual memory: 267 megabytes
-    Info: Processing ended: Fri Sep 06 17:27:33 2019
+    Info: Peak virtual memory: 263 megabytes
+    Info: Processing ended: Sat Sep 07 21:17:25 2019
     Info: Elapsed time: 00:00:03
     Info: Total CPU time (on all processors): 00:00:03
 

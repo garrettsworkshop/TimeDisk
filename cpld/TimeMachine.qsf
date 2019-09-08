@@ -134,3 +134,4 @@ set_global_assignment -name ALM_REGISTER_PACKING_EFFORT HIGH
 set_global_assignment -name ECO_OPTIMIZE_TIMING ON
 set_global_assignment -name ECO_REGENERATE_REPORT ON
 set_global_assignment -name OPTIMIZE_IOC_REGISTER_PLACEMENT_FOR_TIMING "PACK ALL IO REGISTERS"
+set_instance_assignment -name MAX7000_INDIVIDUAL_TURBO_BIT ON -to IOROMEN

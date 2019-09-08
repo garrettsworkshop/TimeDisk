@@ -32,38 +32,6 @@ module TimeMachine(C7M, C7M_2, PHI1in, nRES,
 		(nIOSEL & nIOSTRB) ? Addr[18:11] : 8'h00;
 	assign RA[10:0] = Addr[10:0];
 
-	/* Data Bus Routing */
-	// SRAM/ROM data bus
-	wire RDOE = CSDBEN & ~nWE;
-	//wire RDOE = nRES | (CSDBEN & (~nWE | (nDEVSEL & nIOSEL & nIOSTRB)));
-	inout [7:0] RD = RDOE ? D[7:0] : 8'bZ;
-	// Apple II data bus
-	wire DOE = CSDBEN & nWE & RAMROMCSgb &
-		((~nDEVSEL & REGEN) | ~nIOSEL | (~nIOSTRB & IOROMEN));
-	wire [7:0] Dout = (nDEVSEL | RAMSELA) ? RD[7:0] :
-		AddrHSELA ? {4'hF, 1'b0, Addr[18:16]} : 
-		AddrMSELA ? {Addr[15:11], Addr[10:8]} : 
-		AddrLSELA ? Addr[7:0] : 8'h00; 
-	inout [7:0] D = DOE ? Dout : 8'bZ;
-
-	/* SRAM and ROM Control Signals */
-	output nRAMROMCS = RAMSEL | ~nIOSEL | (~nIOSTRB & IOROMEN);
-	input RAMROMCSgb; // nRAMROMCS as gated by DS1215, then inverted
-	output RAMCS = RAMSEL & CSDBEN;
-	output nROMCS = RAMROMCSgb & CSDBEN & (~nIOSEL | (~nIOSTRB & IOROMEN));
-	
-	/* Inhibit output */
-	wire AROMSEL;
-	LCELL AROMSEL_MC (.in(/*(A[15:12]==4'hD | A[15:12]==4'hE | A[15:12]==4'hF) & nWE & ~MODE*/0), .out(AROMSEL));
-	output nINH = AROMSEL ? 1'b0 :  1'bZ;
-
-  	/* 6502-accessible Registers */
-	reg [7:0] Bank = 8'h00; // Bank register for ROM access
-	reg [18:0] Addr; // Address register bits 19:0
-	
-	/* Increment Control */
-	reg IncAddrL = 0, IncAddrM = 0, IncAddrH = 0;
-
 	/* Select Signals */
 	wire BankSELA = A[3:0]==4'hF;
 	wire SetSELA = A[3:0]==4'hE;
@@ -77,6 +45,37 @@ module TimeMachine(C7M, C7M_2, PHI1in, nRES,
 	LCELL AddrHWR_MC (.in(AddrHSELA & ~nWE & ~nDEVSEL & REGEN), .out(AddrHWR)); wire AddrHWR;
 	LCELL AddrMWR_MC (.in(AddrMSELA & ~nWE & ~nDEVSEL & REGEN), .out(AddrMWR)); wire AddrMWR;
 	LCELL AddrLWR_MC (.in(AddrLSELA & ~nWE & ~nDEVSEL & REGEN), .out(AddrLWR)); wire AddrLWR;
+
+	/* Data Bus Routing */
+	// SRAM/ROM data bus
+	wire RDOE = CSDBEN & ~nWE;
+	inout [7:0] RD = RDOE ? D[7:0] : 8'bZ;
+	// Apple II data bus
+	wire DOE = CSDBEN & nWE & RAMROMCSgb &
+		((~nDEVSEL & REGEN) | ~nIOSEL | (~nIOSTRB & IOROMEN));
+	wire [7:0] Dout = (nDEVSEL | RAMSELA) ? RD[7:0] :
+		AddrHSELA ? {4'hF, 1'b0, Addr[18:16]} : 
+		AddrMSELA ? Addr[15:8] : 
+		AddrLSELA ? Addr[7:0] : 8'h00; 
+	inout [7:0] D = DOE ? Dout : 8'bZ;
+	
+	/* Inhibit output */
+	wire AROMSEL;
+	LCELL AROMSEL_MC (.in(/*(A[15:12]==4'hD | A[15:12]==4'hE | A[15:12]==4'hF) & nWE & ~MODE*/0), .out(AROMSEL));
+	output nINH = AROMSEL ? 1'b0 :  1'bZ;
+
+	/* SRAM and ROM Control Signals */
+	output nRAMROMCS = RAMSEL | ~nIOSEL | (~nIOSTRB & IOROMEN);
+	input RAMROMCSgb; // nRAMROMCS as gated by DS1215, then inverted
+	output RAMCS = RAMSEL & CSDBEN;
+	output nROMCS = RAMROMCSgb & CSDBEN & (~nIOSEL | (~nIOSTRB & IOROMEN));
+
+  	/* 6502-accessible Registers */
+	reg [7:0] Bank = 8'h00; // Bank register for ROM access
+	reg [18:0] Addr; // Address register bits 19:0
+	
+	/* Increment Control */
+	reg IncAddrL = 0, IncAddrM = 0, IncAddrH = 0;
 
 	/* State Counters */
 	reg PHI1reg = 1'b0; // Saved PHI1 at last rising clock edge
