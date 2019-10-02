@@ -482,8 +482,6 @@ F 3 "" H 3200 1000 50  0001 C CNN
 	1    3200 1000
 	1    0    0    -1  
 $EndComp
-Text Label 8500 2450 0    50   ~ 0
-RAMROMCSgb
 Text Label 4300 2800 0    50   ~ 0
 D1
 Text Label 4300 2700 0    50   ~ 0
@@ -799,7 +797,7 @@ L Device:R_Small R3
 U 1 1 5D47A168
 P 1350 1600
 F 0 "R3" V 1200 1600 50  0000 C CNN
-F 1 "100" V 1300 1600 50  0000 C BNN
+F 1 "15" V 1300 1600 50  0000 C BNN
 F 2 "stdpads:R_0805" H 1350 1600 50  0001 C CNN
 F 3 "~" H 1350 1600 50  0001 C CNN
 	1    1350 1600
@@ -832,7 +830,7 @@ Wire Wire Line
 Text Label 1650 5150 0    50   ~ 0
 A2
 Text Label 1150 5150 2    50   ~ 0
-CA2
+DS~WE~
 $Comp
 L Device:Jumper_NO_Small JP2
 U 1 1 5D4360AA
@@ -1805,24 +1803,8 @@ Wire Bus Line
 	2300 6100 6200 6100
 Wire Wire Line
 	6400 5400 6400 2850
-Wire Wire Line
-	7300 2450 7300 2850
 Text Label 7200 2850 2    50   ~ 0
 RAMROM~CS~g
-$Comp
-L 74xx:74HC04 U3
-U 3 1 5E7FCCBB
-P 7600 2450
-F 0 "U3" H 7550 2450 50  0000 C CNN
-F 1 "74AHCT04" H 7600 2250 50  0000 C CNN
-F 2 "stdpads:SOIC-14_3.9mm" H 7600 2450 50  0001 C CNN
-F 3 "https://assets.nexperia.com/documents/data-sheet/74HC_HCT04.pdf" H 7600 2450 50  0001 C CNN
-	3    7600 2450
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	7300 2350 7300 2450
-Connection ~ 7300 2450
 Text Label 7200 2050 0    50   ~ 0
 C~RES~
 $Comp
@@ -1944,21 +1926,10 @@ Wire Wire Line
 	5600 1650 6200 1650
 Wire Wire Line
 	5600 1850 6200 1850
-$Comp
-L Device:Crystal_GND3_Small Y1
-U 1 1 5D320127
-P 5600 1750
-F 0 "Y1" V 5550 1850 50  0000 L CNN
-F 1 "32k768" V 5650 1850 50  0000 L CNN
-F 2 "Crystal_C26-LF_D2.1mm_L6.5mm_Horizontal_1EP_style1" H 5600 1750 50  0001 C CNN
-F 3 "~" H 5600 1750 50  0001 C CNN
-	1    5600 1750
-	0    1    1    0   
-$EndComp
 Text Label 6200 2250 2    50   ~ 0
 A0
 Text Label 6200 1950 2    50   ~ 0
-CA2
+DS~WE~
 Wire Wire Line
 	7300 2850 6400 2850
 Wire Bus Line
@@ -1972,93 +1943,6 @@ Wire Wire Line
 	5900 5400 6400 5400
 Text Label 8000 5200 0    50   ~ 0
 ROM~CS~
-$Comp
-L 74xx:74HC04 U3
-U 7 1 5E4D40BF
-P 9450 3050
-AR Path="/5E4D40BF" Ref="U3"  Part="7" 
-AR Path="/5D3B15F6/5E4D40BF" Ref="U?"  Part="7" 
-F 0 "U3" V 9550 3050 50  0000 C CNN
-F 1 "74AHCT04" V 9350 3050 50  0000 C CNN
-F 2 "stdpads:SOIC-14_3.9mm" H 9450 3050 50  0001 C CNN
-F 3 "https://assets.nexperia.com/documents/data-sheet/74HC_HCT04.pdf" H 9450 3050 50  0001 C CNN
-	7    9450 3050
-	0    -1   -1   0   
-$EndComp
-$Comp
-L power:+5V #PWR0125
-U 1 1 5E4D40C5
-P 8950 3050
-AR Path="/5E4D40C5" Ref="#PWR0125"  Part="1" 
-AR Path="/5D3B15F6/5E4D40C5" Ref="#PWR?"  Part="1" 
-F 0 "#PWR0125" H 8950 2900 50  0001 C CNN
-F 1 "+5V" H 8950 3200 50  0000 C CNN
-F 2 "" H 8950 3050 50  0001 C CNN
-F 3 "" H 8950 3050 50  0001 C CNN
-	1    8950 3050
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GND #PWR0126
-U 1 1 5E4D40CB
-P 9950 3050
-AR Path="/5E4D40CB" Ref="#PWR0126"  Part="1" 
-AR Path="/5D3B15F6/5E4D40CB" Ref="#PWR?"  Part="1" 
-F 0 "#PWR0126" H 9950 2800 50  0001 C CNN
-F 1 "GND" H 9950 2900 50  0000 C CNN
-F 2 "" H 9950 3050 50  0001 C CNN
-F 3 "" H 9950 3050 50  0001 C CNN
-	1    9950 3050
-	1    0    0    -1  
-$EndComp
-NoConn ~ 9800 5450
-NoConn ~ 9800 5050
-NoConn ~ 9800 4250
-$Comp
-L 74xx:74HC04 U3
-U 6 1 5E4D40D5
-P 9500 5450
-AR Path="/5E4D40D5" Ref="U3"  Part="6" 
-AR Path="/5D3B15F6/5E4D40D5" Ref="U?"  Part="6" 
-F 0 "U3" H 9450 5450 50  0000 C CNN
-F 1 "74AHCT04" H 9500 5650 50  0000 C CNN
-F 2 "stdpads:SOIC-14_3.9mm" H 9500 5450 50  0001 C CNN
-F 3 "https://assets.nexperia.com/documents/data-sheet/74HC_HCT04.pdf" H 9500 5450 50  0001 C CNN
-	6    9500 5450
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	9200 5450 9200 5050
-Connection ~ 9200 5050
-$Comp
-L 74xx:74HC04 U3
-U 5 1 5E4D40DD
-P 9500 5050
-AR Path="/5E4D40DD" Ref="U3"  Part="5" 
-AR Path="/5D3B15F6/5E4D40DD" Ref="U?"  Part="5" 
-F 0 "U3" H 9450 5050 50  0000 C CNN
-F 1 "74AHCT04" H 9500 5250 50  0000 C CNN
-F 2 "stdpads:SOIC-14_3.9mm" H 9500 5050 50  0001 C CNN
-F 3 "https://assets.nexperia.com/documents/data-sheet/74HC_HCT04.pdf" H 9500 5050 50  0001 C CNN
-	5    9500 5050
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	9200 4650 9200 5050
-$Comp
-L power:GND #PWR0130
-U 1 1 5E4D40E6
-P 9200 5450
-AR Path="/5E4D40E6" Ref="#PWR0130"  Part="1" 
-AR Path="/5D3B15F6/5E4D40E6" Ref="#PWR?"  Part="1" 
-F 0 "#PWR0130" H 9200 5200 50  0001 C CNN
-F 1 "GND" H 9200 5300 50  0000 C CNN
-F 2 "" H 9200 5450 50  0001 C CNN
-F 3 "" H 9200 5450 50  0001 C CNN
-	1    9200 5450
-	1    0    0    -1  
-$EndComp
-Connection ~ 9200 5450
 Wire Bus Line
 	2300 600  4800 600 
 Wire Bus Line
@@ -2228,29 +2112,54 @@ F 3 "~" H 9800 1650 50  0001 C CNN
 	1    9800 1650
 	1    0    0    -1  
 $EndComp
-Text Label 9800 3850 0    50   ~ 0
-~OE~
 Text Label 7200 2150 0    50   ~ 0
-~OE~
-Text Label 9200 3850 2    50   ~ 0
-R~W~
+DS~OE~
 Text Label 8000 5300 0    50   ~ 0
 R~W~
-Wire Wire Line
-	7900 2450 8500 2450
 Text Label 2800 3100 2    50   ~ 0
 RAMROMCSgb
 Text Label 2800 1700 2    50   ~ 0
 ROM~CS~
+Text Label 2800 1300 2    50   ~ 0
+RA18
+Entry Wire Line
+	2100 1400 2200 1300
+Wire Bus Line
+	2100 4200 2400 4200
+Wire Wire Line
+	2200 1300 2800 1300
+Wire Bus Line
+	2100 1400 2100 4200
+Text Label 2800 1500 2    50   ~ 0
+~INH~
+Wire Wire Line
+	7300 2350 7300 2450
+Wire Wire Line
+	7300 2450 7300 2850
+Connection ~ 7300 2450
 $Comp
 L 74xx:74HC04 U3
-U 4 1 5D5119EB
-P 9500 4650
-F 0 "U3" H 9450 4650 50  0000 C CNN
-F 1 "74AHCT04" H 9500 4450 50  0000 C CNN
-F 2 "stdpads:SOIC-14_3.9mm" H 9500 4650 50  0001 C CNN
-F 3 "https://assets.nexperia.com/documents/data-sheet/74HC_HCT04.pdf" H 9500 4650 50  0001 C CNN
-	4    9500 4650
+U 3 1 5E7FCCBB
+P 7600 2450
+F 0 "U3" H 7550 2450 50  0000 C CNN
+F 1 "74AHCT04" H 7600 2250 50  0000 C CNN
+F 2 "stdpads:SOIC-14_3.9mm" H 7600 2450 50  0001 C CNN
+F 3 "https://assets.nexperia.com/documents/data-sheet/74HC_HCT04.pdf" H 7600 2450 50  0001 C CNN
+	3    7600 2450
+	1    0    0    -1  
+$EndComp
+NoConn ~ 9800 4650
+$Comp
+L 74xx:74HC04 U3
+U 1 1 5E4D40B3
+P 9500 5450
+AR Path="/5E4D40B3" Ref="U3"  Part="1" 
+AR Path="/5D3B15F6/5E4D40B3" Ref="U?"  Part="1" 
+F 0 "U3" H 9450 5450 50  0000 C CNN
+F 1 "74AHCT04" H 9500 5250 50  0000 C CNN
+F 2 "stdpads:SOIC-14_3.9mm" H 9500 5450 50  0001 C CNN
+F 3 "https://assets.nexperia.com/documents/data-sheet/74HC_HCT04.pdf" H 9500 5450 50  0001 C CNN
+	1    9500 5450
 	1    0    0    1   
 $EndComp
 $Comp
@@ -2268,39 +2177,113 @@ F 3 "https://assets.nexperia.com/documents/data-sheet/74HC_HCT04.pdf" H 9500 385
 $EndComp
 $Comp
 L 74xx:74HC04 U3
-U 1 1 5E4D40B3
-P 9500 4250
-AR Path="/5E4D40B3" Ref="U3"  Part="1" 
-AR Path="/5D3B15F6/5E4D40B3" Ref="U?"  Part="1" 
-F 0 "U3" H 9450 4250 50  0000 C CNN
-F 1 "74AHCT04" H 9500 4050 50  0000 C CNN
-F 2 "stdpads:SOIC-14_3.9mm" H 9500 4250 50  0001 C CNN
-F 3 "https://assets.nexperia.com/documents/data-sheet/74HC_HCT04.pdf" H 9500 4250 50  0001 C CNN
-	1    9500 4250
+U 4 1 5D5119EB
+P 9500 4650
+F 0 "U3" H 9450 4650 50  0000 C CNN
+F 1 "74AHCT04" H 9500 4450 50  0000 C CNN
+F 2 "stdpads:SOIC-14_3.9mm" H 9500 4650 50  0001 C CNN
+F 3 "https://assets.nexperia.com/documents/data-sheet/74HC_HCT04.pdf" H 9500 4650 50  0001 C CNN
+	4    9500 4650
 	1    0    0    1   
 $EndComp
+$Comp
+L power:GND #PWR0130
+U 1 1 5E4D40E6
+P 9200 5450
+AR Path="/5E4D40E6" Ref="#PWR0130"  Part="1" 
+AR Path="/5D3B15F6/5E4D40E6" Ref="#PWR?"  Part="1" 
+F 0 "#PWR0130" H 9200 5200 50  0001 C CNN
+F 1 "GND" H 9200 5300 50  0000 C CNN
+F 2 "" H 9200 5450 50  0001 C CNN
+F 3 "" H 9200 5450 50  0001 C CNN
+	1    9200 5450
+	1    0    0    -1  
+$EndComp
 Wire Wire Line
-	9200 4250 9200 4650
-Connection ~ 9200 4650
-NoConn ~ 9800 4650
-Text Label 2800 1300 2    50   ~ 0
-RA18
-Entry Wire Line
-	2100 1400 2200 1300
-Wire Bus Line
-	2100 4200 2400 4200
+	9200 4650 9200 5050
+$Comp
+L 74xx:74HC04 U3
+U 5 1 5E4D40DD
+P 9500 5050
+AR Path="/5E4D40DD" Ref="U3"  Part="5" 
+AR Path="/5D3B15F6/5E4D40DD" Ref="U?"  Part="5" 
+F 0 "U3" H 9450 5050 50  0000 C CNN
+F 1 "74AHCT04" H 9500 5250 50  0000 C CNN
+F 2 "stdpads:SOIC-14_3.9mm" H 9500 5050 50  0001 C CNN
+F 3 "https://assets.nexperia.com/documents/data-sheet/74HC_HCT04.pdf" H 9500 5050 50  0001 C CNN
+	5    9500 5050
+	1    0    0    -1  
+$EndComp
+Connection ~ 9200 5050
+Connection ~ 9200 5450
 Wire Wire Line
-	2200 1300 2800 1300
-Wire Bus Line
-	2100 1400 2100 4200
-Text Label 2800 1500 2    50   ~ 0
-~INH~
-Wire Bus Line
-	2300 600  2300 2800
-Wire Bus Line
-	2400 4200 2400 5700
-Wire Bus Line
-	4800 600  4800 3300
+	9200 5450 9200 5050
+$Comp
+L 74xx:74HC04 U3
+U 6 1 5E4D40D5
+P 9500 4250
+AR Path="/5E4D40D5" Ref="U3"  Part="6" 
+AR Path="/5D3B15F6/5E4D40D5" Ref="U?"  Part="6" 
+F 0 "U3" H 9450 4250 50  0000 C CNN
+F 1 "74AHCT04" H 9500 4450 50  0000 C CNN
+F 2 "stdpads:SOIC-14_3.9mm" H 9500 4250 50  0001 C CNN
+F 3 "https://assets.nexperia.com/documents/data-sheet/74HC_HCT04.pdf" H 9500 4250 50  0001 C CNN
+	6    9500 4250
+	1    0    0    -1  
+$EndComp
+NoConn ~ 9800 5050
+NoConn ~ 9800 5450
+$Comp
+L power:GND #PWR0126
+U 1 1 5E4D40CB
+P 9950 3050
+AR Path="/5E4D40CB" Ref="#PWR0126"  Part="1" 
+AR Path="/5D3B15F6/5E4D40CB" Ref="#PWR?"  Part="1" 
+F 0 "#PWR0126" H 9950 2800 50  0001 C CNN
+F 1 "GND" H 9950 2900 50  0000 C CNN
+F 2 "" H 9950 3050 50  0001 C CNN
+F 3 "" H 9950 3050 50  0001 C CNN
+	1    9950 3050
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+5V #PWR0125
+U 1 1 5E4D40C5
+P 8950 3050
+AR Path="/5E4D40C5" Ref="#PWR0125"  Part="1" 
+AR Path="/5D3B15F6/5E4D40C5" Ref="#PWR?"  Part="1" 
+F 0 "#PWR0125" H 8950 2900 50  0001 C CNN
+F 1 "+5V" H 8950 3200 50  0000 C CNN
+F 2 "" H 8950 3050 50  0001 C CNN
+F 3 "" H 8950 3050 50  0001 C CNN
+	1    8950 3050
+	1    0    0    -1  
+$EndComp
+$Comp
+L 74xx:74HC04 U3
+U 7 1 5E4D40BF
+P 9450 3050
+AR Path="/5E4D40BF" Ref="U3"  Part="7" 
+AR Path="/5D3B15F6/5E4D40BF" Ref="U?"  Part="7" 
+F 0 "U3" V 9550 3050 50  0000 C CNN
+F 1 "74AHCT04" V 9350 3050 50  0000 C CNN
+F 2 "stdpads:SOIC-14_3.9mm" H 9450 3050 50  0001 C CNN
+F 3 "https://assets.nexperia.com/documents/data-sheet/74HC_HCT04.pdf" H 9450 3050 50  0001 C CNN
+	7    9450 3050
+	0    -1   -1   0   
+$EndComp
+Text Label 9200 3850 2    50   ~ 0
+DS~WE~
+Text Label 9200 4250 2    50   ~ 0
+R~W~
+Text Label 9800 3850 0    50   ~ 0
+DS~OE~
+Text Label 9800 4250 0    50   ~ 0
+~OE~
+Text Label 8500 2450 2    50   ~ 0
+RAMROMCSgb
+Wire Wire Line
+	7900 2450 8500 2450
 Wire Bus Line
 	6600 3600 6600 5600
 Wire Bus Line
@@ -2310,24 +2293,30 @@ Wire Bus Line
 Wire Bus Line
 	6200 3500 6200 6100
 Wire Bus Line
+	4700 3600 4700 5700
+Wire Bus Line
+	2400 4200 2400 5700
+Wire Bus Line
 	2300 3300 2300 6100
 Wire Bus Line
 	600  700  600  4300
 Wire Bus Line
 	4600 700  4600 2800
 Wire Bus Line
-	2000 2800 2000 4300
+	4800 600  4800 3300
 Wire Bus Line
-	4700 3600 4700 5700
+	2300 600  2300 2800
+Wire Bus Line
+	2000 2800 2000 4300
 $Comp
-L power:GND #PWR?
-U 1 1 5D855455
-P 5500 1750
-F 0 "#PWR?" H 5500 1500 50  0001 C CNN
-F 1 "GND" H 5505 1577 50  0000 C CNN
-F 2 "" H 5500 1750 50  0001 C CNN
-F 3 "" H 5500 1750 50  0001 C CNN
-	1    5500 1750
-	1    0    0    -1  
+L Device:Crystal_Small Y1
+U 1 1 5D320127
+P 5600 1750
+F 0 "Y1" V 5550 1850 50  0000 L CNN
+F 1 "32k768" V 5650 1850 50  0000 L CNN
+F 2 "Crystal:Crystal_C26-LF_D2.1mm_L6.5mm_Horizontal" H 5600 1750 50  0001 C CNN
+F 3 "~" H 5600 1750 50  0001 C CNN
+	1    5600 1750
+	0    1    1    0   
 $EndComp
 $EndSCHEMATC

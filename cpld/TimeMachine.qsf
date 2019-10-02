@@ -49,15 +49,14 @@ set_global_assignment -name MAX_CORE_JUNCTION_TEMP 85
 set_global_assignment -name VERILOG_FILE TimeMachine.v
 set_global_assignment -name MAX7000_DEVICE_IO_STANDARD TTL
 set_location_assignment PIN_1 -to nRES
-set_location_assignment PIN_8 -to A[13]
+set_location_assignment PIN_6 -to A[13]
 set_location_assignment PIN_4 -to D[6]
 set_location_assignment PIN_5 -to D[7]
-set_location_assignment PIN_6 -to A[12]
-set_location_assignment PIN_9 -to A[14]
-set_location_assignment PIN_10 -to A[15]
-set_location_assignment PIN_11 -to nWE
-set_location_assignment PIN_12 -to nDEVSEL
-set_location_assignment PIN_15 -to RA[18]
+set_location_assignment PIN_84 -to A[12]
+set_location_assignment PIN_8 -to A[14]
+set_location_assignment PIN_9 -to A[15]
+set_location_assignment PIN_10 -to nWE
+set_location_assignment PIN_11 -to nDEVSEL
 set_location_assignment PIN_18 -to nIOSEL
 set_location_assignment PIN_16 -to nIOSTRB
 set_location_assignment PIN_17 -to nROMCS
@@ -98,18 +97,41 @@ set_location_assignment PIN_79 -to D[3]
 set_location_assignment PIN_80 -to D[4]
 set_location_assignment PIN_81 -to D[5]
 set_location_assignment PIN_83 -to C7M
-set_location_assignment PIN_84 -to C7M_2
 set_location_assignment PIN_2 -to PHI1in
 set_global_assignment -name SYNTH_TIMING_DRIVEN_SYNTHESIS OFF
 set_global_assignment -name MAX7000_IGNORE_LCELL_BUFFERS OFF
 set_global_assignment -name AUTO_LCELL_INSERTION OFF
 set_global_assignment -name SYNTH_MESSAGE_LEVEL HIGH
-set_location_assignment LC52 -to Bank[1]
-set_location_assignment LC54 -to Bank[2]
-set_location_assignment LC64 -to IOROMEN
-set_location_assignment LC55 -to Bank[3]
-set_location_assignment LC60 -to Bank[5]
-set_location_assignment LC58 -to Bank[4]
-set_location_assignment LC50 -to Bank[0]
-set_location_assignment LC62 -to Bank[6]
-set_location_assignment LC63 -to REGEN
+set_location_assignment LC52 -to Bank[1] -disable
+set_location_assignment LC54 -to Bank[2] -disable
+set_location_assignment LC55 -to Bank[3] -disable
+set_location_assignment LC60 -to Bank[5] -disable
+set_location_assignment LC58 -to Bank[4] -disable
+set_location_assignment LC50 -to Bank[0] -disable
+set_location_assignment LC62 -to Bank[6] -disable
+set_location_assignment PIN_15 -to nINH
+set_global_assignment -name AUTO_PARALLEL_EXPANDERS OFF
+set_instance_assignment -name MAX7000_INDIVIDUAL_TURBO_BIT ON -to PHI1b0_MC
+set_instance_assignment -name MAX7000_INDIVIDUAL_TURBO_BIT ON -to PHI1b1_MC
+set_instance_assignment -name MAX7000_INDIVIDUAL_TURBO_BIT ON -to PHI1b2_MC
+set_instance_assignment -name MAX7000_INDIVIDUAL_TURBO_BIT ON -to PHI1b3_MC
+set_instance_assignment -name MAX7000_INDIVIDUAL_TURBO_BIT ON -to PHI1b4_MC
+set_instance_assignment -name MAX7000_INDIVIDUAL_TURBO_BIT ON -to PHI1b5_MC
+set_instance_assignment -name MAX7000_INDIVIDUAL_TURBO_BIT ON -to PHI1b6_MC
+set_instance_assignment -name MAX7000_INDIVIDUAL_TURBO_BIT ON -to PHI1b7_MC
+set_instance_assignment -name MAX7000_INDIVIDUAL_TURBO_BIT ON -to PHI1b8_MC
+set_instance_assignment -name MAX7000_INDIVIDUAL_TURBO_BIT ON -to PHI1b9_MC
+set_instance_assignment -name MAX7000_INDIVIDUAL_TURBO_BIT ON -to PHI1reg
+set_instance_assignment -name MAX7000_INDIVIDUAL_TURBO_BIT ON -to PHI0seen
+set_instance_assignment -name MAX7000_INDIVIDUAL_TURBO_BIT ON -to S
+set_global_assignment -name OPTIMIZE_HOLD_TIMING OFF
+set_global_assignment -name OPTIMIZE_MULTI_CORNER_TIMING OFF
+set_global_assignment -name FITTER_EFFORT "STANDARD FIT"
+set_global_assignment -name SLOW_SLEW_RATE ON
+set_global_assignment -name AUTO_TURBO_BIT OFF
+set_global_assignment -name ALM_REGISTER_PACKING_EFFORT HIGH
+set_global_assignment -name ECO_OPTIMIZE_TIMING ON
+set_global_assignment -name ECO_REGENERATE_REPORT ON
+set_global_assignment -name OPTIMIZE_IOC_REGISTER_PLACEMENT_FOR_TIMING "PACK ALL IO REGISTERS"
+set_instance_assignment -name MAX7000_INDIVIDUAL_TURBO_BIT ON -to IOROMEN
+set_location_assignment PIN_12 -to RA[18]
