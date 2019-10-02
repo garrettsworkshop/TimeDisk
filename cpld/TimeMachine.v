@@ -50,8 +50,8 @@ module TimeMachine(C7M, PHI1in, nRES,
 		((~nDEVSEL & REGEN & ~RAMSEL) | (~nDEVSEL & REGEN & RAMSEL & RAMROMCSgb) | (~nIOSEL & RAMROMCSgb) | (~nIOSTRB & IOROMEN & RAMROMCSgb));
 	wire [7:0] Dout = (nDEVSEL | RAMSELA) ? RD[7:0] :
 		AddrHSELA ? {4'hF, Addr[19:16]} : 
-		AddrMSELA ? {Addr[15:11], Addr[10:8]} : 
 		AddrMSELA ? Addr[15:8] : 
+		AddrLSELA ? Addr[7:0] : 8'h00;
 	inout [7:0] D = DOE ? Dout : 8'bZ;
 
 	/* SRAM and ROM Control Signals */
