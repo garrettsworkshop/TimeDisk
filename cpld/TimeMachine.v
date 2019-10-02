@@ -46,19 +46,19 @@ module TimeMachine(C7M, PHI1in, nRES,
 	//wire RDOE = nRES | (CSDBEN & (~nWE | (nDEVSEL & nIOSEL & nIOSTRB)));
 	inout [7:0] RD = RDOE ? D[7:0] : 8'bZ;
 	// Apple II data bus
-	wire DOE = CSDBEN & nWE & RAMROMCSgb &
-		((~nDEVSEL & REGEN) | ~nIOSEL | (~nIOSTRB & IOROMEN));
+	wire DOE = CSDBEN & nWE &
+		((~nDEVSEL & REGEN & ~RAMSEL) | (~nDEVSEL & REGEN & RAMSEL & RAMROMCSgb) | (~nIOSEL & RAMROMCSgb) | (~nIOSTRB & IOROMEN & RAMROMCSgb));
 	wire [7:0] Dout = (nDEVSEL | RAMSELA) ? RD[7:0] :
 		AddrHSELA ? {4'hF, Addr[19:16]} : 
 		AddrMSELA ? {Addr[15:11], Addr[10:8]} : 
-		AddrLSELA ? Addr[7:0] : 8'h00; 
+		AddrMSELA ? Addr[15:8] : 
 	inout [7:0] D = DOE ? Dout : 8'bZ;
 
 	/* SRAM and ROM Control Signals */
-	output nRAMROMCS = RAMSEL | ~nIOSEL | (~nIOSTRB & IOROMEN);
+	output nRAMROMCS = ~(RAMSEL | ~nIOSEL | (~nIOSTRB & IOROMEN));
 	input RAMROMCSgb; // nRAMROMCS as gated by DS1215, then inverted
 	output RAMCS = RAMSEL & CSDBEN;
-	output nROMCS = RAMROMCSgb & CSDBEN & (~nIOSEL | (~nIOSTRB & IOROMEN));
+	output nROMCS = ~(RAMROMCSgb & CSDBEN & (~nIOSEL | (~nIOSTRB & IOROMEN)));
 	
 	/* Inhibit output */
 	wire AROMSEL;
