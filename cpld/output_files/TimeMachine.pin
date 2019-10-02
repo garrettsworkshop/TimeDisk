@@ -66,13 +66,13 @@ PHI1in                       : 2         : input  : TTL               :         
 VCCINT                       : 3         : power  :                   : 5.0V    :           :                
 D[6]                         : 4         : bidir  : TTL               :         :           : Y              
 D[7]                         : 5         : bidir  : TTL               :         :           : Y              
-A[12]                        : 6         : input  : TTL               :         :           : Y              
+A[13]                        : 6         : input  : TTL               :         :           : Y              
 GND                          : 7         : gnd    :                   :         :           :                
-A[13]                        : 8         : input  : TTL               :         :           : Y              
-A[14]                        : 9         : input  : TTL               :         :           : Y              
-A[15]                        : 10        : input  : TTL               :         :           : Y              
-nWE                          : 11        : input  : TTL               :         :           : Y              
-nDEVSEL                      : 12        : input  : TTL               :         :           : Y              
+A[14]                        : 8         : input  : TTL               :         :           : Y              
+A[15]                        : 9         : input  : TTL               :         :           : Y              
+nWE                          : 10        : input  : TTL               :         :           : Y              
+nDEVSEL                      : 11        : input  : TTL               :         :           : Y              
+RA[18]                       : 12        : output : TTL               :         :           : Y              
 VCCIO                        : 13        : power  :                   : 5.0V    :           :                
 TDI                          : 14        : input  : TTL               :         :           : N              
 nINH                         : 15        : output : TTL               :         :           : Y              
@@ -108,11 +108,11 @@ RD[7]                        : 44        : bidir  : TTL               :         
 RAMCS                        : 45        : output : TTL               :         :           : Y              
 RA[15]                       : 46        : output : TTL               :         :           : Y              
 GND                          : 47        : gnd    :                   :         :           :                
-RA[0]                        : 48        : output : TTL               :         :           : N              
+RA[8]                        : 48        : output : TTL               :         :           : N              
 RA[9]                        : 49        : output : TTL               :         :           : N              
 RA[10]                       : 50        : output : TTL               :         :           : N              
 RA[11]                       : 51        : output : TTL               :         :           : Y              
-RA[8]                        : 52        : output : TTL               :         :           : N              
+RA[19]                       : 52        : output : TTL               :         :           : N              
 VCCIO                        : 53        : power  :                   : 5.0V    :           :                
 RA[4]                        : 54        : output : TTL               :         :           : N              
 RA[3]                        : 55        : output : TTL               :         :           : N              
@@ -123,8 +123,8 @@ GND                          : 59        : gnd    :                   :         
 RA[12]                       : 60        : output : TTL               :         :           : Y              
 RA[16]                       : 61        : output : TTL               :         :           : Y              
 TCK                          : 62        : input  : TTL               :         :           : N              
-RA[2]                        : 63        : output : TTL               :         :           : N              
-RA[18]                       : 64        : output : TTL               :         :           : N              
+RA[0]                        : 63        : output : TTL               :         :           : N              
+RA[2]                        : 64        : output : TTL               :         :           : N              
 RA[1]                        : 65        : output : TTL               :         :           : N              
 VCCIO                        : 66        : power  :                   : 5.0V    :           :                
 RA[14]                       : 67        : output : TTL               :         :           : Y              
@@ -144,4 +144,4 @@ D[4]                         : 80        : bidir  : TTL               :         
 D[5]                         : 81        : bidir  : TTL               :         :           : Y              
 GND                          : 82        : gnd    :                   :         :           :                
 C7M                          : 83        : input  : TTL               :         :           : Y              
-C7M_2                        : 84        : input  : TTL               :         :           : Y              
+A[12]                        : 84        : input  : TTL               :         :           : Y              

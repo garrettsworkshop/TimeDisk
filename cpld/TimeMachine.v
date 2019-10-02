@@ -1,10 +1,10 @@
-module TimeMachine(C7M, C7M_2, PHI1in, nRES,
+module TimeMachine(C7M, PHI1in, nRES,
 				   A, RA, nWE, D, RD,
 				   nDEVSEL, nIOSEL, nIOSTRB, nINH,
 				   nRAMROMCS, RAMROMCSgb, RAMCS, nROMCS);
 
 	/* Clock, Reset */
-	input C7M, C7M_2, PHI1in; // Clock inputs
+	input C7M, PHI1in; // Clock inputs
 	input nRES; // Reset
 
 	/* PHI1 Delay */
@@ -25,8 +25,8 @@ module TimeMachine(C7M, C7M_2, PHI1in, nRES,
 	input nDEVSEL, nIOSEL, nIOSTRB; // Card select signals
 	input [15:0] A; // 6502 address bus
 	input nWE; // 6502 R/W
-	output [18:0] RA; // ROM and RAM dual-function address pins
-	//assign RA[19] = Addr[19];
+	output [19:0] RA; // ROM and RAM dual-function address pins
+	assign RA[19] = Addr[19];
 	assign RA[18:11] = (~nIOSTRB & FullIOEN) ? Bank+1 :
 		(~nIOSTRB & ~FullIOEN) ? {7'b0000001, Bank[0]} : 
 		(nIOSEL & nIOSTRB) ? Addr[18:11] : 8'h00;
@@ -54,7 +54,7 @@ module TimeMachine(C7M, C7M_2, PHI1in, nRES,
 	wire DOE = CSDBEN & nWE & RAMROMCSgb &
 		((~nDEVSEL & REGEN) | ~nIOSEL | (~nIOSTRB & IOROMEN));
 	wire [7:0] Dout = (nDEVSEL | RAMSELA) ? RD[7:0] :
-		AddrHSELA ? {4'hF, 1'b0, Addr[18:16]} : 
+		AddrHSELA ? {4'hF, Addr[19:16]} : 
 		AddrMSELA ? Addr[15:8] : 
 		AddrLSELA ? Addr[7:0] : 8'h00; 
 	inout [7:0] D = DOE ? Dout : 8'bZ;
@@ -72,7 +72,7 @@ module TimeMachine(C7M, C7M_2, PHI1in, nRES,
 
   	/* 6502-accessible Registers */
 	reg [7:0] Bank = 8'h00; // Bank register for ROM access
-	reg [18:0] Addr; // Address register bits 19:0
+	reg [19:0] Addr; // Address register bits 19:0
 	
 	/* Increment Control */
 	reg IncAddrL = 0, IncAddrM = 0, IncAddrH = 0;
@@ -151,7 +151,7 @@ module TimeMachine(C7M, C7M_2, PHI1in, nRES,
 			end
 			if (S==3 & IncAddrH) begin
 				IncAddrH <= 0;
-				Addr[18:16] <= Addr[18:16]+1;
+				Addr[19:16] <= Addr[19:16]+1;
 			end
 			
 			// Set register at end of S5 if accessed.

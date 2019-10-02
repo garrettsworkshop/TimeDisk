@@ -1,5 +1,5 @@
 TimeQuest Timing Analyzer report for TimeMachine
-Sat Sep 07 21:17:25 2019
+Wed Oct 02 02:19:35 2019
 Quartus II 32-bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
 
 
@@ -93,7 +93,7 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +-------+---------+---------------+
 ; Clock ; Slack   ; End Point TNS ;
 +-------+---------+---------------+
-; C7M   ; -47.000 ; -1533.000     ;
+; C7M   ; -47.000 ; -1558.000     ;
 +-------+---------+---------------+
 
 
@@ -123,7 +123,7 @@ No paths to report.
 +-------+--------+---------------+
 ; Clock ; Slack  ; End Point TNS ;
 +-------+--------+---------------+
-; C7M   ; -4.500 ; -351.000      ;
+; C7M   ; -4.500 ; -360.000      ;
 +-------+--------+---------------+
 
 
@@ -269,6 +269,7 @@ No paths to report.
 ; 5.000  ; Addr[18]  ; Addr[18] ; C7M          ; C7M         ; 0.000        ; 0.000      ; 9.000      ;
 ; 5.000  ; Addr[2]   ; Addr[2]  ; C7M          ; C7M         ; 0.000        ; 0.000      ; 9.000      ;
 ; 5.000  ; Addr[3]   ; Addr[3]  ; C7M          ; C7M         ; 0.000        ; 0.000      ; 9.000      ;
+; 5.000  ; Addr[19]  ; Addr[19] ; C7M          ; C7M         ; 0.000        ; 0.000      ; 9.000      ;
 ; 5.000  ; Addr[11]  ; Addr[11] ; C7M          ; C7M         ; 0.000        ; 0.000      ; 9.000      ;
 ; 5.000  ; Addr[12]  ; Addr[12] ; C7M          ; C7M         ; 0.000        ; 0.000      ; 9.000      ;
 ; 5.000  ; Addr[4]   ; Addr[4]  ; C7M          ; C7M         ; 0.000        ; 0.000      ; 9.000      ;
@@ -339,7 +340,6 @@ No paths to report.
 ; 18.000 ; IncAddrM  ; Addr[10] ; C7M          ; C7M         ; 0.000        ; 0.000      ; 22.000     ;
 ; 18.000 ; Addr[9]   ; Addr[10] ; C7M          ; C7M         ; 0.000        ; 0.000      ; 22.000     ;
 ; 18.000 ; Addr[8]   ; Addr[10] ; C7M          ; C7M         ; 0.000        ; 0.000      ; 22.000     ;
-; 18.000 ; S[2]      ; Addr[18] ; C7M          ; C7M         ; 0.000        ; 0.000      ; 22.000     ;
 +--------+-----------+----------+--------------+-------------+--------------+------------+------------+
 
 
@@ -368,6 +368,8 @@ No paths to report.
 ; -4.500 ; 0.500        ; 5.000          ; Low Pulse Width  ; C7M   ; Rise       ; Addr[17]     ;
 ; -4.500 ; 0.500        ; 5.000          ; High Pulse Width ; C7M   ; Rise       ; Addr[18]     ;
 ; -4.500 ; 0.500        ; 5.000          ; Low Pulse Width  ; C7M   ; Rise       ; Addr[18]     ;
+; -4.500 ; 0.500        ; 5.000          ; High Pulse Width ; C7M   ; Rise       ; Addr[19]     ;
+; -4.500 ; 0.500        ; 5.000          ; Low Pulse Width  ; C7M   ; Rise       ; Addr[19]     ;
 ; -4.500 ; 0.500        ; 5.000          ; High Pulse Width ; C7M   ; Rise       ; Addr[1]      ;
 ; -4.500 ; 0.500        ; 5.000          ; Low Pulse Width  ; C7M   ; Rise       ; Addr[1]      ;
 ; -4.500 ; 0.500        ; 5.000          ; High Pulse Width ; C7M   ; Rise       ; Addr[2]      ;
@@ -446,8 +448,6 @@ No paths to report.
 ; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; C7M   ; Rise       ; Addr[17]|clk ;
 ; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; C7M   ; Rise       ; Addr[18]|clk ;
 ; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; C7M   ; Rise       ; Addr[18]|clk ;
-; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; C7M   ; Rise       ; Addr[1]|clk  ;
-; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; C7M   ; Rise       ; Addr[1]|clk  ;
 +--------+--------------+----------------+------------------+-------+------------+--------------+
 
 
@@ -553,6 +553,7 @@ No paths to report.
 ;  RA[16]   ; C7M        ; 34.000 ; 34.000 ; Rise       ; C7M             ;
 ;  RA[17]   ; C7M        ; 34.000 ; 34.000 ; Rise       ; C7M             ;
 ;  RA[18]   ; C7M        ; 34.000 ; 34.000 ; Rise       ; C7M             ;
+;  RA[19]   ; C7M        ; 12.000 ; 12.000 ; Rise       ; C7M             ;
 ; RAMCS     ; C7M        ; 56.000 ; 56.000 ; Rise       ; C7M             ;
 ; nRAMROMCS ; C7M        ; 56.000 ; 56.000 ; Rise       ; C7M             ;
 ; nROMCS    ; C7M        ; 34.000 ; 34.000 ; Rise       ; C7M             ;
@@ -593,6 +594,7 @@ No paths to report.
 ;  RA[16]   ; C7M        ; 34.000 ; 34.000 ; Rise       ; C7M             ;
 ;  RA[17]   ; C7M        ; 34.000 ; 34.000 ; Rise       ; C7M             ;
 ;  RA[18]   ; C7M        ; 34.000 ; 34.000 ; Rise       ; C7M             ;
+;  RA[19]   ; C7M        ; 12.000 ; 12.000 ; Rise       ; C7M             ;
 ; RAMCS     ; C7M        ; 34.000 ; 34.000 ; Rise       ; C7M             ;
 ; nRAMROMCS ; C7M        ; 34.000 ; 34.000 ; Rise       ; C7M             ;
 ; nROMCS    ; C7M        ; 34.000 ; 34.000 ; Rise       ; C7M             ;
@@ -978,7 +980,7 @@ No paths to report.
 +------------+----------+----------+----------+----------+----------+
 ; From Clock ; To Clock ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
 +------------+----------+----------+----------+----------+----------+
-; C7M        ; C7M      ; 487      ; 0        ; 0        ; 0        ;
+; C7M        ; C7M      ; 495      ; 0        ; 0        ; 0        ;
 +------------+----------+----------+----------+----------+----------+
 Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
 
@@ -988,7 +990,7 @@ Entries labeled "false path" only account for clock-to-clock false paths and not
 +------------+----------+----------+----------+----------+----------+
 ; From Clock ; To Clock ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
 +------------+----------+----------+----------+----------+----------+
-; C7M        ; C7M      ; 487      ; 0        ; 0        ; 0        ;
+; C7M        ; C7M      ; 495      ; 0        ; 0        ; 0        ;
 +------------+----------+----------+----------+----------+----------+
 Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
 
@@ -1013,9 +1015,9 @@ No dedicated SERDES Receiver circuitry present in device or used in design
 ; Illegal Clocks                  ; 0     ; 0    ;
 ; Unconstrained Clocks            ; 0     ; 0    ;
 ; Unconstrained Input Ports       ; 34    ; 34   ;
-; Unconstrained Input Port Paths  ; 407   ; 407  ;
-; Unconstrained Output Ports      ; 38    ; 38   ;
-; Unconstrained Output Port Paths ; 247   ; 247  ;
+; Unconstrained Input Port Paths  ; 408   ; 408  ;
+; Unconstrained Output Ports      ; 39    ; 39   ;
+; Unconstrained Output Port Paths ; 249   ; 249  ;
 +---------------------------------+-------+------+
 
 
@@ -1025,7 +1027,7 @@ No dedicated SERDES Receiver circuitry present in device or used in design
 Info: *******************************************************************
 Info: Running Quartus II 32-bit TimeQuest Timing Analyzer
     Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
-    Info: Processing started: Sat Sep 07 21:17:22 2019
+    Info: Processing started: Wed Oct 02 02:19:32 2019
 Info: Command: quartus_sta TimeMachine -c TimeMachine
 Info: qsta_default_script.tcl version: #1
 Warning (20028): Parallel compilation is not licensed and has been disabled
@@ -1041,7 +1043,7 @@ Critical Warning (332148): Timing requirements not met
 Info (332146): Worst-case setup slack is -47.000
     Info (332119):     Slack End Point TNS Clock 
     Info (332119): ========= ============= =====================
-    Info (332119):   -47.000     -1533.000 C7M 
+    Info (332119):   -47.000     -1558.000 C7M 
 Info (332146): Worst-case hold slack is 5.000
     Info (332119):     Slack End Point TNS Clock 
     Info (332119): ========= ============= =====================
@@ -1051,13 +1053,13 @@ Info (332140): No Removal paths to report
 Info (332146): Worst-case minimum pulse width slack is -4.500
     Info (332119):     Slack End Point TNS Clock 
     Info (332119): ========= ============= =====================
-    Info (332119):    -4.500      -351.000 C7M 
+    Info (332119):    -4.500      -360.000 C7M 
 Info (332001): The selected device family is not supported by the report_metastability command.
 Info (332102): Design is not fully constrained for setup requirements
 Info (332102): Design is not fully constrained for hold requirements
 Info: Quartus II 32-bit TimeQuest Timing Analyzer was successful. 0 errors, 4 warnings
     Info: Peak virtual memory: 263 megabytes
-    Info: Processing ended: Sat Sep 07 21:17:25 2019
+    Info: Processing ended: Wed Oct 02 02:19:35 2019
     Info: Elapsed time: 00:00:03
     Info: Total CPU time (on all processors): 00:00:03
 
