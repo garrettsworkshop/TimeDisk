@@ -1,6 +1,6 @@
 TimeQuest Timing Analyzer report for TimeMachine
-Wed Oct 02 02:19:35 2019
-Quartus II 32-bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
+Wed Oct 02 02:59:46 2019
+Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
 
 
 ---------------------
@@ -8,32 +8,33 @@ Quartus II 32-bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edit
 ---------------------
   1. Legal Notice
   2. TimeQuest Timing Analyzer Summary
-  3. Clocks
-  4. Fmax Summary
-  5. Setup Summary
-  6. Hold Summary
-  7. Recovery Summary
-  8. Removal Summary
-  9. Minimum Pulse Width Summary
- 10. Setup: 'C7M'
- 11. Hold: 'C7M'
- 12. Minimum Pulse Width: 'C7M'
- 13. Setup Times
- 14. Hold Times
- 15. Clock to Output Times
- 16. Minimum Clock to Output Times
- 17. Propagation Delay
- 18. Minimum Propagation Delay
- 19. Output Enable Times
- 20. Minimum Output Enable Times
- 21. Output Disable Times
- 22. Minimum Output Disable Times
- 23. Setup Transfers
- 24. Hold Transfers
- 25. Report TCCS
- 26. Report RSKM
- 27. Unconstrained Paths
- 28. TimeQuest Timing Analyzer Messages
+  3. Parallel Compilation
+  4. Clocks
+  5. Fmax Summary
+  6. Setup Summary
+  7. Hold Summary
+  8. Recovery Summary
+  9. Removal Summary
+ 10. Minimum Pulse Width Summary
+ 11. Setup: 'C7M'
+ 12. Hold: 'C7M'
+ 13. Minimum Pulse Width: 'C7M'
+ 14. Setup Times
+ 15. Hold Times
+ 16. Clock to Output Times
+ 17. Minimum Clock to Output Times
+ 18. Propagation Delay
+ 19. Minimum Propagation Delay
+ 20. Output Enable Times
+ 21. Minimum Output Enable Times
+ 22. Output Disable Times
+ 23. Minimum Output Disable Times
+ 24. Setup Transfers
+ 25. Hold Transfers
+ 26. Report TCCS
+ 27. Report RSKM
+ 28. Unconstrained Paths
+ 29. TimeQuest Timing Analyzer Messages
 
 
 
@@ -69,6 +70,17 @@ applicable agreement for further details.
 +--------------------+-------------------------------------------------------------------+
 
 
+Parallel compilation was disabled, but you have multiple processors available. Enable parallel compilation to reduce compilation time.
++-------------------------------------+
+; Parallel Compilation                ;
++----------------------------+--------+
+; Processors                 ; Number ;
++----------------------------+--------+
+; Number detected on machine ; 8      ;
+; Maximum allowed            ; 1      ;
++----------------------------+--------+
+
+
 +---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 ; Clocks                                                                                                                                                                          ;
 +------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+---------+
@@ -93,7 +105,7 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +-------+---------+---------------+
 ; Clock ; Slack   ; End Point TNS ;
 +-------+---------+---------------+
-; C7M   ; -47.000 ; -1558.000     ;
+; C7M   ; -47.000 ; -1580.000     ;
 +-------+---------+---------------+
 
 
@@ -144,6 +156,7 @@ No paths to report.
 ; -47.000 ; REGEN     ; Addr[18] ; C7M          ; C7M         ; 1.000        ; 0.000      ; 44.000     ;
 ; -47.000 ; REGEN     ; Addr[2]  ; C7M          ; C7M         ; 1.000        ; 0.000      ; 44.000     ;
 ; -47.000 ; REGEN     ; Addr[3]  ; C7M          ; C7M         ; 1.000        ; 0.000      ; 44.000     ;
+; -47.000 ; REGEN     ; Addr[19] ; C7M          ; C7M         ; 1.000        ; 0.000      ; 44.000     ;
 ; -47.000 ; REGEN     ; Addr[11] ; C7M          ; C7M         ; 1.000        ; 0.000      ; 44.000     ;
 ; -47.000 ; REGEN     ; Addr[12] ; C7M          ; C7M         ; 1.000        ; 0.000      ; 44.000     ;
 ; -47.000 ; REGEN     ; Addr[4]  ; C7M          ; C7M         ; 1.000        ; 0.000      ; 44.000     ;
@@ -168,10 +181,10 @@ No paths to report.
 ; -46.000 ; IncAddrL  ; IncAddrM ; C7M          ; C7M         ; 1.000        ; 0.000      ; 43.000     ;
 ; -46.000 ; S[2]      ; IncAddrM ; C7M          ; C7M         ; 1.000        ; 0.000      ; 43.000     ;
 ; -46.000 ; S[1]      ; IncAddrM ; C7M          ; C7M         ; 1.000        ; 0.000      ; 43.000     ;
-; -25.000 ; S[2]      ; CSDBEN   ; C7M          ; C7M         ; 1.000        ; 0.000      ; 22.000     ;
 ; -25.000 ; S[0]      ; REGEN    ; C7M          ; C7M         ; 1.000        ; 0.000      ; 22.000     ;
 ; -25.000 ; S[2]      ; REGEN    ; C7M          ; C7M         ; 1.000        ; 0.000      ; 22.000     ;
 ; -25.000 ; S[1]      ; REGEN    ; C7M          ; C7M         ; 1.000        ; 0.000      ; 22.000     ;
+; -25.000 ; S[2]      ; CSDBEN   ; C7M          ; C7M         ; 1.000        ; 0.000      ; 22.000     ;
 ; -25.000 ; S[2]      ; IncAddrL ; C7M          ; C7M         ; 1.000        ; 0.000      ; 22.000     ;
 ; -25.000 ; S[1]      ; IncAddrL ; C7M          ; C7M         ; 1.000        ; 0.000      ; 22.000     ;
 ; -25.000 ; S[0]      ; IncAddrL ; C7M          ; C7M         ; 1.000        ; 0.000      ; 22.000     ;
@@ -231,7 +244,6 @@ No paths to report.
 ; -25.000 ; S[2]      ; Addr[10] ; C7M          ; C7M         ; 1.000        ; 0.000      ; 22.000     ;
 ; -25.000 ; S[0]      ; Addr[10] ; C7M          ; C7M         ; 1.000        ; 0.000      ; 22.000     ;
 ; -25.000 ; Addr[10]  ; Addr[10] ; C7M          ; C7M         ; 1.000        ; 0.000      ; 22.000     ;
-; -25.000 ; IncAddrM  ; Addr[10] ; C7M          ; C7M         ; 1.000        ; 0.000      ; 22.000     ;
 +---------+-----------+----------+--------------+-------------+--------------+------------+------------+
 
 
@@ -240,21 +252,21 @@ No paths to report.
 +--------+-----------+----------+--------------+-------------+--------------+------------+------------+
 ; Slack  ; From Node ; To Node  ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
 +--------+-----------+----------+--------------+-------------+--------------+------------+------------+
-; 5.000  ; PHI1reg   ; S[0]     ; C7M          ; C7M         ; 0.000        ; 0.000      ; 9.000      ;
-; 5.000  ; PHI0seen  ; S[0]     ; C7M          ; C7M         ; 0.000        ; 0.000      ; 9.000      ;
-; 5.000  ; S[0]      ; S[0]     ; C7M          ; C7M         ; 0.000        ; 0.000      ; 9.000      ;
-; 5.000  ; S[1]      ; S[0]     ; C7M          ; C7M         ; 0.000        ; 0.000      ; 9.000      ;
-; 5.000  ; S[2]      ; S[0]     ; C7M          ; C7M         ; 0.000        ; 0.000      ; 9.000      ;
-; 5.000  ; PHI1reg   ; S[1]     ; C7M          ; C7M         ; 0.000        ; 0.000      ; 9.000      ;
-; 5.000  ; PHI0seen  ; S[1]     ; C7M          ; C7M         ; 0.000        ; 0.000      ; 9.000      ;
-; 5.000  ; S[0]      ; S[1]     ; C7M          ; C7M         ; 0.000        ; 0.000      ; 9.000      ;
-; 5.000  ; S[1]      ; S[1]     ; C7M          ; C7M         ; 0.000        ; 0.000      ; 9.000      ;
-; 5.000  ; S[2]      ; S[1]     ; C7M          ; C7M         ; 0.000        ; 0.000      ; 9.000      ;
 ; 5.000  ; PHI1reg   ; S[2]     ; C7M          ; C7M         ; 0.000        ; 0.000      ; 9.000      ;
 ; 5.000  ; PHI0seen  ; S[2]     ; C7M          ; C7M         ; 0.000        ; 0.000      ; 9.000      ;
 ; 5.000  ; S[1]      ; S[2]     ; C7M          ; C7M         ; 0.000        ; 0.000      ; 9.000      ;
 ; 5.000  ; S[2]      ; S[2]     ; C7M          ; C7M         ; 0.000        ; 0.000      ; 9.000      ;
 ; 5.000  ; S[0]      ; S[2]     ; C7M          ; C7M         ; 0.000        ; 0.000      ; 9.000      ;
+; 5.000  ; PHI1reg   ; S[1]     ; C7M          ; C7M         ; 0.000        ; 0.000      ; 9.000      ;
+; 5.000  ; PHI0seen  ; S[1]     ; C7M          ; C7M         ; 0.000        ; 0.000      ; 9.000      ;
+; 5.000  ; S[0]      ; S[1]     ; C7M          ; C7M         ; 0.000        ; 0.000      ; 9.000      ;
+; 5.000  ; S[1]      ; S[1]     ; C7M          ; C7M         ; 0.000        ; 0.000      ; 9.000      ;
+; 5.000  ; S[2]      ; S[1]     ; C7M          ; C7M         ; 0.000        ; 0.000      ; 9.000      ;
+; 5.000  ; PHI1reg   ; S[0]     ; C7M          ; C7M         ; 0.000        ; 0.000      ; 9.000      ;
+; 5.000  ; PHI0seen  ; S[0]     ; C7M          ; C7M         ; 0.000        ; 0.000      ; 9.000      ;
+; 5.000  ; S[0]      ; S[0]     ; C7M          ; C7M         ; 0.000        ; 0.000      ; 9.000      ;
+; 5.000  ; S[1]      ; S[0]     ; C7M          ; C7M         ; 0.000        ; 0.000      ; 9.000      ;
+; 5.000  ; S[2]      ; S[0]     ; C7M          ; C7M         ; 0.000        ; 0.000      ; 9.000      ;
 ; 5.000  ; IOROMEN   ; IOROMEN  ; C7M          ; C7M         ; 0.000        ; 0.000      ; 9.000      ;
 ; 5.000  ; S[2]      ; IOROMEN  ; C7M          ; C7M         ; 0.000        ; 0.000      ; 9.000      ;
 ; 5.000  ; S[1]      ; IOROMEN  ; C7M          ; C7M         ; 0.000        ; 0.000      ; 9.000      ;
@@ -279,10 +291,10 @@ No paths to report.
 ; 5.000  ; Addr[6]   ; Addr[6]  ; C7M          ; C7M         ; 0.000        ; 0.000      ; 9.000      ;
 ; 5.000  ; Addr[7]   ; Addr[7]  ; C7M          ; C7M         ; 0.000        ; 0.000      ; 9.000      ;
 ; 5.000  ; Addr[8]   ; Addr[8]  ; C7M          ; C7M         ; 0.000        ; 0.000      ; 9.000      ;
-; 18.000 ; S[2]      ; CSDBEN   ; C7M          ; C7M         ; 0.000        ; 0.000      ; 22.000     ;
 ; 18.000 ; S[0]      ; REGEN    ; C7M          ; C7M         ; 0.000        ; 0.000      ; 22.000     ;
 ; 18.000 ; S[2]      ; REGEN    ; C7M          ; C7M         ; 0.000        ; 0.000      ; 22.000     ;
 ; 18.000 ; S[1]      ; REGEN    ; C7M          ; C7M         ; 0.000        ; 0.000      ; 22.000     ;
+; 18.000 ; S[2]      ; CSDBEN   ; C7M          ; C7M         ; 0.000        ; 0.000      ; 22.000     ;
 ; 18.000 ; S[2]      ; IncAddrL ; C7M          ; C7M         ; 0.000        ; 0.000      ; 22.000     ;
 ; 18.000 ; S[1]      ; IncAddrL ; C7M          ; C7M         ; 0.000        ; 0.000      ; 22.000     ;
 ; 18.000 ; S[0]      ; IncAddrL ; C7M          ; C7M         ; 0.000        ; 0.000      ; 22.000     ;
@@ -606,46 +618,46 @@ No paths to report.
 +------------+-------------+--------+--------+--------+--------+
 ; Input Port ; Output Port ; RR     ; RF     ; FR     ; FF     ;
 +------------+-------------+--------+--------+--------+--------+
-; A[0]       ; D[0]        ; 32.000 ; 32.000 ; 32.000 ; 32.000 ;
-; A[0]       ; D[1]        ; 32.000 ; 32.000 ; 32.000 ; 32.000 ;
-; A[0]       ; D[2]        ; 32.000 ; 32.000 ; 32.000 ; 32.000 ;
-; A[0]       ; D[3]        ; 32.000 ; 32.000 ; 32.000 ; 32.000 ;
-; A[0]       ; D[4]        ; 32.000 ; 32.000 ; 32.000 ; 32.000 ;
-; A[0]       ; D[5]        ; 32.000 ; 32.000 ; 32.000 ; 32.000 ;
-; A[0]       ; D[6]        ; 32.000 ; 32.000 ; 32.000 ; 32.000 ;
-; A[0]       ; D[7]        ; 32.000 ; 32.000 ; 32.000 ; 32.000 ;
+; A[0]       ; D[0]        ; 32.000 ; 61.000 ; 61.000 ; 32.000 ;
+; A[0]       ; D[1]        ; 32.000 ; 61.000 ; 61.000 ; 32.000 ;
+; A[0]       ; D[2]        ; 32.000 ; 61.000 ; 61.000 ; 32.000 ;
+; A[0]       ; D[3]        ; 32.000 ; 61.000 ; 61.000 ; 32.000 ;
+; A[0]       ; D[4]        ; 32.000 ; 61.000 ; 61.000 ; 32.000 ;
+; A[0]       ; D[5]        ; 32.000 ; 61.000 ; 61.000 ; 32.000 ;
+; A[0]       ; D[6]        ; 32.000 ; 61.000 ; 61.000 ; 32.000 ;
+; A[0]       ; D[7]        ; 32.000 ; 61.000 ; 61.000 ; 32.000 ;
 ; A[0]       ; RAMCS       ; 54.000 ;        ;        ; 54.000 ;
-; A[0]       ; nRAMROMCS   ; 54.000 ;        ;        ; 54.000 ;
-; A[1]       ; D[0]        ; 32.000 ; 32.000 ; 32.000 ; 32.000 ;
-; A[1]       ; D[1]        ; 32.000 ; 32.000 ; 32.000 ; 32.000 ;
-; A[1]       ; D[2]        ; 32.000 ; 32.000 ; 32.000 ; 32.000 ;
-; A[1]       ; D[3]        ; 32.000 ; 32.000 ; 32.000 ; 32.000 ;
-; A[1]       ; D[4]        ; 32.000 ; 32.000 ; 32.000 ; 32.000 ;
-; A[1]       ; D[5]        ; 32.000 ; 32.000 ; 32.000 ; 32.000 ;
-; A[1]       ; D[6]        ; 32.000 ; 32.000 ; 32.000 ; 32.000 ;
-; A[1]       ; D[7]        ; 32.000 ; 32.000 ; 32.000 ; 32.000 ;
+; A[0]       ; nRAMROMCS   ;        ; 54.000 ; 54.000 ;        ;
+; A[1]       ; D[0]        ; 32.000 ; 61.000 ; 61.000 ; 32.000 ;
+; A[1]       ; D[1]        ; 32.000 ; 61.000 ; 61.000 ; 32.000 ;
+; A[1]       ; D[2]        ; 32.000 ; 61.000 ; 61.000 ; 32.000 ;
+; A[1]       ; D[3]        ; 32.000 ; 61.000 ; 61.000 ; 32.000 ;
+; A[1]       ; D[4]        ; 32.000 ; 61.000 ; 61.000 ; 32.000 ;
+; A[1]       ; D[5]        ; 32.000 ; 61.000 ; 61.000 ; 32.000 ;
+; A[1]       ; D[6]        ; 32.000 ; 61.000 ; 61.000 ; 32.000 ;
+; A[1]       ; D[7]        ; 32.000 ; 61.000 ; 61.000 ; 32.000 ;
 ; A[1]       ; RAMCS       ; 54.000 ;        ;        ; 54.000 ;
-; A[1]       ; nRAMROMCS   ; 54.000 ;        ;        ; 54.000 ;
-; A[2]       ; D[0]        ;        ; 32.000 ; 32.000 ;        ;
-; A[2]       ; D[1]        ;        ; 32.000 ; 32.000 ;        ;
-; A[2]       ; D[2]        ;        ; 32.000 ; 32.000 ;        ;
-; A[2]       ; D[3]        ;        ; 32.000 ; 32.000 ;        ;
-; A[2]       ; D[4]        ;        ; 32.000 ; 32.000 ;        ;
-; A[2]       ; D[5]        ;        ; 32.000 ; 32.000 ;        ;
-; A[2]       ; D[6]        ;        ; 32.000 ; 32.000 ;        ;
-; A[2]       ; D[7]        ;        ; 32.000 ; 32.000 ;        ;
+; A[1]       ; nRAMROMCS   ;        ; 54.000 ; 54.000 ;        ;
+; A[2]       ; D[0]        ; 61.000 ; 32.000 ; 32.000 ; 61.000 ;
+; A[2]       ; D[1]        ; 61.000 ; 32.000 ; 32.000 ; 61.000 ;
+; A[2]       ; D[2]        ; 61.000 ; 32.000 ; 32.000 ; 61.000 ;
+; A[2]       ; D[3]        ; 61.000 ; 32.000 ; 32.000 ; 61.000 ;
+; A[2]       ; D[4]        ; 61.000 ; 32.000 ; 32.000 ; 61.000 ;
+; A[2]       ; D[5]        ; 61.000 ; 32.000 ; 32.000 ; 61.000 ;
+; A[2]       ; D[6]        ; 61.000 ; 32.000 ; 32.000 ; 61.000 ;
+; A[2]       ; D[7]        ; 61.000 ; 32.000 ; 32.000 ; 61.000 ;
 ; A[2]       ; RAMCS       ;        ; 54.000 ; 54.000 ;        ;
-; A[2]       ; nRAMROMCS   ;        ; 54.000 ; 54.000 ;        ;
-; A[3]       ; D[0]        ;        ; 32.000 ; 32.000 ;        ;
-; A[3]       ; D[1]        ;        ; 32.000 ; 32.000 ;        ;
-; A[3]       ; D[2]        ;        ; 32.000 ; 32.000 ;        ;
-; A[3]       ; D[3]        ;        ; 32.000 ; 32.000 ;        ;
-; A[3]       ; D[4]        ;        ; 32.000 ; 32.000 ;        ;
-; A[3]       ; D[5]        ;        ; 32.000 ; 32.000 ;        ;
-; A[3]       ; D[6]        ;        ; 32.000 ; 32.000 ;        ;
-; A[3]       ; D[7]        ;        ; 32.000 ; 32.000 ;        ;
+; A[2]       ; nRAMROMCS   ; 54.000 ;        ;        ; 54.000 ;
+; A[3]       ; D[0]        ; 61.000 ; 32.000 ; 32.000 ; 61.000 ;
+; A[3]       ; D[1]        ; 61.000 ; 32.000 ; 32.000 ; 61.000 ;
+; A[3]       ; D[2]        ; 61.000 ; 32.000 ; 32.000 ; 61.000 ;
+; A[3]       ; D[3]        ; 61.000 ; 32.000 ; 32.000 ; 61.000 ;
+; A[3]       ; D[4]        ; 61.000 ; 32.000 ; 32.000 ; 61.000 ;
+; A[3]       ; D[5]        ; 61.000 ; 32.000 ; 32.000 ; 61.000 ;
+; A[3]       ; D[6]        ; 61.000 ; 32.000 ; 32.000 ; 61.000 ;
+; A[3]       ; D[7]        ; 61.000 ; 32.000 ; 32.000 ; 61.000 ;
 ; A[3]       ; RAMCS       ;        ; 54.000 ; 54.000 ;        ;
-; A[3]       ; nRAMROMCS   ;        ; 54.000 ; 54.000 ;        ;
+; A[3]       ; nRAMROMCS   ; 54.000 ;        ;        ; 54.000 ;
 ; D[0]       ; RD[0]       ; 32.000 ;        ;        ; 32.000 ;
 ; D[1]       ; RD[1]       ; 32.000 ;        ;        ; 32.000 ;
 ; D[2]       ; RD[2]       ; 32.000 ;        ;        ; 32.000 ;
@@ -671,16 +683,16 @@ No paths to report.
 ; RD[5]      ; D[5]        ; 32.000 ;        ;        ; 32.000 ;
 ; RD[6]      ; D[6]        ; 32.000 ;        ;        ; 32.000 ;
 ; RD[7]      ; D[7]        ; 32.000 ;        ;        ; 32.000 ;
-; nDEVSEL    ; D[0]        ; 32.000 ; 39.000 ; 39.000 ; 32.000 ;
-; nDEVSEL    ; D[1]        ; 32.000 ; 39.000 ; 39.000 ; 32.000 ;
-; nDEVSEL    ; D[2]        ; 32.000 ; 39.000 ; 39.000 ; 32.000 ;
-; nDEVSEL    ; D[3]        ; 32.000 ; 39.000 ; 39.000 ; 32.000 ;
-; nDEVSEL    ; D[4]        ; 32.000 ; 39.000 ; 39.000 ; 32.000 ;
-; nDEVSEL    ; D[5]        ; 32.000 ; 39.000 ; 39.000 ; 32.000 ;
-; nDEVSEL    ; D[6]        ; 32.000 ; 39.000 ; 39.000 ; 32.000 ;
-; nDEVSEL    ; D[7]        ; 32.000 ; 39.000 ; 39.000 ; 32.000 ;
+; nDEVSEL    ; D[0]        ; 61.000 ; 39.000 ; 39.000 ; 61.000 ;
+; nDEVSEL    ; D[1]        ; 61.000 ; 39.000 ; 39.000 ; 61.000 ;
+; nDEVSEL    ; D[2]        ; 61.000 ; 39.000 ; 39.000 ; 61.000 ;
+; nDEVSEL    ; D[3]        ; 61.000 ; 39.000 ; 39.000 ; 61.000 ;
+; nDEVSEL    ; D[4]        ; 61.000 ; 39.000 ; 39.000 ; 61.000 ;
+; nDEVSEL    ; D[5]        ; 61.000 ; 39.000 ; 39.000 ; 61.000 ;
+; nDEVSEL    ; D[6]        ; 61.000 ; 39.000 ; 39.000 ; 61.000 ;
+; nDEVSEL    ; D[7]        ; 61.000 ; 39.000 ; 39.000 ; 61.000 ;
 ; nDEVSEL    ; RAMCS       ;        ; 54.000 ; 54.000 ;        ;
-; nDEVSEL    ; nRAMROMCS   ;        ; 54.000 ; 54.000 ;        ;
+; nDEVSEL    ; nRAMROMCS   ; 54.000 ;        ;        ; 54.000 ;
 ; nIOSEL     ; D[0]        ;        ; 39.000 ; 39.000 ;        ;
 ; nIOSEL     ; D[1]        ;        ; 39.000 ; 39.000 ;        ;
 ; nIOSEL     ; D[2]        ;        ; 39.000 ; 39.000 ;        ;
@@ -697,7 +709,7 @@ No paths to report.
 ; nIOSEL     ; RA[16]      ; 32.000 ;        ;        ; 32.000 ;
 ; nIOSEL     ; RA[17]      ; 32.000 ;        ;        ; 32.000 ;
 ; nIOSEL     ; RA[18]      ; 32.000 ;        ;        ; 32.000 ;
-; nIOSEL     ; nRAMROMCS   ;        ; 32.000 ; 32.000 ;        ;
+; nIOSEL     ; nRAMROMCS   ; 32.000 ;        ;        ; 32.000 ;
 ; nIOSEL     ; nROMCS      ;        ; 32.000 ; 32.000 ;        ;
 ; nIOSTRB    ; D[0]        ;        ; 39.000 ; 39.000 ;        ;
 ; nIOSTRB    ; D[1]        ;        ; 39.000 ; 39.000 ;        ;
@@ -715,7 +727,7 @@ No paths to report.
 ; nIOSTRB    ; RA[16]      ; 32.000 ; 32.000 ; 32.000 ; 32.000 ;
 ; nIOSTRB    ; RA[17]      ; 32.000 ; 32.000 ; 32.000 ; 32.000 ;
 ; nIOSTRB    ; RA[18]      ; 32.000 ; 32.000 ; 32.000 ; 32.000 ;
-; nIOSTRB    ; nRAMROMCS   ;        ; 32.000 ; 32.000 ;        ;
+; nIOSTRB    ; nRAMROMCS   ; 32.000 ;        ;        ; 32.000 ;
 ; nIOSTRB    ; nROMCS      ;        ; 32.000 ; 32.000 ;        ;
 ; nWE        ; D[0]        ; 39.000 ;        ;        ; 39.000 ;
 ; nWE        ; D[1]        ; 39.000 ;        ;        ; 39.000 ;
@@ -750,7 +762,7 @@ No paths to report.
 ; A[0]       ; D[6]        ; 32.000 ; 32.000 ; 32.000 ; 32.000 ;
 ; A[0]       ; D[7]        ; 32.000 ; 32.000 ; 32.000 ; 32.000 ;
 ; A[0]       ; RAMCS       ; 54.000 ;        ;        ; 54.000 ;
-; A[0]       ; nRAMROMCS   ; 54.000 ;        ;        ; 54.000 ;
+; A[0]       ; nRAMROMCS   ;        ; 54.000 ; 54.000 ;        ;
 ; A[1]       ; D[0]        ; 32.000 ; 32.000 ; 32.000 ; 32.000 ;
 ; A[1]       ; D[1]        ; 32.000 ; 32.000 ; 32.000 ; 32.000 ;
 ; A[1]       ; D[2]        ; 32.000 ; 32.000 ; 32.000 ; 32.000 ;
@@ -760,27 +772,27 @@ No paths to report.
 ; A[1]       ; D[6]        ; 32.000 ; 32.000 ; 32.000 ; 32.000 ;
 ; A[1]       ; D[7]        ; 32.000 ; 32.000 ; 32.000 ; 32.000 ;
 ; A[1]       ; RAMCS       ; 54.000 ;        ;        ; 54.000 ;
-; A[1]       ; nRAMROMCS   ; 54.000 ;        ;        ; 54.000 ;
-; A[2]       ; D[0]        ;        ; 32.000 ; 32.000 ;        ;
-; A[2]       ; D[1]        ;        ; 32.000 ; 32.000 ;        ;
-; A[2]       ; D[2]        ;        ; 32.000 ; 32.000 ;        ;
-; A[2]       ; D[3]        ;        ; 32.000 ; 32.000 ;        ;
-; A[2]       ; D[4]        ;        ; 32.000 ; 32.000 ;        ;
-; A[2]       ; D[5]        ;        ; 32.000 ; 32.000 ;        ;
-; A[2]       ; D[6]        ;        ; 32.000 ; 32.000 ;        ;
-; A[2]       ; D[7]        ;        ; 32.000 ; 32.000 ;        ;
+; A[1]       ; nRAMROMCS   ;        ; 54.000 ; 54.000 ;        ;
+; A[2]       ; D[0]        ; 61.000 ; 32.000 ; 32.000 ; 61.000 ;
+; A[2]       ; D[1]        ; 61.000 ; 32.000 ; 32.000 ; 61.000 ;
+; A[2]       ; D[2]        ; 61.000 ; 32.000 ; 32.000 ; 61.000 ;
+; A[2]       ; D[3]        ; 61.000 ; 32.000 ; 32.000 ; 61.000 ;
+; A[2]       ; D[4]        ; 61.000 ; 32.000 ; 32.000 ; 61.000 ;
+; A[2]       ; D[5]        ; 61.000 ; 32.000 ; 32.000 ; 61.000 ;
+; A[2]       ; D[6]        ; 61.000 ; 32.000 ; 32.000 ; 61.000 ;
+; A[2]       ; D[7]        ; 61.000 ; 32.000 ; 32.000 ; 61.000 ;
 ; A[2]       ; RAMCS       ;        ; 54.000 ; 54.000 ;        ;
-; A[2]       ; nRAMROMCS   ;        ; 54.000 ; 54.000 ;        ;
-; A[3]       ; D[0]        ;        ; 32.000 ; 32.000 ;        ;
-; A[3]       ; D[1]        ;        ; 32.000 ; 32.000 ;        ;
-; A[3]       ; D[2]        ;        ; 32.000 ; 32.000 ;        ;
-; A[3]       ; D[3]        ;        ; 32.000 ; 32.000 ;        ;
-; A[3]       ; D[4]        ;        ; 32.000 ; 32.000 ;        ;
-; A[3]       ; D[5]        ;        ; 32.000 ; 32.000 ;        ;
-; A[3]       ; D[6]        ;        ; 32.000 ; 32.000 ;        ;
-; A[3]       ; D[7]        ;        ; 32.000 ; 32.000 ;        ;
+; A[2]       ; nRAMROMCS   ; 54.000 ;        ;        ; 54.000 ;
+; A[3]       ; D[0]        ; 61.000 ; 32.000 ; 32.000 ; 61.000 ;
+; A[3]       ; D[1]        ; 61.000 ; 32.000 ; 32.000 ; 61.000 ;
+; A[3]       ; D[2]        ; 61.000 ; 32.000 ; 32.000 ; 61.000 ;
+; A[3]       ; D[3]        ; 61.000 ; 32.000 ; 32.000 ; 61.000 ;
+; A[3]       ; D[4]        ; 61.000 ; 32.000 ; 32.000 ; 61.000 ;
+; A[3]       ; D[5]        ; 61.000 ; 32.000 ; 32.000 ; 61.000 ;
+; A[3]       ; D[6]        ; 61.000 ; 32.000 ; 32.000 ; 61.000 ;
+; A[3]       ; D[7]        ; 61.000 ; 32.000 ; 32.000 ; 61.000 ;
 ; A[3]       ; RAMCS       ;        ; 54.000 ; 54.000 ;        ;
-; A[3]       ; nRAMROMCS   ;        ; 54.000 ; 54.000 ;        ;
+; A[3]       ; nRAMROMCS   ; 54.000 ;        ;        ; 54.000 ;
 ; D[0]       ; RD[0]       ; 32.000 ;        ;        ; 32.000 ;
 ; D[1]       ; RD[1]       ; 32.000 ;        ;        ; 32.000 ;
 ; D[2]       ; RD[2]       ; 32.000 ;        ;        ; 32.000 ;
@@ -815,7 +827,7 @@ No paths to report.
 ; nDEVSEL    ; D[6]        ; 32.000 ; 32.000 ; 32.000 ; 32.000 ;
 ; nDEVSEL    ; D[7]        ; 32.000 ; 32.000 ; 32.000 ; 32.000 ;
 ; nDEVSEL    ; RAMCS       ;        ; 54.000 ; 54.000 ;        ;
-; nDEVSEL    ; nRAMROMCS   ;        ; 54.000 ; 54.000 ;        ;
+; nDEVSEL    ; nRAMROMCS   ; 54.000 ;        ;        ; 54.000 ;
 ; nIOSEL     ; D[0]        ;        ; 39.000 ; 39.000 ;        ;
 ; nIOSEL     ; D[1]        ;        ; 39.000 ; 39.000 ;        ;
 ; nIOSEL     ; D[2]        ;        ; 39.000 ; 39.000 ;        ;
@@ -832,7 +844,7 @@ No paths to report.
 ; nIOSEL     ; RA[16]      ; 32.000 ;        ;        ; 32.000 ;
 ; nIOSEL     ; RA[17]      ; 32.000 ;        ;        ; 32.000 ;
 ; nIOSEL     ; RA[18]      ; 32.000 ;        ;        ; 32.000 ;
-; nIOSEL     ; nRAMROMCS   ;        ; 32.000 ; 32.000 ;        ;
+; nIOSEL     ; nRAMROMCS   ; 32.000 ;        ;        ; 32.000 ;
 ; nIOSEL     ; nROMCS      ;        ; 32.000 ; 32.000 ;        ;
 ; nIOSTRB    ; D[0]        ;        ; 39.000 ; 39.000 ;        ;
 ; nIOSTRB    ; D[1]        ;        ; 39.000 ; 39.000 ;        ;
@@ -850,7 +862,7 @@ No paths to report.
 ; nIOSTRB    ; RA[16]      ; 32.000 ; 32.000 ; 32.000 ; 32.000 ;
 ; nIOSTRB    ; RA[17]      ; 32.000 ; 32.000 ; 32.000 ; 32.000 ;
 ; nIOSTRB    ; RA[18]      ; 32.000 ; 32.000 ; 32.000 ; 32.000 ;
-; nIOSTRB    ; nRAMROMCS   ;        ; 32.000 ; 32.000 ;        ;
+; nIOSTRB    ; nRAMROMCS   ; 32.000 ;        ;        ; 32.000 ;
 ; nIOSTRB    ; nROMCS      ;        ; 32.000 ; 32.000 ;        ;
 ; nWE        ; D[0]        ; 39.000 ;        ;        ; 39.000 ;
 ; nWE        ; D[1]        ; 39.000 ;        ;        ; 39.000 ;
@@ -876,15 +888,15 @@ No paths to report.
 +-----------+------------+--------+------+------------+-----------------+
 ; Data Port ; Clock Port ; Rise   ; Fall ; Clock Edge ; Clock Reference ;
 +-----------+------------+--------+------+------------+-----------------+
-; D[*]      ; C7M        ; 41.000 ;      ; Rise       ; C7M             ;
-;  D[0]     ; C7M        ; 41.000 ;      ; Rise       ; C7M             ;
-;  D[1]     ; C7M        ; 41.000 ;      ; Rise       ; C7M             ;
-;  D[2]     ; C7M        ; 41.000 ;      ; Rise       ; C7M             ;
-;  D[3]     ; C7M        ; 41.000 ;      ; Rise       ; C7M             ;
-;  D[4]     ; C7M        ; 41.000 ;      ; Rise       ; C7M             ;
-;  D[5]     ; C7M        ; 41.000 ;      ; Rise       ; C7M             ;
-;  D[6]     ; C7M        ; 41.000 ;      ; Rise       ; C7M             ;
-;  D[7]     ; C7M        ; 41.000 ;      ; Rise       ; C7M             ;
+; D[*]      ; C7M        ; 63.000 ;      ; Rise       ; C7M             ;
+;  D[0]     ; C7M        ; 63.000 ;      ; Rise       ; C7M             ;
+;  D[1]     ; C7M        ; 63.000 ;      ; Rise       ; C7M             ;
+;  D[2]     ; C7M        ; 63.000 ;      ; Rise       ; C7M             ;
+;  D[3]     ; C7M        ; 63.000 ;      ; Rise       ; C7M             ;
+;  D[4]     ; C7M        ; 63.000 ;      ; Rise       ; C7M             ;
+;  D[5]     ; C7M        ; 63.000 ;      ; Rise       ; C7M             ;
+;  D[6]     ; C7M        ; 63.000 ;      ; Rise       ; C7M             ;
+;  D[7]     ; C7M        ; 63.000 ;      ; Rise       ; C7M             ;
 ; RD[*]     ; C7M        ; 41.000 ;      ; Rise       ; C7M             ;
 ;  RD[0]    ; C7M        ; 41.000 ;      ; Rise       ; C7M             ;
 ;  RD[1]    ; C7M        ; 41.000 ;      ; Rise       ; C7M             ;
@@ -928,15 +940,15 @@ No paths to report.
 +-----------+------------+-----------+-----------+------------+-----------------+
 ; Data Port ; Clock Port ; 0 to Hi-Z ; 1 to Hi-Z ; Clock Edge ; Clock Reference ;
 +-----------+------------+-----------+-----------+------------+-----------------+
-; D[*]      ; C7M        ; 41.000    ;           ; Rise       ; C7M             ;
-;  D[0]     ; C7M        ; 41.000    ;           ; Rise       ; C7M             ;
-;  D[1]     ; C7M        ; 41.000    ;           ; Rise       ; C7M             ;
-;  D[2]     ; C7M        ; 41.000    ;           ; Rise       ; C7M             ;
-;  D[3]     ; C7M        ; 41.000    ;           ; Rise       ; C7M             ;
-;  D[4]     ; C7M        ; 41.000    ;           ; Rise       ; C7M             ;
-;  D[5]     ; C7M        ; 41.000    ;           ; Rise       ; C7M             ;
-;  D[6]     ; C7M        ; 41.000    ;           ; Rise       ; C7M             ;
-;  D[7]     ; C7M        ; 41.000    ;           ; Rise       ; C7M             ;
+; D[*]      ; C7M        ; 63.000    ;           ; Rise       ; C7M             ;
+;  D[0]     ; C7M        ; 63.000    ;           ; Rise       ; C7M             ;
+;  D[1]     ; C7M        ; 63.000    ;           ; Rise       ; C7M             ;
+;  D[2]     ; C7M        ; 63.000    ;           ; Rise       ; C7M             ;
+;  D[3]     ; C7M        ; 63.000    ;           ; Rise       ; C7M             ;
+;  D[4]     ; C7M        ; 63.000    ;           ; Rise       ; C7M             ;
+;  D[5]     ; C7M        ; 63.000    ;           ; Rise       ; C7M             ;
+;  D[6]     ; C7M        ; 63.000    ;           ; Rise       ; C7M             ;
+;  D[7]     ; C7M        ; 63.000    ;           ; Rise       ; C7M             ;
 ; RD[*]     ; C7M        ; 41.000    ;           ; Rise       ; C7M             ;
 ;  RD[0]    ; C7M        ; 41.000    ;           ; Rise       ; C7M             ;
 ;  RD[1]    ; C7M        ; 41.000    ;           ; Rise       ; C7M             ;
@@ -980,7 +992,7 @@ No paths to report.
 +------------+----------+----------+----------+----------+----------+
 ; From Clock ; To Clock ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
 +------------+----------+----------+----------+----------+----------+
-; C7M        ; C7M      ; 495      ; 0        ; 0        ; 0        ;
+; C7M        ; C7M      ; 505      ; 0        ; 0        ; 0        ;
 +------------+----------+----------+----------+----------+----------+
 Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
 
@@ -990,7 +1002,7 @@ Entries labeled "false path" only account for clock-to-clock false paths and not
 +------------+----------+----------+----------+----------+----------+
 ; From Clock ; To Clock ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
 +------------+----------+----------+----------+----------+----------+
-; C7M        ; C7M      ; 495      ; 0        ; 0        ; 0        ;
+; C7M        ; C7M      ; 505      ; 0        ; 0        ; 0        ;
 +------------+----------+----------+----------+----------+----------+
 Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
 
@@ -1015,7 +1027,7 @@ No dedicated SERDES Receiver circuitry present in device or used in design
 ; Illegal Clocks                  ; 0     ; 0    ;
 ; Unconstrained Clocks            ; 0     ; 0    ;
 ; Unconstrained Input Ports       ; 34    ; 34   ;
-; Unconstrained Input Port Paths  ; 408   ; 408  ;
+; Unconstrained Input Port Paths  ; 415   ; 415  ;
 ; Unconstrained Output Ports      ; 39    ; 39   ;
 ; Unconstrained Output Port Paths ; 249   ; 249  ;
 +---------------------------------+-------+------+
@@ -1025,9 +1037,9 @@ No dedicated SERDES Receiver circuitry present in device or used in design
 ; TimeQuest Timing Analyzer Messages ;
 +------------------------------------+
 Info: *******************************************************************
-Info: Running Quartus II 32-bit TimeQuest Timing Analyzer
+Info: Running Quartus II 64-Bit TimeQuest Timing Analyzer
     Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
-    Info: Processing started: Wed Oct 02 02:19:32 2019
+    Info: Processing started: Wed Oct 02 02:59:45 2019
 Info: Command: quartus_sta TimeMachine -c TimeMachine
 Info: qsta_default_script.tcl version: #1
 Warning (20028): Parallel compilation is not licensed and has been disabled
@@ -1043,7 +1055,7 @@ Critical Warning (332148): Timing requirements not met
 Info (332146): Worst-case setup slack is -47.000
     Info (332119):     Slack End Point TNS Clock 
     Info (332119): ========= ============= =====================
-    Info (332119):   -47.000     -1558.000 C7M 
+    Info (332119):   -47.000     -1580.000 C7M 
 Info (332146): Worst-case hold slack is 5.000
     Info (332119):     Slack End Point TNS Clock 
     Info (332119): ========= ============= =====================
@@ -1057,10 +1069,10 @@ Info (332146): Worst-case minimum pulse width slack is -4.500
 Info (332001): The selected device family is not supported by the report_metastability command.
 Info (332102): Design is not fully constrained for setup requirements
 Info (332102): Design is not fully constrained for hold requirements
-Info: Quartus II 32-bit TimeQuest Timing Analyzer was successful. 0 errors, 4 warnings
-    Info: Peak virtual memory: 263 megabytes
-    Info: Processing ended: Wed Oct 02 02:19:35 2019
-    Info: Elapsed time: 00:00:03
-    Info: Total CPU time (on all processors): 00:00:03
+Info: Quartus II 64-Bit TimeQuest Timing Analyzer was successful. 0 errors, 4 warnings
+    Info: Peak virtual memory: 4530 megabytes
+    Info: Processing ended: Wed Oct 02 02:59:46 2019
+    Info: Elapsed time: 00:00:01
+    Info: Total CPU time (on all processors): 00:00:01
 
 

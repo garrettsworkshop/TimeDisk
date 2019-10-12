@@ -70,14 +70,9 @@ module TimeMachine(C7M, PHI1in, nRES,
 	output RAMCS = RAMSEL & CSDBEN;
 	output nROMCS = ~(RAMROMCSgb & CSDBEN & (~nIOSEL | (~nIOSTRB & IOROMEN)));
 	
-	/* Inhibit output */
-	wire AROMSEL;
-	LCELL AROMSEL_MC (.in(/*(A[15:12]==4'hD | A[15:12]==4'hE | A[15:12]==4'hF) & nWE & ~MODE*/0), .out(AROMSEL));
-	output nINH = AROMSEL ? 1'b0 :  1'bZ;
-	
   	/* 6502-accessible Registers */
-	reg [7:0] Bank = 8'h00; // Bank register for ROM access
-	reg [19:0] Addr; // Address register bits 19:0
+	reg [7:0] Bank = 0; // Bank register for ROM access
+	reg [19:0] Addr = 0; // Address register bits 19:0
 	
 	/* Increment Control */
 	reg IncAddrL = 0, IncAddrM = 0, IncAddrH = 0;
@@ -106,18 +101,18 @@ module TimeMachine(C7M, PHI1in, nRES,
 
 	always @(posedge C7M, negedge nRES) begin
 		if (~nRES) begin // Reset
-			PHI1reg <= 1'b0;
-			PHI0seen <= 1'b0;
-			S <= 3'h0;
-			REGEN <= 1'b0;
-			IOROMEN <= 1'b0;
-			CSDBEN <= 1'b0;
-			Addr <= 19'h00000;
-			Bank <= 8'h00;
-			FullIOEN <= 1'b0;
-			IncAddrL <= 1'b0;
-			IncAddrM <= 1'b0;
-			IncAddrH <= 1'b0;
+			PHI1reg <= 0;
+			PHI0seen <= 0;
+			S <= 0;
+			REGEN <= 0;
+			IOROMEN <= 0;
+			CSDBEN <= 0;
+			Addr <= 0;
+			Bank <= 0;
+			FullIOEN <= 0;
+			IncAddrL <= 0;
+			IncAddrM <= 0;
+			IncAddrH <= 0;
 		end else begin
 			// Synchronize state counter to S1 when just entering PHI1
 			PHI1reg <= PHI1; // Save old PHI1
@@ -168,7 +163,7 @@ module TimeMachine(C7M, PHI1in, nRES,
 				IncAddrM <= AddrLWR & Addr[7] & ~D[7];
 				IncAddrH <= AddrMWR & Addr[15] & ~D[7];
 				
-				if (AddrHWR) Addr[18:16] <= D[2:0]; // Addr hi
+				if (AddrHWR) Addr[19:16] <= D[3:0]; // Addr hi
 				if (AddrMWR) Addr[15:8] <= D[7:0]; // Addr mid
 				if (AddrLWR) Addr[7:0] <= D[7:0]; // Addr lo
 			end
