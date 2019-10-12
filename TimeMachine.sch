@@ -275,12 +275,12 @@ F 3 "" H 5900 5800 50  0001 C CNN
 	1    5900 5800
 	1    0    0    -1  
 $EndComp
-Text Label 5900 5500 0    50   ~ 0
+Text Label 5900 5400 0    50   ~ 0
 RAMCS
-Text Label 6400 5400 1    50   ~ 0
+Text Label 6400 5300 1    50   ~ 0
 RAMROM~CS~g
 $Comp
-L stdparts:AS6C8008 U4
+L GW_RAM:SRAM-1Mx8-TSOP2-44 U4
 U 1 1 5D7A1D1B
 P 5500 4850
 F 0 "U4" H 5500 5950 50  0000 C CNN
@@ -291,39 +291,39 @@ F 3 "https://www.alliancememory.com/wp-content/uploads/pdf/AS6C8008.pdf" H 5500 
 	1    0    0    -1  
 $EndComp
 $Comp
-L stdparts:39F040 U5
+L GW_RAM:Flash-512Kx8-PLCC-32 U5
 U 1 1 5D81337E
-P 7500 4800
-F 0 "U5" H 7500 5850 50  0000 C CNN
-F 1 "39F040" V 7500 4800 50  0000 C CNN
-F 2 "stdpads:PLCC-32_SMDSocket" H 7500 4800 50  0001 C CNN
-F 3 "http://ww1.microchip.com/downloads/en/DeviceDoc/25022B.pdf" H 7500 4800 50  0001 C CNN
-	1    7500 4800
+P 7400 4800
+F 0 "U5" H 7400 5850 50  0000 C CNN
+F 1 "39F040" V 7400 4800 50  0000 C CNN
+F 2 "stdpads:PLCC-32_SMDSocket" H 7400 4800 50  0001 C CNN
+F 3 "http://ww1.microchip.com/downloads/en/DeviceDoc/25022B.pdf" H 7400 4800 50  0001 C CNN
+	1    7400 4800
 	1    0    0    -1  
 $EndComp
 $Comp
 L power:GND #PWR0107
 U 1 1 5D847F2B
-P 8000 5700
-F 0 "#PWR0107" H 8000 5450 50  0001 C CNN
-F 1 "GND" H 8000 5550 50  0000 C CNN
-F 2 "" H 8000 5700 50  0001 C CNN
-F 3 "" H 8000 5700 50  0001 C CNN
-	1    8000 5700
+P 7800 5700
+F 0 "#PWR0107" H 7800 5450 50  0001 C CNN
+F 1 "GND" H 7800 5550 50  0000 C CNN
+F 2 "" H 7800 5700 50  0001 C CNN
+F 3 "" H 7800 5700 50  0001 C CNN
+	1    7800 5700
 	1    0    0    -1  
 $EndComp
 $Comp
 L power:+5V #PWR0113
 U 1 1 5D848386
-P 8000 3900
-F 0 "#PWR0113" H 8000 3750 50  0001 C CNN
-F 1 "+5V" H 8000 4050 50  0000 C CNN
-F 2 "" H 8000 3900 50  0001 C CNN
-F 3 "" H 8000 3900 50  0001 C CNN
-	1    8000 3900
+P 7800 3900
+F 0 "#PWR0113" H 7800 3750 50  0001 C CNN
+F 1 "+5V" H 7800 4050 50  0000 C CNN
+F 2 "" H 7800 3900 50  0001 C CNN
+F 3 "" H 7800 3900 50  0001 C CNN
+	1    7800 3900
 	1    0    0    -1  
 $EndComp
-Text Label 5900 5600 0    50   ~ 0
+Text Label 5900 5500 0    50   ~ 0
 R~W~
 Text Label 7000 4300 2    50   ~ 0
 A4
@@ -683,7 +683,7 @@ Text Label 1600 4400 0    50   ~ 0
 A0
 Text Label 1600 4500 0    50   ~ 0
 ~IOSEL~
-Text Label 8000 5400 0    50   ~ 0
+Text Label 7800 5400 0    50   ~ 0
 ~OE~
 $Comp
 L Device:C_Small C21
@@ -736,9 +736,6 @@ Text Label 5900 4100 0    50   ~ 0
 RD3
 Text Label 5900 4500 0    50   ~ 0
 RD7
-Wire Wire Line
-	5900 5700 5900 5800
-Connection ~ 5900 5800
 Text Label 7000 5700 2    50   ~ 0
 RA18
 Text Label 7000 5600 2    50   ~ 0
@@ -850,21 +847,21 @@ Text Label 4300 3900 0    50   ~ 0
 RA4
 Text Label 2800 4000 2    50   ~ 0
 RAMCS
-Text Label 8000 4200 0    50   ~ 0
+Text Label 7800 4200 0    50   ~ 0
 RD1
-Text Label 8000 4300 0    50   ~ 0
+Text Label 7800 4300 0    50   ~ 0
 RD2
-Text Label 8000 4400 0    50   ~ 0
+Text Label 7800 4400 0    50   ~ 0
 RD3
-Text Label 8000 4100 0    50   ~ 0
+Text Label 7800 4100 0    50   ~ 0
 RD0
-Text Label 8000 4500 0    50   ~ 0
+Text Label 7800 4500 0    50   ~ 0
 RD4
-Text Label 8000 4600 0    50   ~ 0
+Text Label 7800 4600 0    50   ~ 0
 RD5
-Text Label 8000 4700 0    50   ~ 0
+Text Label 7800 4700 0    50   ~ 0
 RD6
-Text Label 8000 4800 0    50   ~ 0
+Text Label 7800 4800 0    50   ~ 0
 RD7
 $Comp
 L Device:C_Small C12
@@ -1453,7 +1450,7 @@ Wire Wire Line
 Wire Wire Line
 	2400 3700 2800 3700
 $Comp
-L stdparts:EPM7128SL84 U1
+L GW_PLD:EPM7128SL84 U1
 U 1 1 5CBA3E53
 P 3550 3000
 F 0 "U1" H 3550 3050 50  0000 C CNN
@@ -1574,37 +1571,37 @@ Wire Wire Line
 Wire Wire Line
 	5900 4800 6100 4800
 Entry Wire Line
-	8300 4300 8200 4400
+	8100 4300 8000 4400
 Entry Wire Line
-	8300 4400 8200 4500
+	8100 4400 8000 4500
 Entry Wire Line
-	8300 4500 8200 4600
+	8100 4500 8000 4600
 Entry Wire Line
-	8300 4600 8200 4700
+	8100 4600 8000 4700
 Entry Wire Line
-	8300 4700 8200 4800
+	8100 4700 8000 4800
 Entry Wire Line
-	8300 4200 8200 4300
+	8100 4200 8000 4300
 Entry Wire Line
-	8300 4100 8200 4200
+	8100 4100 8000 4200
 Entry Wire Line
-	8300 4000 8200 4100
+	8100 4000 8000 4100
 Wire Wire Line
-	8000 4100 8200 4100
+	7800 4100 8000 4100
 Wire Wire Line
-	8000 4200 8200 4200
+	7800 4200 8000 4200
 Wire Wire Line
-	8000 4300 8200 4300
+	7800 4300 8000 4300
 Wire Wire Line
-	8000 4400 8200 4400
+	7800 4400 8000 4400
 Wire Wire Line
-	8000 4500 8200 4500
+	7800 4500 8000 4500
 Wire Wire Line
-	8000 4600 8200 4600
+	7800 4600 8000 4600
 Wire Wire Line
-	8000 4700 8200 4700
+	7800 4700 8000 4700
 Wire Wire Line
-	8000 4800 8200 4800
+	7800 4800 8000 4800
 Entry Wire Line
 	4800 3300 4700 3400
 Entry Wire Line
@@ -1801,8 +1798,6 @@ Entry Wire Line
 	4700 3800 4800 3900
 Wire Bus Line
 	2300 6100 6200 6100
-Wire Wire Line
-	6400 5400 6400 2850
 Text Label 7200 2850 2    50   ~ 0
 RAMROM~CS~g
 Text Label 7200 2050 0    50   ~ 0
@@ -1910,7 +1905,7 @@ F 3 "" H 7200 2450 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L stdparts:DS1215 U2
+L GW_Digital:DS1215 U2
 U 1 1 5D8605F3
 P 6700 2100
 F 0 "U2" H 6700 2600 50  0000 C CNN
@@ -1933,15 +1928,13 @@ DS~WE~
 Wire Wire Line
 	7300 2850 6400 2850
 Wire Bus Line
-	6200 3500 8300 3500
-Wire Bus Line
 	4700 3600 6600 3600
 Wire Bus Line
-	6200 6100 8300 6100
+	6100 6100 6200 6100
 Connection ~ 6200 6100
 Wire Wire Line
-	5900 5400 6400 5400
-Text Label 8000 5200 0    50   ~ 0
+	5900 5300 6400 5300
+Text Label 7800 5200 0    50   ~ 0
 ROM~CS~
 Wire Bus Line
 	2300 600  4800 600 
@@ -2114,7 +2107,7 @@ F 3 "~" H 9800 1650 50  0001 C CNN
 $EndComp
 Text Label 7200 2150 0    50   ~ 0
 DS~OE~
-Text Label 8000 5300 0    50   ~ 0
+Text Label 7800 5300 0    50   ~ 0
 R~W~
 Text Label 2800 3100 2    50   ~ 0
 RAMROMCSgb
@@ -2284,30 +2277,6 @@ Text Label 8500 2450 2    50   ~ 0
 RAMROMCSgb
 Wire Wire Line
 	7900 2450 8500 2450
-Wire Bus Line
-	6600 3600 6600 5600
-Wire Bus Line
-	6700 3300 6700 4800
-Wire Bus Line
-	8300 3500 8300 6100
-Wire Bus Line
-	6200 3500 6200 6100
-Wire Bus Line
-	4700 3600 4700 5700
-Wire Bus Line
-	2400 4200 2400 5700
-Wire Bus Line
-	2300 3300 2300 6100
-Wire Bus Line
-	600  700  600  4300
-Wire Bus Line
-	4600 700  4600 2800
-Wire Bus Line
-	4800 600  4800 3300
-Wire Bus Line
-	2300 600  2300 2800
-Wire Bus Line
-	2000 2800 2000 4300
 $Comp
 L Device:Crystal_Small Y1
 U 1 1 5D320127
@@ -2319,4 +2288,37 @@ F 3 "~" H 5600 1750 50  0001 C CNN
 	1    5600 1750
 	0    1    1    0   
 $EndComp
+Wire Bus Line
+	6200 3500 8100 3500
+Wire Bus Line
+	6200 6100 8100 6100
+Wire Wire Line
+	6400 5300 6400 2850
+Wire Wire Line
+	5900 5600 5900 5800
+Wire Bus Line
+	2300 600  2300 2800
+Wire Bus Line
+	2400 4200 2400 5700
+Wire Bus Line
+	4800 600  4800 3300
+Wire Bus Line
+	6600 3600 6600 5600
+Wire Bus Line
+	6700 3300 6700 4800
+Wire Bus Line
+	8100 3500 8100 6100
+Wire Bus Line
+	6200 3500 6200 6100
+Wire Bus Line
+	2300 3300 2300 6100
+Wire Bus Line
+	600  700  600  4300
+Wire Bus Line
+	4600 700  4600 2800
+Wire Bus Line
+	2000 2800 2000 4300
+Wire Bus Line
+	4700 3600 4700 5700
+Connection ~ 5900 5800
 $EndSCHEMATC
