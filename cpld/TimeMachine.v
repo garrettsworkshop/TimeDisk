@@ -52,7 +52,7 @@ module TimeMachine(C7M, PHI1in, nRES,
 	inout [7:0] RD = RDOE ? D[7:0] : 8'bZ;
 	// Apple II data bus
 	wire DOE = CSDBEN & nWE &
-		((~nDEVSEL & REGEN & ~RAMSEL) | (~nDEVSEL & REGEN & RAMSEL & RAMROMCSgb) | (~nIOSEL & RAMROMCSgb) | (~nIOSTRB & IOROMEN & RAMROMCSgb));
+		((~nDEVSEL & REGEN & ~RAMSEL) | (~nDEVSEL & REGEN & RAMSEL & RAMROMCSgb) | (~nIOSEL & RAMROMCSgb) | (~nIOSTRB & IOROMEN));
 	wire [7:0] Dout = (nDEVSEL | RAMSELA) ? RD[7:0] :
 		AddrHSELA ? {4'hF, Addr[19:16]} : 
 		AddrMSELA ? Addr[15:8] : 
@@ -60,15 +60,13 @@ module TimeMachine(C7M, PHI1in, nRES,
 	inout [7:0] D = DOE ? Dout : 8'bZ;
 	
 	/* Inhibit output */
-	wire AROMSEL;
-	LCELL AROMSEL_MC (.in(/*(A[15:12]==4'hD | A[15:12]==4'hE | A[15:12]==4'hF) & nWE & ~MODE*/0), .out(AROMSEL));
-	output nINH = AROMSEL ? 1'b0 :  1'bZ;
+	output nINH = 1'bZ;
 
 	/* SRAM and ROM Control Signals */
-	output nRAMROMCS = ~(RAMSEL | ~nIOSEL | (~nIOSTRB & IOROMEN));
+	output nRAMROMCS = ~(RAMSEL | ~nIOSEL);
 	input RAMROMCSgb; // nRAMROMCS as gated by DS1215, then inverted
 	output RAMCS = RAMSEL & CSDBEN;
-	output nROMCS = ~(RAMROMCSgb & CSDBEN & (~nIOSEL | (~nIOSTRB & IOROMEN)));
+	output nROMCS = ~(CSDBEN & ((~nIOSEL & RAMROMCSgb) | (~nIOSTRB & IOROMEN)));
 	
   	/* 6502-accessible Registers */
 	reg [7:0] Bank = 0; // Bank register for ROM access
@@ -86,7 +84,7 @@ module TimeMachine(C7M, PHI1in, nRES,
 	reg REGEN = 0; // Register enable
 	reg IOROMEN = 0; // IOSTRB ROM enable
 	reg CSDBEN = 0; // ROM CS, data bus driver gating
-	reg FullIOEN = 0;
+	reg FullIOEN = 0; // Set to enable full IOROM space
 
 	// Apple II Bus Compatibiltiy Rules:
 	// Synchronize to PHI0 or PHI1. (PHI1 here)
@@ -125,7 +123,7 @@ module TimeMachine(C7M, PHI1in, nRES,
 			if (S==3 & ~nIOSTRB & A[10:0]==11'h7FF) IOROMEN <= 1'b0;
 
 			// Registers enabled at end of S4 by any IOSEL access (Cn00-CnFF).
-			if (S==4 & ~nIOSEL) REGEN <= 1;
+			if (S==4 & ~nIOSEL) REGEN <= 1'b1;
 
 			// Enable IOSTRB ROM when accessing CnXX in IOSEL ROM.
 			if (S==4 & ~nIOSEL) IOROMEN <= 1'b1;

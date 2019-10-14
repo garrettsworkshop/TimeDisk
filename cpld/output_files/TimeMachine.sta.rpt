@@ -1,5 +1,5 @@
 TimeQuest Timing Analyzer report for TimeMachine
-Wed Oct 02 02:59:46 2019
+Sat Oct 12 17:24:32 2019
 Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
 
 
@@ -608,7 +608,7 @@ No paths to report.
 ;  RA[18]   ; C7M        ; 34.000 ; 34.000 ; Rise       ; C7M             ;
 ;  RA[19]   ; C7M        ; 12.000 ; 12.000 ; Rise       ; C7M             ;
 ; RAMCS     ; C7M        ; 34.000 ; 34.000 ; Rise       ; C7M             ;
-; nRAMROMCS ; C7M        ; 34.000 ; 34.000 ; Rise       ; C7M             ;
+; nRAMROMCS ; C7M        ; 56.000 ; 56.000 ; Rise       ; C7M             ;
 ; nROMCS    ; C7M        ; 34.000 ; 34.000 ; Rise       ; C7M             ;
 +-----------+------------+--------+--------+------------+-----------------+
 
@@ -727,7 +727,6 @@ No paths to report.
 ; nIOSTRB    ; RA[16]      ; 32.000 ; 32.000 ; 32.000 ; 32.000 ;
 ; nIOSTRB    ; RA[17]      ; 32.000 ; 32.000 ; 32.000 ; 32.000 ;
 ; nIOSTRB    ; RA[18]      ; 32.000 ; 32.000 ; 32.000 ; 32.000 ;
-; nIOSTRB    ; nRAMROMCS   ; 32.000 ;        ;        ; 32.000 ;
 ; nIOSTRB    ; nROMCS      ;        ; 32.000 ; 32.000 ;        ;
 ; nWE        ; D[0]        ; 39.000 ;        ;        ; 39.000 ;
 ; nWE        ; D[1]        ; 39.000 ;        ;        ; 39.000 ;
@@ -862,7 +861,6 @@ No paths to report.
 ; nIOSTRB    ; RA[16]      ; 32.000 ; 32.000 ; 32.000 ; 32.000 ;
 ; nIOSTRB    ; RA[17]      ; 32.000 ; 32.000 ; 32.000 ; 32.000 ;
 ; nIOSTRB    ; RA[18]      ; 32.000 ; 32.000 ; 32.000 ; 32.000 ;
-; nIOSTRB    ; nRAMROMCS   ; 32.000 ;        ;        ; 32.000 ;
 ; nIOSTRB    ; nROMCS      ;        ; 32.000 ; 32.000 ;        ;
 ; nWE        ; D[0]        ; 39.000 ;        ;        ; 39.000 ;
 ; nWE        ; D[1]        ; 39.000 ;        ;        ; 39.000 ;
@@ -1027,9 +1025,9 @@ No dedicated SERDES Receiver circuitry present in device or used in design
 ; Illegal Clocks                  ; 0     ; 0    ;
 ; Unconstrained Clocks            ; 0     ; 0    ;
 ; Unconstrained Input Ports       ; 34    ; 34   ;
-; Unconstrained Input Port Paths  ; 415   ; 415  ;
+; Unconstrained Input Port Paths  ; 414   ; 414  ;
 ; Unconstrained Output Ports      ; 39    ; 39   ;
-; Unconstrained Output Port Paths ; 249   ; 249  ;
+; Unconstrained Output Port Paths ; 247   ; 247  ;
 +---------------------------------+-------+------+
 
 
@@ -1039,7 +1037,7 @@ No dedicated SERDES Receiver circuitry present in device or used in design
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit TimeQuest Timing Analyzer
     Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
-    Info: Processing started: Wed Oct 02 02:59:45 2019
+    Info: Processing started: Sat Oct 12 17:24:31 2019
 Info: Command: quartus_sta TimeMachine -c TimeMachine
 Info: qsta_default_script.tcl version: #1
 Warning (20028): Parallel compilation is not licensed and has been disabled
@@ -1071,7 +1069,7 @@ Info (332102): Design is not fully constrained for setup requirements
 Info (332102): Design is not fully constrained for hold requirements
 Info: Quartus II 64-Bit TimeQuest Timing Analyzer was successful. 0 errors, 4 warnings
     Info: Peak virtual memory: 4530 megabytes
-    Info: Processing ended: Wed Oct 02 02:59:46 2019
+    Info: Processing ended: Sat Oct 12 17:24:32 2019
     Info: Elapsed time: 00:00:01
     Info: Total CPU time (on all processors): 00:00:01
 
