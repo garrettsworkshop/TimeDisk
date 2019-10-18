@@ -98,19 +98,13 @@ module TimeMachine(C7M, PHI1in, nRES,
 	//		1st rising edge of C7M in PHI0 (S3)
 
 	always @(posedge C7M, negedge nRES) begin
-		if (~nRES) begin // Reset
+		if (~nRES) begin
 			PHI1reg <= 0;
 			PHI0seen <= 0;
 			S <= 0;
 			REGEN <= 0;
 			IOROMEN <= 0;
 			CSDBEN <= 0;
-			Addr <= 0;
-			Bank <= 0;
-			FullIOEN <= 0;
-			IncAddrL <= 0;
-			IncAddrM <= 0;
-			IncAddrH <= 0;
 		end else begin
 			// Synchronize state counter to S1 when just entering PHI1
 			PHI1reg <= PHI1; // Save old PHI1
@@ -135,7 +129,18 @@ module TimeMachine(C7M, PHI1in, nRES,
 			// This provides address setup time for write operations and 
 			// minimizes power consumption.
 			CSDBEN <= S==4 | S==5 | S==6 | S==7;
+		end
+	end
 
+	always @(negedge C7M, negedge nRES) begin
+		if (~nRES) begin
+			Addr <= 0;
+			Bank <= 0;
+			FullIOEN <= 0;
+			IncAddrL <= 0;
+			IncAddrM <= 0;
+			IncAddrH <= 0;
+		end else begin
 			// Increment address register
 			if (S==1 & IncAddrL) begin
 				Addr[7:0] <= Addr[7:0]+1;
@@ -151,9 +156,9 @@ module TimeMachine(C7M, PHI1in, nRES,
 				IncAddrH <= 0;
 				Addr[19:16] <= Addr[19:16]+1;
 			end
-			
-			// Set register at end of S5 if accessed.
-			if (S==5) begin
+
+			// Set register in middle of S6 if accessed.
+			if (S==6) begin
 				if (BankWR) Bank[7:0] <= D[7:0]; // Bank
 				if (SetWR) FullIOEN <= D[7:0] == 8'hE5;
 				

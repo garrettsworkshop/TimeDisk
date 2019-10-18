@@ -59,7 +59,7 @@ Wire Wire Line
 Wire Bus Line
 	6100 850  6100 1700
 Text Notes 6300 1100 0    40   ~ 0
-S8
+S7
 Wire Wire Line
 	10300 1100 10300 1000
 Wire Wire Line
@@ -310,30 +310,30 @@ Wire Wire Line
 	10350 1300 10400 1300
 Wire Wire Line
 	10350 1450 10400 1450
-Text Notes 4350 3300 0    50   ~ 0
-DBEN = ~S2~ @ C7M\n\nRAMROMCS = RAMSEL | IOSEL | (IOSTRB & IOROMEN)\nRAMCS = RAMSEL\nROMCS = RAMROMCSgb & (IOSEL | (IOSTRB & IOROMEN))
-Text Notes 7200 3900 0    50   ~ 0
-Addr[19:16] = (S6 & AddrHSEL & ~R~W) ? D[3:0] : Addr[19:16] @ C7M\nAddr[15:8] = (S6 if AddrMSEL & ~R~W) ? D[7:0] : Addr[15:8] @ C7M\nAddr[7:0] = (S6 if AddrLSEL & ~R~W) ? D[7:0] : Addr[7:0] @ C7M\nif (RAMSEL & S1) Addr[19:0]++ @ C7M\nBank[7:0] = (S6 & BankSEL & ~R~W) ? D[7:0] : Bank[7:0] @ C7M
-Text Notes 7200 4700 0    50   ~ 0
-RD[7:0] = (~DEVSEL~ | R~W~) ? 8’bZ : D[7:0]\nD[7:0] = (~CSEN~ | ~DEVSEL~ | ~R~W) ? 8’bZ :\n          AddrHSEL ? {4’hF, Addr[22:16]} : \n          AddrMSEL ? Addr[15:8] : \n          AddrLSEL ? Addr[7:0] :\n          RD[7:0]
-Text Notes 7150 4150 0    100  ~ 0
-Data Bus Routing
-Text Notes 7150 3450 0    100  ~ 0
-6502-Accessible Registers
-Text Notes 7200 3200 0    50   ~ 0
-RA[19] = Addr[19]\nRA[18:12] = RAMSEL ? Addr[18:12] : Bank[6:0]\nRA[11] = RAMSEL ? Addr[18:12] : A[11]\nRA[10:0] = Addr[11:0]
-Text Notes 7150 2850 0    100  ~ 0
-Address Bus Routing
-Text Notes 1350 4200 0    50   ~ 0
-BankSEL = S3 ? (A==XXXF & DEVSEL & REGEN) : BankSEL @ C7M\nRAMSEL = S3 ? (A==XXX3 & DEVSEL & REGEN) : RAMSEL @ C7M\nAddrHSEL = S3 ? (A==XXX2 & DEVSEL & REGEN) : AddrHSEL @ C7M\nAddrMSEL = S3 ? (A==XXX1 & DEVSEL & REGEN) : AddrMSEL @ C7M\nAddrLSEL = S3 ? (A==XXX0 & DEVSEL & REGEN) : AddrLSEL @ C7M\n\nREGEN = (IOSEL & S3) ? 1 : REGEN @ C7M\nIOROMEN = (A==XXFF & IOSTRB & S3) ? 0 :\n            (A==XX00 & IOSEL & S3) ? 1 :\n            IOROMEN @ C7M
-Text Notes 4300 2850 0    100  ~ 0
-ROM / SRAM Control
-Text Notes 1300 2850 0    100  ~ 0
-State Synchronization
-Text Notes 1300 3350 0    100  ~ 0
-Select signals (registered)
-Text Notes 1350 3100 0    50   ~ 0
-PHI0reg = PHI0 @ C7M\nS[3:0] = (~PHI0~ & PHI0reg) ? 1 : \n          (S==0) ? 0 : S+1 @ C7M
 Text Notes 1400 5550 0    200  ~ 0
 Information here may be out of date,\nsuperseded by ./cpld/TimeMachine.v
+Text Notes 1350 3100 0    50   ~ 0
+PHI0reg = PHI0 @ C7M\nS[3:0] = (~PHI0~ & PHI0reg) ? 1 : \n          (S==0) ? 0 : S+1 @ C7M
+Text Notes 1300 3350 0    100  ~ 0
+Select signals (registered)
+Text Notes 1300 2850 0    100  ~ 0
+State Synchronization
+Text Notes 4300 2850 0    100  ~ 0
+ROM / SRAM Control
+Text Notes 1350 4200 0    50   ~ 0
+BankSEL = S3 ? (A==XXXF & DEVSEL & REGEN) : BankSEL @ C7M\nRAMSEL = S3 ? (A==XXX3 & DEVSEL & REGEN) : RAMSEL @ C7M\nAddrHSEL = S3 ? (A==XXX2 & DEVSEL & REGEN) : AddrHSEL @ C7M\nAddrMSEL = S3 ? (A==XXX1 & DEVSEL & REGEN) : AddrMSEL @ C7M\nAddrLSEL = S3 ? (A==XXX0 & DEVSEL & REGEN) : AddrLSEL @ C7M\n\nREGEN = (IOSEL & S3) ? 1 : REGEN @ C7M\nIOROMEN = (A==XXFF & IOSTRB & S3) ? 0 :\n            (A==XX00 & IOSEL & S3) ? 1 :\n            IOROMEN @ C7M
+Text Notes 7150 2850 0    100  ~ 0
+Address Bus Routing
+Text Notes 7200 3200 0    50   ~ 0
+RA[19] = Addr[19]\nRA[18:12] = RAMSEL ? Addr[18:12] : Bank[6:0]\nRA[11] = RAMSEL ? Addr[18:12] : A[11]\nRA[10:0] = Addr[11:0]
+Text Notes 7150 3450 0    100  ~ 0
+6502-Accessible Registers
+Text Notes 7150 4150 0    100  ~ 0
+Data Bus Routing
+Text Notes 7200 4700 0    50   ~ 0
+RD[7:0] = (~DEVSEL~ | R~W~) ? 8’bZ : D[7:0]\nD[7:0] = (~CSEN~ | ~DEVSEL~ | ~R~W) ? 8’bZ :\n          AddrHSEL ? {4’hF, Addr[22:16]} : \n          AddrMSEL ? Addr[15:8] : \n          AddrLSEL ? Addr[7:0] :\n          RD[7:0]
+Text Notes 7200 3900 0    50   ~ 0
+Addr[19:16] = (S6 & AddrHSEL & ~R~W) ? D[3:0] : Addr[19:16] @ C7M\nAddr[15:8] = (S6 if AddrMSEL & ~R~W) ? D[7:0] : Addr[15:8] @ C7M\nAddr[7:0] = (S6 if AddrLSEL & ~R~W) ? D[7:0] : Addr[7:0] @ C7M\nif (RAMSEL & S1) Addr[19:0]++ @ C7M\nBank[7:0] = (S6 & BankSEL & ~R~W) ? D[7:0] : Bank[7:0] @ C7M
+Text Notes 4350 3300 0    50   ~ 0
+DBEN = ~S2~ @ C7M\n\nRAMROMCS = RAMSEL | IOSEL | (IOSTRB & IOROMEN)\nRAMCS = RAMSEL\nROMCS = RAMROMCSgb & (IOSEL | (IOSTRB & IOROMEN))
 $EndSCHEMATC

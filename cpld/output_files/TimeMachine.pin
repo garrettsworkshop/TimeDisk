@@ -56,7 +56,7 @@
  -- Pin directions (input, output or bidir) are based on device operating in user mode.
  ---------------------------------------------------------------------------------
 
-Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
+Quartus II 32-bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
 CHIP  "TimeMachine"  ASSIGNED TO AN: EPM7128SLC84-15
 
 Pin Name/Usage               : Location  : Dir.   : I/O Standard      : Voltage : I/O Bank  : User Assignment
@@ -109,16 +109,16 @@ RAMCS                        : 45        : output : TTL               :         
 RA[15]                       : 46        : output : TTL               :         :           : Y              
 GND                          : 47        : gnd    :                   :         :           :                
 RA[0]                        : 48        : output : TTL               :         :           : N              
-RA[10]                       : 49        : output : TTL               :         :           : N              
-RA[8]                        : 50        : output : TTL               :         :           : N              
+RA[8]                        : 49        : output : TTL               :         :           : N              
+RA[10]                       : 50        : output : TTL               :         :           : N              
 RA[11]                       : 51        : output : TTL               :         :           : Y              
 RA[9]                        : 52        : output : TTL               :         :           : N              
 VCCIO                        : 53        : power  :                   : 5.0V    :           :                
-RA[5]                        : 54        : output : TTL               :         :           : N              
+RA[3]                        : 54        : output : TTL               :         :           : N              
 RA[4]                        : 55        : output : TTL               :         :           : N              
-RA[3]                        : 56        : output : TTL               :         :           : N              
-RA[7]                        : 57        : output : TTL               :         :           : N              
-RA[6]                        : 58        : output : TTL               :         :           : N              
+RA[7]                        : 56        : output : TTL               :         :           : N              
+RA[6]                        : 57        : output : TTL               :         :           : N              
+RA[5]                        : 58        : output : TTL               :         :           : N              
 GND                          : 59        : gnd    :                   :         :           :                
 RA[12]                       : 60        : output : TTL               :         :           : Y              
 RA[16]                       : 61        : output : TTL               :         :           : Y              
