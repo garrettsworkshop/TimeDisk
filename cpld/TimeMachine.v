@@ -47,7 +47,7 @@ module TimeMachine(C7M, PHI1in, nRES,
 	LCELL AddrLWR_MC (.in(AddrLSELA & ~nWE & ~nDEVSEL & REGEN), .out(AddrLWR)); wire AddrLWR;
 
 	/* Data Bus Routing */
-	// SRAM/ROM data bus
+	// SRAM/ROM data Bus
 	wire RDOE = CSDBEN & ~nWE;
 	inout [7:0] RD = RDOE ? D[7:0] : 8'bZ;
 	// Apple II data bus
@@ -98,21 +98,27 @@ module TimeMachine(C7M, PHI1in, nRES,
 	//		1st rising edge of C7M in PHI0 (S3)
 
 	always @(posedge C7M, negedge nRES) begin
+		// Synchronize state counter to S1 when just entering PHI1
+		PHI1reg <= PHI1; // Save old PHI1
+		if (~PHI1) PHI0seen <= 1; // PHI0seen set in PHI0
+		S <= (PHI1 & ~PHI1reg & PHI0seen) ? 4'h1 : 
+			S==0 ? 3'h0 :
+			S==7 ? 3'h7 : S+1;
+
+		// Only drive Apple II data bus after state 4 to avoid bus fight.
+		// Thus we wait 1.5 7M cycles (210 ns) into PHI0 before driving.
+		// Same for driving the ROM/SRAM data bus (RD).
+		// Similarly, only select the ROM chip starting at the end of S4.
+		// This provides address setup time for write operations and 
+		// minimizes power consumption.
+		CSDBEN <= S==4 | S==5 | S==6 | S==7;
+	end
+
+	always @(posedge C7M, negedge nRES) begin
 		if (~nRES) begin
-			PHI1reg <= 0;
-			PHI0seen <= 0;
-			S <= 0;
 			REGEN <= 0;
 			IOROMEN <= 0;
-			CSDBEN <= 0;
 		end else begin
-			// Synchronize state counter to S1 when just entering PHI1
-			PHI1reg <= PHI1; // Save old PHI1
-			if (~PHI1) PHI0seen <= 1; // PHI0seen set in PHI0
-			S <= (PHI1 & ~PHI1reg & PHI0seen) ? 4'h1 : 
-				S==0 ? 3'h0 :
-				S==7 ? 3'h7 : S+1;
-
 			// Disable IOSTRB ROM when accessing 0xCFFF.
 			if (S==3 & ~nIOSTRB & A[10:0]==11'h7FF) IOROMEN <= 1'b0;
 
@@ -121,14 +127,6 @@ module TimeMachine(C7M, PHI1in, nRES,
 
 			// Enable IOSTRB ROM when accessing CnXX in IOSEL ROM.
 			if (S==4 & ~nIOSEL) IOROMEN <= 1'b1;
-
-			// Only drive Apple II data bus after state 4 to avoid bus fight.
-			// Thus we wait 1.5 7M cycles (210 ns) into PHI0 before driving.
-			// Same for driving the ROM/SRAM data bus (RD).
-			// Similarly, only select the ROM chip starting at the end of S4.
-			// This provides address setup time for write operations and 
-			// minimizes power consumption.
-			CSDBEN <= S==4 | S==5 | S==6 | S==7;
 		end
 	end
 
