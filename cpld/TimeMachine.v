@@ -48,11 +48,13 @@ module TimeMachine(C7M, PHI1in, nRES,
 
 	/* Data Bus Routing */
 	// SRAM/ROM data Bus
-	wire RDOE = CSDBEN & ~nWE;
+	wire RDOE = DBEN & ~nWE;
 	inout [7:0] RD = RDOE ? D[7:0] : 8'bZ;
 	// Apple II data bus
-	wire DOE = CSDBEN & nWE &
-		((~nDEVSEL & REGEN & ~RAMSEL) | (~nDEVSEL & REGEN & RAMSEL & RAMROMCSgb) | (~nIOSEL & RAMROMCSgb) | (~nIOSTRB & IOROMEN));
+	wire DOE = DBEN & nWE &
+		((~nDEVSEL & REGEN & ~RAMSEL) | 
+		 (~nDEVSEL & REGEN & RAMSEL & RAMROMCSgb) | 
+		 (~nIOSEL & RAMROMCSgb) | (~nIOSTRB & IOROMEN));
 	wire [7:0] Dout = (nDEVSEL | RAMSELA) ? RD[7:0] :
 		AddrHSELA ? {4'hF, Addr[19:16]} : 
 		AddrMSELA ? Addr[15:8] : 
@@ -65,8 +67,9 @@ module TimeMachine(C7M, PHI1in, nRES,
 	/* SRAM and ROM Control Signals */
 	output nRAMROMCS = ~(RAMSEL | ~nIOSEL);
 	input RAMROMCSgb; // nRAMROMCS as gated by DS1215, then inverted
-	output RAMCS = RAMSEL & CSDBEN;
-	output nROMCS = ~(CSDBEN & ((~nIOSEL & RAMROMCSgb) | (~nIOSTRB & IOROMEN)));
+	output RAMCS = RAMSEL & ((RDCSEN & nWE) | (WRCSEN & ~nWE));
+	output nROMCS = ~(((RDCSEN & nWE) | (WRCSEN & ~nWE)) & 
+		((~nIOSEL & RAMROMCSgb) | (~nIOSTRB & IOROMEN)));
 	
   	/* 6502-accessible Registers */
 	reg [7:0] Bank = 0; // Bank register for ROM access
@@ -83,8 +86,10 @@ module TimeMachine(C7M, PHI1in, nRES,
 	/* Misc. */
 	reg REGEN = 0; // Register enable
 	reg IOROMEN = 0; // IOSTRB ROM enable
-	reg CSDBEN = 0; // ROM CS, data bus driver gating
 	reg FullIOEN = 0; // Set to enable full IOROM space
+	reg DBEN = 0; // data bus driver gating
+	reg RDCSEN = 0; // ROM CS enable for reads
+	reg WRCSEN = 0; // ROM CS gating for writes
 
 	// Apple II Bus Compatibiltiy Rules:
 	// Synchronize to PHI0 or PHI1. (PHI1 here)
@@ -108,10 +113,15 @@ module TimeMachine(C7M, PHI1in, nRES,
 		// Only drive Apple II data bus after state 4 to avoid bus fight.
 		// Thus we wait 1.5 7M cycles (210 ns) into PHI0 before driving.
 		// Same for driving the ROM/SRAM data bus (RD).
-		// Similarly, only select the ROM chip starting at the end of S4.
-		// This provides address setup time for write operations and 
-		// minimizes power consumption.
-		CSDBEN <= S==4 | S==5 | S==6 | S==7;
+		DBEN <= S==4 | S==5 | S==6 | S==7;
+		
+		// Similarly, only select the ROM chip starting at
+		// the end of S4 for reads and the end of S5 for writes.
+		// This ensures that write data is valid for
+		// the entire time that the ROM is selected,
+		// and minimizes power consumption for reads.
+		RDCSEN <= S==4 | S==5 | S==6 | S==7;
+		WRCSEN <= S==5 | S==6 | S==7;
 	end
 
 	always @(posedge C7M, negedge nRES) begin
