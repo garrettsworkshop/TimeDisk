@@ -1,4 +1,4 @@
-(kicad_pcb (version 20171130) (host pcbnew "(5.1.2-1)-1")
+(kicad_pcb (version 20171130) (host pcbnew "(5.1.5-0-10_14)")
 
   (general
     (thickness 1.6)
@@ -1146,7 +1146,7 @@
 
   (module stdpads:IDC_SMD_2x05_P2.54mm_Vertical (layer F.Cu) (tedit 5D323156) (tstamp 5D78FA32)
     (at 241.3 109.22)
-    (path /5DCF2B5F)
+    (path /5E413F8B)
     (attr smd)
     (fp_text reference J2 (at 0 0 90) (layer F.SilkS)
       (effects (font (size 0.8128 0.8128) (thickness 0.2032)))
@@ -2188,7 +2188,7 @@
     (fp_text reference U2 (at 0 0) (layer F.SilkS)
       (effects (font (size 0.8128 0.8128) (thickness 0.2032)))
     )
-    (fp_text value DS1215 (at 0 1.27) (layer F.Fab)
+    (fp_text value DS1315S-5 (at 0 1.27) (layer F.Fab)
       (effects (font (size 0.8128 0.8128) (thickness 0.2032)))
     )
     (fp_line (start 0 5.26) (end 3.86 5.26) (layer F.SilkS) (width 0.12))
