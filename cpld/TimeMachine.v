@@ -67,9 +67,8 @@ module TimeMachine(C7M, PHI1in, nRES,
 	/* SRAM and ROM Control Signals */
 	output nRAMROMCS = ~(RAMSEL | ~nIOSEL);
 	input RAMROMCSgb; // nRAMROMCS as gated by DS1215, then inverted
-	output RAMCS = RAMSEL & ((RDCSEN & nWE) | (WRCSEN & ~nWE));
-	output nROMCS = ~(((RDCSEN & nWE) | (WRCSEN & ~nWE)) & 
-		((~nIOSEL & RAMROMCSgb) | (~nIOSTRB & IOROMEN)));
+	output RAMCS = RAMSEL & CSEN;
+	output nROMCS = ~(CSEN & ((~nIOSEL & RAMROMCSgb) | (~nIOSTRB & IOROMEN)));
 	
   	/* 6502-accessible Registers */
 	reg [7:0] Bank = 0; // Bank register for ROM access
@@ -88,8 +87,7 @@ module TimeMachine(C7M, PHI1in, nRES,
 	reg IOROMEN = 0; // IOSTRB ROM enable
 	reg FullIOEN = 0; // Set to enable full IOROM space
 	reg DBEN = 0; // data bus driver gating
-	reg RDCSEN = 0; // ROM CS enable for reads
-	reg WRCSEN = 0; // ROM CS gating for writes
+	reg CSEN = 0; // ROM CS enable for reads
 
 	// Apple II Bus Compatibiltiy Rules:
 	// Synchronize to PHI0 or PHI1. (PHI1 here)
@@ -102,41 +100,49 @@ module TimeMachine(C7M, PHI1in, nRES,
 	// Can sample /IOSTRB at same times as /IOSEL, plus:
 	//		1st rising edge of C7M in PHI0 (S3)
 
-	always @(posedge C7M, negedge nRES) begin
+	/* State counters */
+	always @(posedge C7M) begin
 		// Synchronize state counter to S1 when just entering PHI1
 		PHI1reg <= PHI1; // Save old PHI1
 		if (~PHI1) PHI0seen <= 1; // PHI0seen set in PHI0
-		S <= (PHI1 & ~PHI1reg & PHI0seen) ? 4'h1 : 
+		S <= (PHI1 & ~PHI1reg & PHI0seen) ? 3'h1 : 
 			S==0 ? 3'h0 :
 			S==7 ? 3'h7 : S+1;
-
-		// Only drive Apple II data bus after state 4 to avoid bus fight.
-		// Thus we wait 1.5 7M cycles (210 ns) into PHI0 before driving.
-		// Same for driving the ROM/SRAM data bus (RD).
-		DBEN <= S==4 | S==5 | S==6 | S==7;
-		
-		// Similarly, only select the ROM chip starting at
-		// the end of S4 for reads and the end of S5 for writes.
-		// This ensures that write data is valid for
-		// the entire time that the ROM is selected,
-		// and minimizes power consumption for reads.
-		RDCSEN <= S==4 | S==5 | S==6 | S==7;
-		WRCSEN <= S==5 | S==6 | S==7;
 	end
 
+	/* State-based data bus and ROM CS gating */
+	always @(posedge C7M, negedge nRES) begin
+		if (~nRES) begin
+			DBEN <= 0;
+			CSEN <= 0;
+		end else begin
+			// Only drive Apple II data bus after S4 to avoid bus fight.
+			// Thus we wait 1.5 7M cycles (210 ns) into PHI0 before driving.
+			// Same for driving the ROM/SRAM data bus (RD).
+			DBEN <= S==4 | S==5 | S==6 | S==7;
+			
+			// Similarly, only select the ROM chip starting at
+			// the end of S4 for reads and the end of S5 for writes.
+			// This ensures that write data is valid for
+			// the entire time that the ROM is selected,
+			// and minimizes power consumption.
+			CSEN <= (S==4 & nWE) | S==5 | S==6 | S==7;
+		end
+	end
+
+	/* DEVSEL register and IOSTRB ROM enable */
 	always @(posedge C7M, negedge nRES) begin
 		if (~nRES) begin
 			REGEN <= 0;
 			IOROMEN <= 0;
 		end else begin
-			// Disable IOSTRB ROM when accessing 0xCFFF.
-			if (S==3 & ~nIOSTRB & A[10:0]==11'h7FF) IOROMEN <= 1'b0;
-
-			// Registers enabled at end of S4 by any IOSEL access (Cn00-CnFF).
+			// Enable registers at end of S4 when IOSEL accessed (Cn00-CnFF).
 			if (S==4 & ~nIOSEL) REGEN <= 1'b1;
 
 			// Enable IOSTRB ROM when accessing CnXX in IOSEL ROM.
 			if (S==4 & ~nIOSEL) IOROMEN <= 1'b1;
+			// Disable IOSTRB ROM when accessing 0xCFFF.
+			if (S==3 & ~nIOSTRB & A[10:0]==11'h7FF) IOROMEN <= 1'b0;
 		end
 	end
 
