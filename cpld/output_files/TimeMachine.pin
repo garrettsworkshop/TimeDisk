@@ -110,9 +110,9 @@ RA[15]                       : 46        : output : TTL               :         
 GND                          : 47        : gnd    :                   :         :           :                
 RA[10]                       : 48        : output : TTL               :         :           : N              
 RA[0]                        : 49        : output : TTL               :         :           : N              
-RA[9]                        : 50        : output : TTL               :         :           : N              
+RA[8]                        : 50        : output : TTL               :         :           : N              
 RA[11]                       : 51        : output : TTL               :         :           : Y              
-RA[8]                        : 52        : output : TTL               :         :           : N              
+RA[9]                        : 52        : output : TTL               :         :           : N              
 VCCIO                        : 53        : power  :                   : 5.0V    :           :                
 RA[4]                        : 54        : output : TTL               :         :           : N              
 RA[7]                        : 55        : output : TTL               :         :           : N              

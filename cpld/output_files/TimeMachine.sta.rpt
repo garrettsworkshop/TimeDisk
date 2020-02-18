@@ -1,5 +1,5 @@
 TimeQuest Timing Analyzer report for TimeMachine
-Sun Feb 16 22:12:30 2020
+Mon Feb 17 20:36:16 2020
 Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
 
 
@@ -182,68 +182,68 @@ No paths to report.
 ; -25.500 ; S[2]      ; IncAddrL ; C7M          ; C7M         ; 0.500        ; 0.000      ; 22.000     ;
 ; -25.500 ; S[1]      ; IncAddrL ; C7M          ; C7M         ; 0.500        ; 0.000      ; 22.000     ;
 ; -25.500 ; S[0]      ; Addr[0]  ; C7M          ; C7M         ; 0.500        ; 0.000      ; 22.000     ;
-; -25.500 ; S[1]      ; Addr[0]  ; C7M          ; C7M         ; 0.500        ; 0.000      ; 22.000     ;
 ; -25.500 ; S[2]      ; Addr[0]  ; C7M          ; C7M         ; 0.500        ; 0.000      ; 22.000     ;
+; -25.500 ; S[1]      ; Addr[0]  ; C7M          ; C7M         ; 0.500        ; 0.000      ; 22.000     ;
+; -25.500 ; S[2]      ; Addr[1]  ; C7M          ; C7M         ; 0.500        ; 0.000      ; 22.000     ;
 ; -25.500 ; S[1]      ; Addr[1]  ; C7M          ; C7M         ; 0.500        ; 0.000      ; 22.000     ;
 ; -25.500 ; S[0]      ; Addr[1]  ; C7M          ; C7M         ; 0.500        ; 0.000      ; 22.000     ;
-; -25.500 ; S[2]      ; Addr[1]  ; C7M          ; C7M         ; 0.500        ; 0.000      ; 22.000     ;
-; -25.500 ; S[2]      ; Addr[15] ; C7M          ; C7M         ; 0.500        ; 0.000      ; 22.000     ;
 ; -25.500 ; S[0]      ; Addr[15] ; C7M          ; C7M         ; 0.500        ; 0.000      ; 22.000     ;
 ; -25.500 ; S[1]      ; Addr[15] ; C7M          ; C7M         ; 0.500        ; 0.000      ; 22.000     ;
+; -25.500 ; S[2]      ; Addr[15] ; C7M          ; C7M         ; 0.500        ; 0.000      ; 22.000     ;
 ; -25.500 ; S[1]      ; IncAddrH ; C7M          ; C7M         ; 0.500        ; 0.000      ; 22.000     ;
-; -25.500 ; S[2]      ; IncAddrH ; C7M          ; C7M         ; 0.500        ; 0.000      ; 22.000     ;
 ; -25.500 ; S[0]      ; IncAddrH ; C7M          ; C7M         ; 0.500        ; 0.000      ; 22.000     ;
+; -25.500 ; S[2]      ; IncAddrH ; C7M          ; C7M         ; 0.500        ; 0.000      ; 22.000     ;
 ; -25.500 ; S[2]      ; Addr[16] ; C7M          ; C7M         ; 0.500        ; 0.000      ; 22.000     ;
 ; -25.500 ; S[0]      ; Addr[16] ; C7M          ; C7M         ; 0.500        ; 0.000      ; 22.000     ;
 ; -25.500 ; S[1]      ; Addr[16] ; C7M          ; C7M         ; 0.500        ; 0.000      ; 22.000     ;
 ; -25.500 ; S[2]      ; Addr[17] ; C7M          ; C7M         ; 0.500        ; 0.000      ; 22.000     ;
 ; -25.500 ; S[0]      ; Addr[17] ; C7M          ; C7M         ; 0.500        ; 0.000      ; 22.000     ;
 ; -25.500 ; S[1]      ; Addr[17] ; C7M          ; C7M         ; 0.500        ; 0.000      ; 22.000     ;
-; -25.500 ; S[2]      ; Addr[9]  ; C7M          ; C7M         ; 0.500        ; 0.000      ; 22.000     ;
 ; -25.500 ; S[0]      ; Addr[9]  ; C7M          ; C7M         ; 0.500        ; 0.000      ; 22.000     ;
 ; -25.500 ; S[1]      ; Addr[9]  ; C7M          ; C7M         ; 0.500        ; 0.000      ; 22.000     ;
-; -25.500 ; S[2]      ; Addr[10] ; C7M          ; C7M         ; 0.500        ; 0.000      ; 22.000     ;
+; -25.500 ; S[2]      ; Addr[9]  ; C7M          ; C7M         ; 0.500        ; 0.000      ; 22.000     ;
 ; -25.500 ; S[0]      ; Addr[10] ; C7M          ; C7M         ; 0.500        ; 0.000      ; 22.000     ;
 ; -25.500 ; S[1]      ; Addr[10] ; C7M          ; C7M         ; 0.500        ; 0.000      ; 22.000     ;
+; -25.500 ; S[2]      ; Addr[10] ; C7M          ; C7M         ; 0.500        ; 0.000      ; 22.000     ;
 ; -25.500 ; S[2]      ; Addr[18] ; C7M          ; C7M         ; 0.500        ; 0.000      ; 22.000     ;
 ; -25.500 ; S[0]      ; Addr[18] ; C7M          ; C7M         ; 0.500        ; 0.000      ; 22.000     ;
 ; -25.500 ; S[1]      ; Addr[18] ; C7M          ; C7M         ; 0.500        ; 0.000      ; 22.000     ;
+; -25.500 ; S[2]      ; Addr[2]  ; C7M          ; C7M         ; 0.500        ; 0.000      ; 22.000     ;
 ; -25.500 ; S[1]      ; Addr[2]  ; C7M          ; C7M         ; 0.500        ; 0.000      ; 22.000     ;
 ; -25.500 ; S[0]      ; Addr[2]  ; C7M          ; C7M         ; 0.500        ; 0.000      ; 22.000     ;
-; -25.500 ; S[2]      ; Addr[2]  ; C7M          ; C7M         ; 0.500        ; 0.000      ; 22.000     ;
+; -25.500 ; S[2]      ; Addr[3]  ; C7M          ; C7M         ; 0.500        ; 0.000      ; 22.000     ;
 ; -25.500 ; S[1]      ; Addr[3]  ; C7M          ; C7M         ; 0.500        ; 0.000      ; 22.000     ;
 ; -25.500 ; S[0]      ; Addr[3]  ; C7M          ; C7M         ; 0.500        ; 0.000      ; 22.000     ;
-; -25.500 ; S[2]      ; Addr[3]  ; C7M          ; C7M         ; 0.500        ; 0.000      ; 22.000     ;
 ; -25.500 ; S[2]      ; Addr[19] ; C7M          ; C7M         ; 0.500        ; 0.000      ; 22.000     ;
 ; -25.500 ; S[0]      ; Addr[19] ; C7M          ; C7M         ; 0.500        ; 0.000      ; 22.000     ;
 ; -25.500 ; S[1]      ; Addr[19] ; C7M          ; C7M         ; 0.500        ; 0.000      ; 22.000     ;
-; -25.500 ; S[2]      ; Addr[11] ; C7M          ; C7M         ; 0.500        ; 0.000      ; 22.000     ;
 ; -25.500 ; S[0]      ; Addr[11] ; C7M          ; C7M         ; 0.500        ; 0.000      ; 22.000     ;
 ; -25.500 ; S[1]      ; Addr[11] ; C7M          ; C7M         ; 0.500        ; 0.000      ; 22.000     ;
-; -25.500 ; S[2]      ; Addr[12] ; C7M          ; C7M         ; 0.500        ; 0.000      ; 22.000     ;
+; -25.500 ; S[2]      ; Addr[11] ; C7M          ; C7M         ; 0.500        ; 0.000      ; 22.000     ;
 ; -25.500 ; S[0]      ; Addr[12] ; C7M          ; C7M         ; 0.500        ; 0.000      ; 22.000     ;
 ; -25.500 ; S[1]      ; Addr[12] ; C7M          ; C7M         ; 0.500        ; 0.000      ; 22.000     ;
+; -25.500 ; S[2]      ; Addr[12] ; C7M          ; C7M         ; 0.500        ; 0.000      ; 22.000     ;
+; -25.500 ; S[2]      ; Addr[4]  ; C7M          ; C7M         ; 0.500        ; 0.000      ; 22.000     ;
 ; -25.500 ; S[1]      ; Addr[4]  ; C7M          ; C7M         ; 0.500        ; 0.000      ; 22.000     ;
 ; -25.500 ; S[0]      ; Addr[4]  ; C7M          ; C7M         ; 0.500        ; 0.000      ; 22.000     ;
-; -25.500 ; S[2]      ; Addr[4]  ; C7M          ; C7M         ; 0.500        ; 0.000      ; 22.000     ;
+; -25.500 ; S[2]      ; Addr[5]  ; C7M          ; C7M         ; 0.500        ; 0.000      ; 22.000     ;
 ; -25.500 ; S[1]      ; Addr[5]  ; C7M          ; C7M         ; 0.500        ; 0.000      ; 22.000     ;
 ; -25.500 ; S[0]      ; Addr[5]  ; C7M          ; C7M         ; 0.500        ; 0.000      ; 22.000     ;
-; -25.500 ; S[2]      ; Addr[5]  ; C7M          ; C7M         ; 0.500        ; 0.000      ; 22.000     ;
-; -25.500 ; S[2]      ; Addr[13] ; C7M          ; C7M         ; 0.500        ; 0.000      ; 22.000     ;
 ; -25.500 ; S[0]      ; Addr[13] ; C7M          ; C7M         ; 0.500        ; 0.000      ; 22.000     ;
 ; -25.500 ; S[1]      ; Addr[13] ; C7M          ; C7M         ; 0.500        ; 0.000      ; 22.000     ;
-; -25.500 ; S[2]      ; Addr[14] ; C7M          ; C7M         ; 0.500        ; 0.000      ; 22.000     ;
+; -25.500 ; S[2]      ; Addr[13] ; C7M          ; C7M         ; 0.500        ; 0.000      ; 22.000     ;
 ; -25.500 ; S[0]      ; Addr[14] ; C7M          ; C7M         ; 0.500        ; 0.000      ; 22.000     ;
 ; -25.500 ; S[1]      ; Addr[14] ; C7M          ; C7M         ; 0.500        ; 0.000      ; 22.000     ;
+; -25.500 ; S[2]      ; Addr[14] ; C7M          ; C7M         ; 0.500        ; 0.000      ; 22.000     ;
+; -25.500 ; S[2]      ; Addr[6]  ; C7M          ; C7M         ; 0.500        ; 0.000      ; 22.000     ;
 ; -25.500 ; S[1]      ; Addr[6]  ; C7M          ; C7M         ; 0.500        ; 0.000      ; 22.000     ;
 ; -25.500 ; S[0]      ; Addr[6]  ; C7M          ; C7M         ; 0.500        ; 0.000      ; 22.000     ;
-; -25.500 ; S[2]      ; Addr[6]  ; C7M          ; C7M         ; 0.500        ; 0.000      ; 22.000     ;
+; -25.500 ; S[2]      ; Addr[7]  ; C7M          ; C7M         ; 0.500        ; 0.000      ; 22.000     ;
 ; -25.500 ; S[1]      ; Addr[7]  ; C7M          ; C7M         ; 0.500        ; 0.000      ; 22.000     ;
 ; -25.500 ; S[0]      ; Addr[7]  ; C7M          ; C7M         ; 0.500        ; 0.000      ; 22.000     ;
-; -25.500 ; S[2]      ; Addr[7]  ; C7M          ; C7M         ; 0.500        ; 0.000      ; 22.000     ;
 ; -25.500 ; S[0]      ; IncAddrM ; C7M          ; C7M         ; 0.500        ; 0.000      ; 22.000     ;
-; -25.500 ; S[2]      ; Addr[8]  ; C7M          ; C7M         ; 0.500        ; 0.000      ; 22.000     ;
 ; -25.500 ; S[0]      ; Addr[8]  ; C7M          ; C7M         ; 0.500        ; 0.000      ; 22.000     ;
+; -25.500 ; S[1]      ; Addr[8]  ; C7M          ; C7M         ; 0.500        ; 0.000      ; 22.000     ;
 +---------+-----------+----------+--------------+-------------+--------------+------------+------------+
 
 
@@ -267,8 +267,8 @@ No paths to report.
 ; 5.000  ; S[0]      ; S[2]     ; C7M          ; C7M         ; 0.000        ; 0.000      ; 9.000      ;
 ; 5.000  ; S[2]      ; S[2]     ; C7M          ; C7M         ; 0.000        ; 0.000      ; 9.000      ;
 ; 5.000  ; S[1]      ; S[2]     ; C7M          ; C7M         ; 0.000        ; 0.000      ; 9.000      ;
-; 5.000  ; IOROMEN   ; IOROMEN  ; C7M          ; C7M         ; 0.000        ; 0.000      ; 9.000      ;
 ; 5.000  ; S[1]      ; IOROMEN  ; C7M          ; C7M         ; 0.000        ; 0.000      ; 9.000      ;
+; 5.000  ; IOROMEN   ; IOROMEN  ; C7M          ; C7M         ; 0.000        ; 0.000      ; 9.000      ;
 ; 5.000  ; S[2]      ; IOROMEN  ; C7M          ; C7M         ; 0.000        ; 0.000      ; 9.000      ;
 ; 5.000  ; S[0]      ; IOROMEN  ; C7M          ; C7M         ; 0.000        ; 0.000      ; 9.000      ;
 ; 5.000  ; IncAddrL  ; IncAddrL ; C7M          ; C7M         ; 0.000        ; 0.000      ; 9.000      ;
@@ -1002,7 +1002,7 @@ No paths to report.
 +------------+----------+----------+----------+----------+----------+
 ; From Clock ; To Clock ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
 +------------+----------+----------+----------+----------+----------+
-; C7M        ; C7M      ; 39       ; 0        ; 292      ; 182      ;
+; C7M        ; C7M      ; 40       ; 0        ; 292      ; 182      ;
 +------------+----------+----------+----------+----------+----------+
 Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
 
@@ -1012,7 +1012,7 @@ Entries labeled "false path" only account for clock-to-clock false paths and not
 +------------+----------+----------+----------+----------+----------+
 ; From Clock ; To Clock ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
 +------------+----------+----------+----------+----------+----------+
-; C7M        ; C7M      ; 39       ; 0        ; 292      ; 182      ;
+; C7M        ; C7M      ; 40       ; 0        ; 292      ; 182      ;
 +------------+----------+----------+----------+----------+----------+
 Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
 
@@ -1049,7 +1049,7 @@ No dedicated SERDES Receiver circuitry present in device or used in design
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit TimeQuest Timing Analyzer
     Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
-    Info: Processing started: Sun Feb 16 22:12:30 2020
+    Info: Processing started: Mon Feb 17 20:36:15 2020
 Info: Command: quartus_sta TimeMachine -c TimeMachine
 Info: qsta_default_script.tcl version: #1
 Warning (20028): Parallel compilation is not licensed and has been disabled
@@ -1081,8 +1081,8 @@ Info (332102): Design is not fully constrained for setup requirements
 Info (332102): Design is not fully constrained for hold requirements
 Info: Quartus II 64-Bit TimeQuest Timing Analyzer was successful. 0 errors, 4 warnings
     Info: Peak virtual memory: 4541 megabytes
-    Info: Processing ended: Sun Feb 16 22:12:30 2020
-    Info: Elapsed time: 00:00:00
-    Info: Total CPU time (on all processors): 00:00:01
+    Info: Processing ended: Mon Feb 17 20:36:16 2020
+    Info: Elapsed time: 00:00:01
+    Info: Total CPU time (on all processors): 00:00:00
 
 

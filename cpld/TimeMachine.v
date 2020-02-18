@@ -142,7 +142,7 @@ module TimeMachine(C7M, PHI1in, nRES,
 			// Enable IOSTRB ROM when accessing CnXX in IOSEL ROM.
 			if (S==4 & ~nIOSEL) IOROMEN <= 1'b1;
 			// Disable IOSTRB ROM when accessing 0xCFFF.
-			if (S==3 & ~nIOSTRB & A[10:0]==11'h7FF) IOROMEN <= 1'b0;
+			if (S==4 & ~nIOSTRB & A[10:0]==11'h7FF) IOROMEN <= 1'b0;
 		end
 	end
 
