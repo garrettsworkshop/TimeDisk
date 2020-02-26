@@ -68,7 +68,7 @@ module TimeMachine(C7M, PHI1in, nRES,
 	reg REGEN = 0; // Register enable
 	reg IOROMEN = 0; // IOSTRB ROM enable
 	reg [7:0] Bank = 0; // Bank register for ROM access
-	reg [23:0] Addr = 0; // Address register bits 19:0
+	reg [23:0] Addr = 0; // RAM address register
 	
 	/* Increment Control */
 	reg IncAddrL = 0, IncAddrM = 0, IncAddrH = 0;
@@ -79,6 +79,10 @@ module TimeMachine(C7M, PHI1in, nRES,
 	reg [2:0] S = 3'h0; // State counter
 	reg DBEN = 0; // data bus driver gating
 	reg CSEN = 0; // ROM CS enable for reads
+
+	/* Configuration */
+	reg Mode = 0;
+	reg ModeLoaded = 0;
 
 	// Apple II Bus Compatibiltiy Rules:
 	// Synchronize to PHI0 or PHI1. (PHI1 here)
@@ -137,6 +141,7 @@ module TimeMachine(C7M, PHI1in, nRES,
 		end
 	end
 
+	/* Set registers */
 	always @(negedge C7M, negedge nRES) begin
 		if (~nRES) begin
 			Addr <= 0;
