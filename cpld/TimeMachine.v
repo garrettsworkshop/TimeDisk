@@ -109,6 +109,16 @@ module TimeMachine(C7M, PHI1in, nRES,
 			S==7 ? 3'h7 : S+1;
 	end
 
+	always @(posedge C7M, negedge nRES) begin
+		if (~nRES) begin
+			Mode <= 0;
+			ModeLoaded <= 0;
+		end else if (~ModeLoaded) begin
+			Mode <= RA11;
+			ModeLoaded <= 1;
+		end
+	end
+
 	/* State-based data bus and ROM CS gating */
 	always @(posedge C7M, negedge nRES) begin
 		if (~nRES) begin
