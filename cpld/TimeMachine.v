@@ -1,6 +1,6 @@
 module TimeMachine(C7M, PHI1in, nRES,
 				   A, RA, nWE, D, RD,
-				   nDEVSEL, nIOSEL, nIOSTRB, nINH,
+				   nDEVSEL, nIOSEL, nIOSTRB,
 				   nRAMROMCS, RAMROMCSgb, RAMCS, nROMCS);
 
 	/* Clock, Reset */
@@ -57,9 +57,6 @@ module TimeMachine(C7M, PHI1in, nRES,
 		AddrMSELA ? Addr[15:8] : 
 		AddrLSELA ? Addr[7:0] : 8'h00;
 	inout [7:0] D = DOE ? Dout : 8'bZ;
-	
-	/* Inhibit output */
-	output nINH = 1'bZ;
 
 	/* SRAM and ROM Control Signals */
 	output nRAMROMCS = ~(RAMSEL | ~nIOSEL);
