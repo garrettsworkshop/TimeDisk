@@ -65,6 +65,8 @@ module TimeMachine(C7M, PHI1in, nRES,
 	output nROMCS = ~(CSEN & ((~nIOSEL & RAMROMCSgb) | (~nIOSTRB & IOROMEN)));
 	
   	/* 6502-accessible Registers */
+	reg REGEN = 0; // Register enable
+	reg IOROMEN = 0; // IOSTRB ROM enable
 	reg [7:0] Bank = 0; // Bank register for ROM access
 	reg [23:0] Addr = 0; // Address register bits 19:0
 	
@@ -75,10 +77,6 @@ module TimeMachine(C7M, PHI1in, nRES,
 	reg PHI1reg = 1'b0; // Saved PHI1 at last rising clock edge
 	reg PHI0seen = 1'b0; // Have we seen PHI0 since reset?
 	reg [2:0] S = 3'h0; // State counter
-
-	/* Misc. */
-	reg REGEN = 0; // Register enable
-	reg IOROMEN = 0; // IOSTRB ROM enable
 	reg DBEN = 0; // data bus driver gating
 	reg CSEN = 0; // ROM CS enable for reads
 
