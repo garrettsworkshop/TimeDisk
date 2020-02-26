@@ -25,11 +25,19 @@ module TimeMachine(C7M, PHI1in, nRES,
 	input nDEVSEL, nIOSEL, nIOSTRB; // Card select signals
 	input [15:0] A; // 6502 address bus
 	input nWE; // 6502 R/W
-	output [19:0] RA; // ROM and RAM dual-function address pins
-	assign RA[19] = Addr[19];
-	assign RA[18:11] = ~nIOSTRB ? Bank+1 :
-		(nIOSEL & nIOSTRB) ? Addr[18:11] : 8'h00;
-	assign RA[10:0] = Addr[10:0];
+	// ROM and RAM dual-function address pins
+	wire [7:0] Bank1 = Bank+1;
+	output RA19 = Addr[19];
+	output [18:12] RAH = 
+		(~nIOSTRB &  FullIOEN) ? Bank1[7:1] : 
+		(~nIOSTRB & ~FullIOEN) ? 7'b0000001 : 
+		( nIOSTRB &  nIOSEL)   ? Addr[18:12] : 7'h00;
+	output RA11 = ~ModeLoaded ? 1'bZ : 
+		(~nIOSTRB &  FullIOEN) ? Bank1[0] : 
+		(~nIOSTRB & ~FullIOEN) ? Bank[0] : 
+		( nIOSTRB &  nIOSEL)   ? Addr[11] : 
+		~nIOSEL ? Mode : 1'b0;
+	output [10:0] RAL = Addr[10:0];
 
 	/* Select Signals */
 	wire BankSELA = A[3:0]==4'hF;
@@ -38,6 +46,7 @@ module TimeMachine(C7M, PHI1in, nRES,
 	wire AddrMSELA = A[3:0]==4'h1;
 	wire AddrLSELA = A[3:0]==4'h0;
 	LCELL BankWR_MC (.in(BankSELA & ~nWE & ~nDEVSEL & REGEN), .out(BankWR)); wire BankWR;
+	wire SetWR = SetSELA & ~nWE & ~nDEVSEL & REGEN;
 	LCELL RAMSEL_MC (.in(RAMSELA & ~nDEVSEL & REGEN), .out(RAMSEL)); wire RAMSEL;
 	LCELL AddrHWR_MC (.in(AddrHSELA & ~nWE & ~nDEVSEL & REGEN), .out(AddrHWR)); wire AddrHWR;
 	LCELL AddrMWR_MC (.in(AddrMSELA & ~nWE & ~nDEVSEL & REGEN), .out(AddrMWR)); wire AddrMWR;
@@ -67,6 +76,7 @@ module TimeMachine(C7M, PHI1in, nRES,
   	/* 6502-accessible Registers */
 	reg REGEN = 0; // Register enable
 	reg IOROMEN = 0; // IOSTRB ROM enable
+	reg FullIOEN = 0; // Set to enable full IOROM space
 	reg [7:0] Bank = 0; // Bank register for ROM access
 	reg [23:0] Addr = 0; // RAM address register
 	
@@ -160,6 +170,7 @@ module TimeMachine(C7M, PHI1in, nRES,
 		if (~nRES) begin
 			Addr <= 0;
 			Bank <= 0;
+			FullIOEN <= 0;
 			IncAddrL <= 0;
 			IncAddrM <= 0;
 			IncAddrH <= 0;
@@ -183,6 +194,7 @@ module TimeMachine(C7M, PHI1in, nRES,
 			// Set register in middle of S6 if accessed.
 			if (S==6) begin
 				if (BankWR) Bank[7:0] <= D[7:0]; // Bank
+				if (SetWR) FullIOEN <= D[7:0] == 8'hE5;
 				
 				IncAddrL <= RAMSEL;
 				IncAddrM <= AddrLWR & Addr[7] & ~D[7];
