@@ -33,7 +33,6 @@ module TimeMachine(C7M, PHI1in, nRES,
 
 	/* Select Signals */
 	wire BankSELA = A[3:0]==4'hF;
-	wire SetSELA = A[3:0]==4'hE;
 	wire RAMSELA = A[3:0]==4'h3;
 	wire AddrHSELA = A[3:0]==4'h2;
 	wire AddrMSELA = A[3:0]==4'h1;
@@ -54,7 +53,7 @@ module TimeMachine(C7M, PHI1in, nRES,
 		 (~nDEVSEL & REGEN & RAMSEL & RAMROMCSgb) | 
 		 (~nIOSEL & RAMROMCSgb) | (~nIOSTRB & IOROMEN));
 	wire [7:0] Dout = (nDEVSEL | RAMSELA) ? RD[7:0] :
-		AddrHSELA ? {4'hF, Addr[19:16]} : 
+        AddrHSELA ? Addr[23:16] : 
 		AddrMSELA ? Addr[15:8] : 
 		AddrLSELA ? Addr[7:0] : 8'h00;
 	inout [7:0] D = DOE ? Dout : 8'bZ;
@@ -70,7 +69,7 @@ module TimeMachine(C7M, PHI1in, nRES,
 	
   	/* 6502-accessible Registers */
 	reg [7:0] Bank = 0; // Bank register for ROM access
-	reg [19:0] Addr = 0; // Address register bits 19:0
+	reg [23:0] Addr = 0; // Address register bits 19:0
 	
 	/* Increment Control */
 	reg IncAddrL = 0, IncAddrM = 0, IncAddrH = 0;
@@ -164,7 +163,7 @@ module TimeMachine(C7M, PHI1in, nRES,
 			end
 			if (S==3 & IncAddrH) begin
 				IncAddrH <= 0;
-				Addr[19:16] <= Addr[19:16]+1;
+				Addr[23:16] <= Addr[23:16]+1;
 			end
 
 			// Set register in middle of S6 if accessed.
