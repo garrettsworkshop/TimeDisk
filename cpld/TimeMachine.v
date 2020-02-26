@@ -72,6 +72,10 @@ module TimeMachine(C7M, PHI1in, nRES,
 	
 	/* Increment Control */
 	reg IncAddrL = 0, IncAddrM = 0, IncAddrH = 0;
+	
+	/* Transfer Counters */
+	reg [15:0] TCnt = 0;
+	reg [15:0] Dest = 0;
 
 	/* State Counters */
 	reg PHI1reg = 1'b0; // Saved PHI1 at last rising clock edge
