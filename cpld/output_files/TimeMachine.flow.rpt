@@ -1,6 +1,6 @@
 Flow report for TimeMachine
-Mon Feb 17 20:36:16 2020
-Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
+Sun Mar 01 14:40:06 2020
+Quartus II 32-bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Full Version
 
 
 ---------------------
@@ -37,19 +37,19 @@ applicable agreement for further details.
 
 
 
-+-----------------------------------------------------------------------------+
-; Flow Summary                                                                ;
-+---------------------------+-------------------------------------------------+
-; Flow Status               ; Successful - Mon Feb 17 20:36:14 2020           ;
-; Quartus II 64-Bit Version ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition ;
-; Revision Name             ; TimeMachine                                     ;
-; Top-level Entity Name     ; TimeMachine                                     ;
-; Family                    ; MAX7000S                                        ;
-; Device                    ; EPM7128SLC84-15                                 ;
-; Timing Models             ; Final                                           ;
-; Total macrocells          ; 86 / 128 ( 67 % )                               ;
-; Total pins                ; 68 / 68 ( 100 % )                               ;
-+---------------------------+-------------------------------------------------+
++------------------------------------------------------------------------------+
+; Flow Summary                                                                 ;
++---------------------------+--------------------------------------------------+
+; Flow Status               ; Successful - Sun Mar 01 14:40:00 2020            ;
+; Quartus II 32-bit Version ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Full Version ;
+; Revision Name             ; TimeMachine                                      ;
+; Top-level Entity Name     ; TimeMachine                                      ;
+; Family                    ; MAX7000S                                         ;
+; Device                    ; EPM7128SLC84-15                                  ;
+; Timing Models             ; Final                                            ;
+; Total macrocells          ; 103 / 128 ( 80 % )                               ;
+; Total pins                ; 67 / 68 ( 99 % )                                 ;
++---------------------------+--------------------------------------------------+
 
 
 +-----------------------------------------+
@@ -57,35 +57,35 @@ applicable agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 02/17/2020 20:36:11 ;
+; Start date & time ; 03/01/2020 14:39:46 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; TimeMachine         ;
 +-------------------+---------------------+
 
 
-+-------------------------------------------------------------------------------------------------------------------------+
-; Flow Non-Default Global Settings                                                                                        ;
-+--------------------------------------------+---------------------------------+---------------+-------------+------------+
-; Assignment Name                            ; Value                           ; Default Value ; Entity Name ; Section Id ;
-+--------------------------------------------+---------------------------------+---------------+-------------+------------+
-; ALM_REGISTER_PACKING_EFFORT                ; High                            ; Medium        ; --          ; --         ;
-; AUTO_LCELL_INSERTION                       ; Off                             ; On            ; --          ; --         ;
-; AUTO_PARALLEL_EXPANDERS                    ; Off                             ; On            ; --          ; --         ;
-; AUTO_TURBO_BIT                             ; Off                             ; On            ; --          ; --         ;
-; COMPILER_SIGNATURE_ID                      ; 207120313862967.158198977112612 ; --            ; --          ; --         ;
-; ECO_OPTIMIZE_TIMING                        ; On                              ; Off           ; --          ; --         ;
-; ECO_REGENERATE_REPORT                      ; On                              ; Off           ; --          ; --         ;
-; FITTER_EFFORT                              ; Standard Fit                    ; Auto Fit      ; --          ; --         ;
-; MAX7000_IGNORE_LCELL_BUFFERS               ; Off                             ; Auto          ; --          ; --         ;
-; MAX_CORE_JUNCTION_TEMP                     ; 85                              ; --            ; --          ; --         ;
-; MIN_CORE_JUNCTION_TEMP                     ; 0                               ; --            ; --          ; --         ;
-; OPTIMIZE_HOLD_TIMING                       ; Off                             ; --            ; --          ; --         ;
-; OPTIMIZE_IOC_REGISTER_PLACEMENT_FOR_TIMING ; Pack All IO Registers           ; Normal        ; --          ; --         ;
-; PROJECT_OUTPUT_DIRECTORY                   ; output_files                    ; --            ; --          ; --         ;
-; SLOW_SLEW_RATE                             ; On                              ; Off           ; --          ; --         ;
-; SYNTH_MESSAGE_LEVEL                        ; High                            ; Medium        ; --          ; --         ;
-; SYNTH_TIMING_DRIVEN_SYNTHESIS              ; Off                             ; --            ; --          ; --         ;
-+--------------------------------------------+---------------------------------+---------------+-------------+------------+
++---------------------------------------------------------------------------------------------------------------------+
+; Flow Non-Default Global Settings                                                                                    ;
++--------------------------------------------+-----------------------------+---------------+-------------+------------+
+; Assignment Name                            ; Value                       ; Default Value ; Entity Name ; Section Id ;
++--------------------------------------------+-----------------------------+---------------+-------------+------------+
+; ALM_REGISTER_PACKING_EFFORT                ; High                        ; Medium        ; --          ; --         ;
+; AUTO_LCELL_INSERTION                       ; Off                         ; On            ; --          ; --         ;
+; AUTO_PARALLEL_EXPANDERS                    ; Off                         ; On            ; --          ; --         ;
+; AUTO_TURBO_BIT                             ; Off                         ; On            ; --          ; --         ;
+; COMPILER_SIGNATURE_ID                      ; 52243663262.158309158502332 ; --            ; --          ; --         ;
+; ECO_OPTIMIZE_TIMING                        ; On                          ; Off           ; --          ; --         ;
+; ECO_REGENERATE_REPORT                      ; On                          ; Off           ; --          ; --         ;
+; FITTER_EFFORT                              ; Standard Fit                ; Auto Fit      ; --          ; --         ;
+; MAX7000_IGNORE_LCELL_BUFFERS               ; Off                         ; Auto          ; --          ; --         ;
+; MAX_CORE_JUNCTION_TEMP                     ; 85                          ; --            ; --          ; --         ;
+; MIN_CORE_JUNCTION_TEMP                     ; 0                           ; --            ; --          ; --         ;
+; OPTIMIZE_HOLD_TIMING                       ; Off                         ; --            ; --          ; --         ;
+; OPTIMIZE_IOC_REGISTER_PLACEMENT_FOR_TIMING ; Pack All IO Registers       ; Normal        ; --          ; --         ;
+; PROJECT_OUTPUT_DIRECTORY                   ; output_files                ; --            ; --          ; --         ;
+; SLOW_SLEW_RATE                             ; On                          ; Off           ; --          ; --         ;
+; SYNTH_MESSAGE_LEVEL                        ; High                        ; Medium        ; --          ; --         ;
+; SYNTH_TIMING_DRIVEN_SYNTHESIS              ; Off                         ; --            ; --          ; --         ;
++--------------------------------------------+-----------------------------+---------------+-------------+------------+
 
 
 +-------------------------------------------------------------------------------------------------------------------------------+
@@ -93,24 +93,24 @@ applicable agreement for further details.
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name               ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis      ; 00:00:02     ; 1.0                     ; 4586 MB             ; 00:00:01                           ;
-; Fitter                    ; 00:00:01     ; 1.0                     ; 4697 MB             ; 00:00:00                           ;
-; Assembler                 ; 00:00:00     ; 1.0                     ; 4522 MB             ; 00:00:00                           ;
-; TimeQuest Timing Analyzer ; 00:00:01     ; 1.0                     ; 4541 MB             ; 00:00:00                           ;
-; Total                     ; 00:00:04     ; --                      ; --                  ; 00:00:01                           ;
+; Analysis & Synthesis      ; 00:00:07     ; 1.0                     ; 321 MB              ; 00:00:06                           ;
+; Fitter                    ; 00:00:04     ; 1.0                     ; 292 MB              ; 00:00:03                           ;
+; Assembler                 ; 00:00:02     ; 1.0                     ; 266 MB              ; 00:00:01                           ;
+; TimeQuest Timing Analyzer ; 00:00:04     ; 1.0                     ; 265 MB              ; 00:00:03                           ;
+; Total                     ; 00:00:17     ; --                      ; --                  ; 00:00:13                           ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
-+----------------------------------------------------------------------------------------+
-; Flow OS Summary                                                                        ;
-+---------------------------+------------------+-----------+------------+----------------+
-; Module Name               ; Machine Hostname ; OS Name   ; OS Version ; Processor type ;
-+---------------------------+------------------+-----------+------------+----------------+
-; Analysis & Synthesis      ; DESKTOP-G62HNQS  ; Windows 7 ; 6.2        ; x86_64         ;
-; Fitter                    ; DESKTOP-G62HNQS  ; Windows 7 ; 6.2        ; x86_64         ;
-; Assembler                 ; DESKTOP-G62HNQS  ; Windows 7 ; 6.2        ; x86_64         ;
-; TimeQuest Timing Analyzer ; DESKTOP-G62HNQS  ; Windows 7 ; 6.2        ; x86_64         ;
-+---------------------------+------------------+-----------+------------+----------------+
++-----------------------------------------------------------------------------------------+
+; Flow OS Summary                                                                         ;
++---------------------------+------------------+------------+------------+----------------+
+; Module Name               ; Machine Hostname ; OS Name    ; OS Version ; Processor type ;
++---------------------------+------------------+------------+------------+----------------+
+; Analysis & Synthesis      ; zane-c8bbf8aef2  ; Windows XP ; 5.1        ; i686           ;
+; Fitter                    ; zane-c8bbf8aef2  ; Windows XP ; 5.1        ; i686           ;
+; Assembler                 ; zane-c8bbf8aef2  ; Windows XP ; 5.1        ; i686           ;
+; TimeQuest Timing Analyzer ; zane-c8bbf8aef2  ; Windows XP ; 5.1        ; i686           ;
++---------------------------+------------------+------------+------------+----------------+
 
 
 ------------

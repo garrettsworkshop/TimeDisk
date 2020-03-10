@@ -56,7 +56,7 @@
  -- Pin directions (input, output or bidir) are based on device operating in user mode.
  ---------------------------------------------------------------------------------
 
-Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
+Quartus II 32-bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Full Version
 CHIP  "TimeMachine"  ASSIGNED TO AN: EPM7128SLC84-15
 
 Pin Name/Usage               : Location  : Dir.   : I/O Standard      : Voltage : I/O Bank  : User Assignment
@@ -72,10 +72,10 @@ A[14]                        : 8         : input  : TTL               :         
 A[15]                        : 9         : input  : TTL               :         :           : Y              
 nWE                          : 10        : input  : TTL               :         :           : Y              
 nDEVSEL                      : 11        : input  : TTL               :         :           : Y              
-RA[18]                       : 12        : output : TTL               :         :           : Y              
+RA11                         : 12        : output : TTL               :         :           : N              
 VCCIO                        : 13        : power  :                   : 5.0V    :           :                
 TDI                          : 14        : input  : TTL               :         :           : N              
-nINH                         : 15        : output : TTL               :         :           : Y              
+RAH[18]                      : 15        : output : TTL               :         :           : N              
 nIOSTRB                      : 16        : input  : TTL               :         :           : Y              
 nROMCS                       : 17        : output : TTL               :         :           : Y              
 nIOSEL                       : 18        : input  : TTL               :         :           : Y              
@@ -106,30 +106,30 @@ GND                          : 42        : gnd    :                   :         
 VCCINT                       : 43        : power  :                   : 5.0V    :           :                
 RD[7]                        : 44        : bidir  : TTL               :         :           : Y              
 RAMCS                        : 45        : output : TTL               :         :           : Y              
-RA[15]                       : 46        : output : TTL               :         :           : Y              
+RAL[2]                       : 46        : output : TTL               :         :           : N              
 GND                          : 47        : gnd    :                   :         :           :                
-RA[10]                       : 48        : output : TTL               :         :           : N              
-RA[0]                        : 49        : output : TTL               :         :           : N              
-RA[8]                        : 50        : output : TTL               :         :           : N              
-RA[11]                       : 51        : output : TTL               :         :           : Y              
-RA[9]                        : 52        : output : TTL               :         :           : N              
+RAL[0]                       : 48        : output : TTL               :         :           : N              
+RAL[10]                      : 49        : output : TTL               :         :           : N              
+RAL[8]                       : 50        : output : TTL               :         :           : N              
+RAL[7]                       : 51        : output : TTL               :         :           : N              
+RESERVED                     : 52        :        :                   :         :           :                
 VCCIO                        : 53        : power  :                   : 5.0V    :           :                
-RA[4]                        : 54        : output : TTL               :         :           : N              
-RA[7]                        : 55        : output : TTL               :         :           : N              
-RA[6]                        : 56        : output : TTL               :         :           : N              
-RA[3]                        : 57        : output : TTL               :         :           : N              
-RA[5]                        : 58        : output : TTL               :         :           : N              
+RAL[3]                       : 54        : output : TTL               :         :           : N              
+RAL[1]                       : 55        : output : TTL               :         :           : N              
+RAH[12]                      : 56        : output : TTL               :         :           : N              
+RAL[9]                       : 57        : output : TTL               :         :           : N              
+RAL[4]                       : 58        : output : TTL               :         :           : N              
 GND                          : 59        : gnd    :                   :         :           :                
-RA[12]                       : 60        : output : TTL               :         :           : Y              
-RA[16]                       : 61        : output : TTL               :         :           : Y              
+RAL[6]                       : 60        : output : TTL               :         :           : N              
+RAL[5]                       : 61        : output : TTL               :         :           : N              
 TCK                          : 62        : input  : TTL               :         :           : N              
-RA[1]                        : 63        : output : TTL               :         :           : N              
-RA[2]                        : 64        : output : TTL               :         :           : N              
-RA[19]                       : 65        : output : TTL               :         :           : N              
+RA19                         : 63        : output : TTL               :         :           : N              
+RAH[16]                      : 64        : output : TTL               :         :           : N              
+RAH[15]                      : 65        : output : TTL               :         :           : N              
 VCCIO                        : 66        : power  :                   : 5.0V    :           :                
-RA[14]                       : 67        : output : TTL               :         :           : Y              
-RA[17]                       : 68        : output : TTL               :         :           : Y              
-RA[13]                       : 69        : output : TTL               :         :           : Y              
+RAH[17]                      : 67        : output : TTL               :         :           : N              
+RAH[13]                      : 68        : output : TTL               :         :           : N              
+RAH[14]                      : 69        : output : TTL               :         :           : N              
 A[8]                         : 70        : input  : TTL               :         :           : Y              
 TDO                          : 71        : output : TTL               :         :           : N              
 GND                          : 72        : gnd    :                   :         :           :                

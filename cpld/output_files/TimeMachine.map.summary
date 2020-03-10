@@ -1,7 +1,7 @@
-Analysis & Synthesis Status : Successful - Mon Feb 17 20:36:12 2020
-Quartus II 64-Bit Version : 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition
+Analysis & Synthesis Status : Successful - Sun Mar 01 14:39:50 2020
+Quartus II 32-bit Version : 13.0.1 Build 232 06/12/2013 SP 1 SJ Full Version
 Revision Name : TimeMachine
 Top-level Entity Name : TimeMachine
 Family : MAX7000S
-Total macrocells : 86
-Total pins : 64
+Total macrocells : 103
+Total pins : 63

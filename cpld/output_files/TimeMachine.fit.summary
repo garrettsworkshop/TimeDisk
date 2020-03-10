@@ -1,9 +1,9 @@
-Fitter Status : Successful - Mon Feb 17 20:36:13 2020
-Quartus II 64-Bit Version : 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition
+Fitter Status : Successful - Sun Mar 01 14:39:56 2020
+Quartus II 32-bit Version : 13.0.1 Build 232 06/12/2013 SP 1 SJ Full Version
 Revision Name : TimeMachine
 Top-level Entity Name : TimeMachine
 Family : MAX7000S
 Device : EPM7128SLC84-15
 Timing Models : Final
-Total macrocells : 86 / 128 ( 67 % )
-Total pins : 68 / 68 ( 100 % )
+Total macrocells : 103 / 128 ( 80 % )
+Total pins : 67 / 68 ( 99 % )
