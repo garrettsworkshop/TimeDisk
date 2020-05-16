@@ -6,6 +6,7 @@
 *.bak
 *.bck
 *.kicad_pcb-bak
+*.sch-bak
 *~
 _autosave-*
 *.tmp
@@ -26,4 +27,3 @@ fp-info-cache
 *.csv
 
 *.DS_Store
-*.sch-bak
