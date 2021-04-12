@@ -27,8 +27,8 @@ module TimeMachine(C7M, PHI1in, nRES,
 	input nWE; // 6502 R/W
 	output [19:0] RA; // ROM and RAM dual-function address pins
 	assign RA[19] = Addr[19];
-	assign RA[18:11] = ~nIOSTRB ? Bank+1 :
-		(nIOSEL & nIOSTRB) ? Addr[18:11] : 8'h00;
+	assign RA[18:11] = 
+		(~nIOSTRB || ~nIOSEL) ? { 6'h00, Bank, A[11]} : Addr[18:11];
 	assign RA[10:0] = Addr[10:0];
 
 	/* Select Signals */
@@ -67,7 +67,7 @@ module TimeMachine(C7M, PHI1in, nRES,
   	/* 6502-accessible Registers */
 	reg REGEN = 0; // Register enable
 	reg IOROMEN = 0; // IOSTRB ROM enable
-	reg [7:0] Bank = 0; // Bank register for ROM access
+	reg Bank = 0; // Bank register for ROM access
 	reg [23:0] Addr = 0; // Address register bits 19:0
 	
 	/* Increment Control */
@@ -163,7 +163,7 @@ module TimeMachine(C7M, PHI1in, nRES,
 
 			// Set register in middle of S6 if accessed.
 			if (S==6) begin
-				if (BankWR) Bank[7:0] <= D[7:0]; // Bank
+				if (BankWR) Bank <= D[0]; // Bank
 				
 				IncAddrL <= RAMSEL;
 				IncAddrM <= AddrLWR & Addr[7] & ~D[7];
