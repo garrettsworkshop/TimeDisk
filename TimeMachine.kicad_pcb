@@ -2,7 +2,7 @@
 
   (general
     (thickness 1.6)
-    (drawings 38)
+    (drawings 37)
     (tracks 1947)
     (zones 0)
     (modules 51)
@@ -2679,7 +2679,7 @@
   (gr_text "ZK, GF" (at 241.935 125.095) (layer B.SilkS) (tstamp 5D3AF9B3)
     (effects (font (size 0.8128 0.8128) (thickness 0.2032)) (justify mirror))
   )
-  (gr_text GW (at 154.178 129.032) (layer F.SilkS) (tstamp 5D324C09)
+  (gr_text TimeMachine (at 156.972 129.032) (layer F.SilkS) (tstamp 5D324C09)
     (effects (font (size 1.524 1.524) (thickness 0.3)))
   )
   (gr_text "Garrett’s Workshop" (at 157.226 126.492) (layer F.SilkS) (tstamp 5D324C12)
@@ -2698,9 +2698,6 @@
   (gr_arc (start 142.113 129.54) (end 140.081 129.54) (angle -90) (layer Dwgs.User) (width 0.01) (tstamp 5D32296B))
   (gr_arc (start 142.113 129.54) (end 139.573 129.54) (angle -90) (layer Edge.Cuts) (width 0.15) (tstamp 5D322968))
   (gr_line (start 139.573 129.54) (end 139.573 96.139) (layer Edge.Cuts) (width 0.15) (tstamp 5D322965))
-  (gr_text 4205A (at 159.766 129.032) (layer F.SilkS) (tstamp 5D324C15)
-    (effects (font (size 1.524 1.524) (thickness 0.3)))
-  )
   (gr_line (start 175.514 132.08) (end 175.514 139.192) (layer Edge.Cuts) (width 0.15) (tstamp 5D322962))
   (gr_poly (pts (xy 241.3 139.446) (xy 240.792 139.954) (xy 175.768 139.954) (xy 175.26 139.446) (xy 175.26 132.08) (xy 241.3 132.08)) (layer B.Mask) (width 0) (tstamp 5D32295F))
   (gr_arc (start 240.538 139.192) (end 240.538 139.7) (angle -90) (layer Edge.Cuts) (width 0.15) (tstamp 5D32295C))
