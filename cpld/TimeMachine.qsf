@@ -102,13 +102,6 @@ set_global_assignment -name SYNTH_TIMING_DRIVEN_SYNTHESIS OFF
 set_global_assignment -name MAX7000_IGNORE_LCELL_BUFFERS OFF
 set_global_assignment -name AUTO_LCELL_INSERTION OFF
 set_global_assignment -name SYNTH_MESSAGE_LEVEL HIGH
-set_location_assignment LC52 -to Bank[1] -disable
-set_location_assignment LC54 -to Bank[2] -disable
-set_location_assignment LC55 -to Bank[3] -disable
-set_location_assignment LC60 -to Bank[5] -disable
-set_location_assignment LC58 -to Bank[4] -disable
-set_location_assignment LC50 -to Bank[0] -disable
-set_location_assignment LC62 -to Bank[6] -disable
 set_location_assignment PIN_15 -to nINH
 set_global_assignment -name AUTO_PARALLEL_EXPANDERS OFF
 set_instance_assignment -name MAX7000_INDIVIDUAL_TURBO_BIT ON -to PHI1b0_MC
@@ -135,3 +128,15 @@ set_global_assignment -name ECO_REGENERATE_REPORT ON
 set_global_assignment -name OPTIMIZE_IOC_REGISTER_PLACEMENT_FOR_TIMING "PACK ALL IO REGISTERS"
 set_instance_assignment -name MAX7000_INDIVIDUAL_TURBO_BIT ON -to IOROMEN
 set_location_assignment PIN_12 -to RA[18]
+set_location_assignment PIN_48 -to RA[5]
+set_location_assignment PIN_49 -to RA[7]
+set_location_assignment PIN_50 -to RA[9]
+set_location_assignment PIN_52 -to RA[1]
+set_location_assignment PIN_54 -to RA[2]
+set_location_assignment PIN_55 -to RA[0]
+set_location_assignment PIN_56 -to RA[10]
+set_location_assignment PIN_57 -to RA[8]
+set_location_assignment PIN_58 -to RA[6]
+set_location_assignment PIN_63 -to RA[3]
+set_location_assignment PIN_64 -to RA[4]
+set_location_assignment PIN_65 -to RA[19]

@@ -1,5 +1,5 @@
 |TimeMachine
-C7M => always3.IN0
+C7M => always4.IN0
 C7M => IOROMEN.CLK
 C7M => REGEN.CLK
 C7M => CSEN.CLK
@@ -11,7 +11,7 @@ C7M => PHI0seen.CLK
 C7M => PHI1reg.CLK
 PHI1in => comb.IN0
 PHI1in => PHI1b0_MC.DATAIN
-nRES => always3.IN0
+nRES => always4.IN0
 A[0] => Equal0.IN7
 A[0] => Equal1.IN7
 A[0] => Equal2.IN7
@@ -91,6 +91,7 @@ RD[4] <> RD[4]
 RD[5] <> RD[5]
 RD[6] <> RD[6]
 RD[7] <> RD[7]
+nINH => ~NO_FANOUT~
 nDEVSEL => comb.IN0
 nDEVSEL => comb.IN0
 nDEVSEL => comb.IN0

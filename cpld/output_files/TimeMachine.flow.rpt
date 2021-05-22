@@ -1,5 +1,5 @@
 Flow report for TimeMachine
-Mon Apr 12 04:04:57 2021
+Fri Apr 16 22:56:14 2021
 Quartus II 32-bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
 
 
@@ -40,7 +40,7 @@ applicable agreement for further details.
 +-----------------------------------------------------------------------------+
 ; Flow Summary                                                                ;
 +---------------------------+-------------------------------------------------+
-; Flow Status               ; Successful - Mon Apr 12 04:04:50 2021           ;
+; Flow Status               ; Successful - Fri Apr 16 22:56:09 2021           ;
 ; Quartus II 32-bit Version ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition ;
 ; Revision Name             ; TimeMachine                                     ;
 ; Top-level Entity Name     ; TimeMachine                                     ;
@@ -48,7 +48,7 @@ applicable agreement for further details.
 ; Device                    ; EPM7128SLC84-15                                 ;
 ; Timing Models             ; Final                                           ;
 ; Total macrocells          ; 81 / 128 ( 63 % )                               ;
-; Total pins                ; 67 / 68 ( 99 % )                                ;
+; Total pins                ; 68 / 68 ( 100 % )                               ;
 +---------------------------+-------------------------------------------------+
 
 
@@ -57,7 +57,7 @@ applicable agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 04/12/2021 04:04:32 ;
+; Start date & time ; 04/16/2021 22:55:56 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; TimeMachine         ;
 +-------------------+---------------------+
@@ -72,7 +72,7 @@ applicable agreement for further details.
 ; AUTO_LCELL_INSERTION                       ; Off                            ; On            ; --          ; --         ;
 ; AUTO_PARALLEL_EXPANDERS                    ; Off                            ; On            ; --          ; --         ;
 ; AUTO_TURBO_BIT                             ; Off                            ; On            ; --          ; --         ;
-; COMPILER_SIGNATURE_ID                      ; 44085571633675.161821467200624 ; --            ; --          ; --         ;
+; COMPILER_SIGNATURE_ID                      ; 44085571633675.161862815600272 ; --            ; --          ; --         ;
 ; ECO_OPTIMIZE_TIMING                        ; On                             ; Off           ; --          ; --         ;
 ; ECO_REGENERATE_REPORT                      ; On                             ; Off           ; --          ; --         ;
 ; FITTER_EFFORT                              ; Standard Fit                   ; Auto Fit      ; --          ; --         ;
@@ -93,11 +93,11 @@ applicable agreement for further details.
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name               ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis      ; 00:00:08     ; 1.0                     ; 315 MB              ; 00:00:08                           ;
-; Fitter                    ; 00:00:05     ; 1.0                     ; 290 MB              ; 00:00:04                           ;
-; Assembler                 ; 00:00:03     ; 1.0                     ; 278 MB              ; 00:00:03                           ;
-; TimeQuest Timing Analyzer ; 00:00:04     ; 1.0                     ; 275 MB              ; 00:00:04                           ;
-; Total                     ; 00:00:20     ; --                      ; --                  ; 00:00:19                           ;
+; Analysis & Synthesis      ; 00:00:06     ; 1.0                     ; 315 MB              ; 00:00:06                           ;
+; Fitter                    ; 00:00:03     ; 1.0                     ; 290 MB              ; 00:00:03                           ;
+; Assembler                 ; 00:00:02     ; 1.0                     ; 278 MB              ; 00:00:02                           ;
+; TimeQuest Timing Analyzer ; 00:00:03     ; 1.0                     ; 275 MB              ; 00:00:03                           ;
+; Total                     ; 00:00:14     ; --                      ; --                  ; 00:00:14                           ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
