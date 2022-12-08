@@ -23,3 +23,6 @@ fp-info-cache
 *.ses
 
 *.DS_Store
+*.kicad_prl
+TimeMachine-backups/*
+Documentation/~$4206AManual.docx
