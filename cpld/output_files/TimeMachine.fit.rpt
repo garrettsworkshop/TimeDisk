@@ -1,5 +1,5 @@
 Fitter report for TimeMachine
-Fri Apr 16 22:56:05 2021
+Sun Dec 18 03:45:31 2022
 Quartus II 32-bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
 
 
@@ -55,7 +55,7 @@ applicable agreement for further details.
 +-----------------------------------------------------------------------------+
 ; Fitter Summary                                                              ;
 +---------------------------+-------------------------------------------------+
-; Fitter Status             ; Successful - Fri Apr 16 22:56:05 2021           ;
+; Fitter Status             ; Successful - Sun Dec 18 03:45:31 2022           ;
 ; Quartus II 32-bit Version ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition ;
 ; Revision Name             ; TimeMachine                                     ;
 ; Top-level Entity Name     ; TimeMachine                                     ;
@@ -87,27 +87,21 @@ applicable agreement for further details.
 +----------------------------------------------------------------------------+-----------------------+---------------+
 
 
-+------------------------------------------+
-; Parallel Compilation                     ;
-+----------------------------+-------------+
-; Processors                 ; Number      ;
-+----------------------------+-------------+
-; Number detected on machine ; 2           ;
-; Maximum allowed            ; 2           ;
-;                            ;             ;
-; Average used               ; 1.00        ;
-; Maximum used               ; 1           ;
-;                            ;             ;
-; Usage by Processor         ; % Time Used ;
-;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;   0.0%      ;
-+----------------------------+-------------+
+Parallel compilation was disabled, but you have multiple processors available. Enable parallel compilation to reduce compilation time.
++-------------------------------------+
+; Parallel Compilation                ;
++----------------------------+--------+
+; Processors                 ; Number ;
++----------------------------+--------+
+; Number detected on machine ; 4      ;
+; Maximum allowed            ; 1      ;
++----------------------------+--------+
 
 
 +--------------+
 ; Pin-Out File ;
 +--------------+
-The pin-out file can be found in Z:/Repos/TimeMachine/cpld/output_files/TimeMachine.pin.
+The pin-out file can be found in //Mac/iCloud/Repos/TimeMachine/cpld/output_files/TimeMachine.pin.
 
 
 +--------------------------------------------------+
@@ -683,12 +677,12 @@ Note: User assignments will override these defaults. The user specified values a
 +-----------------+
 ; Fitter Messages ;
 +-----------------+
-Info (20030): Parallel compilation is enabled and will use 2 of the 2 processors detected
+Warning (20027): Cannot detect the number of processors available - disabling parallel compilation
 Info (119006): Selected device EPM7128SLC84-15 for design "TimeMachine"
-Info: Quartus II 32-bit Fitter was successful. 0 errors, 0 warnings
-    Info: Peak virtual memory: 293 megabytes
-    Info: Processing ended: Fri Apr 16 22:56:05 2021
-    Info: Elapsed time: 00:00:03
-    Info: Total CPU time (on all processors): 00:00:04
+Info: Quartus II 32-bit Fitter was successful. 0 errors, 1 warning
+    Info: Peak virtual memory: 595 megabytes
+    Info: Processing ended: Sun Dec 18 03:45:31 2022
+    Info: Elapsed time: 00:00:02
+    Info: Total CPU time (on all processors): 00:00:01
 
 
