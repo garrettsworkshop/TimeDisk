@@ -1,4 +1,4 @@
-module TimeMachine(C7M, PHI1, nRES,
+module TimeDisk(C7M, PHI1, nRES,
 				   A, RA, nWE, D, RD, nINH,
 				   nDEVSEL, nIOSEL, nIOSTRB,
 				   nRAMROMCS, RAMROMCSgb, RAMCS, nROMCS);
@@ -34,78 +34,75 @@ module TimeMachine(C7M, PHI1, nRES,
 	input [15:0] A; // 6502 address bus
 	input nWE; // 6502 R/W
 	output [19:0] RA; // ROM and RAM dual-function address pins
-	assign RA[19:0] = (~nIOSTRB || ~nIOSEL) ? 
+	assign RA[19:0] = (!nIOSTRB || !nIOSEL) ? 
 		{ Addr[19], 6'h00, Bank, A[11], Addr[10:0]} : 
 		Addr[19:0];
 
 	/* Select Signals */
-	wire BankSELA = A[3:0]==4'hF;
-	wire RAMSELA = A[3:0]==4'h3;
-	wire AddrHSELA = A[3:0]==4'h2;
-	wire AddrMSELA = A[3:0]==4'h1;
-	wire AddrLSELA = A[3:0]==4'h0;
-	LCELL BankWR_MC (.in(BankSELA && ~nWE && ~nDEVSEL && REGEN), .out(BankWR)); wire BankWR;
-	LCELL RAMSEL_MC (.in(RAMSELA && ~nDEVSEL && REGEN), .out(RAMSEL)); wire RAMSEL;
-	LCELL AddrHWR_MC (.in(AddrHSELA && ~nWE && ~nDEVSEL && REGEN), .out(AddrHWR)); wire AddrHWR;
-	LCELL AddrMWR_MC (.in(AddrMSELA && ~nWE && ~nDEVSEL && REGEN), .out(AddrMWR)); wire AddrMWR;
-	LCELL AddrLWR_MC (.in(AddrLSELA && ~nWE && ~nDEVSEL && REGEN), .out(AddrLWR)); wire AddrLWR;
+	`define BankSELA (A[3:0]==4'hF)
+	`define RAMSELA (A[3:0]==4'h3)
+	`define AddrHSELA (A[3:0]==4'h2)
+	`define AddrMSELA (A[3:0]==4'h1)
+	`define AddrLSELA (A[3:0]==4'h0)
+	wire BankWR = (`BankSELA && !nWE && !nDEVSEL && REGEN);
+	`define RAMSEL (`RAMSELA && !nDEVSEL && REGEN)
+	wire RAMSEL_BUF; LCELL RAMSEL_MC (.in(`RAMSEL), .out(RAMSEL_BUF));
+	wire AddrHWR; LCELL AddrHWR_MC (.in(`AddrHSELA && !nWE && !nDEVSEL && REGEN), .out(AddrHWR));
+	wire AddrMWR; LCELL AddrMWR_MC (.in(`AddrMSELA && !nWE && !nDEVSEL && REGEN), .out(AddrMWR));
+	wire AddrLWR; LCELL AddrLWR_MC (.in(`AddrLSELA && !nWE && !nDEVSEL && REGEN), .out(AddrLWR));
 
 	/* Data Bus Routing */
 	// SRAM/ROM data Bus
-	wire RDOE = CSDBEN && ~nWE;
+	wire RDOE = CSDBEN && !nWE;
 	inout [7:0] RD = RDOE ? D[7:0] : 8'bZ;
 	// Apple II data bus
 	wire DOE = CSDBEN && nWE &&
-		((~nDEVSEL && (~RAMSEL || (RAMSEL && RAMROMCSgb))) ||
-		 (~nIOSEL && RAMROMCSgb) || (~nIOSTRB && IOROMEN));
-	wire [7:0] Dout = (nDEVSEL || RAMSELA) ? RD[7:0] :
-        AddrHSELA ? Addr[23:16] : 
-		AddrMSELA ? Addr[15:8] : 
-		AddrLSELA ? Addr[7:0] : 8'h00;
+		((!nDEVSEL && (!RAMSEL_BUF || (RAMSEL_BUF && RAMROMCSgb))) ||
+		 (!nIOSEL && RAMROMCSgb) || (!nIOSTRB && IOROMEN));
+	wire [7:0] Dout = (nDEVSEL || `RAMSELA) ? RD[7:0] :
+		`AddrHSELA ? Addr[23:16] : 
+		`AddrMSELA ? Addr[15:8] : 
+		`AddrLSELA ? Addr[7:0] : 
+		`BankSELA ? {7'h00, Bank} : 8'h00;
 	inout [7:0] D = DOE ? Dout : 8'bZ;
 
 	/* SRAM and ROM Control Signals */
-	output nRAMROMCS = ~(RAMSEL || ~nIOSEL);
 	input RAMROMCSgb; // nRAMROMCS as gated by DS1215, then inverted
-	output RAMCS = RAMSEL && CSDBEN;
-	output nROMCS = ~(CSDBEN && ((~nIOSEL && RAMROMCSgb) || (~nIOSTRB && IOROMEN)));
+	output nRAMROMCS; LCELL nRAMROMCS_MC (.in(!(`RAMSEL || !nIOSEL)), .out(nRAMROMCS));
+	output RAMCS; LCELL RAMCS_MC (.in(`RAMSEL && CSDBEN), .out(RAMCS));
+	output nROMCS; LCELL nROMCS_MC (.in(!(CSDBEN && ((!nIOSEL && RAMROMCSgb) || (!nIOSTRB && IOROMEN)))), .out(nROMCS));
 	
   	/* 6502-accessible Registers */
-	reg REGEN = 0; // Register enable
-	reg IOROMEN = 0; // IOSTRB ROM enable
 	reg Bank = 0; // Bank register for ROM access
 	reg [23:0] Addr = 0; // Address register bits 19:0
 	
-	/* Increment Control */
-	reg IncAddrL = 0, IncAddrM = 0, IncAddrH = 0;
+	/* IOSTRB ROM enable */
+	reg IOROMEN = 0; // IOSTRB ROM enable
+	wire RESIO; LCELL RESIO_MC (.in(!nIOSTRB && A[10:0]==11'h7FF), .out(RESIO));
+	always @(posedge C7M) begin
+		if (S==1 && !nRESr) IOROMEN <= 0;
+		else if (S==5 && RESIO) IOROMEN <= 0;
+		else if (S==5 && !nIOSEL) IOROMEN <= 1;
+	end
 
-	/* Gating states */
-	reg CSDBEN = 0; // ROM CS and data bus driver gating
-
-	// Only sample /DEVSEL, /IOSEL at these times:
-	// 		2nd and 3rd rising edge of C7M in PHI0 (S4, S5)
-	//		all 3 falling edges of C7M in PHI0 (S4, S5, S6)
-	// Can sample /IOSTRB at same times as /IOSEL, plus:
-	//		1st rising edge of C7M in PHI0 (S3)
 	/* State-based data bus and ROM CS gating */
+	reg CSDBEN = 0; // ROM CS and data bus driver gating
 	always @(posedge C7M) begin
 		// Only select ROM and drive Apple II data bus after S4 to avoid bus fight.
 		// Thus we wait 1.5 7M cycles (210 ns) into PHI0 before driving.
 		// Same for driving the ROM/SRAM data bus (RD).
-		CSDBEN <= S==4 || S==5 || S==6 || S==7;
+		CSDBEN <= (S==4 || S==5 || S==6 || S==7) && (nIOSTRB || !RESIO);
 	end
 
-	/* DEVSEL register and IOSTRB ROM enable */
+	/* DEVSEL register enable */
+	reg REGEN = 0; // Register enable
 	always @(posedge C7M) begin
 		if (S==1 && !nRESr) REGEN <= 0;
-		else if (S==5 && ~nIOSEL) REGEN <= 1;
-	end
-	wire RESIO = ~nRES || (~nIOSTRB && A[10:0]==11'h7FF);
-	always @(posedge C7M, posedge RESIO) begin
-		if (RESIO) IOROMEN <= 0;
-		else if (S==5 && ~nIOSEL) IOROMEN <= 1;
+		else if (S==5 && !nIOSEL) REGEN <= 1;
 	end
 
+	/* Increment Control */
+	reg IncAddrL = 0, IncAddrM = 0, IncAddrH = 0;
 	always @(negedge C7M) begin
 		if (S==1 && !nRESr) begin
 			Addr <= 0;
@@ -119,22 +116,17 @@ module TimeMachine(C7M, PHI1, nRES,
 				Addr[7:0] <= Addr[7:0]+1;
 				IncAddrL <= 0;
 				IncAddrM <= Addr[7:0] == 8'hFF;
-			end
-			if (S==2 & IncAddrM) begin
+			end else if (S==2 & IncAddrM) begin
 				Addr[15:8] <= Addr[15:8]+1;
 				IncAddrM <= 0;
 				IncAddrH <= Addr[15:8] == 8'hFF;
-			end
-			if (S==3 & IncAddrH) begin
+			end else if (S==3 & IncAddrH) begin
 				IncAddrH <= 0;
 				Addr[23:16] <= Addr[23:16]+1;
-			end
-
-			// Set register in middle of S6 if accessed.
-			if (S==6) begin
+			end else if (S==6) begin // Set register in middle of S6 if accessed.
 				if (BankWR) Bank <= D[0]; // Bank
 				
-				IncAddrL <= RAMSEL;
+				IncAddrL <= RAMSEL_BUF;
 				IncAddrM <= AddrLWR & Addr[7] & ~D[7];
 				IncAddrH <= AddrMWR & Addr[15] & ~D[7];
 				
