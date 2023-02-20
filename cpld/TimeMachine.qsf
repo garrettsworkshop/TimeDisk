@@ -97,26 +97,12 @@ set_location_assignment PIN_79 -to D[3]
 set_location_assignment PIN_80 -to D[4]
 set_location_assignment PIN_81 -to D[5]
 set_location_assignment PIN_83 -to C7M
-set_location_assignment PIN_2 -to PHI1in
 set_global_assignment -name SYNTH_TIMING_DRIVEN_SYNTHESIS OFF
 set_global_assignment -name MAX7000_IGNORE_LCELL_BUFFERS OFF
 set_global_assignment -name AUTO_LCELL_INSERTION OFF
 set_global_assignment -name SYNTH_MESSAGE_LEVEL HIGH
 set_location_assignment PIN_15 -to nINH
 set_global_assignment -name AUTO_PARALLEL_EXPANDERS OFF
-set_instance_assignment -name MAX7000_INDIVIDUAL_TURBO_BIT ON -to PHI1b0_MC
-set_instance_assignment -name MAX7000_INDIVIDUAL_TURBO_BIT ON -to PHI1b1_MC
-set_instance_assignment -name MAX7000_INDIVIDUAL_TURBO_BIT ON -to PHI1b2_MC
-set_instance_assignment -name MAX7000_INDIVIDUAL_TURBO_BIT ON -to PHI1b3_MC
-set_instance_assignment -name MAX7000_INDIVIDUAL_TURBO_BIT ON -to PHI1b4_MC
-set_instance_assignment -name MAX7000_INDIVIDUAL_TURBO_BIT ON -to PHI1b5_MC
-set_instance_assignment -name MAX7000_INDIVIDUAL_TURBO_BIT ON -to PHI1b6_MC
-set_instance_assignment -name MAX7000_INDIVIDUAL_TURBO_BIT ON -to PHI1b7_MC
-set_instance_assignment -name MAX7000_INDIVIDUAL_TURBO_BIT ON -to PHI1b8_MC
-set_instance_assignment -name MAX7000_INDIVIDUAL_TURBO_BIT ON -to PHI1b9_MC
-set_instance_assignment -name MAX7000_INDIVIDUAL_TURBO_BIT ON -to PHI1reg
-set_instance_assignment -name MAX7000_INDIVIDUAL_TURBO_BIT ON -to PHI0seen
-set_instance_assignment -name MAX7000_INDIVIDUAL_TURBO_BIT ON -to S
 set_global_assignment -name OPTIMIZE_HOLD_TIMING OFF
 set_global_assignment -name OPTIMIZE_MULTI_CORNER_TIMING OFF
 set_global_assignment -name FITTER_EFFORT "STANDARD FIT"
@@ -140,3 +126,4 @@ set_location_assignment PIN_58 -to RA[6]
 set_location_assignment PIN_63 -to RA[3]
 set_location_assignment PIN_64 -to RA[4]
 set_location_assignment PIN_65 -to RA[19]
+set_location_assignment PIN_2 -to PHI1

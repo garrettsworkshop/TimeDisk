@@ -1,27 +1,34 @@
-module TimeMachine(C7M, PHI1in, nRES,
+module TimeMachine(C7M, PHI1, nRES,
 				   A, RA, nWE, D, RD, nINH,
 				   nDEVSEL, nIOSEL, nIOSTRB,
 				   nRAMROMCS, RAMROMCSgb, RAMCS, nROMCS);
 
 	/* Clock, Reset */
-	input C7M, PHI1in; // Clock inputs
+	input C7M, PHI1; // Clock inputs
 	input nRES; // Reset
 	input nINH;
-
-	/* PHI1 Delay */
-	wire [8:0] PHI1b;
-	wire PHI1;
-	LCELL PHI1b0_MC (.in(PHI1in), .out(PHI1b[0]));
-	LCELL PHI1b1_MC (.in(PHI1b[0]), .out(PHI1b[1]));
-	LCELL PHI1b2_MC (.in(PHI1b[1]), .out(PHI1b[2]));
-	LCELL PHI1b3_MC (.in(PHI1b[2]), .out(PHI1b[3]));
-	LCELL PHI1b4_MC (.in(PHI1b[3]), .out(PHI1b[4]));
-	LCELL PHI1b5_MC (.in(PHI1b[4]), .out(PHI1b[5]));
-	LCELL PHI1b6_MC (.in(PHI1b[5]), .out(PHI1b[6]));
-	LCELL PHI1b7_MC (.in(PHI1b[6]), .out(PHI1b[7]));
-	LCELL PHI1b8_MC (.in(PHI1b[7]), .out(PHI1b[8]));
-	LCELL PHI1b9_MC (.in(PHI1b[8] & PHI1in), .out(PHI1));
-
+	
+	/* Main state counter S[2:0] */
+	reg [1:0] PHI0rf;
+	reg [2:0] S = 0;
+	always @(negedge C7M) begin
+		PHI0rf[1:0] <= { PHI0rf[0], !PHI1 };
+	end
+	always @(posedge C7M) begin
+		S[2:0] <= (PHI0rf[1] && !PHI0rf[0] && PHI1) ? 3'h1 :
+			S==0 ? 3'h0 :
+			S==7 ? 3'h7 : S+1;
+	end
+	
+	/* Reset synchronization */
+	reg nRESr0;
+	reg nRESr;
+	always @(posedge C7M) begin
+		nRESr0 <= nRES;
+		if (S==1) nRESr <= nRESr0;
+		else nRESr <= !(!nRESr || nRESr0); 
+	end
+	
 	/* Address Bus, etc. */
 	input nDEVSEL, nIOSEL, nIOSTRB; // Card select signals
 	input [15:0] A; // 6502 address bus
@@ -45,10 +52,10 @@ module TimeMachine(C7M, PHI1in, nRES,
 
 	/* Data Bus Routing */
 	// SRAM/ROM data Bus
-	wire RDOE = DBEN && ~nWE;
+	wire RDOE = CSDBEN && ~nWE;
 	inout [7:0] RD = RDOE ? D[7:0] : 8'bZ;
 	// Apple II data bus
-	wire DOE = DBEN && nWE &&
+	wire DOE = CSDBEN && nWE &&
 		((~nDEVSEL && (~RAMSEL || (RAMSEL && RAMROMCSgb))) ||
 		 (~nIOSEL && RAMROMCSgb) || (~nIOSTRB && IOROMEN));
 	wire [7:0] Dout = (nDEVSEL || RAMSELA) ? RD[7:0] :
@@ -60,8 +67,8 @@ module TimeMachine(C7M, PHI1in, nRES,
 	/* SRAM and ROM Control Signals */
 	output nRAMROMCS = ~(RAMSEL || ~nIOSEL);
 	input RAMROMCSgb; // nRAMROMCS as gated by DS1215, then inverted
-	output RAMCS = RAMSEL && CSEN;
-	output nROMCS = ~(CSEN && ((~nIOSEL && RAMROMCSgb) || (~nIOSTRB && IOROMEN)));
+	output RAMCS = RAMSEL && CSDBEN;
+	output nROMCS = ~(CSDBEN && ((~nIOSEL && RAMROMCSgb) || (~nIOSTRB && IOROMEN)));
 	
   	/* 6502-accessible Registers */
 	reg REGEN = 0; // Register enable
@@ -72,57 +79,25 @@ module TimeMachine(C7M, PHI1in, nRES,
 	/* Increment Control */
 	reg IncAddrL = 0, IncAddrM = 0, IncAddrH = 0;
 
-	/* State Counters */
-	reg PHI1reg = 1'b0; // Saved PHI1 at last rising clock edge
-	reg PHI0seen = 1'b0; // Have we seen PHI0 since reset?
-	reg [2:0] S = 3'h0; // State counter
-	reg DBEN = 0; // data bus driver gating
-	reg CSEN = 0; // ROM CS enable for reads
+	/* Gating states */
+	reg CSDBEN = 0; // ROM CS and data bus driver gating
 
-	// Apple II Bus Compatibiltiy Rules:
-	// Synchronize to PHI0 or PHI1. (PHI1 here)
-	// PHI1's edge may be -20ns,+10ns relative to C7M.
-	// Delay the rising edge of PHI1 to get enough hold time:
-	// 		PHI1modified = PHI1 & PHI1delayed;
 	// Only sample /DEVSEL, /IOSEL at these times:
 	// 		2nd and 3rd rising edge of C7M in PHI0 (S4, S5)
 	//		all 3 falling edges of C7M in PHI0 (S4, S5, S6)
 	// Can sample /IOSTRB at same times as /IOSEL, plus:
 	//		1st rising edge of C7M in PHI0 (S3)
-
-	/* State counters */
-	always @(posedge C7M) begin
-		// Synchronize state counter to S1 when just entering PHI1
-		PHI1reg <= PHI1; // Save old PHI1
-		if (~PHI1) PHI0seen <= 1; // PHI0seen set in PHI0
-		S <= (PHI1 && ~PHI1reg && PHI0seen) ? 3'h1 : 
-			S==0 ? 3'h0 :
-			S==7 ? 3'h7 : S+1;
-	end
-
 	/* State-based data bus and ROM CS gating */
-	always @(posedge C7M, negedge nRES) begin
-		if (~nRES) begin
-			DBEN <= 0;
-			CSEN <= 0;
-		end else begin
-			// Only drive Apple II data bus after S4 to avoid bus fight.
-			// Thus we wait 1.5 7M cycles (210 ns) into PHI0 before driving.
-			// Same for driving the ROM/SRAM data bus (RD).
-			DBEN <= S==4 || S==5 || S==6 || S==7;
-			
-			// Similarly, only select the ROM chip starting at
-			// the end of S4 for reads and the end of S5 for writes.
-			// This ensures that write data is valid for
-			// the entire time that the ROM is selected,
-			// and minimizes power consumption.
-			CSEN <= (S==4 && nWE) || S==5 || S==6 || S==7;
-		end
+	always @(posedge C7M) begin
+		// Only select ROM and drive Apple II data bus after S4 to avoid bus fight.
+		// Thus we wait 1.5 7M cycles (210 ns) into PHI0 before driving.
+		// Same for driving the ROM/SRAM data bus (RD).
+		CSDBEN <= S==4 || S==5 || S==6 || S==7;
 	end
 
 	/* DEVSEL register and IOSTRB ROM enable */
-	always @(posedge C7M, negedge nRES) begin
-		if (~nRES) REGEN <= 0;
+	always @(posedge C7M) begin
+		if (S==1 && !nRESr) REGEN <= 0;
 		else if (S==5 && ~nIOSEL) REGEN <= 1;
 	end
 	wire RESIO = ~nRES || (~nIOSTRB && A[10:0]==11'h7FF);
@@ -131,8 +106,8 @@ module TimeMachine(C7M, PHI1in, nRES,
 		else if (S==5 && ~nIOSEL) IOROMEN <= 1;
 	end
 
-	always @(negedge C7M, negedge nRES) begin
-		if (~nRES) begin
+	always @(negedge C7M) begin
+		if (S==1 && !nRESr) begin
 			Addr <= 0;
 			Bank <= 0;
 			IncAddrL <= 0;

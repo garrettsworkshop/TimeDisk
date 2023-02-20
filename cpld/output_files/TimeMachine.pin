@@ -56,13 +56,13 @@
  -- Pin directions (input, output or bidir) are based on device operating in user mode.
  ---------------------------------------------------------------------------------
 
-Quartus II 32-bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
+Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
 CHIP  "TimeMachine"  ASSIGNED TO AN: EPM7128SLC84-15
 
 Pin Name/Usage               : Location  : Dir.   : I/O Standard      : Voltage : I/O Bank  : User Assignment
 -------------------------------------------------------------------------------------------------------------
 nRES                         : 1         : input  : TTL               :         :           : Y              
-PHI1in                       : 2         : input  : TTL               :         :           : Y              
+PHI1                         : 2         : input  : TTL               :         :           : Y              
 VCCINT                       : 3         : power  :                   : 5.0V    :           :                
 D[6]                         : 4         : bidir  : TTL               :         :           : Y              
 D[7]                         : 5         : bidir  : TTL               :         :           : Y              
