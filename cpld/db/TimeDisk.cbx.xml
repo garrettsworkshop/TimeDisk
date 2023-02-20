@@ -1,0 +1,9 @@
+<?xml version="1.0" ?>
+<LOG_ROOT>
+	<PROJECT NAME="TimeDisk">
+		<CBX_INST_ENTRY INSTANCE_NAME="|TimeDisk|lpm_add_sub:Add2" CBX_FILE_NAME="add_sub_rnh.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|TimeDisk|lpm_add_sub:Add3" CBX_FILE_NAME="add_sub_rnh.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|TimeDisk|lpm_counter:Addr_rtl_0|lpm_add_sub:add_sub" CBX_FILE_NAME="add_sub_3ve.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|TimeDisk|lpm_counter:Addr_rtl_0|lpm_constant:scdw" CBX_FILE_NAME="lpm_constant_ki3.tdf"/>
+	</PROJECT>
+</LOG_ROOT>
