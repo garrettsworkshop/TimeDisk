@@ -1,5 +1,5 @@
 module TimeDisk(C7M, PHI1, nRES,
-				   A, RA, nWE, D, RD, nINH,
+				   A, RAH, RA11, RAL, nWE, D, RD, nINH,
 				   nDEVSEL, nIOSEL, nIOSTRB,
 				   nRAMROMCS, RAMROMCSgb, RAMCS, nROMCS);
 
@@ -29,14 +29,23 @@ module TimeDisk(C7M, PHI1, nRES,
 		else nRESr <= !(!nRESr || nRESr0); 
 	end
 	
+	/* Mode jumper loading */
+	reg ModeLoaded = 0;
+	reg Mode = 0;
+	always @(posedge C7M) begin
+		if (nRESr && S==1) ModeLoaded <= 1;
+		if (!nRESr && !ModeLoaded) Mode <= RA11;
+	end
+	
 	/* Address Bus, etc. */
 	input nDEVSEL, nIOSEL, nIOSTRB; // Card select signals
 	input [15:0] A; // 6502 address bus
 	input nWE; // 6502 R/W
-	output [19:0] RA; // ROM and RAM dual-function address pins
-	assign RA[19:0] = (!nIOSTRB || !nIOSEL) ? 
-		{ Addr[19], 6'h00, Bank, A[11], Addr[10:0]} : 
-		Addr[19:0];
+	output [19:12] RAH = // ROM and RAM dual-function address pins
+		(!nIOSTRB || !nIOSEL) ? { Addr[19], 6'h00, Bank } : Addr[19:12];
+	inout RA11 = !ModeLoaded ? 1'bZ :
+		(!nIOSTRB || !nIOSEL) ? A[11] : Addr[11];
+	output [10:0] RAL = Addr[10:0]; //RA[10:0] only used for RAM
 
 	/* Select Signals */
 	`define BankSELA (A[3:0]==4'hF)
@@ -63,7 +72,7 @@ module TimeDisk(C7M, PHI1, nRES,
 		`AddrHSELA ? Addr[23:16] : 
 		`AddrMSELA ? Addr[15:8] : 
 		`AddrLSELA ? Addr[7:0] : 
-		`BankSELA ? {7'h00, Bank} : 8'h00;
+		`BankSELA ? Bank[7:0] : 8'h00;
 	inout [7:0] D = DOE ? Dout : 8'bZ;
 
 	/* SRAM and ROM Control Signals */
@@ -73,7 +82,7 @@ module TimeDisk(C7M, PHI1, nRES,
 	output nROMCS; LCELL nROMCS_MC (.in(!(CSDBEN && ((!nIOSEL && RAMROMCSgb) || (!nIOSTRB && IOROMEN)))), .out(nROMCS));
 	
   	/* 6502-accessible Registers */
-	reg Bank = 0; // Bank register for ROM access
+	reg [7:0] Bank = 0; // Bank register for ROM access
 	reg [23:0] Addr = 0; // Address register bits 19:0
 	
 	/* IOSTRB ROM enable */
@@ -124,7 +133,11 @@ module TimeDisk(C7M, PHI1, nRES,
 				IncAddrH <= 0;
 				Addr[23:16] <= Addr[23:16]+1;
 			end else if (S==6) begin // Set register in middle of S6 if accessed.
-				if (BankWR) Bank <= D[0]; // Bank
+				if (BankWR) begin
+					if (Mode) Bank[7:1] <= D[7:1];
+					else Bank[7:1] <= 7'h7F;
+					Bank[0] <= D[0];
+				end
 				
 				IncAddrL <= RAMSEL_BUF;
 				IncAddrM <= AddrLWR & Addr[7] & ~D[7];

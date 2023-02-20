@@ -1,5 +1,5 @@
 Analysis & Synthesis report for TimeDisk
-Mon Feb 20 01:14:45 2023
+Mon Feb 20 02:00:03 2023
 Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
 
 
@@ -13,9 +13,9 @@ Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edit
   5. Analysis & Synthesis Source Files Read
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
-  8. Parameter Settings for Inferred Entity Instance: lpm_counter:Addr_rtl_0
-  9. Parameter Settings for Inferred Entity Instance: lpm_add_sub:Add2
- 10. Parameter Settings for Inferred Entity Instance: lpm_add_sub:Add3
+  8. Parameter Settings for Inferred Entity Instance: lpm_add_sub:Add2
+  9. Parameter Settings for Inferred Entity Instance: lpm_add_sub:Add3
+ 10. Parameter Settings for Inferred Entity Instance: lpm_add_sub:Add1
  11. Analysis & Synthesis Messages
  12. Analysis & Synthesis Suppressed Messages
 
@@ -43,12 +43,12 @@ applicable agreement for further details.
 +-------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                  ;
 +-----------------------------+-------------------------------------------------+
-; Analysis & Synthesis Status ; Successful - Mon Feb 20 01:14:45 2023           ;
+; Analysis & Synthesis Status ; Successful - Mon Feb 20 02:00:03 2023           ;
 ; Quartus II 64-Bit Version   ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition ;
 ; Revision Name               ; TimeDisk                                        ;
 ; Top-level Entity Name       ; TimeDisk                                        ;
 ; Family                      ; MAX7000S                                        ;
-; Total macrocells            ; 75                                              ;
+; Total macrocells            ; 91                                              ;
 ; Total pins                  ; 64                                              ;
 +-----------------------------+-------------------------------------------------+
 
@@ -133,29 +133,19 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +----------------------------------+-----------------+------------------------+---------------------------------------------------------------------------+---------+
 ; File Name with User-Entered Path ; Used in Netlist ; File Type              ; File Name with Absolute Path                                              ; Library ;
 +----------------------------------+-----------------+------------------------+---------------------------------------------------------------------------+---------+
-; TimeDisk.v                       ; yes             ; User Verilog HDL File  ; D:/OneDrive/Desktop/TimeDisk/TimeDisk.v                                   ;         ;
-; lpm_counter.tdf                  ; yes             ; Megafunction           ; c:/altera/13.0sp1/quartus/libraries/megafunctions/lpm_counter.tdf         ;         ;
-; lpm_constant.inc                 ; yes             ; Megafunction           ; c:/altera/13.0sp1/quartus/libraries/megafunctions/lpm_constant.inc        ;         ;
-; lpm_decode.inc                   ; yes             ; Megafunction           ; c:/altera/13.0sp1/quartus/libraries/megafunctions/lpm_decode.inc          ;         ;
-; lpm_add_sub.inc                  ; yes             ; Megafunction           ; c:/altera/13.0sp1/quartus/libraries/megafunctions/lpm_add_sub.inc         ;         ;
-; cmpconst.inc                     ; yes             ; Megafunction           ; c:/altera/13.0sp1/quartus/libraries/megafunctions/cmpconst.inc            ;         ;
-; lpm_compare.inc                  ; yes             ; Megafunction           ; c:/altera/13.0sp1/quartus/libraries/megafunctions/lpm_compare.inc         ;         ;
-; lpm_counter.inc                  ; yes             ; Megafunction           ; c:/altera/13.0sp1/quartus/libraries/megafunctions/lpm_counter.inc         ;         ;
-; dffeea.inc                       ; yes             ; Megafunction           ; c:/altera/13.0sp1/quartus/libraries/megafunctions/dffeea.inc              ;         ;
-; alt_counter_stratix.inc          ; yes             ; Megafunction           ; c:/altera/13.0sp1/quartus/libraries/megafunctions/alt_counter_stratix.inc ;         ;
-; aglobal130.inc                   ; yes             ; Megafunction           ; c:/altera/13.0sp1/quartus/libraries/megafunctions/aglobal130.inc          ;         ;
+; TimeDisk.v                       ; yes             ; User Verilog HDL File  ; C:/Users/garre/Repos/TimeDisk/cpld/TimeDisk.v                             ;         ;
 ; lpm_add_sub.tdf                  ; yes             ; Megafunction           ; c:/altera/13.0sp1/quartus/libraries/megafunctions/lpm_add_sub.tdf         ;         ;
 ; addcore.inc                      ; yes             ; Megafunction           ; c:/altera/13.0sp1/quartus/libraries/megafunctions/addcore.inc             ;         ;
 ; look_add.inc                     ; yes             ; Megafunction           ; c:/altera/13.0sp1/quartus/libraries/megafunctions/look_add.inc            ;         ;
 ; bypassff.inc                     ; yes             ; Megafunction           ; c:/altera/13.0sp1/quartus/libraries/megafunctions/bypassff.inc            ;         ;
 ; altshift.inc                     ; yes             ; Megafunction           ; c:/altera/13.0sp1/quartus/libraries/megafunctions/altshift.inc            ;         ;
 ; alt_stratix_add_sub.inc          ; yes             ; Megafunction           ; c:/altera/13.0sp1/quartus/libraries/megafunctions/alt_stratix_add_sub.inc ;         ;
+; aglobal130.inc                   ; yes             ; Megafunction           ; c:/altera/13.0sp1/quartus/libraries/megafunctions/aglobal130.inc          ;         ;
 ; addcore.tdf                      ; yes             ; Megafunction           ; c:/altera/13.0sp1/quartus/libraries/megafunctions/addcore.tdf             ;         ;
 ; a_csnbuffer.inc                  ; yes             ; Megafunction           ; c:/altera/13.0sp1/quartus/libraries/megafunctions/a_csnbuffer.inc         ;         ;
 ; a_csnbuffer.tdf                  ; yes             ; Megafunction           ; c:/altera/13.0sp1/quartus/libraries/megafunctions/a_csnbuffer.tdf         ;         ;
 ; look_add.tdf                     ; yes             ; Megafunction           ; c:/altera/13.0sp1/quartus/libraries/megafunctions/look_add.tdf            ;         ;
 ; altshift.tdf                     ; yes             ; Megafunction           ; c:/altera/13.0sp1/quartus/libraries/megafunctions/altshift.tdf            ;         ;
-; lpm_constant.tdf                 ; yes             ; Megafunction           ; c:/altera/13.0sp1/quartus/libraries/megafunctions/lpm_constant.tdf        ;         ;
 +----------------------------------+-----------------+------------------------+---------------------------------------------------------------------------+---------+
 
 
@@ -164,52 +154,25 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +----------------------+----------------------+
 ; Resource             ; Usage                ;
 +----------------------+----------------------+
-; Logic cells          ; 75                   ;
-; Total registers      ; 38                   ;
+; Logic cells          ; 91                   ;
+; Total registers      ; 47                   ;
 ; I/O pins             ; 64                   ;
-; Parallel expanders   ; 3                    ;
+; Shareable expanders  ; 5                    ;
+; Parallel expanders   ; 9                    ;
 ; Maximum fan-out node ; C7M                  ;
-; Maximum fan-out      ; 38                   ;
-; Total fan-out        ; 642                  ;
-; Average fan-out      ; 4.62                 ;
+; Maximum fan-out      ; 47                   ;
+; Total fan-out        ; 813                  ;
+; Average fan-out      ; 5.08                 ;
 +----------------------+----------------------+
 
 
-+---------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                               ;
-+-----------------------------+------------+------+----------------------------------+--------------+
-; Compilation Hierarchy Node  ; Macrocells ; Pins ; Full Hierarchy Name              ; Library Name ;
-+-----------------------------+------------+------+----------------------------------+--------------+
-; |TimeDisk                   ; 75         ; 64   ; |TimeDisk                        ; work         ;
-;    |lpm_counter:Addr_rtl_0| ; 8          ; 0    ; |TimeDisk|lpm_counter:Addr_rtl_0 ; work         ;
-+-----------------------------+------------+------+----------------------------------+--------------+
-
-
-+-------------------------------------------------------------------------+
-; Parameter Settings for Inferred Entity Instance: lpm_counter:Addr_rtl_0 ;
-+------------------------+-------------------+----------------------------+
-; Parameter Name         ; Value             ; Type                       ;
-+------------------------+-------------------+----------------------------+
-; AUTO_CARRY_CHAINS      ; ON                ; AUTO_CARRY                 ;
-; IGNORE_CARRY_BUFFERS   ; OFF               ; IGNORE_CARRY               ;
-; AUTO_CASCADE_CHAINS    ; ON                ; AUTO_CASCADE               ;
-; IGNORE_CASCADE_BUFFERS ; OFF               ; IGNORE_CASCADE             ;
-; LPM_WIDTH              ; 8                 ; Untyped                    ;
-; LPM_DIRECTION          ; UP                ; Untyped                    ;
-; LPM_MODULUS            ; 0                 ; Untyped                    ;
-; LPM_AVALUE             ; UNUSED            ; Untyped                    ;
-; LPM_SVALUE             ; UNUSED            ; Untyped                    ;
-; LPM_PORT_UPDOWN        ; PORT_CONNECTIVITY ; Untyped                    ;
-; DEVICE_FAMILY          ; MAX7000S          ; Untyped                    ;
-; CARRY_CHAIN            ; MANUAL            ; Untyped                    ;
-; CARRY_CHAIN_LENGTH     ; 48                ; CARRY_CHAIN_LENGTH         ;
-; NOT_GATE_PUSH_BACK     ; ON                ; NOT_GATE_PUSH_BACK         ;
-; CARRY_CNT_EN           ; SMART             ; Untyped                    ;
-; LABWIDE_SCLR           ; ON                ; Untyped                    ;
-; USE_NEW_VERSION        ; TRUE              ; Untyped                    ;
-; CBXI_PARAMETER         ; NOTHING           ; Untyped                    ;
-+------------------------+-------------------+----------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
++-------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                 ;
++----------------------------+------------+------+---------------------+--------------+
+; Compilation Hierarchy Node ; Macrocells ; Pins ; Full Hierarchy Name ; Library Name ;
++----------------------------+------------+------+---------------------+--------------+
+; |TimeDisk                  ; 91         ; 64   ; |TimeDisk           ; work         ;
++----------------------------+------------+------+---------------------+--------------+
 
 
 +-------------------------------------------------------------------+
@@ -268,40 +231,56 @@ Note: In order to hide this table in the UI and the text report file, please set
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
++-------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: lpm_add_sub:Add1 ;
++------------------------+-------------+----------------------------+
+; Parameter Name         ; Value       ; Type                       ;
++------------------------+-------------+----------------------------+
+; LPM_WIDTH              ; 8           ; Untyped                    ;
+; LPM_REPRESENTATION     ; UNSIGNED    ; Untyped                    ;
+; LPM_DIRECTION          ; ADD         ; Untyped                    ;
+; ONE_INPUT_IS_CONSTANT  ; YES         ; Untyped                    ;
+; LPM_PIPELINE           ; 0           ; Untyped                    ;
+; MAXIMIZE_SPEED         ; 5           ; Untyped                    ;
+; REGISTERED_AT_END      ; 0           ; Untyped                    ;
+; OPTIMIZE_FOR_SPEED     ; 5           ; Untyped                    ;
+; USE_CS_BUFFERS         ; 1           ; Untyped                    ;
+; CARRY_CHAIN            ; MANUAL      ; Untyped                    ;
+; CARRY_CHAIN_LENGTH     ; 48          ; CARRY_CHAIN_LENGTH         ;
+; DEVICE_FAMILY          ; MAX7000S    ; Untyped                    ;
+; USE_WYS                ; OFF         ; Untyped                    ;
+; STYLE                  ; FAST        ; Untyped                    ;
+; CBXI_PARAMETER         ; add_sub_rnh ; Untyped                    ;
+; AUTO_CARRY_CHAINS      ; ON          ; AUTO_CARRY                 ;
+; IGNORE_CARRY_BUFFERS   ; OFF         ; IGNORE_CARRY               ;
+; AUTO_CASCADE_CHAINS    ; ON          ; AUTO_CASCADE               ;
+; IGNORE_CASCADE_BUFFERS ; OFF         ; IGNORE_CASCADE             ;
++------------------------+-------------+----------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
 +-------------------------------+
 ; Analysis & Synthesis Messages ;
 +-------------------------------+
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Analysis & Synthesis
     Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
-    Info: Processing started: Mon Feb 20 01:14:43 2023
+    Info: Processing started: Mon Feb 20 02:00:01 2023
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off TimeDisk -c TimeDisk
 Warning (20028): Parallel compilation is not licensed and has been disabled
 Info (12021): Found 1 design units, including 1 entities, in source file timedisk.v
     Info (12023): Found entity 1: TimeDisk
 Info (12127): Elaborating entity "TimeDisk" for the top level hierarchy
 Warning (10230): Verilog HDL assignment warning at TimeDisk.v(18): truncated value with size 32 to match size of target (3)
-Warning (10230): Verilog HDL assignment warning at TimeDisk.v(116): truncated value with size 32 to match size of target (8)
-Warning (10230): Verilog HDL assignment warning at TimeDisk.v(120): truncated value with size 32 to match size of target (8)
+Warning (10230): Verilog HDL assignment warning at TimeDisk.v(45): truncated value with size 15 to match size of target (8)
+Warning (10230): Verilog HDL assignment warning at TimeDisk.v(71): truncated value with size 15 to match size of target (8)
 Warning (10230): Verilog HDL assignment warning at TimeDisk.v(125): truncated value with size 32 to match size of target (8)
-Info (19000): Inferred 1 megafunctions from design logic
-    Info (19001): Inferred lpm_counter megafunction (LPM_WIDTH=8) from the following logic: "Addr_rtl_0"
-Info (278001): Inferred 2 megafunctions from design logic
+Warning (10230): Verilog HDL assignment warning at TimeDisk.v(129): truncated value with size 32 to match size of target (8)
+Warning (10230): Verilog HDL assignment warning at TimeDisk.v(134): truncated value with size 32 to match size of target (8)
+Info (278001): Inferred 3 megafunctions from design logic
     Info (278002): Inferred adder/subtractor megafunction ("lpm_add_sub") from the following logic: "Add2"
     Info (278002): Inferred adder/subtractor megafunction ("lpm_add_sub") from the following logic: "Add3"
-Info (12130): Elaborated megafunction instantiation "lpm_counter:Addr_rtl_0"
-Info (12133): Instantiated megafunction "lpm_counter:Addr_rtl_0" with the following parameter:
-    Info (12134): Parameter "LPM_WIDTH" = "8"
-    Info (12134): Parameter "LPM_DIRECTION" = "UP"
-    Info (12134): Parameter "LPM_TYPE" = "LPM_COUNTER"
-Info (12131): Elaborated megafunction instantiation "lpm_counter:Addr_rtl_0|lpm_add_sub:add_sub", which is child of megafunction instantiation "lpm_counter:Addr_rtl_0"
-Info (12131): Elaborated megafunction instantiation "lpm_counter:Addr_rtl_0|lpm_add_sub:add_sub|addcore:adder[0]", which is child of megafunction instantiation "lpm_counter:Addr_rtl_0"
-Info (12131): Elaborated megafunction instantiation "lpm_counter:Addr_rtl_0|lpm_add_sub:add_sub|addcore:adder[0]|a_csnbuffer:oflow_node", which is child of megafunction instantiation "lpm_counter:Addr_rtl_0"
-Info (12131): Elaborated megafunction instantiation "lpm_counter:Addr_rtl_0|lpm_add_sub:add_sub|addcore:adder[0]|a_csnbuffer:result_node", which is child of megafunction instantiation "lpm_counter:Addr_rtl_0"
-Info (12131): Elaborated megafunction instantiation "lpm_counter:Addr_rtl_0|lpm_add_sub:add_sub|look_add:look_ahead_unit", which is child of megafunction instantiation "lpm_counter:Addr_rtl_0"
-Info (12131): Elaborated megafunction instantiation "lpm_counter:Addr_rtl_0|lpm_add_sub:add_sub|altshift:result_ext_latency_ffs", which is child of megafunction instantiation "lpm_counter:Addr_rtl_0"
-Info (12131): Elaborated megafunction instantiation "lpm_counter:Addr_rtl_0|lpm_add_sub:add_sub|altshift:carry_ext_latency_ffs", which is child of megafunction instantiation "lpm_counter:Addr_rtl_0"
-Info (12131): Elaborated megafunction instantiation "lpm_counter:Addr_rtl_0|lpm_constant:scdw", which is child of megafunction instantiation "lpm_counter:Addr_rtl_0"
+    Info (278002): Inferred adder/subtractor megafunction ("lpm_add_sub") from the following logic: "Add1"
 Info (12130): Elaborated megafunction instantiation "lpm_add_sub:Add2"
 Info (12133): Instantiated megafunction "lpm_add_sub:Add2" with the following parameter:
     Info (12134): Parameter "LPM_WIDTH" = "8"
@@ -309,6 +288,11 @@ Info (12133): Instantiated megafunction "lpm_add_sub:Add2" with the following pa
     Info (12134): Parameter "LPM_REPRESENTATION" = "UNSIGNED"
     Info (12134): Parameter "ONE_INPUT_IS_CONSTANT" = "YES"
 Info (12131): Elaborated megafunction instantiation "lpm_add_sub:Add2|addcore:adder[0]", which is child of megafunction instantiation "lpm_add_sub:Add2"
+Info (12131): Elaborated megafunction instantiation "lpm_add_sub:Add2|addcore:adder[0]|a_csnbuffer:oflow_node", which is child of megafunction instantiation "lpm_add_sub:Add2"
+Info (12131): Elaborated megafunction instantiation "lpm_add_sub:Add2|addcore:adder[0]|a_csnbuffer:result_node", which is child of megafunction instantiation "lpm_add_sub:Add2"
+Info (12131): Elaborated megafunction instantiation "lpm_add_sub:Add2|look_add:look_ahead_unit", which is child of megafunction instantiation "lpm_add_sub:Add2"
+Info (12131): Elaborated megafunction instantiation "lpm_add_sub:Add2|altshift:result_ext_latency_ffs", which is child of megafunction instantiation "lpm_add_sub:Add2"
+Info (12131): Elaborated megafunction instantiation "lpm_add_sub:Add2|altshift:carry_ext_latency_ffs", which is child of megafunction instantiation "lpm_add_sub:Add2"
 Info (13014): Ignored 24 buffer(s)
     Info (13019): Ignored 24 SOFT buffer(s)
 Info (280013): Promoted pin-driven signal(s) to global signal
@@ -319,15 +303,16 @@ Warning (21074): Design contains 5 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "A[14]"
     Warning (15610): No output dependent on input pin "A[15]"
     Warning (15610): No output dependent on input pin "nINH"
-Info (21057): Implemented 139 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 160 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 25 input pins
-    Info (21059): Implemented 23 output pins
-    Info (21060): Implemented 16 bidirectional pins
-    Info (21063): Implemented 75 macrocells
-Info (144001): Generated suppressed messages file D:/OneDrive/Desktop/TimeDisk/output_files/TimeDisk.map.smsg
-Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 11 warnings
-    Info: Peak virtual memory: 4566 megabytes
-    Info: Processing ended: Mon Feb 20 01:14:45 2023
+    Info (21059): Implemented 22 output pins
+    Info (21060): Implemented 17 bidirectional pins
+    Info (21063): Implemented 91 macrocells
+    Info (21073): Implemented 5 shareable expanders
+Info (144001): Generated suppressed messages file C:/Users/garre/Repos/TimeDisk/cpld/output_files/TimeDisk.map.smsg
+Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 13 warnings
+    Info: Peak virtual memory: 4564 megabytes
+    Info: Processing ended: Mon Feb 20 02:00:03 2023
     Info: Elapsed time: 00:00:02
     Info: Total CPU time (on all processors): 00:00:02
 
@@ -335,6 +320,6 @@ Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 11 warnin
 +------------------------------------------+
 ; Analysis & Synthesis Suppressed Messages ;
 +------------------------------------------+
-The suppressed messages can be found in D:/OneDrive/Desktop/TimeDisk/output_files/TimeDisk.map.smsg.
+The suppressed messages can be found in C:/Users/garre/Repos/TimeDisk/cpld/output_files/TimeDisk.map.smsg.
 
 
