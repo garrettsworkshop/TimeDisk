@@ -1,5 +1,5 @@
 Fitter report for TimeDisk
-Tue Feb 28 10:42:34 2023
+Tue Feb 28 10:57:07 2023
 Quartus II 32-bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
 
 
@@ -56,7 +56,7 @@ applicable agreement for further details.
 +-----------------------------------------------------------------------------+
 ; Fitter Summary                                                              ;
 +---------------------------+-------------------------------------------------+
-; Fitter Status             ; Successful - Tue Feb 28 10:42:34 2023           ;
+; Fitter Status             ; Successful - Tue Feb 28 10:57:07 2023           ;
 ; Quartus II 32-bit Version ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition ;
 ; Revision Name             ; TimeDisk                                        ;
 ; Top-level Entity Name     ; TimeDisk                                        ;
@@ -712,8 +712,8 @@ Info (119006): Selected device EPM7128SLC84-15 for design "TimeDisk"
 Warning (15705): Ignored locations or region assignments to the following nodes
     Warning (15706): Node "RAG[18]" is assigned to location or region, but does not exist in design
 Info: Quartus II 32-bit Fitter was successful. 0 errors, 3 warnings
-    Info: Peak virtual memory: 566 megabytes
-    Info: Processing ended: Tue Feb 28 10:42:34 2023
+    Info: Peak virtual memory: 567 megabytes
+    Info: Processing ended: Tue Feb 28 10:57:07 2023
     Info: Elapsed time: 00:00:01
     Info: Total CPU time (on all processors): 00:00:01
 
