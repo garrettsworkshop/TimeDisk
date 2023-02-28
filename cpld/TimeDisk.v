@@ -6,7 +6,7 @@ module TimeDisk(C7M, PHI1, nRES,
 	/* Clock, Reset */
 	input C7M, PHI1; // Clock inputs
 	input nRES; // Reset
-	input nINH;
+	input nINH; // Apple II bus "inhibit" pin
 	
 	/* Main state counter S[2:0] */
 	reg [1:0] PHI0rf;
@@ -41,10 +41,16 @@ module TimeDisk(C7M, PHI1, nRES,
 	input nDEVSEL, nIOSEL, nIOSTRB; // Card select signals
 	input [15:0] A; // 6502 address bus
 	input nWE; // 6502 R/W
-	output [19:12] RAH = // ROM and RAM dual-function address pins
-		(!nIOSTRB || !nIOSEL) ? { Addr[19], 6'h00, Bank } : Addr[19:12];
+	// ROM and RAM dual-function address pins
+	output [19:12] RAH;
+	assign RAH[19] = Addr[19];
+	assign RAH[18:12] = 
+		(!Mode || !nIOSTRB) ? Bank[7:1] :
+		( Mode && !nIOSEL)  ? 7'h01 : Addr[18:12];
 	inout RA11 = !ModeLoaded ? 1'bZ :
-		(!nIOSTRB || !nIOSEL) ? A[11] : Addr[11];
+		(!Mode)             ? A[11] :
+		(!nIOSTRB &&  Mode) ? Bank[0] :
+		(!nIOSEL  &&  Mode) ? 1'b0 : Addr[11];
 	output [10:0] RAL = Addr[10:0]; //RA[10:0] only used for RAM
 
 	/* Select Signals */
@@ -72,7 +78,7 @@ module TimeDisk(C7M, PHI1, nRES,
 		`AddrHSELA ? Addr[23:16] : 
 		`AddrMSELA ? Addr[15:8] : 
 		`AddrLSELA ? Addr[7:0] : 
-		`BankSELA ? Bank[7:0] : 8'h00;
+		`BankSELA ? { Bank[7:1], Mode ? Bank[0] : !Bank[1] } : 8'h00;
 	inout [7:0] D = DOE ? Dout : 8'bZ;
 
 	/* SRAM and ROM Control Signals */
@@ -134,9 +140,8 @@ module TimeDisk(C7M, PHI1, nRES,
 				Addr[23:16] <= Addr[23:16]+1;
 			end else if (S==6) begin // Set register in middle of S6 if accessed.
 				if (BankWR) begin
-					if (Mode) Bank[7:1] <= D[7:1];
-					else Bank[7:1] <= 7'h7F;
-					Bank[0] <= D[0];
+					if(Mode) Bank[7:0] <= D[7:0];
+					else Bank[7:0] <= {6'h00, D[0], D[0]};
 				end
 				
 				IncAddrL <= RAMSEL_BUF;

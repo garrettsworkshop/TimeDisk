@@ -1,6 +1,6 @@
 Assembler report for TimeDisk
-Mon Feb 20 02:00:07 2023
-Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
+Tue Feb 28 10:42:36 2023
+Quartus II 32-bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
 
 
 ---------------------
@@ -10,7 +10,7 @@ Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edit
   2. Assembler Summary
   3. Assembler Settings
   4. Assembler Generated Files
-  5. Assembler Device Options: C:/Users/garre/Repos/TimeDisk/cpld/output_files/TimeDisk.pof
+  5. Assembler Device Options: /Repos2/TimeDisk/cpld/output_files/TimeDisk.pof
   6. Assembler Messages
 
 
@@ -37,7 +37,7 @@ applicable agreement for further details.
 +---------------------------------------------------------------+
 ; Assembler Summary                                             ;
 +-----------------------+---------------------------------------+
-; Assembler Status      ; Successful - Mon Feb 20 02:00:07 2023 ;
+; Assembler Status      ; Successful - Tue Feb 28 10:42:36 2023 ;
 ; Revision Name         ; TimeDisk                              ;
 ; Top-level Entity Name ; TimeDisk                              ;
 ; Family                ; MAX7000S                              ;
@@ -73,38 +73,38 @@ applicable agreement for further details.
 +-----------------------------------------------------------------------------+----------+---------------+
 
 
-+--------------------------------------------------------------+
-; Assembler Generated Files                                    ;
-+--------------------------------------------------------------+
-; File Name                                                    ;
-+--------------------------------------------------------------+
-; C:/Users/garre/Repos/TimeDisk/cpld/output_files/TimeDisk.pof ;
-+--------------------------------------------------------------+
++-------------------------------------------------+
+; Assembler Generated Files                       ;
++-------------------------------------------------+
+; File Name                                       ;
++-------------------------------------------------+
+; /Repos2/TimeDisk/cpld/output_files/TimeDisk.pof ;
++-------------------------------------------------+
 
 
-+----------------------------------------------------------------------------------------+
-; Assembler Device Options: C:/Users/garre/Repos/TimeDisk/cpld/output_files/TimeDisk.pof ;
-+----------------+-----------------------------------------------------------------------+
-; Option         ; Setting                                                               ;
-+----------------+-----------------------------------------------------------------------+
-; Device         ; EPM7128SLC84-15                                                       ;
-; JTAG usercode  ; 0x00000000                                                            ;
-; Checksum       ; 0x0019D305                                                            ;
-+----------------+-----------------------------------------------------------------------+
++---------------------------------------------------------------------------+
+; Assembler Device Options: /Repos2/TimeDisk/cpld/output_files/TimeDisk.pof ;
++----------------+----------------------------------------------------------+
+; Option         ; Setting                                                  ;
++----------------+----------------------------------------------------------+
+; Device         ; EPM7128SLC84-15                                          ;
+; JTAG usercode  ; 0x00000000                                               ;
+; Checksum       ; 0x0019E6A8                                               ;
++----------------+----------------------------------------------------------+
 
 
 +--------------------+
 ; Assembler Messages ;
 +--------------------+
 Info: *******************************************************************
-Info: Running Quartus II 64-Bit Assembler
+Info: Running Quartus II 32-bit Assembler
     Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
-    Info: Processing started: Mon Feb 20 02:00:06 2023
+    Info: Processing started: Tue Feb 28 10:42:35 2023
 Info: Command: quartus_asm --read_settings_files=off --write_settings_files=off TimeDisk -c TimeDisk
 Info (115030): Assembler is generating device programming files
-Info: Quartus II 64-Bit Assembler was successful. 0 errors, 0 warnings
-    Info: Peak virtual memory: 4500 megabytes
-    Info: Processing ended: Mon Feb 20 02:00:07 2023
+Info: Quartus II 32-bit Assembler was successful. 0 errors, 0 warnings
+    Info: Peak virtual memory: 538 megabytes
+    Info: Processing ended: Tue Feb 28 10:42:36 2023
     Info: Elapsed time: 00:00:01
     Info: Total CPU time (on all processors): 00:00:01
 

@@ -1,6 +1,6 @@
 Analysis & Synthesis report for TimeDisk
-Mon Feb 20 02:00:03 2023
-Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
+Tue Feb 28 10:42:33 2023
+Quartus II 32-bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
 
 
 ---------------------
@@ -43,12 +43,12 @@ applicable agreement for further details.
 +-------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                  ;
 +-----------------------------+-------------------------------------------------+
-; Analysis & Synthesis Status ; Successful - Mon Feb 20 02:00:03 2023           ;
-; Quartus II 64-Bit Version   ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition ;
+; Analysis & Synthesis Status ; Successful - Tue Feb 28 10:42:33 2023           ;
+; Quartus II 32-bit Version   ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition ;
 ; Revision Name               ; TimeDisk                                        ;
 ; Top-level Entity Name       ; TimeDisk                                        ;
 ; Family                      ; MAX7000S                                        ;
-; Total macrocells            ; 91                                              ;
+; Total macrocells            ; 90                                              ;
 ; Total pins                  ; 64                                              ;
 +-----------------------------+-------------------------------------------------+
 
@@ -123,7 +123,7 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +----------------------------+--------+
 ; Processors                 ; Number ;
 +----------------------------+--------+
-; Number detected on machine ; 12     ;
+; Number detected on machine ; 4      ;
 ; Maximum allowed            ; 1      ;
 +----------------------------+--------+
 
@@ -133,7 +133,7 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +----------------------------------+-----------------+------------------------+---------------------------------------------------------------------------+---------+
 ; File Name with User-Entered Path ; Used in Netlist ; File Type              ; File Name with Absolute Path                                              ; Library ;
 +----------------------------------+-----------------+------------------------+---------------------------------------------------------------------------+---------+
-; TimeDisk.v                       ; yes             ; User Verilog HDL File  ; C:/Users/garre/Repos/TimeDisk/cpld/TimeDisk.v                             ;         ;
+; TimeDisk.v                       ; yes             ; User Verilog HDL File  ; //Mac/iCloud/Repos2/TimeDisk/cpld/TimeDisk.v                              ;         ;
 ; lpm_add_sub.tdf                  ; yes             ; Megafunction           ; c:/altera/13.0sp1/quartus/libraries/megafunctions/lpm_add_sub.tdf         ;         ;
 ; addcore.inc                      ; yes             ; Megafunction           ; c:/altera/13.0sp1/quartus/libraries/megafunctions/addcore.inc             ;         ;
 ; look_add.inc                     ; yes             ; Megafunction           ; c:/altera/13.0sp1/quartus/libraries/megafunctions/look_add.inc            ;         ;
@@ -154,15 +154,15 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +----------------------+----------------------+
 ; Resource             ; Usage                ;
 +----------------------+----------------------+
-; Logic cells          ; 91                   ;
+; Logic cells          ; 90                   ;
 ; Total registers      ; 47                   ;
 ; I/O pins             ; 64                   ;
 ; Shareable expanders  ; 5                    ;
 ; Parallel expanders   ; 9                    ;
 ; Maximum fan-out node ; C7M                  ;
 ; Maximum fan-out      ; 47                   ;
-; Total fan-out        ; 813                  ;
-; Average fan-out      ; 5.08                 ;
+; Total fan-out        ; 823                  ;
+; Average fan-out      ; 5.18                 ;
 +----------------------+----------------------+
 
 
@@ -171,7 +171,7 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +----------------------------+------------+------+---------------------+--------------+
 ; Compilation Hierarchy Node ; Macrocells ; Pins ; Full Hierarchy Name ; Library Name ;
 +----------------------------+------------+------+---------------------+--------------+
-; |TimeDisk                  ; 91         ; 64   ; |TimeDisk           ; work         ;
+; |TimeDisk                  ; 90         ; 64   ; |TimeDisk           ; work         ;
 +----------------------------+------------+------+---------------------+--------------+
 
 
@@ -263,20 +263,18 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; Analysis & Synthesis Messages ;
 +-------------------------------+
 Info: *******************************************************************
-Info: Running Quartus II 64-Bit Analysis & Synthesis
+Info: Running Quartus II 32-bit Analysis & Synthesis
     Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
-    Info: Processing started: Mon Feb 20 02:00:01 2023
+    Info: Processing started: Tue Feb 28 10:42:31 2023
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off TimeDisk -c TimeDisk
 Warning (20028): Parallel compilation is not licensed and has been disabled
 Info (12021): Found 1 design units, including 1 entities, in source file timedisk.v
     Info (12023): Found entity 1: TimeDisk
 Info (12127): Elaborating entity "TimeDisk" for the top level hierarchy
 Warning (10230): Verilog HDL assignment warning at TimeDisk.v(18): truncated value with size 32 to match size of target (3)
-Warning (10230): Verilog HDL assignment warning at TimeDisk.v(45): truncated value with size 15 to match size of target (8)
-Warning (10230): Verilog HDL assignment warning at TimeDisk.v(71): truncated value with size 15 to match size of target (8)
-Warning (10230): Verilog HDL assignment warning at TimeDisk.v(125): truncated value with size 32 to match size of target (8)
-Warning (10230): Verilog HDL assignment warning at TimeDisk.v(129): truncated value with size 32 to match size of target (8)
-Warning (10230): Verilog HDL assignment warning at TimeDisk.v(134): truncated value with size 32 to match size of target (8)
+Warning (10230): Verilog HDL assignment warning at TimeDisk.v(131): truncated value with size 32 to match size of target (8)
+Warning (10230): Verilog HDL assignment warning at TimeDisk.v(135): truncated value with size 32 to match size of target (8)
+Warning (10230): Verilog HDL assignment warning at TimeDisk.v(140): truncated value with size 32 to match size of target (8)
 Info (278001): Inferred 3 megafunctions from design logic
     Info (278002): Inferred adder/subtractor megafunction ("lpm_add_sub") from the following logic: "Add2"
     Info (278002): Inferred adder/subtractor megafunction ("lpm_add_sub") from the following logic: "Add3"
@@ -303,16 +301,16 @@ Warning (21074): Design contains 5 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "A[14]"
     Warning (15610): No output dependent on input pin "A[15]"
     Warning (15610): No output dependent on input pin "nINH"
-Info (21057): Implemented 160 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 159 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 25 input pins
     Info (21059): Implemented 22 output pins
     Info (21060): Implemented 17 bidirectional pins
-    Info (21063): Implemented 91 macrocells
+    Info (21063): Implemented 90 macrocells
     Info (21073): Implemented 5 shareable expanders
-Info (144001): Generated suppressed messages file C:/Users/garre/Repos/TimeDisk/cpld/output_files/TimeDisk.map.smsg
-Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 13 warnings
-    Info: Peak virtual memory: 4564 megabytes
-    Info: Processing ended: Mon Feb 20 02:00:03 2023
+Info (144001): Generated suppressed messages file /Repos2/TimeDisk/cpld/output_files/TimeDisk.map.smsg
+Info: Quartus II 32-bit Analysis & Synthesis was successful. 0 errors, 11 warnings
+    Info: Peak virtual memory: 589 megabytes
+    Info: Processing ended: Tue Feb 28 10:42:33 2023
     Info: Elapsed time: 00:00:02
     Info: Total CPU time (on all processors): 00:00:02
 
@@ -320,6 +318,6 @@ Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 13 warnin
 +------------------------------------------+
 ; Analysis & Synthesis Suppressed Messages ;
 +------------------------------------------+
-The suppressed messages can be found in C:/Users/garre/Repos/TimeDisk/cpld/output_files/TimeDisk.map.smsg.
+The suppressed messages can be found in /Repos2/TimeDisk/cpld/output_files/TimeDisk.map.smsg.
 
 
