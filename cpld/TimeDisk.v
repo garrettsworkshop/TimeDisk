@@ -29,6 +29,16 @@ module TimeDisk(C7M, PHI1, nRES,
 		else nRESr <= !(!nRESr || !nRESr0); 
 	end
 	
+	/* Mode jumper loading */
+	reg ModeLoaded = 0;
+	reg Mode = 0;
+	always @(posedge C7M) begin
+		if (S==2) begin
+			if (nRESr) ModeLoaded <= 1;
+			if (!ModeLoaded) Mode <= RA11;
+		end
+	end
+	
 	/* Address Bus, etc. */
 	input nDEVSEL, nIOSEL, nIOSTRB; // Card select signals
 	input [15:0] A; // 6502 address bus
@@ -37,13 +47,21 @@ module TimeDisk(C7M, PHI1, nRES,
 	output [19:12] RAH;
 	assign RAH[19] = Addr[19];
 	assign RAH[18:12] = 
-		(!nIOSEL || !nIOSTRB) ? {6'h00, Bank } : Addr[18:12];
-	output RA11 = (!nIOSEL || !nIOSTRB) ? A[11] : Addr[11];
+		(!Mode && !nIOSEL)  ? { 6'b000000, 1'b0 } :
+		(!Mode && !nIOSTRB) ? { 6'b000000, Bank[0] } :
+		( Mode && !nIOSEL)  ? { 6'b000000, 1'b1 } :
+		( Mode && !nIOSTRB) ? { Bank[7:2], Bank[1] } : Addr[18:12];
+	inout RA11 = !ModeLoaded ? 1'bZ : 
+		(!Mode && !nIOSEL)  ? 1'b0:
+		(!Mode && !nIOSTRB) ? 1'b1 :
+		( Mode && !nIOSEL)  ? 1'b0 :
+		( Mode && !nIOSTRB) ? Bank[0] : Addr[11];
 	output [10:0] RAL;
-	assign RAL[10:0] = Addr[10:0]; //RA[10:0] only used for RAM
+	assign RAL[10:0] = Addr[10:0]; // RA[10:0] only used for RAM
 	
 	/* Select Signals */
 	`define BankSELA (A[3:0]==4'hF)
+	`define ModeSELA (A[3:0]==4'hE)
 	`define RAMSELA (A[3:0]==4'h3)
 	`define AddrHSELA (A[3:0]==4'h2)
 	`define AddrMSELA (A[3:0]==4'h1)
@@ -67,7 +85,8 @@ module TimeDisk(C7M, PHI1, nRES,
 		`AddrHSELA ? { 4'hF, Addr[19:16] } : 
 		`AddrMSELA ? Addr[15:8] : 
 		`AddrLSELA ? Addr[7:0] : 
-		`BankSELA ?  { 8'h00 } : 8'h00;
+		`ModeSELA ? { 7'h00, Mode } : 
+		`BankSELA ?  Bank[7:0] : 8'h00;
 	inout [7:0] D = DOE ? Dout : 8'bZ;
 
 	/* SRAM and ROM Control Signals */
@@ -77,7 +96,7 @@ module TimeDisk(C7M, PHI1, nRES,
 	output nROMCS; LCELL nROMCS_MC (.in(!(CSDBEN && ((!nIOSEL && RAMROMCSgb) || (!nIOSTRB && IOROMEN)))), .out(nROMCS));
 	
   	/* 6502-accessible Registers */
-	reg Bank = 0; // Bank register for ROM access
+	reg [7:0] Bank = 0; // Bank register for ROM access
 	reg [19:0] Addr = 0; // Address register bits 19:0
 	
 	/* IOSTRB ROM enable */
@@ -128,7 +147,7 @@ module TimeDisk(C7M, PHI1, nRES,
 				IncAddrH <= 0;
 				Addr[19:16] <= Addr[19:16]+1;
 			end else if (S==6) begin // Set register in middle of S6 if accessed.
-				if(BankWR) Bank <= D[0];
+				if(BankWR) Bank[7:0] <= D[7:0];
 				
 				IncAddrL <= RAMSEL_BUF;
 				IncAddrM <= AddrLWR & Addr[7] & ~D[7];

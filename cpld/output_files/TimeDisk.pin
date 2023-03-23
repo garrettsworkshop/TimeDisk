@@ -111,7 +111,7 @@ GND                          : 47        : gnd    :                   :         
 RAL[5]                       : 48        : output : TTL               :         :           : Y              
 RAL[7]                       : 49        : output : TTL               :         :           : Y              
 RAL[9]                       : 50        : output : TTL               :         :           : Y              
-RA11                         : 51        : output : TTL               :         :           : Y              
+RA11                         : 51        : bidir  : TTL               :         :           : Y              
 RAL[1]                       : 52        : output : TTL               :         :           : Y              
 VCCIO                        : 53        : power  :                   : 5.0V    :           :                
 RAL[2]                       : 54        : output : TTL               :         :           : Y              

@@ -1,5 +1,5 @@
 Assembler report for TimeDisk
-Thu Mar 23 00:35:35 2023
+Thu Mar 23 01:05:07 2023
 Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
 
 
@@ -37,7 +37,7 @@ applicable agreement for further details.
 +---------------------------------------------------------------+
 ; Assembler Summary                                             ;
 +-----------------------+---------------------------------------+
-; Assembler Status      ; Successful - Thu Mar 23 00:35:35 2023 ;
+; Assembler Status      ; Successful - Thu Mar 23 01:05:07 2023 ;
 ; Revision Name         ; TimeDisk                              ;
 ; Top-level Entity Name ; TimeDisk                              ;
 ; Family                ; MAX7000S                              ;
@@ -89,7 +89,7 @@ applicable agreement for further details.
 +----------------+-----------------------------------------------------------------------+
 ; Device         ; EPM7128SLC84-15                                                       ;
 ; JTAG usercode  ; 0x00000000                                                            ;
-; Checksum       ; 0x001ADCBF                                                            ;
+; Checksum       ; 0x0019B753                                                            ;
 +----------------+-----------------------------------------------------------------------+
 
 
@@ -99,12 +99,12 @@ applicable agreement for further details.
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Assembler
     Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
-    Info: Processing started: Thu Mar 23 00:35:34 2023
+    Info: Processing started: Thu Mar 23 01:05:06 2023
 Info: Command: quartus_asm --read_settings_files=off --write_settings_files=off TimeDisk -c TimeDisk
 Info (115030): Assembler is generating device programming files
 Info: Quartus II 64-Bit Assembler was successful. 0 errors, 0 warnings
     Info: Peak virtual memory: 4500 megabytes
-    Info: Processing ended: Thu Mar 23 00:35:35 2023
+    Info: Processing ended: Thu Mar 23 01:05:07 2023
     Info: Elapsed time: 00:00:01
     Info: Total CPU time (on all processors): 00:00:01
 
