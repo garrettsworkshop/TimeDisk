@@ -26,7 +26,7 @@ module TimeDisk(C7M, PHI1, nRES,
 	always @(posedge C7M) begin
 		nRESr0 <= nRES;
 		if (S==1) nRESr <= nRESr0;
-		else nRESr <= !(!nRESr || nRESr0); 
+		else nRESr <= !(!nRESr || !nRESr0); 
 	end
 	
 	/* Mode jumper loading */
@@ -45,14 +45,14 @@ module TimeDisk(C7M, PHI1, nRES,
 	output [19:12] RAH;
 	assign RAH[19] = Addr[19];
 	assign RAH[18:12] = 
-		(!Mode || !nIOSTRB) ? Bank[7:1] :
-		( Mode && !nIOSEL)  ? 7'h01 : Addr[18:12];
+		(!nIOSTRB || !nIOSTRB) ? {6'h00, Bank[0] } : Addr[18:12];
 	inout RA11 = !ModeLoaded ? 1'bZ :
-		(!Mode)             ? A[11] :
-		(!nIOSTRB &&  Mode) ? Bank[0] :
-		(!nIOSEL  &&  Mode) ? 1'b0 : Addr[11];
-	output [10:0] RAL = Addr[10:0]; //RA[10:0] only used for RAM
-
+		(!nIOSTRB || !nIOSTRB) ? A[11] : Addr[11];
+	output [10:0] RAL;
+	assign RAL[10:0] = Addr[10:0]; //RA[10:0] only used for RAM
+	//assign RAL[10:3] = Addr[10:3];
+	//assign RAL[2:0] = { nRESr, Mode, ModeLoaded };
+	
 	/* Select Signals */
 	`define BankSELA (A[3:0]==4'hF)
 	`define RAMSELA (A[3:0]==4'h3)
@@ -75,10 +75,10 @@ module TimeDisk(C7M, PHI1, nRES,
 		((!nDEVSEL && (!RAMSEL_BUF || (RAMSEL_BUF && RAMROMCSgb))) ||
 		 (!nIOSEL && RAMROMCSgb) || (!nIOSTRB && IOROMEN));
 	wire [7:0] Dout = (nDEVSEL || `RAMSELA) ? RD[7:0] :
-		`AddrHSELA ? Addr[23:16] : 
+		`AddrHSELA ? { 4'hF, Addr[19:16] } : 
 		`AddrMSELA ? Addr[15:8] : 
 		`AddrLSELA ? Addr[7:0] : 
-		`BankSELA ? { Bank[7:1], Mode ? Bank[0] : !Bank[1] } : 8'h00;
+		`BankSELA ?  { 7'h00, Bank[0]} : 8'h00;
 	inout [7:0] D = DOE ? Dout : 8'bZ;
 
 	/* SRAM and ROM Control Signals */
@@ -89,15 +89,15 @@ module TimeDisk(C7M, PHI1, nRES,
 	
   	/* 6502-accessible Registers */
 	reg [7:0] Bank = 0; // Bank register for ROM access
-	reg [23:0] Addr = 0; // Address register bits 19:0
+	reg [19:0] Addr = 0; // Address register bits 19:0
 	
 	/* IOSTRB ROM enable */
 	reg IOROMEN = 0; // IOSTRB ROM enable
 	wire RESIO; LCELL RESIO_MC (.in(!nIOSTRB && A[10:0]==11'h7FF), .out(RESIO));
 	always @(posedge C7M) begin
-		if (S==1 && !nRESr) IOROMEN <= 0;
-		else if (S==5 && RESIO) IOROMEN <= 0;
-		else if (S==5 && !nIOSEL) IOROMEN <= 1;
+		if (RESIO) IOROMEN <= 0;
+		else if (S==1 && !nRESr) IOROMEN <= 0;
+		else if (S==6 && !nIOSEL) IOROMEN <= 1;
 	end
 
 	/* State-based data bus and ROM CS gating */
@@ -113,7 +113,7 @@ module TimeDisk(C7M, PHI1, nRES,
 	reg REGEN = 0; // Register enable
 	always @(posedge C7M) begin
 		if (S==1 && !nRESr) REGEN <= 0;
-		else if (S==5 && !nIOSEL) REGEN <= 1;
+		else if (S==6 && !nIOSEL) REGEN <= 1;
 	end
 
 	/* Increment Control */
@@ -128,21 +128,18 @@ module TimeDisk(C7M, PHI1, nRES,
 		end else begin
 			// Increment address register
 			if (S==1 & IncAddrL) begin
-				Addr[7:0] <= Addr[7:0]+1;
 				IncAddrL <= 0;
+				Addr[7:0] <= Addr[7:0]+1;
 				IncAddrM <= Addr[7:0] == 8'hFF;
 			end else if (S==2 & IncAddrM) begin
-				Addr[15:8] <= Addr[15:8]+1;
 				IncAddrM <= 0;
+				Addr[15:8] <= Addr[15:8]+1;
 				IncAddrH <= Addr[15:8] == 8'hFF;
 			end else if (S==3 & IncAddrH) begin
 				IncAddrH <= 0;
-				Addr[23:16] <= Addr[23:16]+1;
+				Addr[19:16] <= Addr[19:16]+1;
 			end else if (S==6) begin // Set register in middle of S6 if accessed.
-				if (BankWR) begin
-					if(Mode) Bank[7:0] <= D[7:0];
-					else Bank[7:0] <= {6'h00, D[0], D[0]};
-				end
+				if(BankWR) Bank[7:0] <= { 7'h00, D[7:0] };
 				
 				IncAddrL <= RAMSEL_BUF;
 				IncAddrM <= AddrLWR & Addr[7] & ~D[7];

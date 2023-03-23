@@ -97,7 +97,7 @@ set_location_assignment PIN_80 -to D[4]
 set_location_assignment PIN_81 -to D[5]
 set_location_assignment PIN_83 -to C7M
 set_location_assignment PIN_15 -to nINH
-set_location_assignment PIN_12 -to RAG[18]
+set_location_assignment PIN_12 -to RAH[18]
 set_location_assignment PIN_48 -to RAL[5]
 set_location_assignment PIN_49 -to RAL[7]
 set_location_assignment PIN_50 -to RAL[9]
@@ -124,3 +124,4 @@ set_instance_assignment -name MAX7000_INDIVIDUAL_TURBO_BIT ON -to nRAMROMCS_MC
 set_instance_assignment -name MAX7000_INDIVIDUAL_TURBO_BIT ON -to RAMCS_MC
 set_instance_assignment -name MAX7000_INDIVIDUAL_TURBO_BIT ON -to DOE
 set_instance_assignment -name MAX7000_INDIVIDUAL_TURBO_BIT ON -to RAMSEL_MC
+set_global_assignment -name MAX7000_DEVICE_IO_STANDARD TTL

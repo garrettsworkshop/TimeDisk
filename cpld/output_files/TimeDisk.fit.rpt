@@ -1,6 +1,6 @@
 Fitter report for TimeDisk
-Tue Feb 28 10:57:07 2023
-Quartus II 32-bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
+Wed Mar 22 22:11:05 2023
+Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
 
 
 ---------------------
@@ -27,10 +27,9 @@ Quartus II 32-bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edit
  19. LAB External Interconnect
  20. LAB Macrocells
  21. Parallel Expander
- 22. Shareable Expander
- 23. Logic Cell Interconnection
- 24. Fitter Device Options
- 25. Fitter Messages
+ 22. Logic Cell Interconnection
+ 23. Fitter Device Options
+ 24. Fitter Messages
 
 
 
@@ -56,14 +55,14 @@ applicable agreement for further details.
 +-----------------------------------------------------------------------------+
 ; Fitter Summary                                                              ;
 +---------------------------+-------------------------------------------------+
-; Fitter Status             ; Successful - Tue Feb 28 10:57:07 2023           ;
-; Quartus II 32-bit Version ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition ;
+; Fitter Status             ; Successful - Wed Mar 22 22:11:05 2023           ;
+; Quartus II 64-Bit Version ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition ;
 ; Revision Name             ; TimeDisk                                        ;
 ; Top-level Entity Name     ; TimeDisk                                        ;
 ; Family                    ; MAX7000S                                        ;
 ; Device                    ; EPM7128SLC84-15                                 ;
 ; Timing Models             ; Final                                           ;
-; Total macrocells          ; 90 / 128 ( 70 % )                               ;
+; Total macrocells          ; 72 / 128 ( 56 % )                               ;
 ; Total pins                ; 68 / 68 ( 100 % )                               ;
 +---------------------------+-------------------------------------------------+
 
@@ -94,7 +93,7 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +----------------------------+--------+
 ; Processors                 ; Number ;
 +----------------------------+--------+
-; Number detected on machine ; 4      ;
+; Number detected on machine ; 8      ;
 ; Maximum allowed            ; 1      ;
 +----------------------------+--------+
 
@@ -102,7 +101,7 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +--------------+
 ; Pin-Out File ;
 +--------------+
-The pin-out file can be found in /Repos2/TimeDisk/cpld/output_files/TimeDisk.pin.
+The pin-out file can be found in C:/Users/Wolf/Documents/GitHub/TimeDisk/cpld/output_files/TimeDisk.pin.
 
 
 +--------------------------------------------------+
@@ -110,21 +109,21 @@ The pin-out file can be found in /Repos2/TimeDisk/cpld/output_files/TimeDisk.pin
 +------------------------------+-------------------+
 ; Resource                     ; Usage             ;
 +------------------------------+-------------------+
-; Logic cells                  ; 90 / 128 ( 70 % ) ;
-; Registers                    ; 47 / 128 ( 37 % ) ;
-; Number of pterms used        ; 267               ;
+; Logic cells                  ; 72 / 128 ( 56 % ) ;
+; Registers                    ; 35 / 128 ( 27 % ) ;
+; Number of pterms used        ; 200               ;
 ; I/O pins                     ; 68 / 68 ( 100 % ) ;
 ;     -- Clock pins            ; 2 / 2 ( 100 % )   ;
 ;     -- Dedicated input pins  ; 2 / 2 ( 100 % )   ;
 ;                              ;                   ;
 ; Global signals               ; 1                 ;
-; Shareable expanders          ; 5 / 128 ( 4 % )   ;
-; Parallel expanders           ; 9 / 120 ( 8 % )   ;
+; Shareable expanders          ; 0 / 128 ( 0 % )   ;
+; Parallel expanders           ; 3 / 120 ( 3 % )   ;
 ; Cells using turbo bit        ; 5 / 128 ( 4 % )   ;
-; Maximum fan-out              ; 47                ;
-; Highest non-global fan-out   ; 44                ;
-; Total fan-out                ; 823               ;
-; Average fan-out              ; 5.05              ;
+; Maximum fan-out              ; 35                ;
+; Highest non-global fan-out   ; 33                ;
+; Total fan-out                ; 584               ;
+; Average fan-out              ; 4.17              ;
 +------------------------------+-------------------+
 
 
@@ -133,31 +132,31 @@ The pin-out file can be found in /Repos2/TimeDisk/cpld/output_files/TimeDisk.pin
 +------------+-------+----------+-----+-----------------------+--------------------+--------+----------------+--------------+----------------------+
 ; Name       ; Pin # ; I/O Bank ; LAB ; Combinational Fan-Out ; Registered Fan-Out ; Global ; Input Register ; I/O Standard ; Location assigned by ;
 +------------+-------+----------+-----+-----------------------+--------------------+--------+----------------+--------------+----------------------+
-; A[0]       ; 22    ; --       ; 2   ; 26                    ; 0                  ; no     ; no             ; TTL          ; User                 ;
+; A[0]       ; 22    ; --       ; 2   ; 16                    ; 0                  ; no     ; no             ; TTL          ; User                 ;
 ; A[10]      ; 21    ; --       ; 2   ; 1                     ; 0                  ; no     ; no             ; TTL          ; User                 ;
 ; A[11]      ; 74    ; --       ; 8   ; 1                     ; 0                  ; no     ; no             ; TTL          ; User                 ;
 ; A[12]      ; 84    ; --       ; --  ; 0                     ; 0                  ; no     ; no             ; TTL          ; User                 ;
 ; A[13]      ; 6     ; --       ; 1   ; 0                     ; 0                  ; no     ; no             ; TTL          ; User                 ;
 ; A[14]      ; 8     ; --       ; 1   ; 0                     ; 0                  ; no     ; no             ; TTL          ; User                 ;
 ; A[15]      ; 9     ; --       ; 1   ; 0                     ; 0                  ; no     ; no             ; TTL          ; User                 ;
-; A[1]       ; 24    ; --       ; 3   ; 26                    ; 0                  ; no     ; no             ; TTL          ; User                 ;
-; A[2]       ; 25    ; --       ; 3   ; 25                    ; 0                  ; no     ; no             ; TTL          ; User                 ;
-; A[3]       ; 27    ; --       ; 3   ; 27                    ; 0                  ; no     ; no             ; TTL          ; User                 ;
+; A[1]       ; 24    ; --       ; 3   ; 16                    ; 0                  ; no     ; no             ; TTL          ; User                 ;
+; A[2]       ; 25    ; --       ; 3   ; 16                    ; 0                  ; no     ; no             ; TTL          ; User                 ;
+; A[3]       ; 27    ; --       ; 3   ; 16                    ; 0                  ; no     ; no             ; TTL          ; User                 ;
 ; A[4]       ; 28    ; --       ; 3   ; 1                     ; 0                  ; no     ; no             ; TTL          ; User                 ;
 ; A[5]       ; 29    ; --       ; 3   ; 1                     ; 0                  ; no     ; no             ; TTL          ; User                 ;
 ; A[6]       ; 30    ; --       ; 3   ; 1                     ; 0                  ; no     ; no             ; TTL          ; User                 ;
 ; A[7]       ; 31    ; --       ; 3   ; 1                     ; 0                  ; no     ; no             ; TTL          ; User                 ;
 ; A[8]       ; 70    ; --       ; 7   ; 1                     ; 0                  ; no     ; no             ; TTL          ; User                 ;
 ; A[9]       ; 73    ; --       ; 8   ; 1                     ; 0                  ; no     ; no             ; TTL          ; User                 ;
-; C7M        ; 83    ; --       ; --  ; 47                    ; 0                  ; yes    ; no             ; TTL          ; User                 ;
+; C7M        ; 83    ; --       ; --  ; 35                    ; 0                  ; yes    ; no             ; TTL          ; User                 ;
 ; PHI1       ; 2     ; --       ; --  ; 4                     ; 0                  ; no     ; no             ; TTL          ; User                 ;
 ; RAMROMCSgb ; 33    ; --       ; 4   ; 2                     ; 0                  ; no     ; no             ; TTL          ; User                 ;
-; nDEVSEL    ; 11    ; --       ; 1   ; 32                    ; 0                  ; no     ; no             ; TTL          ; User                 ;
+; nDEVSEL    ; 11    ; --       ; 1   ; 17                    ; 0                  ; no     ; no             ; TTL          ; User                 ;
 ; nINH       ; 15    ; --       ; 2   ; 0                     ; 0                  ; no     ; no             ; TTL          ; User                 ;
-; nIOSEL     ; 18    ; --       ; 2   ; 13                    ; 0                  ; no     ; no             ; TTL          ; User                 ;
+; nIOSEL     ; 18    ; --       ; 2   ; 5                     ; 0                  ; no     ; no             ; TTL          ; User                 ;
 ; nIOSTRB    ; 16    ; --       ; 2   ; 12                    ; 0                  ; no     ; no             ; TTL          ; User                 ;
 ; nRES       ; 1     ; --       ; --  ; 1                     ; 0                  ; no     ; no             ; TTL          ; User                 ;
-; nWE        ; 10    ; --       ; 1   ; 13                    ; 0                  ; no     ; no             ; TTL          ; User                 ;
+; nWE        ; 10    ; --       ; 1   ; 6                     ; 0                  ; no     ; no             ; TTL          ; User                 ;
 +------------+-------+----------+-----+-----------------------+--------------------+--------+----------------+--------------+----------------------+
 
 
@@ -172,7 +171,7 @@ The pin-out file can be found in /Repos2/TimeDisk/cpld/output_files/TimeDisk.pin
 ; RAH[15]   ; 46    ; --       ; 5   ; no              ; yes            ; no         ; no            ; TTL          ; User                 ; 10 pF ; -                    ; -                   ;
 ; RAH[16]   ; 61    ; --       ; 6   ; no              ; yes            ; no         ; no            ; TTL          ; User                 ; 10 pF ; -                    ; -                   ;
 ; RAH[17]   ; 68    ; --       ; 7   ; no              ; yes            ; no         ; no            ; TTL          ; User                 ; 10 pF ; -                    ; -                   ;
-; RAH[18]   ; 12    ; --       ; 1   ; no              ; yes            ; no         ; no            ; TTL          ; Fitter               ; 10 pF ; -                    ; -                   ;
+; RAH[18]   ; 12    ; --       ; 1   ; no              ; yes            ; no         ; no            ; TTL          ; User                 ; 10 pF ; -                    ; -                   ;
 ; RAH[19]   ; 65    ; --       ; 7   ; no              ; yes            ; no         ; no            ; TTL          ; User                 ; 10 pF ; -                    ; -                   ;
 ; RAL[0]    ; 55    ; --       ; 6   ; no              ; yes            ; no         ; no            ; TTL          ; User                 ; 10 pF ; -                    ; -                   ;
 ; RAL[10]   ; 56    ; --       ; 6   ; no              ; yes            ; no         ; no            ; TTL          ; User                 ; 10 pF ; -                    ; -                   ;
@@ -196,23 +195,23 @@ The pin-out file can be found in /Repos2/TimeDisk/cpld/output_files/TimeDisk.pin
 +-------+-------+----------+-----+-----------------------+--------------------+--------+----------------+-----------------+----------------+------------+--------------+----------------------+-------+----------------------+---------------------+
 ; Name  ; Pin # ; I/O Bank ; LAB ; Combinational Fan-Out ; Registered Fan-Out ; Global ; Input Register ; Output Register ; Slow Slew Rate ; Open Drain ; I/O Standard ; Location assigned by ; Load  ; Output Enable Source ; Output Enable Group ;
 +-------+-------+----------+-----+-----------------------+--------------------+--------+----------------+-----------------+----------------+------------+--------------+----------------------+-------+----------------------+---------------------+
-; D[0]  ; 75    ; --       ; 8   ; 6                     ; 0                  ; no     ; no             ; no              ; yes            ; no         ; TTL          ; User                 ; 10 pF ; DOE~8                ; -                   ;
-; D[1]  ; 76    ; --       ; 8   ; 5                     ; 0                  ; no     ; no             ; no              ; yes            ; no         ; TTL          ; User                 ; 10 pF ; DOE~8                ; -                   ;
-; D[2]  ; 77    ; --       ; 8   ; 5                     ; 0                  ; no     ; no             ; no              ; yes            ; no         ; TTL          ; User                 ; 10 pF ; DOE~8                ; -                   ;
-; D[3]  ; 79    ; --       ; 8   ; 5                     ; 0                  ; no     ; no             ; no              ; yes            ; no         ; TTL          ; User                 ; 10 pF ; DOE~8                ; -                   ;
-; D[4]  ; 80    ; --       ; 8   ; 4                     ; 0                  ; no     ; no             ; no              ; yes            ; no         ; TTL          ; User                 ; 10 pF ; DOE~8                ; -                   ;
-; D[5]  ; 81    ; --       ; 8   ; 4                     ; 0                  ; no     ; no             ; no              ; yes            ; no         ; TTL          ; User                 ; 10 pF ; DOE~8                ; -                   ;
-; D[6]  ; 4     ; --       ; 1   ; 4                     ; 0                  ; no     ; no             ; no              ; yes            ; no         ; TTL          ; User                 ; 10 pF ; DOE~8                ; -                   ;
-; D[7]  ; 5     ; --       ; 1   ; 6                     ; 0                  ; no     ; no             ; no              ; yes            ; no         ; TTL          ; User                 ; 10 pF ; DOE~8                ; -                   ;
-; RA11  ; 51    ; --       ; 5   ; 1                     ; 0                  ; no     ; no             ; no              ; yes            ; no         ; TTL          ; User                 ; 10 pF ; ModeLoaded           ; -                   ;
-; RD[0] ; 41    ; --       ; 4   ; 1                     ; 0                  ; no     ; no             ; no              ; yes            ; no         ; TTL          ; User                 ; 10 pF ; RDOE~1               ; -                   ;
-; RD[1] ; 40    ; --       ; 4   ; 2                     ; 0                  ; no     ; no             ; no              ; yes            ; no         ; TTL          ; User                 ; 10 pF ; RDOE~1               ; -                   ;
-; RD[2] ; 39    ; --       ; 4   ; 2                     ; 0                  ; no     ; no             ; no              ; yes            ; no         ; TTL          ; User                 ; 10 pF ; RDOE~1               ; -                   ;
-; RD[3] ; 37    ; --       ; 4   ; 2                     ; 0                  ; no     ; no             ; no              ; yes            ; no         ; TTL          ; User                 ; 10 pF ; RDOE~1               ; -                   ;
-; RD[4] ; 36    ; --       ; 4   ; 3                     ; 0                  ; no     ; no             ; no              ; yes            ; no         ; TTL          ; User                 ; 10 pF ; RDOE~1               ; -                   ;
-; RD[5] ; 35    ; --       ; 4   ; 2                     ; 0                  ; no     ; no             ; no              ; yes            ; no         ; TTL          ; User                 ; 10 pF ; RDOE~1               ; -                   ;
-; RD[6] ; 34    ; --       ; 4   ; 2                     ; 0                  ; no     ; no             ; no              ; yes            ; no         ; TTL          ; User                 ; 10 pF ; RDOE~1               ; -                   ;
-; RD[7] ; 44    ; --       ; 5   ; 2                     ; 0                  ; no     ; no             ; no              ; yes            ; no         ; TTL          ; User                 ; 10 pF ; RDOE~1               ; -                   ;
+; D[0]  ; 75    ; --       ; 8   ; 5                     ; 0                  ; no     ; no             ; no              ; yes            ; no         ; TTL          ; User                 ; 10 pF ; DOE~8                ; -                   ;
+; D[1]  ; 76    ; --       ; 8   ; 4                     ; 0                  ; no     ; no             ; no              ; yes            ; no         ; TTL          ; User                 ; 10 pF ; DOE~8                ; -                   ;
+; D[2]  ; 77    ; --       ; 8   ; 4                     ; 0                  ; no     ; no             ; no              ; yes            ; no         ; TTL          ; User                 ; 10 pF ; DOE~8                ; -                   ;
+; D[3]  ; 79    ; --       ; 8   ; 4                     ; 0                  ; no     ; no             ; no              ; yes            ; no         ; TTL          ; User                 ; 10 pF ; DOE~8                ; -                   ;
+; D[4]  ; 80    ; --       ; 8   ; 3                     ; 0                  ; no     ; no             ; no              ; yes            ; no         ; TTL          ; User                 ; 10 pF ; DOE~8                ; -                   ;
+; D[5]  ; 81    ; --       ; 8   ; 3                     ; 0                  ; no     ; no             ; no              ; yes            ; no         ; TTL          ; User                 ; 10 pF ; DOE~8                ; -                   ;
+; D[6]  ; 4     ; --       ; 1   ; 3                     ; 0                  ; no     ; no             ; no              ; yes            ; no         ; TTL          ; User                 ; 10 pF ; DOE~8                ; -                   ;
+; D[7]  ; 5     ; --       ; 1   ; 5                     ; 0                  ; no     ; no             ; no              ; yes            ; no         ; TTL          ; User                 ; 10 pF ; DOE~8                ; -                   ;
+; RA11  ; 51    ; --       ; 5   ; 0                     ; 0                  ; no     ; no             ; no              ; yes            ; no         ; TTL          ; User                 ; 10 pF ; ModeLoaded           ; -                   ;
+; RD[0] ; 41    ; --       ; 4   ; 2                     ; 0                  ; no     ; no             ; no              ; yes            ; no         ; TTL          ; User                 ; 10 pF ; RDOE~1               ; -                   ;
+; RD[1] ; 40    ; --       ; 4   ; 1                     ; 0                  ; no     ; no             ; no              ; yes            ; no         ; TTL          ; User                 ; 10 pF ; RDOE~1               ; -                   ;
+; RD[2] ; 39    ; --       ; 4   ; 1                     ; 0                  ; no     ; no             ; no              ; yes            ; no         ; TTL          ; User                 ; 10 pF ; RDOE~1               ; -                   ;
+; RD[3] ; 37    ; --       ; 4   ; 1                     ; 0                  ; no     ; no             ; no              ; yes            ; no         ; TTL          ; User                 ; 10 pF ; RDOE~1               ; -                   ;
+; RD[4] ; 36    ; --       ; 4   ; 1                     ; 0                  ; no     ; no             ; no              ; yes            ; no         ; TTL          ; User                 ; 10 pF ; RDOE~1               ; -                   ;
+; RD[5] ; 35    ; --       ; 4   ; 1                     ; 0                  ; no     ; no             ; no              ; yes            ; no         ; TTL          ; User                 ; 10 pF ; RDOE~1               ; -                   ;
+; RD[6] ; 34    ; --       ; 4   ; 1                     ; 0                  ; no     ; no             ; no              ; yes            ; no         ; TTL          ; User                 ; 10 pF ; RDOE~1               ; -                   ;
+; RD[7] ; 44    ; --       ; 5   ; 1                     ; 0                  ; no     ; no             ; no              ; yes            ; no         ; TTL          ; User                 ; 10 pF ; RDOE~1               ; -                   ;
 +-------+-------+----------+-----+-----------------------+--------------------+--------+----------------+-----------------+----------------+------------+--------------+----------------------+-------+----------------------+---------------------+
 
 
@@ -232,7 +231,7 @@ The pin-out file can be found in /Repos2/TimeDisk/cpld/output_files/TimeDisk.pin
 ; 9        ; 8          ; --       ; A[15]          ; input  ; TTL          ;         ; Y               ;
 ; 10       ; 9          ; --       ; nWE            ; input  ; TTL          ;         ; Y               ;
 ; 11       ; 10         ; --       ; nDEVSEL        ; input  ; TTL          ;         ; Y               ;
-; 12       ; 11         ; --       ; RAH[18]        ; output ; TTL          ;         ; N               ;
+; 12       ; 11         ; --       ; RAH[18]        ; output ; TTL          ;         ; Y               ;
 ; 13       ; 12         ; --       ; VCCIO          ; power  ;              ; 5.0V    ;                 ;
 ; 14       ; 13         ; --       ; TDI            ; input  ; TTL          ;         ; N               ;
 ; 15       ; 14         ; --       ; nINH           ; input  ; TTL          ;         ; Y               ;
@@ -347,22 +346,21 @@ Note: User assignments will override these defaults. The user specified values a
 +----------------------------+------------+------+---------------------+--------------+
 ; Compilation Hierarchy Node ; Macrocells ; Pins ; Full Hierarchy Name ; Library Name ;
 +----------------------------+------------+------+---------------------+--------------+
-; |TimeDisk                  ; 90         ; 68   ; |TimeDisk           ; work         ;
+; |TimeDisk                  ; 72         ; 68   ; |TimeDisk           ; work         ;
 +----------------------------+------------+------+---------------------+--------------+
 
 
-+---------------------------------------------------------------------------------------------------+
-; Control Signals                                                                                   ;
-+------------+----------+---------+--------------+--------+----------------------+------------------+
-; Name       ; Location ; Fan-Out ; Usage        ; Global ; Global Resource Used ; Global Line Name ;
-+------------+----------+---------+--------------+--------+----------------------+------------------+
-; C7M        ; PIN_83   ; 47      ; Clock        ; yes    ; On                   ; --               ;
-; ModeLoaded ; LC96     ; 2       ; Clock enable ; no     ; --                   ; --               ;
-; S[0]       ; LC58     ; 43      ; Clock enable ; no     ; --                   ; --               ;
-; S[1]       ; LC62     ; 44      ; Clock enable ; no     ; --                   ; --               ;
-; S[2]       ; LC52     ; 44      ; Clock enable ; no     ; --                   ; --               ;
-; nRESr      ; LC12     ; 40      ; Clock enable ; no     ; --                   ; --               ;
-+------------+----------+---------+--------------+--------+----------------------+------------------+
++----------------------------------------------------------------------------------------------+
+; Control Signals                                                                              ;
++-------+----------+---------+--------------+--------+----------------------+------------------+
+; Name  ; Location ; Fan-Out ; Usage        ; Global ; Global Resource Used ; Global Line Name ;
++-------+----------+---------+--------------+--------+----------------------+------------------+
+; C7M   ; PIN_83   ; 35      ; Clock        ; yes    ; On                   ; --               ;
+; S[0]  ; LC30     ; 32      ; Clock enable ; no     ; --                   ; --               ;
+; S[1]  ; LC18     ; 33      ; Clock enable ; no     ; --                   ; --               ;
+; S[2]  ; LC31     ; 33      ; Clock enable ; no     ; --                   ; --               ;
+; nRESr ; LC27     ; 27      ; Clock enable ; no     ; --                   ; --               ;
++-------+----------+---------+--------------+--------+----------------------+------------------+
 
 
 +---------------------------------------------------------------------+
@@ -370,7 +368,7 @@ Note: User assignments will override these defaults. The user specified values a
 +------+----------+---------+----------------------+------------------+
 ; Name ; Location ; Fan-Out ; Global Resource Used ; Global Line Name ;
 +------+----------+---------+----------------------+------------------+
-; C7M  ; PIN_83   ; 47      ; On                   ; --               ;
+; C7M  ; PIN_83   ; 35      ; On                   ; --               ;
 +------+----------+---------+----------------------+------------------+
 
 
@@ -379,86 +377,72 @@ Note: User assignments will override these defaults. The user specified values a
 +--------------+------------------+
 ; Name         ; Fan-Out          ;
 +--------------+------------------+
-; S[2]         ; 44               ;
-; S[1]         ; 44               ;
-; S[0]         ; 43               ;
-; nRESr        ; 40               ;
-; nDEVSEL      ; 32               ;
-; A[3]         ; 27               ;
-; A[1]         ; 26               ;
-; A[0]         ; 26               ;
-; A[2]         ; 25               ;
-; Mode         ; 16               ;
-; REGEN        ; 15               ;
-; nIOSEL       ; 13               ;
-; nWE          ; 13               ;
+; S[1]         ; 33               ;
+; S[2]         ; 33               ;
+; S[0]         ; 32               ;
+; nRESr        ; 27               ;
+; nDEVSEL      ; 17               ;
+; A[3]         ; 16               ;
+; A[2]         ; 16               ;
+; A[1]         ; 16               ;
+; A[0]         ; 16               ;
 ; nIOSTRB      ; 12               ;
 ; IncAddrM     ; 11               ;
 ; Addr[0]      ; 11               ;
 ; Addr[8]      ; 11               ;
-; IncAddrL     ; 11               ;
-; Addr[16]     ; 10               ;
-; IncAddrH     ; 10               ;
-; Addr[9]      ; 10               ;
 ; Addr[1]      ; 10               ;
+; Addr[9]      ; 10               ;
+; IncAddrL     ; 10               ;
 ; Addr[2]      ; 9                ;
 ; Addr[10]     ; 9                ;
-; Addr[17]     ; 9                ;
 ; AddrLWR_MC   ; 9                ;
 ; AddrMWR_MC   ; 9                ;
-; Addr[11]     ; 8                ;
-; Addr[4]      ; 8                ;
 ; Addr[3]      ; 8                ;
-; Addr[12]     ; 8                ;
-; Addr[18]     ; 8                ;
+; Addr[11]     ; 8                ;
+; REGEN        ; 8                ;
 ; RDOE~1       ; 8                ;
 ; DOE~8        ; 8                ;
-; Addr[19]     ; 7                ;
-; D[7]~7       ; 6                ;
-; D[0]~0       ; 6                ;
-; Addr[5]      ; 6                ;
+; Addr[12]     ; 7                ;
+; Addr[4]      ; 7                ;
+; nWE          ; 6                ;
+; Addr[16]     ; 6                ;
+; IncAddrH     ; 6                ;
 ; Addr[13]     ; 6                ;
-; Addr[20]     ; 6                ;
-; D[3]~3       ; 5                ;
-; D[2]~2       ; 5                ;
-; D[1]~1       ; 5                ;
+; Addr[5]      ; 6                ;
+; D[7]~7       ; 5                ;
+; D[0]~0       ; 5                ;
+; nIOSEL       ; 5                ;
+; Addr[14]     ; 5                ;
 ; Addr[7]      ; 5                ;
 ; Addr[6]      ; 5                ;
-; Addr[14]     ; 5                ;
-; D[6]~6       ; 4                ;
-; D[5]~5       ; 4                ;
-; D[4]~4       ; 4                ;
+; Addr[17]     ; 5                ;
+; D[3]~3       ; 4                ;
+; D[2]~2       ; 4                ;
+; D[1]~1       ; 4                ;
 ; PHI1         ; 4                ;
 ; Addr[15]     ; 4                ;
-; Addr[21]     ; 4                ;
+; Addr[18]     ; 4                ;
 ; AddrHWR_MC   ; 4                ;
-; Bank[1]      ; 4                ;
 ; CSDBEN       ; 4                ;
 ; PHI0rf[0]    ; 4                ;
-; RD[4]~4      ; 3                ;
-; Addr[22]     ; 3                ;
-; Bank[7]      ; 3                ;
-; Bank[6]      ; 3                ;
-; Bank[5]      ; 3                ;
-; Bank[4]      ; 3                ;
-; Bank[3]      ; 3                ;
-; Bank[2]      ; 3                ;
+; D[6]~6       ; 3                ;
+; D[5]~5       ; 3                ;
+; D[4]~4       ; 3                ;
+; Addr[19]     ; 3                ;
 ; Bank[0]      ; 3                ;
 ; IOROMEN      ; 3                ;
 ; PHI0rf[1]    ; 3                ;
-; RD[7]~7      ; 2                ;
-; RD[6]~6      ; 2                ;
-; RD[5]~5      ; 2                ;
-; RD[3]~3      ; 2                ;
-; RD[2]~2      ; 2                ;
-; RD[1]~1      ; 2                ;
+; RD[0]~0      ; 2                ;
 ; RAMROMCSgb   ; 2                ;
-; Addr[23]     ; 2                ;
 ; RAMSEL_MC    ; 2                ;
-; ModeLoaded   ; 2                ;
 ; RESIO_MC     ; 2                ;
-; RD[0]~0      ; 1                ;
-; RA11~0       ; 1                ;
+; RD[7]~7      ; 1                ;
+; RD[6]~6      ; 1                ;
+; RD[5]~5      ; 1                ;
+; RD[4]~4      ; 1                ;
+; RD[3]~3      ; 1                ;
+; RD[2]~2      ; 1                ;
+; RD[1]~1      ; 1                ;
 ; A[11]        ; 1                ;
 ; A[10]        ; 1                ;
 ; A[9]         ; 1                ;
@@ -470,23 +454,19 @@ Note: User assignments will override these defaults. The user specified values a
 ; nRES         ; 1                ;
 ; IncAddrM~15  ; 1                ;
 ; IncAddrH~17  ; 1                ;
-; Dout[7]~167  ; 1                ;
-; Dout[6]~165  ; 1                ;
-; Dout[5]~163  ; 1                ;
-; Dout[3]~161  ; 1                ;
-; Dout[2]~159  ; 1                ;
-; Dout[1]~157  ; 1                ;
-; Dout[0]~154  ; 1                ;
-; RAH~53       ; 1                ;
-; RAH~49       ; 1                ;
-; RAH~45       ; 1                ;
-; RAH~41       ; 1                ;
-; RAH~37       ; 1                ;
-; RAH~33       ; 1                ;
-; RAH~29       ; 1                ;
+; Dout[0]~99   ; 1                ;
+; RAH~23       ; 1                ;
+; RAH~20       ; 1                ;
+; RAH~18       ; 1                ;
+; RAH~16       ; 1                ;
+; RAH~14       ; 1                ;
+; comb~38      ; 1                ;
+; RAH~12       ; 1                ;
+; RAH~10       ; 1                ;
 ; RAMCS_MC     ; 1                ;
 ; nRAMROMCS_MC ; 1                ;
 ; nROMCS_MC    ; 1                ;
+; ModeLoaded   ; 1                ;
 ; nRESr0       ; 1                ;
 ; D[7]~38      ; 1                ;
 ; D[6]~36      ; 1                ;
@@ -496,20 +476,14 @@ Note: User assignments will override these defaults. The user specified values a
 ; D[2]~28      ; 1                ;
 ; D[1]~26      ; 1                ;
 ; D[0]~24      ; 1                ;
-; Dout[7]~153  ; 1                ;
-; Dout[6]~147  ; 1                ;
-; Dout[5]~141  ; 1                ;
-; Dout[4]~133  ; 1                ;
-; Dout[4]~128  ; 1                ;
-; Dout[4]~127  ; 1                ;
-; Dout[4]~126  ; 1                ;
-; Dout[4]~125  ; 1                ;
-; Dout[4]~124  ; 1                ;
-; Dout[3]~123  ; 1                ;
-; Dout[2]~117  ; 1                ;
-; Dout[1]~111  ; 1                ;
-; Dout[0]~105  ; 1                ;
-; comb~24      ; 1                ;
+; Dout[7]~98   ; 1                ;
+; Dout[6]~92   ; 1                ;
+; Dout[5]~86   ; 1                ;
+; Dout[4]~80   ; 1                ;
+; Dout[3]~74   ; 1                ;
+; Dout[2]~68   ; 1                ;
+; Dout[1]~62   ; 1                ;
+; Dout[0]~56   ; 1                ;
 +--------------+------------------+
 
 
@@ -519,52 +493,52 @@ Note: User assignments will override these defaults. The user specified values a
 ; Other Routing Resource Type ; Usage              ;
 +-----------------------------+--------------------+
 ; Output enables              ; 3 / 6 ( 50 % )     ;
-; PIA buffers                 ; 227 / 288 ( 79 % ) ;
-; PIAs                        ; 254 / 288 ( 88 % ) ;
+; PIA buffers                 ; 172 / 288 ( 60 % ) ;
+; PIAs                        ; 200 / 288 ( 69 % ) ;
 +-----------------------------+--------------------+
 
 
 +-----------------------------------------------------------------------------+
 ; LAB External Interconnect                                                   ;
 +-----------------------------------------------+-----------------------------+
-; LAB External Interconnects  (Average = 31.75) ; Number of LABs  (Total = 8) ;
+; LAB External Interconnects  (Average = 25.00) ; Number of LABs  (Total = 8) ;
 +-----------------------------------------------+-----------------------------+
-; 0 - 3                                         ; 0                           ;
-; 4 - 7                                         ; 0                           ;
-; 8 - 11                                        ; 0                           ;
-; 12 - 15                                       ; 0                           ;
-; 16 - 19                                       ; 0                           ;
-; 20 - 23                                       ; 0                           ;
-; 24 - 27                                       ; 1                           ;
-; 28 - 31                                       ; 3                           ;
-; 32 - 35                                       ; 2                           ;
-; 36 - 39                                       ; 2                           ;
+; 0 - 2                                         ; 0                           ;
+; 3 - 5                                         ; 0                           ;
+; 6 - 8                                         ; 0                           ;
+; 9 - 11                                        ; 0                           ;
+; 12 - 14                                       ; 2                           ;
+; 15 - 17                                       ; 0                           ;
+; 18 - 20                                       ; 1                           ;
+; 21 - 23                                       ; 0                           ;
+; 24 - 26                                       ; 0                           ;
+; 27 - 29                                       ; 1                           ;
+; 30 - 32                                       ; 4                           ;
 +-----------------------------------------------+-----------------------------+
 
 
-+-----------------------------------------------------------------------+
-; LAB Macrocells                                                        ;
-+-----------------------------------------+-----------------------------+
-; Number of Macrocells  (Average = 11.25) ; Number of LABs  (Total = 8) ;
-+-----------------------------------------+-----------------------------+
-; 0                                       ; 0                           ;
-; 1                                       ; 0                           ;
-; 2                                       ; 0                           ;
-; 3                                       ; 0                           ;
-; 4                                       ; 0                           ;
-; 5                                       ; 0                           ;
-; 6                                       ; 0                           ;
-; 7                                       ; 0                           ;
-; 8                                       ; 0                           ;
-; 9                                       ; 2                           ;
-; 10                                      ; 3                           ;
-; 11                                      ; 1                           ;
-; 12                                      ; 0                           ;
-; 13                                      ; 0                           ;
-; 14                                      ; 0                           ;
-; 15                                      ; 1                           ;
-; 16                                      ; 1                           ;
-+-----------------------------------------+-----------------------------+
++----------------------------------------------------------------------+
+; LAB Macrocells                                                       ;
++----------------------------------------+-----------------------------+
+; Number of Macrocells  (Average = 9.00) ; Number of LABs  (Total = 8) ;
++----------------------------------------+-----------------------------+
+; 0                                      ; 0                           ;
+; 1                                      ; 0                           ;
+; 2                                      ; 0                           ;
+; 3                                      ; 1                           ;
+; 4                                      ; 1                           ;
+; 5                                      ; 0                           ;
+; 6                                      ; 0                           ;
+; 7                                      ; 1                           ;
+; 8                                      ; 1                           ;
+; 9                                      ; 0                           ;
+; 10                                     ; 1                           ;
+; 11                                     ; 0                           ;
+; 12                                     ; 1                           ;
+; 13                                     ; 1                           ;
+; 14                                     ; 0                           ;
+; 15                                     ; 1                           ;
++----------------------------------------+-----------------------------+
 
 
 +---------------------------------------------------------+
@@ -573,120 +547,88 @@ Note: User assignments will override these defaults. The user specified values a
 ; Parallel Expander Length ; Number of Parallel Expanders ;
 +--------------------------+------------------------------+
 ; 0                        ; 0                            ;
-; 1                        ; 9                            ;
+; 1                        ; 3                            ;
 +--------------------------+------------------------------+
 
 
-+-------------------------------------------------------------------------------+
-; Shareable Expander                                                            ;
-+-------------------------------------------------+-----------------------------+
-; Number of shareable expanders  (Average = 0.63) ; Number of LABs  (Total = 1) ;
-+-------------------------------------------------+-----------------------------+
-; 0                                               ; 7                           ;
-; 1                                               ; 0                           ;
-; 2                                               ; 0                           ;
-; 3                                               ; 0                           ;
-; 4                                               ; 0                           ;
-; 5                                               ; 1                           ;
-+-------------------------------------------------+-----------------------------+
-
-
-+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Logic Cell Interconnection                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            ;
-+-----+------------+--------------------------------------------------------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; LAB ; Logic Cell ; Input                                                                                                                                                  ; Output                                                                                                                                                                                                                                                                                                                                                                                                                    ;
-+-----+------------+--------------------------------------------------------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-;  A  ; LC2        ; C7M, D[7], S[2], S[0], S[1], nWE, A[2], A[3], A[0], A[1], REGEN, nDEVSEL, Mode, Bank[7], nRESr                                                         ; Dout[7]~153, Bank[7], RAH~53                                                                                                                                                                                                                                                                                                                                                                                              ;
-;  A  ; LC12       ; C7M, S[2], S[0], nRESr0, S[1], nRESr                                                                                                                   ; nRESr, ModeLoaded, IOROMEN, REGEN, Bank[1], Bank[0], Bank[2], Bank[3], Bank[4], Bank[5], Bank[6], Bank[7], Addr[8], Addr[17], Addr[1], Addr[9], Addr[10], Addr[18], Addr[19], Addr[20], Addr[21], Addr[12], Addr[22], Addr[23], Addr[13], Addr[14], Addr[5], Addr[6], Addr[7], Addr[15], Addr[16], Addr[0], Addr[2], Addr[3], Addr[4], IncAddrM, Addr[11], Mode, IncAddrH~17, IncAddrM~15                                 ;
-;  A  ; LC13       ; RD[7], nDEVSEL                                                                                                                                         ; Dout[7]~153                                                                                                                                                                                                                                                                                                                                                                                                               ;
-;  A  ; LC4        ; C7M, D[3], S[2], S[0], S[1], nWE, A[2], A[3], A[0], A[1], REGEN, nDEVSEL, Mode, Bank[3], nRESr                                                         ; Dout[3]~123, Bank[3], RAH~37                                                                                                                                                                                                                                                                                                                                                                                              ;
-;  A  ; LC3        ; Bank[7], Mode, nIOSTRB, Addr[18], nIOSEL                                                                                                               ; RAH[18]                                                                                                                                                                                                                                                                                                                                                                                                                   ;
-;  A  ; LC9        ; C7M, D[5], S[2], S[0], S[1], nWE, A[2], A[3], A[0], A[1], REGEN, nDEVSEL, Mode, Bank[5], nRESr                                                         ; Dout[5]~141, Bank[5], RAH~45                                                                                                                                                                                                                                                                                                                                                                                              ;
-;  A  ; LC11       ; C7M, D[6], S[2], S[0], S[1], nWE, A[2], A[3], A[0], A[1], REGEN, nDEVSEL, Mode, Bank[6], nRESr                                                         ; Dout[6]~147, Bank[6], RAH~49                                                                                                                                                                                                                                                                                                                                                                                              ;
-;  A  ; LC15       ; RD[6], nDEVSEL                                                                                                                                         ; Dout[6]~147                                                                                                                                                                                                                                                                                                                                                                                                               ;
-;  A  ; LC16       ; Dout[6]~165, RD[6], A[3], A[2], A[0], A[1], Addr[22], nDEVSEL, Addr[14], Addr[6], Bank[6]                                                              ; D[6]                                                                                                                                                                                                                                                                                                                                                                                                                      ;
-;  A  ; LC14       ; Dout[7]~167, RD[7], A[3], A[2], A[0], A[1], Addr[23], nDEVSEL, Addr[15], Addr[7], Bank[7]                                                              ; D[7]                                                                                                                                                                                                                                                                                                                                                                                                                      ;
-;  B  ; LC19       ; CSDBEN, nWE                                                                                                                                            ; RD[0], RD[1], RD[2], RD[3], RD[4], RD[5], RD[6], RD[7]                                                                                                                                                                                                                                                                                                                                                                    ;
-;  B  ; LC26       ; C7M, S[2], nIOSEL, S[0], S[1], REGEN, nRESr                                                                                                            ; REGEN, RAMSEL_MC, AddrMWR_MC, nRAMROMCS_MC, RAMCS_MC, Bank[1], Bank[0], AddrHWR_MC, AddrLWR_MC, Bank[2], Bank[3], Bank[4], Bank[5], Bank[6], Bank[7]                                                                                                                                                                                                                                                                      ;
-;  B  ; LC32       ; nDEVSEL, RAMROMCSgb, CSDBEN, nWE, RAMSEL_MC, nIOSEL, IOROMEN, nIOSTRB                                                                                  ; D[0], D[1], D[2], D[3], D[4], D[5], D[6], D[7]                                                                                                                                                                                                                                                                                                                                                                            ;
-;  B  ; LC18       ; A[2], A[3], REGEN, nDEVSEL, A[0], A[1]                                                                                                                 ; DOE~8, IncAddrL                                                                                                                                                                                                                                                                                                                                                                                                           ;
-;  B  ; LC25       ; nIOSEL, IOROMEN, nIOSTRB, RAMROMCSgb, CSDBEN                                                                                                           ; nROMCS                                                                                                                                                                                                                                                                                                                                                                                                                    ;
-;  B  ; LC29       ; A[0], A[1], nWE, A[2], A[3], REGEN, nDEVSEL                                                                                                            ; Addr[8], Addr[9], Addr[10], Addr[12], Addr[13], Addr[14], Addr[15], IncAddrH, Addr[11]                                                                                                                                                                                                                                                                                                                                    ;
-;  B  ; LC17       ; C7M, D[1], S[2], S[0], S[1], nWE, A[2], A[3], A[0], A[1], REGEN, nDEVSEL, Mode, Bank[1], D[0], nRESr                                                   ; Dout[0]~105, Dout[1]~111, Bank[1], RAH~29                                                                                                                                                                                                                                                                                                                                                                                 ;
-;  B  ; LC24       ; C7M, nWE, S[2], S[0], S[1], A[2], A[3], A[0], A[1], REGEN, nDEVSEL, D[0], Bank[0], nRESr                                                               ; comb~24, Dout[0]~105, Bank[0]                                                                                                                                                                                                                                                                                                                                                                                             ;
-;  B  ; LC23       ; A[1], A[0], nWE, A[2], A[3], REGEN, nDEVSEL                                                                                                            ; Addr[17], Addr[18], Addr[19], Addr[16]                                                                                                                                                                                                                                                                                                                                                                                    ;
-;  B  ; LC28       ; A[4], A[5], A[6], A[7], A[8], A[9], A[10], nIOSTRB, A[2], A[3], A[0], A[1]                                                                             ; CSDBEN, IOROMEN                                                                                                                                                                                                                                                                                                                                                                                                           ;
-;  B  ; LC31       ; A[1], A[0], nWE, A[2], A[3], REGEN, nDEVSEL                                                                                                            ; Addr[1], Addr[5], Addr[6], Addr[7], Addr[0], Addr[2], Addr[3], Addr[4], IncAddrM                                                                                                                                                                                                                                                                                                                                          ;
-;  B  ; LC21       ; A[2], A[3], REGEN, nDEVSEL, A[0], A[1], nIOSEL                                                                                                         ; nRAMROMCS                                                                                                                                                                                                                                                                                                                                                                                                                 ;
-;  B  ; LC22       ; C7M, S[2], nIOSTRB, RESIO_MC                                                                                                                           ; DOE~8, RDOE~1, nROMCS_MC, RAMCS_MC                                                                                                                                                                                                                                                                                                                                                                                        ;
-;  B  ; LC27       ; C7M, S[2], S[0], S[1], RAMSEL_MC, IncAddrL                                                                                                             ; IncAddrL, Addr[1], Addr[5], Addr[6], Addr[7], Addr[0], Addr[2], Addr[3], Addr[4], IncAddrM, IncAddrM~15                                                                                                                                                                                                                                                                                                                   ;
-;  B  ; LC20       ; C7M, nIOSEL, RESIO_MC, S[0], S[1], S[2], IOROMEN, nRESr                                                                                                ; DOE~8, IOROMEN, nROMCS_MC                                                                                                                                                                                                                                                                                                                                                                                                 ;
-;  C  ; LC48       ; C7M, S[0], D[4], AddrMWR_MC, S[2], S[1], Addr[12], Addr[11], Addr[10], Addr[8], Addr[9], IncAddrM, nRESr                                               ; Dout[4]~125, Dout[4]~133, Addr[12], Addr[13], Addr[14], Addr[15], IncAddrH, RAH~29                                                                                                                                                                                                                                                                                                                                        ;
-;  C  ; LC40       ; nRESr, IncAddrH, S[1]                                                                                                                                  ; IncAddrH                                                                                                                                                                                                                                                                                                                                                                                                                  ;
-;  C  ; LC46       ; C7M, S[0], D[7], AddrMWR_MC, S[2], S[1], Addr[15], Addr[14], Addr[13], Addr[12], Addr[11], Addr[10], Addr[8], Addr[9], IncAddrM, nRESr                 ; Dout[7]~153, Addr[15], IncAddrH, RAH~41                                                                                                                                                                                                                                                                                                                                                                                   ;
-;  C  ; LC33       ; C7M, nRES                                                                                                                                              ; nRESr                                                                                                                                                                                                                                                                                                                                                                                                                     ;
-;  C  ; LC44       ; C7M, D[2], S[2], S[0], S[1], nWE, A[2], A[3], A[0], A[1], REGEN, nDEVSEL, Mode, Bank[2], nRESr                                                         ; Dout[2]~117, Bank[2], RAH~33                                                                                                                                                                                                                                                                                                                                                                                              ;
-;  C  ; LC45       ; C7M, S[0], D[5], AddrMWR_MC, S[2], S[1], Addr[13], Addr[12], Addr[11], Addr[10], Addr[8], Addr[9], IncAddrM, nRESr                                     ; Dout[5]~141, Addr[13], Addr[14], Addr[15], IncAddrH, RAH~33                                                                                                                                                                                                                                                                                                                                                               ;
-;  C  ; LC42       ; C7M, D[4], S[2], S[0], S[1], nWE, A[2], A[3], A[0], A[1], REGEN, nDEVSEL, Mode, Bank[4], nRESr                                                         ; Dout[4]~124, Bank[4], RAH~41                                                                                                                                                                                                                                                                                                                                                                                              ;
-;  C  ; LC37       ; C7M, RA11, nRESr, ModeLoaded                                                                                                                           ; comb~24, Dout[0]~105, Bank[1], Bank[2], Bank[3], Bank[4], Bank[5], Bank[6], Bank[7], RAH~29, RAH~33, RAH~37, RAH~41, RAH~45, RAH~49, RAH~53                                                                                                                                                                                                                                                                               ;
-;  C  ; LC41       ; C7M, IncAddrH~17, IncAddrH, S[1], S[0], S[2], IncAddrM, Addr[12], Addr[13], Addr[14], Addr[11], Addr[10], Addr[8], Addr[9], Addr[15], D[7], AddrMWR_MC ; Addr[17], Addr[18], Addr[19], Addr[20], Addr[21], Addr[22], Addr[23], IncAddrH, Addr[16], IncAddrH~17                                                                                                                                                                                                                                                                                                                     ;
-;  D  ; LC53       ; D[2]                                                                                                                                                   ; RD[2]                                                                                                                                                                                                                                                                                                                                                                                                                     ;
-;  D  ; LC54       ; C7M, S[0], D[3], AddrMWR_MC, S[2], S[1], Addr[11], Addr[10], Addr[8], Addr[9], IncAddrM, nRESr                                                         ; comb~24, Dout[3]~123, Addr[12], Addr[13], Addr[14], Addr[15], IncAddrH, Addr[11]                                                                                                                                                                                                                                                                                                                                          ;
-;  D  ; LC60       ; C7M, S[0], S[1], S[2], D[2], AddrHWR_MC, Addr[18], nRESr, Addr[16], Addr[17], IncAddrH                                                                 ; Dout[2]~117, Addr[18], Addr[19], Addr[20], Addr[21], Addr[22], Addr[23], RAH~53                                                                                                                                                                                                                                                                                                                                           ;
-;  D  ; LC64       ; C7M, S[2], S[0], S[1], AddrHWR_MC, D[0], Addr[16], nRESr, IncAddrH                                                                                     ; Dout[0]~105, Addr[17], Addr[18], Addr[19], Addr[20], Addr[21], Addr[22], Addr[23], Addr[16], RAH~45                                                                                                                                                                                                                                                                                                                       ;
-;  D  ; LC49       ; D[0]                                                                                                                                                   ; RD[0]                                                                                                                                                                                                                                                                                                                                                                                                                     ;
-;  D  ; LC51       ; D[1]                                                                                                                                                   ; RD[1]                                                                                                                                                                                                                                                                                                                                                                                                                     ;
-;  D  ; LC50       ; C7M, PHI0rf[0]                                                                                                                                         ; S[1], S[0], S[2]                                                                                                                                                                                                                                                                                                                                                                                                          ;
-;  D  ; LC56       ; D[3]                                                                                                                                                   ; RD[3]                                                                                                                                                                                                                                                                                                                                                                                                                     ;
-;  D  ; LC57       ; D[4]                                                                                                                                                   ; RD[4]                                                                                                                                                                                                                                                                                                                                                                                                                     ;
-;  D  ; LC59       ; D[5]                                                                                                                                                   ; RD[5]                                                                                                                                                                                                                                                                                                                                                                                                                     ;
-;  D  ; LC61       ; D[6]                                                                                                                                                   ; RD[6]                                                                                                                                                                                                                                                                                                                                                                                                                     ;
-;  D  ; LC55       ; C7M, PHI1                                                                                                                                              ; PHI0rf[1], S[1], S[0], S[2]                                                                                                                                                                                                                                                                                                                                                                                               ;
-;  D  ; LC62       ; C7M, PHI0rf[0], PHI0rf[1], PHI1, S[2], S[0], S[1]                                                                                                      ; S[1], S[0], S[2], nRESr, ModeLoaded, IOROMEN, REGEN, Bank[1], Bank[0], Bank[2], Bank[3], Bank[4], Bank[5], Bank[6], Bank[7], IncAddrL, Addr[8], Addr[17], Addr[1], Addr[9], Addr[10], Addr[18], Addr[19], Addr[20], Addr[21], Addr[12], Addr[22], Addr[23], Addr[13], Addr[14], Addr[5], Addr[6], Addr[7], Addr[15], IncAddrH, Addr[16], Addr[0], Addr[2], Addr[3], Addr[4], IncAddrM, Addr[11], IncAddrH~17, IncAddrM~15 ;
-;  D  ; LC58       ; C7M, PHI0rf[0], PHI0rf[1], PHI1, S[0], S[1], S[2]                                                                                                      ; S[1], S[0], S[2], nRESr, ModeLoaded, IOROMEN, REGEN, Bank[1], Bank[0], Bank[2], Bank[3], Bank[4], Bank[5], Bank[6], Bank[7], IncAddrL, Addr[8], Addr[17], Addr[1], Addr[9], Addr[10], Addr[18], Addr[19], Addr[20], Addr[21], Addr[12], Addr[22], Addr[23], Addr[13], Addr[14], Addr[5], Addr[6], Addr[7], Addr[15], IncAddrH, Addr[16], Addr[0], Addr[2], Addr[3], Addr[4], IncAddrM, Addr[11], IncAddrM~15              ;
-;  D  ; LC52       ; C7M, PHI0rf[0], PHI0rf[1], PHI1, S[0], S[2], S[1]                                                                                                      ; S[1], S[0], S[2], CSDBEN, nRESr, ModeLoaded, IOROMEN, REGEN, Bank[1], Bank[0], Bank[2], Bank[3], Bank[4], Bank[5], Bank[6], Bank[7], IncAddrL, Addr[8], Addr[17], Addr[1], Addr[9], Addr[10], Addr[18], Addr[19], Addr[20], Addr[21], Addr[12], Addr[22], Addr[23], Addr[13], Addr[14], Addr[5], Addr[6], Addr[7], Addr[15], IncAddrH, Addr[16], Addr[0], Addr[2], Addr[3], Addr[4], IncAddrM, Addr[11], IncAddrM~15      ;
-;  D  ; LC63       ; C7M, S[0], S[1], S[2], D[1], AddrHWR_MC, Addr[17], Addr[16], IncAddrH, nRESr                                                                           ; Dout[1]~111, Addr[17], Addr[18], Addr[19], Addr[20], Addr[21], Addr[22], Addr[23], RAH~49                                                                                                                                                                                                                                                                                                                                 ;
-;  E  ; LC70       ; Addr[4], Addr[5], Addr[6], Addr[3], Addr[2], Addr[0], Addr[1], nRESr, Addr[7], S[1], IncAddrM, IncAddrL, S[2], S[0]                                    ; IncAddrM                                                                                                                                                                                                                                                                                                                                                                                                                  ;
-;  E  ; LC71       ; C7M, IncAddrM~15, nRESr, IncAddrL, S[0], IncAddrM, S[2], S[1], Addr[7], D[7], AddrLWR_MC                                                               ; Addr[8], Addr[9], Addr[10], Addr[12], Addr[13], Addr[14], Addr[15], IncAddrH, IncAddrM, Addr[11], IncAddrM~15                                                                                                                                                                                                                                                                                                             ;
-;  E  ; LC69       ; Bank[4], Mode, nIOSTRB, Addr[15], nIOSEL                                                                                                               ; RAH[15]                                                                                                                                                                                                                                                                                                                                                                                                                   ;
-;  E  ; LC67       ; CSDBEN, A[2], A[3], REGEN, nDEVSEL, A[0], A[1]                                                                                                         ; RAMCS                                                                                                                                                                                                                                                                                                                                                                                                                     ;
-;  E  ; LC65       ; D[7]                                                                                                                                                   ; RD[7]                                                                                                                                                                                                                                                                                                                                                                                                                     ;
-;  E  ; LC77       ; A[11], Mode, nIOSEL, Addr[11], nIOSTRB, Bank[0]                                                                                                        ; RA11                                                                                                                                                                                                                                                                                                                                                                                                                      ;
-;  E  ; LC75       ; C7M, S[1], D[1], AddrMWR_MC, S[0], S[2], Addr[9], Addr[8], IncAddrM, nRESr                                                                             ; Dout[1]~111, Addr[9], RAL[9], Addr[10], Addr[12], Addr[13], Addr[14], Addr[15], IncAddrH, Addr[11]                                                                                                                                                                                                                                                                                                                        ;
-;  E  ; LC80       ; C7M, Addr[0], IncAddrL, nRESr, S[0], S[1], S[2], D[1], AddrLWR_MC, Addr[1]                                                                             ; Dout[1]~111, Addr[1], RAL[1], Addr[5], Addr[6], Addr[7], Addr[2], Addr[3], Addr[4], IncAddrM~15                                                                                                                                                                                                                                                                                                                           ;
-;  E  ; LC72       ; C7M, nRESr, Addr[4], Addr[3], Addr[2], Addr[0], Addr[1], IncAddrL, S[1], S[2], S[0], D[5], AddrLWR_MC, Addr[5]                                         ; Dout[5]~141, Addr[5], RAL[5], Addr[6], Addr[7], IncAddrM~15                                                                                                                                                                                                                                                                                                                                                               ;
-;  E  ; LC73       ; C7M, nRESr, Addr[6], Addr[5], Addr[4], Addr[3], Addr[2], Addr[0], Addr[1], IncAddrL, S[1], S[2], S[0], D[7], AddrLWR_MC, Addr[7]                       ; Dout[7]~153, Addr[7], RAL[7], IncAddrM, IncAddrM~15                                                                                                                                                                                                                                                                                                                                                                       ;
-;  F  ; LC95       ; C7M, S[0], D[6], AddrMWR_MC, S[2], S[1], Addr[14], Addr[13], Addr[12], Addr[11], Addr[10], Addr[8], Addr[9], IncAddrM, nRESr                           ; Dout[6]~147, Addr[14], Addr[15], IncAddrH, RAH~37                                                                                                                                                                                                                                                                                                                                                                         ;
-;  F  ; LC83       ; C7M, nRESr, Addr[0], Addr[1], IncAddrL, S[1], S[2], S[0], D[2], AddrLWR_MC, Addr[2]                                                                    ; Dout[2]~117, Addr[5], Addr[6], Addr[7], Addr[2], RAL[2], Addr[3], Addr[4], IncAddrM~15                                                                                                                                                                                                                                                                                                                                    ;
-;  F  ; LC86       ; C7M, S[0], D[2], AddrMWR_MC, S[2], S[1], Addr[10], Addr[8], Addr[9], IncAddrM, nRESr                                                                   ; Dout[2]~117, Addr[10], RAL[10], Addr[12], Addr[13], Addr[14], Addr[15], IncAddrH, Addr[11]                                                                                                                                                                                                                                                                                                                                ;
-;  F  ; LC88       ; C7M, D[0], AddrMWR_MC, S[0], S[2], S[1], Addr[8], IncAddrM, nRESr                                                                                      ; Dout[0]~105, Addr[8], RAL[8], Addr[9], Addr[10], Addr[12], Addr[13], Addr[14], Addr[15], IncAddrH, Addr[11]                                                                                                                                                                                                                                                                                                               ;
-;  F  ; LC93       ; Bank[1], Mode, nIOSTRB, nIOSEL, Addr[12]                                                                                                               ; RAH[12]                                                                                                                                                                                                                                                                                                                                                                                                                   ;
-;  F  ; LC91       ; C7M, nRESr, Addr[5], Addr[4], Addr[3], Addr[2], Addr[0], Addr[1], IncAddrL, S[1], S[2], S[0], D[6], AddrLWR_MC, Addr[6]                                ; Dout[6]~147, Addr[6], RAL[6], Addr[7], IncAddrM~15                                                                                                                                                                                                                                                                                                                                                                        ;
-;  F  ; LC85       ; C7M, nRESr, IncAddrL, S[2], S[1], S[0], AddrLWR_MC, D[0], Addr[0]                                                                                      ; Dout[0]~105, Addr[1], Addr[5], Addr[6], Addr[7], Addr[0], RAL[0], Addr[2], Addr[3], Addr[4], IncAddrM~15                                                                                                                                                                                                                                                                                                                  ;
-;  F  ; LC96       ; C7M, nRESr, S[2], S[0], S[1]                                                                                                                           ; RA11, Mode                                                                                                                                                                                                                                                                                                                                                                                                                ;
-;  F  ; LC94       ; Bank[5], Mode, nIOSTRB, Addr[16], nIOSEL                                                                                                               ; RAH[16]                                                                                                                                                                                                                                                                                                                                                                                                                   ;
-;  G  ; LC112      ; C7M, Addr[19], Addr[18], Addr[16], Addr[17], IncAddrH, S[1], S[2], S[0], nRESr, Addr[20]                                                               ; Dout[4]~125, Dout[4]~133, Addr[20], Addr[21], Addr[22], Addr[23]                                                                                                                                                                                                                                                                                                                                                          ;
-;  G  ; LC103      ; C7M, Addr[21], Addr[20], Addr[19], Addr[18], Addr[16], Addr[17], IncAddrH, S[1], S[2], S[0], nRESr, Addr[22]                                           ; Dout[6]~147, Addr[22], Addr[23]                                                                                                                                                                                                                                                                                                                                                                                           ;
-;  G  ; LC101      ; C7M, S[0], S[1], S[2], D[3], AddrHWR_MC, Addr[19], nRESr, Addr[18], Addr[16], Addr[17], IncAddrH                                                       ; Dout[3]~123, Addr[19], RAH[19], Addr[20], Addr[21], Addr[22], Addr[23]                                                                                                                                                                                                                                                                                                                                                    ;
-;  G  ; LC97       ; C7M, nRESr, Addr[2], Addr[0], Addr[1], IncAddrL, S[1], S[2], S[0], D[3], AddrLWR_MC, Addr[3]                                                           ; Dout[3]~123, Addr[5], Addr[6], Addr[7], Addr[3], RAL[3], Addr[4], IncAddrM~15                                                                                                                                                                                                                                                                                                                                             ;
-;  G  ; LC99       ; C7M, nRESr, Addr[3], Addr[2], Addr[0], Addr[1], IncAddrL, S[1], S[2], S[0], D[4], AddrLWR_MC, Addr[4]                                                  ; Dout[4]~125, Dout[4]~133, Addr[5], Addr[6], Addr[7], Addr[4], RAL[4], IncAddrM~15                                                                                                                                                                                                                                                                                                                                         ;
-;  G  ; LC102      ; C7M, Addr[22], Addr[21], Addr[20], Addr[19], Addr[18], Addr[16], Addr[17], IncAddrH, S[1], S[2], S[0], nRESr, Addr[23]                                 ; Dout[7]~153, Addr[23]                                                                                                                                                                                                                                                                                                                                                                                                     ;
-;  G  ; LC107      ; Bank[2], Mode, nIOSTRB, Addr[13], nIOSEL                                                                                                               ; RAH[13]                                                                                                                                                                                                                                                                                                                                                                                                                   ;
-;  G  ; LC104      ; Bank[3], Mode, nIOSTRB, Addr[14], nIOSEL                                                                                                               ; RAH[14]                                                                                                                                                                                                                                                                                                                                                                                                                   ;
-;  G  ; LC105      ; Bank[6], Mode, nIOSTRB, Addr[17], nIOSEL                                                                                                               ; RAH[17]                                                                                                                                                                                                                                                                                                                                                                                                                   ;
-;  G  ; LC110      ; C7M, Addr[20], Addr[19], Addr[18], Addr[16], Addr[17], IncAddrH, S[1], S[2], S[0], nRESr, Addr[21]                                                     ; Dout[5]~141, Addr[21], Addr[22], Addr[23]                                                                                                                                                                                                                                                                                                                                                                                 ;
-;  H  ; LC120      ; Dout[1]~157, RD[1], A[3], A[2], A[0], A[1], Addr[17], nDEVSEL, Addr[9], Addr[1], Bank[1]                                                               ; D[1]                                                                                                                                                                                                                                                                                                                                                                                                                      ;
-;  H  ; LC123      ; Dout[2]~159, RD[2], A[3], A[2], A[0], A[1], Addr[18], nDEVSEL, Addr[10], Addr[2], Bank[2]                                                              ; D[2]                                                                                                                                                                                                                                                                                                                                                                                                                      ;
-;  H  ; LC125      ; Dout[3]~161, RD[3], A[3], A[2], A[0], A[1], Addr[19], nDEVSEL, Addr[11], Addr[3], Bank[3]                                                              ; D[3]                                                                                                                                                                                                                                                                                                                                                                                                                      ;
-;  H  ; LC126      ; Dout[4]~125, Dout[4]~126, Dout[4]~127, Dout[4]~128, Addr[20], A[0], A[1], nDEVSEL, Addr[12], Addr[4], Dout[4]~124, A[3]                                ; D[4]                                                                                                                                                                                                                                                                                                                                                                                                                      ;
-;  H  ; LC119      ; RD[1], nDEVSEL                                                                                                                                         ; Dout[1]~111                                                                                                                                                                                                                                                                                                                                                                                                               ;
-;  H  ; LC122      ; RD[2], nDEVSEL                                                                                                                                         ; Dout[2]~117                                                                                                                                                                                                                                                                                                                                                                                                               ;
-;  H  ; LC124      ; RD[3], nDEVSEL                                                                                                                                         ; Dout[3]~123                                                                                                                                                                                                                                                                                                                                                                                                               ;
-;  H  ; LC127      ; RD[5], nDEVSEL                                                                                                                                         ; Dout[5]~141                                                                                                                                                                                                                                                                                                                                                                                                               ;
-;  H  ; LC118      ; Dout[0]~154, Addr[16], nDEVSEL, A[3], A[2], A[0], A[1], Addr[8], Addr[0], Bank[0], Mode, Bank[1]                                                       ; D[0]                                                                                                                                                                                                                                                                                                                                                                                                                      ;
-;  H  ; LC128      ; Dout[5]~163, RD[5], A[3], A[2], A[0], A[1], Addr[21], nDEVSEL, Addr[13], Addr[5], Bank[5]                                                              ; D[5]                                                                                                                                                                                                                                                                                                                                                                                                                      ;
-;  H  ; LC117      ; RD[0], nDEVSEL, A[3], A[2], A[0], A[1]                                                                                                                 ; Dout[0]~105                                                                                                                                                                                                                                                                                                                                                                                                               ;
-+-----+------------+--------------------------------------------------------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Logic Cell Interconnection                                                                                                                                                                                                                                                                                                                                                                                                                                                                     ;
++-----+------------+--------------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; LAB ; Logic Cell ; Input                                                                                                                                                  ; Output                                                                                                                                                                                                                                                                                                             ;
++-----+------------+--------------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+;  A  ; LC16       ; RD[6], nDEVSEL, A[1], A[2], A[3], A[0], Addr[6], Addr[14]                                                                                              ; D[6]                                                                                                                                                                                                                                                                                                               ;
+;  A  ; LC14       ; RD[7], nDEVSEL, A[1], A[2], A[3], A[0], Addr[7], Addr[15]                                                                                              ; D[7]                                                                                                                                                                                                                                                                                                               ;
+;  A  ; LC3        ; Addr[18], nIOSTRB                                                                                                                                      ; RAH[18]                                                                                                                                                                                                                                                                                                            ;
+;  B  ; LC28       ; C7M, PHI1                                                                                                                                              ; PHI0rf[1], S[2], S[1], S[0]                                                                                                                                                                                                                                                                                        ;
+;  B  ; LC24       ; nDEVSEL, RAMROMCSgb, CSDBEN, nWE, RAMSEL_MC, nIOSEL, IOROMEN, nIOSTRB                                                                                  ; D[0], D[1], D[2], D[3], D[4], D[5], D[6], D[7]                                                                                                                                                                                                                                                                     ;
+;  B  ; LC25       ; nIOSEL, IOROMEN, nIOSTRB, RAMROMCSgb, CSDBEN                                                                                                           ; nROMCS                                                                                                                                                                                                                                                                                                             ;
+;  B  ; LC21       ; A[2], A[3], REGEN, nDEVSEL, A[0], A[1], nIOSEL                                                                                                         ; nRAMROMCS                                                                                                                                                                                                                                                                                                          ;
+;  B  ; LC32       ; CSDBEN, nWE                                                                                                                                            ; RD[0], RD[1], RD[2], RD[3], RD[4], RD[5], RD[6], RD[7]                                                                                                                                                                                                                                                             ;
+;  B  ; LC29       ; C7M, nRES                                                                                                                                              ; nRESr                                                                                                                                                                                                                                                                                                              ;
+;  B  ; LC23       ; C7M, PHI0rf[0]                                                                                                                                         ; S[2], S[1], S[0]                                                                                                                                                                                                                                                                                                   ;
+;  B  ; LC20       ; A[4], A[5], A[6], A[7], A[8], A[9], A[10], nIOSTRB, A[2], A[3], A[0], A[1]                                                                             ; CSDBEN, IOROMEN                                                                                                                                                                                                                                                                                                    ;
+;  B  ; LC31       ; C7M, PHI0rf[0], PHI0rf[1], PHI1, S[0], S[2], S[1]                                                                                                      ; S[2], CSDBEN, S[1], S[0], nRESr, ModeLoaded, IOROMEN, REGEN, Bank[0], IncAddrL, Addr[17], Addr[5], Addr[8], Addr[18], Addr[6], Addr[9], Addr[19], Addr[7], Addr[10], Addr[11], Addr[13], Addr[14], Addr[15], IncAddrH, Addr[16], Addr[0], Addr[1], Addr[2], Addr[3], Addr[4], IncAddrM, Addr[12], IncAddrM~15      ;
+;  B  ; LC22       ; C7M, S[2], nIOSTRB, RESIO_MC                                                                                                                           ; DOE~8, RDOE~1, nROMCS_MC, RAMCS_MC                                                                                                                                                                                                                                                                                 ;
+;  B  ; LC18       ; C7M, PHI0rf[0], PHI0rf[1], PHI1, S[2], S[0], S[1]                                                                                                      ; S[2], S[1], S[0], nRESr, ModeLoaded, IOROMEN, REGEN, Bank[0], IncAddrL, Addr[17], Addr[5], Addr[8], Addr[18], Addr[6], Addr[9], Addr[19], Addr[7], Addr[10], Addr[11], Addr[13], Addr[14], Addr[15], IncAddrH, Addr[16], Addr[0], Addr[1], Addr[2], Addr[3], Addr[4], IncAddrM, Addr[12], IncAddrH~17, IncAddrM~15 ;
+;  B  ; LC30       ; C7M, PHI0rf[0], PHI0rf[1], PHI1, S[0], S[1], S[2]                                                                                                      ; S[2], S[1], S[0], nRESr, ModeLoaded, IOROMEN, REGEN, Bank[0], IncAddrL, Addr[17], Addr[5], Addr[8], Addr[18], Addr[6], Addr[9], Addr[19], Addr[7], Addr[10], Addr[11], Addr[13], Addr[14], Addr[15], IncAddrH, Addr[16], Addr[0], Addr[1], Addr[2], Addr[3], Addr[4], IncAddrM, Addr[12], IncAddrM~15              ;
+;  B  ; LC27       ; C7M, nRESr0, nRESr, S[0], S[1], S[2]                                                                                                                   ; nRESr, ModeLoaded, IOROMEN, REGEN, Bank[0], Addr[17], Addr[5], Addr[8], Addr[18], Addr[6], Addr[9], Addr[19], Addr[7], Addr[10], Addr[11], Addr[13], Addr[14], Addr[15], Addr[16], Addr[0], Addr[1], Addr[2], Addr[3], Addr[4], Addr[12], IncAddrH~17, IncAddrM~15                                                 ;
+;  B  ; LC19       ; C7M, nIOSEL, S[2], S[0], S[1], RESIO_MC, IOROMEN, nRESr                                                                                                ; DOE~8, IOROMEN, nROMCS_MC                                                                                                                                                                                                                                                                                          ;
+;  B  ; LC26       ; C7M, S[2], nIOSEL, S[0], S[1], REGEN, nRESr                                                                                                            ; REGEN, RAMSEL_MC, AddrHWR_MC, nRAMROMCS_MC, RAMCS_MC, Bank[0], AddrMWR_MC, AddrLWR_MC                                                                                                                                                                                                                              ;
+;  C  ; LC44       ; C7M, D[2], AddrHWR_MC, S[1], S[0], S[2], Addr[18], Addr[16], Addr[17], IncAddrH, nRESr                                                                 ; Dout[2]~68, Addr[18], RAH~12, Addr[19]                                                                                                                                                                                                                                                                             ;
+;  C  ; LC48       ; C7M, D[1], AddrHWR_MC, S[1], S[2], S[0], Addr[17], Addr[16], IncAddrH, nRESr                                                                           ; Dout[1]~62, Addr[17], RAH~10, Addr[18], Addr[19]                                                                                                                                                                                                                                                                   ;
+;  C  ; LC40       ; C7M, D[0], AddrHWR_MC, S[0], S[2], S[1], Addr[16], IncAddrH, nRESr                                                                                     ; Dout[0]~56, Addr[17], Addr[18], Addr[19], Addr[16], RAH~20                                                                                                                                                                                                                                                         ;
+;  C  ; LC45       ; C7M, S[2], S[1], S[0], RAMSEL_MC, IncAddrL                                                                                                             ; IncAddrL, Addr[5], Addr[6], Addr[7], Addr[0], Addr[1], Addr[2], Addr[3], Addr[4], IncAddrM~15                                                                                                                                                                                                                      ;
+;  D  ; LC49       ; D[0]                                                                                                                                                   ; RD[0]                                                                                                                                                                                                                                                                                                              ;
+;  D  ; LC51       ; D[1]                                                                                                                                                   ; RD[1]                                                                                                                                                                                                                                                                                                              ;
+;  D  ; LC53       ; D[2]                                                                                                                                                   ; RD[2]                                                                                                                                                                                                                                                                                                              ;
+;  D  ; LC56       ; D[3]                                                                                                                                                   ; RD[3]                                                                                                                                                                                                                                                                                                              ;
+;  D  ; LC57       ; D[4]                                                                                                                                                   ; RD[4]                                                                                                                                                                                                                                                                                                              ;
+;  D  ; LC59       ; D[5]                                                                                                                                                   ; RD[5]                                                                                                                                                                                                                                                                                                              ;
+;  D  ; LC61       ; D[6]                                                                                                                                                   ; RD[6]                                                                                                                                                                                                                                                                                                              ;
+;  D  ; LC60       ; C7M, S[0], S[1], S[2], AddrMWR_MC, D[5], Addr[13], nRESr, IncAddrM, Addr[12], Addr[11], Addr[10], Addr[8], Addr[9]                                     ; Dout[5]~86, Addr[13], RAH~14, Addr[14], Addr[15], IncAddrH                                                                                                                                                                                                                                                         ;
+;  E  ; LC77       ; Addr[11], nIOSTRB, A[11]                                                                                                                               ; RA11                                                                                                                                                                                                                                                                                                               ;
+;  E  ; LC80       ; C7M, Addr[0], IncAddrL, nRESr, S[1], S[0], S[2], D[1], AddrLWR_MC, Addr[1]                                                                             ; Dout[1]~62, Addr[5], Addr[6], Addr[7], Addr[1], RAL[1], Addr[2], Addr[3], Addr[4], IncAddrM~15                                                                                                                                                                                                                     ;
+;  E  ; LC69       ; Addr[15], nIOSTRB                                                                                                                                      ; RAH[15]                                                                                                                                                                                                                                                                                                            ;
+;  E  ; LC71       ; C7M, IncAddrM~15, S[0], IncAddrM, S[1], Addr[7], D[7], AddrLWR_MC, S[2]                                                                                ; Addr[8], Addr[9], Addr[10], Addr[11], Addr[13], Addr[14], Addr[15], IncAddrH, IncAddrM, Addr[12], IncAddrM~15                                                                                                                                                                                                      ;
+;  E  ; LC65       ; D[7]                                                                                                                                                   ; RD[7]                                                                                                                                                                                                                                                                                                              ;
+;  E  ; LC67       ; CSDBEN, A[2], A[3], REGEN, nDEVSEL, A[0], A[1]                                                                                                         ; RAMCS                                                                                                                                                                                                                                                                                                              ;
+;  E  ; LC70       ; Addr[4], Addr[5], Addr[6], Addr[3], Addr[2], Addr[1], Addr[0], nRESr, Addr[7], IncAddrL, S[0], S[2], S[1], IncAddrM                                    ; IncAddrM                                                                                                                                                                                                                                                                                                           ;
+;  E  ; LC72       ; C7M, nRESr, Addr[4], Addr[3], Addr[2], Addr[1], Addr[0], IncAddrL, S[0], S[1], S[2], D[5], AddrLWR_MC, Addr[5]                                         ; Dout[5]~86, Addr[5], RAL[5], Addr[6], Addr[7], IncAddrM~15                                                                                                                                                                                                                                                         ;
+;  E  ; LC75       ; C7M, S[0], S[1], S[2], AddrMWR_MC, D[1], Addr[9], nRESr, IncAddrM, Addr[8]                                                                             ; Dout[1]~62, Addr[9], RAL[9], Addr[10], Addr[11], Addr[13], Addr[14], Addr[15], IncAddrH, Addr[12]                                                                                                                                                                                                                  ;
+;  E  ; LC73       ; C7M, nRESr, Addr[6], Addr[5], Addr[4], Addr[3], Addr[2], Addr[1], Addr[0], IncAddrL, S[0], S[1], S[2], D[7], AddrLWR_MC, Addr[7]                       ; Dout[7]~98, Addr[7], RAL[7], IncAddrM, IncAddrM~15                                                                                                                                                                                                                                                                 ;
+;  F  ; LC96       ; C7M, nRESr, S[0], S[1], S[2]                                                                                                                           ; RA11                                                                                                                                                                                                                                                                                                               ;
+;  F  ; LC91       ; C7M, nRESr, Addr[5], Addr[4], Addr[3], Addr[2], Addr[1], Addr[0], IncAddrL, S[0], S[1], S[2], D[6], AddrLWR_MC, Addr[6]                                ; Dout[6]~92, Addr[6], RAL[6], Addr[7], IncAddrM~15                                                                                                                                                                                                                                                                  ;
+;  F  ; LC92       ; C7M, S[1], S[2], nWE, A[2], A[3], A[0], A[1], REGEN, nDEVSEL, D[0], S[0], Bank[0], nRESr                                                               ; Dout[0]~56, Bank[0], RAH~23                                                                                                                                                                                                                                                                                        ;
+;  F  ; LC89       ; A[0], A[1], nWE, A[2], A[3], REGEN, nDEVSEL                                                                                                            ; Addr[17], Addr[18], Addr[19], Addr[16]                                                                                                                                                                                                                                                                             ;
+;  F  ; LC86       ; C7M, S[0], S[1], S[2], AddrMWR_MC, D[2], Addr[10], nRESr, IncAddrM, Addr[8], Addr[9]                                                                   ; Dout[2]~68, Addr[10], RAL[10], Addr[11], Addr[13], Addr[14], Addr[15], IncAddrH, Addr[12]                                                                                                                                                                                                                          ;
+;  F  ; LC81       ; A[0], A[1], nWE, A[2], A[3], REGEN, nDEVSEL                                                                                                            ; Addr[5], Addr[6], Addr[7], Addr[0], Addr[1], Addr[2], Addr[3], Addr[4], IncAddrM                                                                                                                                                                                                                                   ;
+;  F  ; LC88       ; C7M, S[0], AddrMWR_MC, S[2], D[0], S[1], Addr[8], nRESr, IncAddrM                                                                                      ; Dout[0]~56, Addr[8], RAL[8], Addr[9], Addr[10], Addr[11], Addr[13], Addr[14], Addr[15], IncAddrH, Addr[12]                                                                                                                                                                                                         ;
+;  F  ; LC94       ; Addr[16], nIOSTRB                                                                                                                                      ; RAH[16]                                                                                                                                                                                                                                                                                                            ;
+;  F  ; LC85       ; C7M, nRESr, S[0], S[1], S[2], IncAddrL, D[0], AddrLWR_MC, Addr[0]                                                                                      ; Dout[0]~56, Addr[5], Addr[6], Addr[7], Addr[0], RAL[0], Addr[1], Addr[2], Addr[3], Addr[4], IncAddrM~15                                                                                                                                                                                                            ;
+;  F  ; LC95       ; A[0], A[1], nWE, A[2], A[3], REGEN, nDEVSEL                                                                                                            ; Addr[8], Addr[9], Addr[10], Addr[11], Addr[13], Addr[14], Addr[15], IncAddrH, Addr[12]                                                                                                                                                                                                                             ;
+;  F  ; LC83       ; C7M, nRESr, Addr[1], Addr[0], IncAddrL, S[0], S[1], S[2], D[2], AddrLWR_MC, Addr[2]                                                                    ; Dout[2]~68, Addr[5], Addr[6], Addr[7], Addr[2], RAL[2], Addr[3], Addr[4], IncAddrM~15                                                                                                                                                                                                                              ;
+;  F  ; LC82       ; A[2], A[3], REGEN, nDEVSEL, A[0], A[1]                                                                                                                 ; DOE~8, IncAddrL                                                                                                                                                                                                                                                                                                    ;
+;  F  ; LC93       ; Addr[12], nIOSTRB, Bank[0]                                                                                                                             ; RAH[12]                                                                                                                                                                                                                                                                                                            ;
+;  G  ; LC101      ; C7M, D[3], AddrHWR_MC, S[1], S[0], S[2], Addr[19], Addr[18], Addr[16], Addr[17], IncAddrH, nRESr                                                       ; Dout[3]~74, Addr[19], RAH[19]                                                                                                                                                                                                                                                                                      ;
+;  G  ; LC111      ; C7M, S[0], S[1], S[2], AddrMWR_MC, D[3], Addr[11], nRESr, IncAddrM, Addr[10], Addr[8], Addr[9]                                                         ; Dout[3]~74, Addr[11], comb~38, Addr[13], Addr[14], Addr[15], IncAddrH, Addr[12]                                                                                                                                                                                                                                    ;
+;  G  ; LC105      ; Addr[17], nIOSTRB                                                                                                                                      ; RAH[17]                                                                                                                                                                                                                                                                                                            ;
+;  G  ; LC112      ; C7M, S[0], S[1], S[2], AddrMWR_MC, D[6], Addr[14], nRESr, IncAddrM, Addr[13], Addr[12], Addr[11], Addr[10], Addr[8], Addr[9]                           ; Dout[6]~92, Addr[14], RAH~16, Addr[15], IncAddrH                                                                                                                                                                                                                                                                   ;
+;  G  ; LC104      ; Addr[14], nIOSTRB                                                                                                                                      ; RAH[14]                                                                                                                                                                                                                                                                                                            ;
+;  G  ; LC102      ; C7M, S[0], S[1], S[2], AddrMWR_MC, D[7], Addr[15], nRESr, IncAddrM, Addr[14], Addr[13], Addr[12], Addr[11], Addr[10], Addr[8], Addr[9]                 ; Dout[7]~98, Addr[15], RAH~18, IncAddrH                                                                                                                                                                                                                                                                             ;
+;  G  ; LC109      ; C7M, IncAddrH~17, IncAddrH, S[1], S[0], IncAddrM, S[2], Addr[12], Addr[13], Addr[14], Addr[11], Addr[10], Addr[8], Addr[9], Addr[15], D[7], AddrMWR_MC ; Addr[17], Addr[18], Addr[19], IncAddrH, Addr[16], IncAddrH~17                                                                                                                                                                                                                                                      ;
+;  G  ; LC97       ; C7M, nRESr, Addr[2], Addr[1], Addr[0], IncAddrL, S[0], S[1], S[2], D[3], AddrLWR_MC, Addr[3]                                                           ; Dout[3]~74, Addr[5], Addr[6], Addr[7], Addr[3], RAL[3], Addr[4], IncAddrM~15                                                                                                                                                                                                                                       ;
+;  G  ; LC99       ; C7M, nRESr, Addr[3], Addr[2], Addr[1], Addr[0], IncAddrL, S[0], S[1], S[2], D[4], AddrLWR_MC, Addr[4]                                                  ; Dout[4]~80, Addr[5], Addr[6], Addr[7], Addr[4], RAL[4], IncAddrM~15                                                                                                                                                                                                                                                ;
+;  G  ; LC110      ; C7M, S[0], S[1], S[2], AddrMWR_MC, D[4], Addr[12], nRESr, IncAddrM, Addr[11], Addr[10], Addr[8], Addr[9]                                               ; Dout[4]~80, Addr[13], Addr[14], Addr[15], IncAddrH, Addr[12], RAH~23                                                                                                                                                                                                                                               ;
+;  G  ; LC108      ; nRESr, IncAddrH, S[1]                                                                                                                                  ; IncAddrH                                                                                                                                                                                                                                                                                                           ;
+;  G  ; LC107      ; Addr[13], nIOSTRB                                                                                                                                      ; RAH[13]                                                                                                                                                                                                                                                                                                            ;
+;  H  ; LC120      ; RD[1], nDEVSEL, A[1], A[0], A[2], A[3], Addr[17], Addr[1], Addr[9]                                                                                     ; D[1]                                                                                                                                                                                                                                                                                                               ;
+;  H  ; LC123      ; RD[2], nDEVSEL, A[1], A[0], A[2], A[3], Addr[18], Addr[2], Addr[10]                                                                                    ; D[2]                                                                                                                                                                                                                                                                                                               ;
+;  H  ; LC125      ; RD[3], nDEVSEL, A[1], A[0], A[2], A[3], Addr[19], Addr[3], Addr[11]                                                                                    ; D[3]                                                                                                                                                                                                                                                                                                               ;
+;  H  ; LC126      ; RD[4], nDEVSEL, A[1], A[2], A[3], A[0], Addr[4], Addr[12]                                                                                              ; D[4]                                                                                                                                                                                                                                                                                                               ;
+;  H  ; LC118      ; Dout[0]~99, RD[0], A[3], A[2], A[0], A[1], Addr[16], nDEVSEL, Addr[0], Addr[8], Bank[0]                                                                ; D[0]                                                                                                                                                                                                                                                                                                               ;
+;  H  ; LC128      ; RD[5], nDEVSEL, A[1], A[2], A[3], A[0], Addr[5], Addr[13]                                                                                              ; D[5]                                                                                                                                                                                                                                                                                                               ;
+;  H  ; LC117      ; RD[0], nDEVSEL                                                                                                                                         ; Dout[0]~56                                                                                                                                                                                                                                                                                                         ;
++-----+------------+--------------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 
 +---------------------------------------------------------------+
@@ -709,12 +651,10 @@ Note: User assignments will override these defaults. The user specified values a
 +-----------------+
 Warning (20028): Parallel compilation is not licensed and has been disabled
 Info (119006): Selected device EPM7128SLC84-15 for design "TimeDisk"
-Warning (15705): Ignored locations or region assignments to the following nodes
-    Warning (15706): Node "RAG[18]" is assigned to location or region, but does not exist in design
-Info: Quartus II 32-bit Fitter was successful. 0 errors, 3 warnings
-    Info: Peak virtual memory: 567 megabytes
-    Info: Processing ended: Tue Feb 28 10:57:07 2023
-    Info: Elapsed time: 00:00:01
+Info: Quartus II 64-Bit Fitter was successful. 0 errors, 1 warning
+    Info: Peak virtual memory: 460 megabytes
+    Info: Processing ended: Wed Mar 22 22:11:05 2023
+    Info: Elapsed time: 00:00:00
     Info: Total CPU time (on all processors): 00:00:01
 
 
