@@ -1,2 +1,2 @@
-Warning (10273): Verilog HDL warning at TimeDisk.v(72): extended using "x" or "z"
-Warning (10273): Verilog HDL warning at TimeDisk.v(82): extended using "x" or "z"
+Warning (10273): Verilog HDL warning at TimeDisk.v(61): extended using "x" or "z"
+Warning (10273): Verilog HDL warning at TimeDisk.v(71): extended using "x" or "z"

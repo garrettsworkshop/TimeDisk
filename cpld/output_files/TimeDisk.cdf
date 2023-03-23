@@ -4,7 +4,7 @@ JedecChain;
 	DefaultMfr(6E);
 
 	P ActionCode(Cfg)
-		Device PartName(EPM7128SL84) Path("C:/Users/Wolf/Documents/GitHub/TimeDisk/cpld/output_files/") File("TimeDisk.pof") MfrSpec(OpMask(3));
+		Device PartName(EPM7128SL84) Path("C:/Users/garre/Repos/TimeDisk/cpld/output_files/") File("TimeDisk.pof") MfrSpec(OpMask(3));
 
 ChainEnd;
 

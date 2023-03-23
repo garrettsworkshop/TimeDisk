@@ -29,14 +29,6 @@ module TimeDisk(C7M, PHI1, nRES,
 		else nRESr <= !(!nRESr || !nRESr0); 
 	end
 	
-	/* Mode jumper loading */
-	reg ModeLoaded = 0;
-	reg Mode = 0;
-	always @(posedge C7M) begin
-		if (nRESr && S==1) ModeLoaded <= 1;
-		if (!nRESr && !ModeLoaded) Mode <= RA11;
-	end
-	
 	/* Address Bus, etc. */
 	input nDEVSEL, nIOSEL, nIOSTRB; // Card select signals
 	input [15:0] A; // 6502 address bus
@@ -45,13 +37,10 @@ module TimeDisk(C7M, PHI1, nRES,
 	output [19:12] RAH;
 	assign RAH[19] = Addr[19];
 	assign RAH[18:12] = 
-		(!nIOSTRB || !nIOSTRB) ? {6'h00, Bank[0] } : Addr[18:12];
-	inout RA11 = !ModeLoaded ? 1'bZ :
-		(!nIOSTRB || !nIOSTRB) ? A[11] : Addr[11];
+		(!nIOSEL || !nIOSTRB) ? {6'h00, Bank } : Addr[18:12];
+	output RA11 = (!nIOSEL || !nIOSTRB) ? A[11] : Addr[11];
 	output [10:0] RAL;
 	assign RAL[10:0] = Addr[10:0]; //RA[10:0] only used for RAM
-	//assign RAL[10:3] = Addr[10:3];
-	//assign RAL[2:0] = { nRESr, Mode, ModeLoaded };
 	
 	/* Select Signals */
 	`define BankSELA (A[3:0]==4'hF)
@@ -78,7 +67,7 @@ module TimeDisk(C7M, PHI1, nRES,
 		`AddrHSELA ? { 4'hF, Addr[19:16] } : 
 		`AddrMSELA ? Addr[15:8] : 
 		`AddrLSELA ? Addr[7:0] : 
-		`BankSELA ?  { 7'h00, Bank[0]} : 8'h00;
+		`BankSELA ?  { 8'h00 } : 8'h00;
 	inout [7:0] D = DOE ? Dout : 8'bZ;
 
 	/* SRAM and ROM Control Signals */
@@ -88,13 +77,13 @@ module TimeDisk(C7M, PHI1, nRES,
 	output nROMCS; LCELL nROMCS_MC (.in(!(CSDBEN && ((!nIOSEL && RAMROMCSgb) || (!nIOSTRB && IOROMEN)))), .out(nROMCS));
 	
   	/* 6502-accessible Registers */
-	reg [7:0] Bank = 0; // Bank register for ROM access
+	reg Bank = 0; // Bank register for ROM access
 	reg [19:0] Addr = 0; // Address register bits 19:0
 	
 	/* IOSTRB ROM enable */
 	reg IOROMEN = 0; // IOSTRB ROM enable
 	wire RESIO; LCELL RESIO_MC (.in(!nIOSTRB && A[10:0]==11'h7FF), .out(RESIO));
-	always @(posedge C7M) begin
+	always @(posedge C7M, posedge RESIO) begin
 		if (RESIO) IOROMEN <= 0;
 		else if (S==1 && !nRESr) IOROMEN <= 0;
 		else if (S==6 && !nIOSEL) IOROMEN <= 1;
@@ -106,7 +95,7 @@ module TimeDisk(C7M, PHI1, nRES,
 		// Only select ROM and drive Apple II data bus after S4 to avoid bus fight.
 		// Thus we wait 1.5 7M cycles (210 ns) into PHI0 before driving.
 		// Same for driving the ROM/SRAM data bus (RD).
-		CSDBEN <= (S==4 || S==5 || S==6 || S==7) && (nIOSTRB || !RESIO);
+		CSDBEN <= (S==4 || S==5 || S==6 || S==7);
 	end
 
 	/* DEVSEL register enable */
@@ -139,7 +128,7 @@ module TimeDisk(C7M, PHI1, nRES,
 				IncAddrH <= 0;
 				Addr[19:16] <= Addr[19:16]+1;
 			end else if (S==6) begin // Set register in middle of S6 if accessed.
-				if(BankWR) Bank[7:0] <= { 7'h00, D[7:0] };
+				if(BankWR) Bank <= D[0];
 				
 				IncAddrL <= RAMSEL_BUF;
 				IncAddrM <= AddrLWR & Addr[7] & ~D[7];

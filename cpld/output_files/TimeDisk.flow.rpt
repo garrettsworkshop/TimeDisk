@@ -1,5 +1,5 @@
 Flow report for TimeDisk
-Wed Mar 22 22:11:08 2023
+Thu Mar 23 00:35:37 2023
 Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
 
 
@@ -40,14 +40,14 @@ applicable agreement for further details.
 +-----------------------------------------------------------------------------+
 ; Flow Summary                                                                ;
 +---------------------------+-------------------------------------------------+
-; Flow Status               ; Successful - Wed Mar 22 22:11:07 2023           ;
+; Flow Status               ; Successful - Thu Mar 23 00:35:35 2023           ;
 ; Quartus II 64-Bit Version ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition ;
 ; Revision Name             ; TimeDisk                                        ;
 ; Top-level Entity Name     ; TimeDisk                                        ;
 ; Family                    ; MAX7000S                                        ;
 ; Device                    ; EPM7128SLC84-15                                 ;
 ; Timing Models             ; Final                                           ;
-; Total macrocells          ; 72 / 128 ( 56 % )                               ;
+; Total macrocells          ; 70 / 128 ( 55 % )                               ;
 ; Total pins                ; 68 / 68 ( 100 % )                               ;
 +---------------------------+-------------------------------------------------+
 
@@ -57,7 +57,7 @@ applicable agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 03/22/2023 22:11:03 ;
+; Start date & time ; 03/23/2023 00:35:30 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; TimeDisk            ;
 +-------------------+---------------------+
@@ -69,7 +69,7 @@ applicable agreement for further details.
 ; Assignment Name               ; Value                        ; Default Value ; Entity Name ; Section Id ;
 +-------------------------------+------------------------------+---------------+-------------+------------+
 ; AUTO_TURBO_BIT                ; Off                          ; On            ; --          ; --         ;
-; COMPILER_SIGNATURE_ID         ; 113780617491.167953746302332 ; --            ; --          ; --         ;
+; COMPILER_SIGNATURE_ID         ; 136298148943.167954613015104 ; --            ; --          ; --         ;
 ; FITTER_EFFORT                 ; Standard Fit                 ; Auto Fit      ; --          ; --         ;
 ; MAX7000_IGNORE_LCELL_BUFFERS  ; Off                          ; Auto          ; --          ; --         ;
 ; MAX_CORE_JUNCTION_TEMP        ; 85                           ; --            ; --          ; --         ;
@@ -86,11 +86,11 @@ applicable agreement for further details.
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name               ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis      ; 00:00:02     ; 1.0                     ; 418 MB              ; 00:00:01                           ;
-; Fitter                    ; 00:00:00     ; 1.0                     ; 460 MB              ; 00:00:01                           ;
-; Assembler                 ; 00:00:01     ; 1.0                     ; 365 MB              ; 00:00:00                           ;
-; TimeQuest Timing Analyzer ; 00:00:01     ; 1.0                     ; 362 MB              ; 00:00:01                           ;
-; Total                     ; 00:00:04     ; --                      ; --                  ; 00:00:03                           ;
+; Analysis & Synthesis      ; 00:00:02     ; 1.0                     ; 4565 MB             ; 00:00:02                           ;
+; Fitter                    ; 00:00:01     ; 1.0                     ; 4675 MB             ; 00:00:01                           ;
+; Assembler                 ; 00:00:01     ; 1.0                     ; 4500 MB             ; 00:00:01                           ;
+; TimeQuest Timing Analyzer ; 00:00:02     ; 1.0                     ; 4508 MB             ; 00:00:01                           ;
+; Total                     ; 00:00:06     ; --                      ; --                  ; 00:00:05                           ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
@@ -99,10 +99,10 @@ applicable agreement for further details.
 +---------------------------+------------------+-----------+------------+----------------+
 ; Module Name               ; Machine Hostname ; OS Name   ; OS Version ; Processor type ;
 +---------------------------+------------------+-----------+------------+----------------+
-; Analysis & Synthesis      ; LabWin7          ; Windows 7 ; 6.1        ; x86_64         ;
-; Fitter                    ; LabWin7          ; Windows 7 ; 6.1        ; x86_64         ;
-; Assembler                 ; LabWin7          ; Windows 7 ; 6.1        ; x86_64         ;
-; TimeQuest Timing Analyzer ; LabWin7          ; Windows 7 ; 6.1        ; x86_64         ;
+; Analysis & Synthesis      ; LabWin10         ; Windows 7 ; 6.2        ; x86_64         ;
+; Fitter                    ; LabWin10         ; Windows 7 ; 6.2        ; x86_64         ;
+; Assembler                 ; LabWin10         ; Windows 7 ; 6.2        ; x86_64         ;
+; TimeQuest Timing Analyzer ; LabWin10         ; Windows 7 ; 6.2        ; x86_64         ;
 +---------------------------+------------------+-----------+------------+----------------+
 
 
