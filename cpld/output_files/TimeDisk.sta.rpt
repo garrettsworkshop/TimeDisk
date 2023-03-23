@@ -1,5 +1,5 @@
 TimeQuest Timing Analyzer report for TimeDisk
-Thu Mar 23 01:05:09 2023
+Thu Mar 23 01:30:30 2023
 Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
 
 
@@ -302,6 +302,10 @@ No paths to report.
 ; 18.000 ; S[1]       ; REGEN      ; C7M          ; C7M         ; 0.000        ; 0.000      ; 22.000     ;
 ; 18.000 ; S[2]       ; REGEN      ; C7M          ; C7M         ; 0.000        ; 0.000      ; 22.000     ;
 ; 18.000 ; nRESr      ; REGEN      ; C7M          ; C7M         ; 0.000        ; 0.000      ; 22.000     ;
+; 18.000 ; S[0]       ; IOROMEN    ; C7M          ; C7M         ; 0.000        ; 0.000      ; 22.000     ;
+; 18.000 ; S[1]       ; IOROMEN    ; C7M          ; C7M         ; 0.000        ; 0.000      ; 22.000     ;
+; 18.000 ; S[2]       ; IOROMEN    ; C7M          ; C7M         ; 0.000        ; 0.000      ; 22.000     ;
+; 18.000 ; nRESr      ; IOROMEN    ; C7M          ; C7M         ; 0.000        ; 0.000      ; 22.000     ;
 ; 18.000 ; nRESr      ; ModeLoaded ; C7M          ; C7M         ; 0.000        ; 0.000      ; 22.000     ;
 ; 18.000 ; S[2]       ; ModeLoaded ; C7M          ; C7M         ; 0.000        ; 0.000      ; 22.000     ;
 ; 18.000 ; S[0]       ; ModeLoaded ; C7M          ; C7M         ; 0.000        ; 0.000      ; 22.000     ;
@@ -310,10 +314,6 @@ No paths to report.
 ; 18.000 ; S[2]       ; Mode       ; C7M          ; C7M         ; 0.000        ; 0.000      ; 22.000     ;
 ; 18.000 ; S[0]       ; Mode       ; C7M          ; C7M         ; 0.000        ; 0.000      ; 22.000     ;
 ; 18.000 ; S[1]       ; Mode       ; C7M          ; C7M         ; 0.000        ; 0.000      ; 22.000     ;
-; 18.000 ; S[0]       ; IOROMEN    ; C7M          ; C7M         ; 0.000        ; 0.000      ; 22.000     ;
-; 18.000 ; S[1]       ; IOROMEN    ; C7M          ; C7M         ; 0.000        ; 0.000      ; 22.000     ;
-; 18.000 ; S[2]       ; IOROMEN    ; C7M          ; C7M         ; 0.000        ; 0.000      ; 22.000     ;
-; 18.000 ; nRESr      ; IOROMEN    ; C7M          ; C7M         ; 0.000        ; 0.000      ; 22.000     ;
 ; 18.000 ; PHI0rf[0]  ; PHI0rf[1]  ; C7M          ; C7M         ; 0.000        ; 0.000      ; 22.000     ;
 ; 18.000 ; IncAddrL   ; Addr[0]    ; C7M          ; C7M         ; 0.000        ; 0.000      ; 22.000     ;
 ; 18.000 ; Addr[16]   ; Addr[17]   ; C7M          ; C7M         ; 0.000        ; 0.000      ; 22.000     ;
@@ -528,7 +528,6 @@ No paths to report.
 +-----------+------------+--------+--------+------------+-----------------+
 ; D[*]      ; C7M        ; 34.000 ; 34.000 ; Rise       ; C7M             ;
 ;  D[0]     ; C7M        ; 34.000 ; 34.000 ; Rise       ; C7M             ;
-;  D[1]     ; C7M        ; 34.000 ; 34.000 ; Rise       ; C7M             ;
 ; RA11      ; C7M        ; 34.000 ; 34.000 ; Rise       ; C7M             ;
 ; RAH[*]    ; C7M        ; 34.000 ; 34.000 ; Rise       ; C7M             ;
 ;  RAH[12]  ; C7M        ; 34.000 ; 34.000 ; Rise       ; C7M             ;
@@ -582,7 +581,6 @@ No paths to report.
 +-----------+------------+--------+--------+------------+-----------------+
 ; D[*]      ; C7M        ; 34.000 ; 34.000 ; Rise       ; C7M             ;
 ;  D[0]     ; C7M        ; 34.000 ; 34.000 ; Rise       ; C7M             ;
-;  D[1]     ; C7M        ; 34.000 ; 34.000 ; Rise       ; C7M             ;
 ; RA11      ; C7M        ; 34.000 ; 34.000 ; Rise       ; C7M             ;
 ; RAH[*]    ; C7M        ; 34.000 ; 34.000 ; Rise       ; C7M             ;
 ;  RAH[12]  ; C7M        ; 34.000 ; 34.000 ; Rise       ; C7M             ;
@@ -635,7 +633,7 @@ No paths to report.
 ; Input Port ; Output Port ; RR     ; RF     ; FR     ; FF     ;
 +------------+-------------+--------+--------+--------+--------+
 ; A[0]       ; D[0]        ; 33.000 ; 48.000 ; 48.000 ; 33.000 ;
-; A[0]       ; D[1]        ; 33.000 ; 48.000 ; 48.000 ; 33.000 ;
+; A[0]       ; D[1]        ; 32.000 ; 48.000 ; 48.000 ; 32.000 ;
 ; A[0]       ; D[2]        ; 32.000 ; 48.000 ; 48.000 ; 32.000 ;
 ; A[0]       ; D[3]        ; 32.000 ; 48.000 ; 48.000 ; 32.000 ;
 ; A[0]       ; D[4]        ; 54.000 ; 55.000 ; 55.000 ; 54.000 ;
@@ -645,7 +643,7 @@ No paths to report.
 ; A[0]       ; RAMCS       ; 19.000 ;        ;        ; 19.000 ;
 ; A[0]       ; nRAMROMCS   ; 19.000 ;        ;        ; 19.000 ;
 ; A[1]       ; D[0]        ; 33.000 ; 48.000 ; 48.000 ; 33.000 ;
-; A[1]       ; D[1]        ; 33.000 ; 48.000 ; 48.000 ; 33.000 ;
+; A[1]       ; D[1]        ; 32.000 ; 48.000 ; 48.000 ; 32.000 ;
 ; A[1]       ; D[2]        ; 32.000 ; 48.000 ; 48.000 ; 32.000 ;
 ; A[1]       ; D[3]        ; 32.000 ; 48.000 ; 48.000 ; 32.000 ;
 ; A[1]       ; D[4]        ; 55.000 ; 54.000 ; 54.000 ; 55.000 ;
@@ -655,7 +653,7 @@ No paths to report.
 ; A[1]       ; RAMCS       ; 19.000 ;        ;        ; 19.000 ;
 ; A[1]       ; nRAMROMCS   ; 19.000 ;        ;        ; 19.000 ;
 ; A[2]       ; D[0]        ; 48.000 ; 33.000 ; 33.000 ; 48.000 ;
-; A[2]       ; D[1]        ; 48.000 ; 33.000 ; 33.000 ; 48.000 ;
+; A[2]       ; D[1]        ; 48.000 ; 32.000 ; 32.000 ; 48.000 ;
 ; A[2]       ; D[2]        ; 48.000 ; 32.000 ; 32.000 ; 48.000 ;
 ; A[2]       ; D[3]        ; 48.000 ; 32.000 ; 32.000 ; 48.000 ;
 ; A[2]       ; D[4]        ; 54.000 ; 55.000 ; 55.000 ; 54.000 ;
@@ -665,7 +663,7 @@ No paths to report.
 ; A[2]       ; RAMCS       ;        ; 19.000 ; 19.000 ;        ;
 ; A[2]       ; nRAMROMCS   ;        ; 19.000 ; 19.000 ;        ;
 ; A[3]       ; D[0]        ; 48.000 ; 33.000 ; 33.000 ; 48.000 ;
-; A[3]       ; D[1]        ; 48.000 ; 33.000 ; 33.000 ; 48.000 ;
+; A[3]       ; D[1]        ; 48.000 ; 32.000 ; 32.000 ; 48.000 ;
 ; A[3]       ; D[2]        ; 48.000 ; 32.000 ; 32.000 ; 48.000 ;
 ; A[3]       ; D[3]        ; 48.000 ; 32.000 ; 32.000 ; 48.000 ;
 ; A[3]       ; D[4]        ; 54.000 ; 55.000 ; 55.000 ; 54.000 ;
@@ -826,7 +824,7 @@ No paths to report.
 ; RAMROMCSgb ; D[7]        ; 39.000 ;        ;        ; 39.000 ;
 ; RAMROMCSgb ; nROMCS      ;        ; 19.000 ; 19.000 ;        ;
 ; RD[0]      ; D[0]        ; 33.000 ;        ;        ; 33.000 ;
-; RD[1]      ; D[1]        ; 33.000 ;        ;        ; 33.000 ;
+; RD[1]      ; D[1]        ; 32.000 ;        ;        ; 32.000 ;
 ; RD[2]      ; D[2]        ; 32.000 ;        ;        ; 32.000 ;
 ; RD[3]      ; D[3]        ; 32.000 ;        ;        ; 32.000 ;
 ; RD[4]      ; D[4]        ; 54.000 ;        ;        ; 54.000 ;
@@ -1047,7 +1045,7 @@ No dedicated SERDES Receiver circuitry present in device or used in design
 ; Unconstrained Input Ports       ; 35    ; 35   ;
 ; Unconstrained Input Port Paths  ; 361   ; 361  ;
 ; Unconstrained Output Ports      ; 39    ; 39   ;
-; Unconstrained Output Port Paths ; 231   ; 231  ;
+; Unconstrained Output Port Paths ; 230   ; 230  ;
 +---------------------------------+-------+------+
 
 
@@ -1057,7 +1055,7 @@ No dedicated SERDES Receiver circuitry present in device or used in design
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit TimeQuest Timing Analyzer
     Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
-    Info: Processing started: Thu Mar 23 01:05:08 2023
+    Info: Processing started: Thu Mar 23 01:30:29 2023
 Info: Command: quartus_sta TimeDisk -c TimeDisk
 Info: qsta_default_script.tcl version: #1
 Warning (20028): Parallel compilation is not licensed and has been disabled
@@ -1088,8 +1086,8 @@ Info (332001): The selected device family is not supported by the report_metasta
 Info (332102): Design is not fully constrained for setup requirements
 Info (332102): Design is not fully constrained for hold requirements
 Info: Quartus II 64-Bit TimeQuest Timing Analyzer was successful. 0 errors, 4 warnings
-    Info: Peak virtual memory: 4519 megabytes
-    Info: Processing ended: Thu Mar 23 01:05:09 2023
+    Info: Peak virtual memory: 4508 megabytes
+    Info: Processing ended: Thu Mar 23 01:30:30 2023
     Info: Elapsed time: 00:00:01
     Info: Total CPU time (on all processors): 00:00:01
 
