@@ -25,3 +25,4 @@ fp-info-cache
 *.DS_Store
 *.kicad_prl
 TimeDisk-backups/*
+Documentation/Thumbs.db
