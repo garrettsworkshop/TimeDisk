@@ -11,32 +11,103 @@ module TimeDisk(C7M, PHI1, nRES,
 	/* Main state counter S[2:0] */
 	reg [1:0] PHI0rf;
 	reg [2:0] S = 0;
-	always @(negedge C7M) begin
-		PHI0rf[1:0] <= { PHI0rf[0], !PHI1 };
-	end
+	always @(negedge C7M) PHI0rf[1:0] <= { PHI0rf[0], !PHI1 };
 	always @(posedge C7M) begin
-		S[2:0] <= (PHI0rf[1] && !PHI0rf[0] && PHI1) ? 3'h1 :
-			S==0 ? 3'h0 :
-			S==7 ? 3'h7 : S+1;
+		if (PHI0rf[1] && !PHI0rf[0] && PHI1) S <= 1;
+		else if (S==0) S <= 0;
+		else if (S==7) S <= 7;
+		else S <= S+1;
 	end
 	
-	/* Reset synchronization */
-	reg nRESr0;
+	/* Reset input synchronization */
+	reg nRESr0; always @(posedge C7M) nRESr0 <= nRES;
 	reg nRESr;
 	always @(posedge C7M) begin
-		nRESr0 <= nRES;
 		if (S==1) nRESr <= nRESr0;
 		else nRESr <= !(!nRESr || !nRESr0); 
 	end
-	
-	/* Mode jumper loading */
-	reg ModeLoaded = 0;
-	reg Mode = 0;
-	always @(posedge C7M) begin
-		if (S==2) begin
-			if (nRESr) ModeLoaded <= 1;
-			if (!ModeLoaded) Mode <= RA11;
+
+	/* Mode and revision load */
+	reg ModeLoaded;
+	reg Mode; reg Rev;
+	always @(posedge PHI1) begin
+		ModeLoaded <= 1;
+		if (!ModeLoaded) begin
+			Mode <= RA11;
+			Rev <= RAL[2];
 		end
+	end
+
+	/* Timer enable */
+	reg TimerUnlock = 0;
+	reg US = 0;
+	always @(posedge PHI1, negedge nRES) begin
+		if (!nRES) begin
+			TimerUnlock <= 0;
+			US <= 0;
+		end else if (!nDEVSEL || !nIOSEL) begin
+			if (SigWR && US==0 && D[7:0]==8'hC1) begin
+				US <= 1;
+			end else if (SigWR && US==1 && D[7:0]==8'hAD) begin
+				TimerUnlock <= 1;
+				US <= 0;
+			end else US <= 0;
+		end
+	end
+
+	/* Timer control */
+	reg TimerMode;
+	reg IRQEN;
+	always @(posedge PHI1, negedge nRES) begin
+		if (!nRES) begin
+			IRQEN <= 0;
+			TimerMode <= 0;
+		end else if (IRQWR) begin
+			IRQEN <= D[7];
+			TimerMode <= D[6];
+		end
+	end
+	
+	/* Timer */
+	reg [14:0] Timer;
+	always @(posedge PHI1, negedge nRES) begin
+		if (!nRES) Timer <= 0;
+		else if (Timer==0) begin
+			case (TimerMode)
+				0: Timer <= 17029; // NTSC frame
+				1: Timer <= 20279; // PAL frame
+			endcase
+		end else if (IRQWR && D[5]) Timer <= {D[4:0], 10'h0000};
+		else Timer <= Timer-1;
+	end
+		
+	/* IRQ generation */
+	reg IRQRDr = 0;
+	always @(posedge C7M) if (S==6) IRQRDr <= IRQRD;
+	reg IRQ = 0;
+	always @(posedge C7M, negedge nRES) begin
+		if (!nRES) IRQ <= 0;
+		else if (S==2) begin
+			if (Timer==1 && IRQEN) IRQ <= 1;
+			else if (IRQRDr) IRQ <= 0;
+		end
+	end
+
+	/* IRQ multiplexing with RA[1:0] */
+	reg RA0_IRQ, RA1_CLK;
+	always @(negedge C7M) begin
+		case (S)
+			1: begin
+				RA1_CLK <= 0;
+				RA0_IRQ <= IRQ;
+			end 2: begin
+				RA1_CLK <= 1;
+				RA0_IRQ <= IRQ;
+			end default: begin
+				RA1_CLK <= Addr[1];
+				RA0_IRQ <= Addr[0];
+			end
+		endcase
 	end
 	
 	/* Address Bus, etc. */
@@ -56,18 +127,25 @@ module TimeDisk(C7M, PHI1, nRES,
 		(!Mode && !nIOSTRB) ? 1'b1 :
 		( Mode && !nIOSEL)  ? 1'b0 :
 		( Mode && !nIOSTRB) ? Bank[0] : Addr[11];
-	output [10:0] RAL;
-	assign RAL[10:0] = Addr[10:0]; // RA[10:0] only used for RAM
+	inout [10:0] RAL;
+	assign RAL[10:3] = Addr[10:3]; // RA[10:3] only used for RAM
+	assign RAL[2] = !ModeLoaded ? 1'bZ : Addr[2]; // RA[2] used for rev load
+	assign RAL[1:0] = {RA1_CLK, RA0_IRQ}; //RA[1:0] uesd to set IRQ pin
 	
 	/* Select Signals */
-	`define BankSELA (A[3:0]==4'hF)
-	`define ModeSELA (A[3:0]==4'hE)
-	`define RAMSELA (A[3:0]==4'h3)
+	`define BankSELA  (A[3:0]==4'hF)
+	`define IRQSELA   (A[3:0]==4'hE)
+	`define SigSELA   (A[3:0]==4'h4)
+	`define RAMSELA   (A[3:0]==4'h3)
 	`define AddrHSELA (A[3:0]==4'h2)
 	`define AddrMSELA (A[3:0]==4'h1)
 	`define AddrLSELA (A[3:0]==4'h0)
 	wire BankWR = (`BankSELA && !nWE && !nDEVSEL && REGEN);
 	`define RAMSEL (`RAMSELA && !nDEVSEL && REGEN)
+	wire IRQSEL =  `IRQSELA && !nWE && !nDEVSEL;
+	wire IRQWR = IRQSEL && !nWE;
+	wire IRQRD = IRQSEL &&  nWE;
+	wire SigWR = `SigSELA && !nWE && !nDEVSEL;
 	wire RAMSEL_BUF; LCELL RAMSEL_MC (.in(`RAMSEL), .out(RAMSEL_BUF));
 	wire AddrHWR; LCELL AddrHWR_MC (.in(`AddrHSELA && !nWE && !nDEVSEL && REGEN), .out(AddrHWR));
 	wire AddrMWR; LCELL AddrMWR_MC (.in(`AddrMSELA && !nWE && !nDEVSEL && REGEN), .out(AddrMWR));
@@ -81,12 +159,15 @@ module TimeDisk(C7M, PHI1, nRES,
 	wire DOE = CSDBEN && nWE &&
 		((!nDEVSEL && (!RAMSEL_BUF || (RAMSEL_BUF && RAMROMCSgb))) ||
 		 (!nIOSEL && RAMROMCSgb) || (!nIOSTRB && IOROMEN));
-	wire [7:0] Dout = (nDEVSEL || `RAMSELA) ? RD[7:0] :
+	wire [7:0] Dout = 
+		nDEVSEL ? RD[7:0] :
+		`BankSELA ? { Rev, 6'h00, Bank[0] } :
+		`IRQSELA ? { IRQ, 7'b000000 } : 
+		`SigSELA ? 8'h06 :
+		`RAMSELA ? RD[7:0] :
 		`AddrHSELA ? { 4'hF, Addr[19:16] } : 
 		`AddrMSELA ? Addr[15:8] : 
-		`AddrLSELA ? Addr[7:0] : 
-		`ModeSELA ? { 7'h00, Mode } : 
-		`BankSELA ?  Bank[7:0] : 8'h00;
+		`AddrLSELA ? Addr[7:0] : 8'h00;
 	inout [7:0] D = DOE ? Dout : 8'bZ;
 
 	/* SRAM and ROM Control Signals */

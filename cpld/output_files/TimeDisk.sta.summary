@@ -4,14 +4,26 @@ TimeQuest Timing Analyzer Summary
 
 Type  : Setup 'C7M'
 Slack : -47.500
-TNS   : -1522.000
+TNS   : -1413.000
+
+Type  : Setup 'PHI1'
+Slack : -46.000
+TNS   : -640.000
 
 Type  : Hold 'C7M'
 Slack : 5.000
 TNS   : 0.000
 
+Type  : Hold 'PHI1'
+Slack : 5.000
+TNS   : 0.000
+
+Type  : Minimum Pulse Width 'PHI1'
+Slack : -5.500
+TNS   : -187.000
+
 Type  : Minimum Pulse Width 'C7M'
 Slack : -4.500
-TNS   : -387.000
+TNS   : -333.000
 
 ------------------------------------------------------------
