@@ -22,7 +22,7 @@ fp-info-cache
 *.DS_Store
 
 
-# Altera MAX II/V
+# Altera Quartus II
 cpld/db
 cpld/incremental_db
 cpld/greybox_tmp
