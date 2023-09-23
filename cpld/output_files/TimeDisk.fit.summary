@@ -1,0 +1,9 @@
+Fitter Status : Successful - Thu Mar 23 01:30:26 2023
+Quartus II 64-Bit Version : 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition
+Revision Name : TimeDisk
+Top-level Entity Name : TimeDisk
+Family : MAX7000S
+Device : EPM7128SLC84-15
+Timing Models : Final
+Total macrocells : 88 / 128 ( 69 % )
+Total pins : 68 / 68 ( 100 % )
