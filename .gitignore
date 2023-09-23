@@ -14,15 +14,15 @@ _autosave-*
 *-save.pro
 *-save.kicad_pcb
 fp-info-cache
-
-# Netlist files (exported from Eeschema)
-*.net
-
-# Autorouter files (exported from Pcbnew)
-*.dsn
-*.ses
-
-*.DS_Store
 *.kicad_prl
-TimeDisk-backups/*
-Documentation/Thumbs.db
+*-backups
+
+
+# Mac
+*.DS_Store
+
+
+# Altera MAX II/V
+cpld/db
+cpld/incremental_db
+cpld/greybox_tmp
