@@ -17,7 +17,7 @@ module TimeDisk(C7M, PHI1, nRES,
 	always @(posedge C7M) begin
 		S[2:0] <= (PHI0rf[1] && !PHI0rf[0] && PHI1) ? 3'h1 :
 			S==0 ? 3'h0 :
-			S==7 ? 3'h7 : S+1;
+			S==7 ? 3'h7 : S+3'h1;
 	end
 	
 	/* Reset synchronization */
@@ -137,15 +137,15 @@ module TimeDisk(C7M, PHI1, nRES,
 			// Increment address register
 			if (S==1 & IncAddrL) begin
 				IncAddrL <= 0;
-				Addr[7:0] <= Addr[7:0]+1;
+				Addr[7:0] <= Addr[7:0]+8'h1;
 				IncAddrM <= Addr[7:0] == 8'hFF;
 			end else if (S==2 & IncAddrM) begin
 				IncAddrM <= 0;
-				Addr[15:8] <= Addr[15:8]+1;
+				Addr[15:8] <= Addr[15:8]+8'h1;
 				IncAddrH <= Addr[15:8] == 8'hFF;
 			end else if (S==3 & IncAddrH) begin
 				IncAddrH <= 0;
-				Addr[19:16] <= Addr[19:16]+1;
+				Addr[19:16] <= Addr[19:16]+4'h1;
 			end else if (S==6) begin // Set register in middle of S6 if accessed.
 				if(BankWR) Bank[7:0] <= D[7:0];
 				

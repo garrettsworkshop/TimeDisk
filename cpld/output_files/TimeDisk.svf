@@ -1,21 +1,20 @@
-!Copyright (C) 2019  Intel Corporation. All rights reserved.
-!Your use of Intel Corporation's design tools, logic functions 
-!and other software and tools, and any partner logic 
+!Copyright (C) 1991-2013 Altera Corporation
+!Your use of Altera Corporation's design tools, logic functions 
+!and other software and tools, and its AMPP partner logic 
 !functions, and any output files from any of the foregoing 
 !(including device programming or simulation files), and any 
 !associated documentation or information are expressly subject 
-!to the terms and conditions of the Intel Program License 
-!Subscription Agreement, the Intel Quartus Prime License Agreement,
-!the Intel FPGA IP License Agreement, or other applicable license
-!agreement, including, without limitation, that your use is for
-!the sole purpose of programming logic devices manufactured by
-!Intel and sold by Intel or its authorized distributors.  Please
-!refer to the applicable agreement for further details, at
-!https://fpgasoftware.intel.com/eula.
+!to the terms and conditions of the Altera Program License 
+!Subscription Agreement, Altera MegaCore Function License 
+!Agreement, or other applicable license agreement, including, 
+!without limitation, that your use is for the sole purpose of 
+!programming logic devices manufactured by Altera and sold by 
+!Altera or its authorized distributors.  Please refer to the 
+!applicable agreement for further details.
 !
-!Quartus Prime SVF converter 19.1
+!Quartus II SVF converter 13.0
 !
-!Device #1: EPM7128S - //zanemac/Repos/TimeDisk/cpld/output_files/TimeDisk.pof Sat Sep 23 07:05:19 2023
+!Device #1: EPM7128S - /Repos/TimeDisk/cpld/output_files/TimeDisk.pof Sun Sep 24 06:37:21 2023
 !
 !NOTE "USERCODE" "0000FFFF";
 !
@@ -23,6 +22,7 @@
 !
 !
 !
+FREQUENCY 1.00E+06 HZ;
 !
 !
 !

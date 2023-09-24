@@ -1,5 +1,5 @@
 Fitter report for TimeDisk
-Sat Sep 23 07:05:14 2023
+Sun Sep 24 06:37:19 2023
 Quartus II 32-bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
 
 
@@ -55,7 +55,7 @@ applicable agreement for further details.
 +-----------------------------------------------------------------------------+
 ; Fitter Summary                                                              ;
 +---------------------------+-------------------------------------------------+
-; Fitter Status             ; Successful - Sat Sep 23 07:05:14 2023           ;
+; Fitter Status             ; Successful - Sun Sep 24 06:37:19 2023           ;
 ; Quartus II 32-bit Version ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition ;
 ; Revision Name             ; TimeDisk                                        ;
 ; Top-level Entity Name     ; TimeDisk                                        ;
@@ -689,9 +689,9 @@ Warning (20028): Parallel compilation is not licensed and has been disabled
 Info (119006): Selected device EPM7128SLC84-15 for design "TimeDisk"
 Warning (163076): Macrocell buffer inserted after node "Dout[4]~94"
 Info: Quartus II 32-bit Fitter was successful. 0 errors, 2 warnings
-    Info: Peak virtual memory: 562 megabytes
-    Info: Processing ended: Sat Sep 23 07:05:14 2023
-    Info: Elapsed time: 00:00:01
+    Info: Peak virtual memory: 566 megabytes
+    Info: Processing ended: Sun Sep 24 06:37:20 2023
+    Info: Elapsed time: 00:00:02
     Info: Total CPU time (on all processors): 00:00:01
 
 
