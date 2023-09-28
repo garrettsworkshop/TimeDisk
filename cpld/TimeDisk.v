@@ -105,7 +105,7 @@ module TimeDisk(C7M, PHI1, nRES,
 	always @(posedge C7M, posedge RESIO) begin
 		if (RESIO) IOROMEN <= 0;
 		else if (S==1 && !nRESr) IOROMEN <= 0;
-		else if (S==6 && !nIOSEL) IOROMEN <= 1;
+		else if (S==5 && !nIOSEL) IOROMEN <= 1;
 	end
 
 	/* State-based data bus and ROM CS gating */
@@ -121,7 +121,7 @@ module TimeDisk(C7M, PHI1, nRES,
 	reg REGEN = 0; // Register enable
 	always @(posedge C7M) begin
 		if (S==1 && !nRESr) REGEN <= 0;
-		else if (S==6 && !nIOSEL) REGEN <= 1;
+		else if (S==5 && !nIOSEL) REGEN <= 1;
 	end
 
 	/* Increment Control */
