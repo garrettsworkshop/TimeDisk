@@ -16,7 +16,7 @@ module TimeDisk(C7M, PHI1, nRES,
 		if (PHI0rf[1] && !PHI0rf[0] && PHI1) S <= 1;
 		else if (S==0) S <= 0;
 		else if (S==7) S <= 7;
-		else S <= S+1;
+		else S <= S+3'h1;
 	end
 	
 	/* Reset input synchronization */
@@ -51,6 +51,9 @@ module TimeDisk(C7M, PHI1, nRES,
 			end else if (SigWR && US==1 && D[7:0]==8'hAD) begin
 				TimerUnlock <= 1;
 				US <= 0;
+			end else if (SigWR && US==1 && D[7:0]==8'hAC) begin
+				TimerUnlock <= 0;
+				US <= 0;
 			end else US <= 0;
 		end
 	end
@@ -63,7 +66,7 @@ module TimeDisk(C7M, PHI1, nRES,
 			IRQEN <= 0;
 			TimerMode <= 0;
 		end else if (IRQWR) begin
-			IRQEN <= D[7];
+			IRQEN <= D[7] && TimerUnlock;
 			TimerMode <= D[6];
 		end
 	end
@@ -77,8 +80,8 @@ module TimeDisk(C7M, PHI1, nRES,
 				0: Timer <= 17029; // NTSC frame
 				1: Timer <= 20279; // PAL frame
 			endcase
-		end else if (IRQWR && D[5]) Timer <= {D[4:0], 10'h0000};
-		else Timer <= Timer-1;
+		end
+		else Timer <= Timer-15'h1;
 	end
 		
 	/* IRQ generation */
@@ -218,15 +221,15 @@ module TimeDisk(C7M, PHI1, nRES,
 			// Increment address register
 			if (S==1 & IncAddrL) begin
 				IncAddrL <= 0;
-				Addr[7:0] <= Addr[7:0]+1;
+				Addr[7:0] <= Addr[7:0]+8'h1;
 				IncAddrM <= Addr[7:0] == 8'hFF;
 			end else if (S==2 & IncAddrM) begin
 				IncAddrM <= 0;
-				Addr[15:8] <= Addr[15:8]+1;
+				Addr[15:8] <= Addr[15:8]+8'h1;
 				IncAddrH <= Addr[15:8] == 8'hFF;
 			end else if (S==3 & IncAddrH) begin
 				IncAddrH <= 0;
-				Addr[19:16] <= Addr[19:16]+1;
+				Addr[19:16] <= Addr[19:16]+4'h1;
 			end else if (S==6) begin // Set register in middle of S6 if accessed.
 				if(BankWR) Bank[7:0] <= D[7:0];
 				

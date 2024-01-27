@@ -7,8 +7,8 @@ Slack : -47.500
 TNS   : -1413.000
 
 Type  : Setup 'PHI1'
-Slack : -46.000
-TNS   : -640.000
+Slack : -26.000
+TNS   : -470.000
 
 Type  : Hold 'C7M'
 Slack : 5.000
@@ -20,7 +20,7 @@ TNS   : 0.000
 
 Type  : Minimum Pulse Width 'PHI1'
 Slack : -5.500
-TNS   : -187.000
+TNS   : -209.000
 
 Type  : Minimum Pulse Width 'C7M'
 Slack : -4.500
