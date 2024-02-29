@@ -1,27 +1,20 @@
-Copyright (c) 2019, Garrett's Workshop
-All rights reserved.
+Copyright (c) Garrett's Workshop
 
-Redistribution and use in source, binary, and manufactued forms, with or without
-modification, are permitted provided that the following conditions are met:
-1. Redistributions of source code and design files must retain the above copyright
-   notice, this list of conditions and the following disclaimer.
-2. Redistributions in binary or manufactured form must reproduce the above copyright
-   notice, this list of conditions and the following disclaimer in the
-   documentation and/or other materials provided with the distribution.
-3. All advertising materials mentioning features or use of this software
-   or hardware must display the following acknowledgement:
-   This product includes software and hardware developed by Garrett's Workshop.
-4. Neither the name of Garrett's Workshop nor the
-   names of its contributors may be used to endorse or promote products
-   derived from this software or hardware without specific prior written permission.
+Rationale
+----------------------------------------
+We at Garrett's Workshop create our products and release their source in
+hopes of encouraging others to contribute and build their own "clones,"
+even selling them and competing with us. One day, GW will be defunct,
+and it would be a shame if our hardware and software die along with GW.
+At the same time, however, we seek to protect our trademark and ensure
+that clones and derivative products do not masquerade as genuine
+Garrett's Workshop products.
 
-THIS SOFTWARE AND HARDWARE IS PROVIDED BY GARRETT'S WORKSHOP ''AS IS'' AND ANY
-EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
-WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
-DISCLAIMED. IN NO EVENT SHALL GARRETT'S WORKSHOP BE LIABLE FOR ANY
-DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
-(INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
-LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
-ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
-(INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
-SOFTWARE AND HARDWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE
+License Terms
+----------------------------------------
+This project may be licensed under one of two licenses:
+
+1. You may elect to license this project under CC BY-NC-SA 4.0.
+
+2. You may elect to license this project under CC BY-SA 4.0 ONLY IF
+   you remove all "Garrett's Workshop" trademarks from the project.

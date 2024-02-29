@@ -35,8 +35,8 @@
         "other_text_upright": false,
         "pads": {
           "drill": 0.0,
-          "height": 1.0,
-          "width": 2.51
+          "height": 0.4,
+          "width": 0.65
         },
         "silk_line_width": 0.15,
         "silk_text_italic": false,
@@ -97,7 +97,7 @@
         "silk_over_copper": "warning",
         "silk_overlap": "warning",
         "skew_out_of_range": "error",
-        "solder_mask_bridge": "ignore",
+        "solder_mask_bridge": "warning",
         "starved_thermal": "error",
         "text_height": "warning",
         "text_thickness": "warning",
@@ -431,7 +431,7 @@
       "pin_to_pin": "warning",
       "power_pin_not_driven": "error",
       "similar_labels": "warning",
-      "simulation_model_issue": "error",
+      "simulation_model_issue": "ignore",
       "unannotated": "error",
       "unit_value_mismatch": "error",
       "unresolved_variable": "error",
@@ -477,7 +477,7 @@
     "last_paths": {
       "gencad": "",
       "idf": "",
-      "netlist": "TimeDisk.net",
+      "netlist": "GR8RAM.net",
       "specctra_dsn": "",
       "step": "",
       "vrml": ""
@@ -530,12 +530,12 @@
   },
   "sheets": [
     [
-      "4fa10683-33cd-4dcd-8acc-2415cd63c62a",
+      "a29f8df0-3fae-4edf-8d9c-bd5a875b13e3",
       ""
     ],
     [
-      "00000000-0000-0000-0000-00005d3b15f6",
-      "Docs"
+      "4478ae29-785b-4bef-b5b1-9ee9a652d69b",
+      "Bus"
     ]
   ],
   "text_variables": {}
