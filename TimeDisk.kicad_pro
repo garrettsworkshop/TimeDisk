@@ -536,6 +536,30 @@
     [
       "4478ae29-785b-4bef-b5b1-9ee9a652d69b",
       "Bus"
+    ],
+    [
+      "120fc9df-87c0-43c6-a0bd-8aebb1b842cd",
+      "Power"
+    ],
+    [
+      "065098ef-ca74-40b9-80aa-1038ceb1f2d5",
+      "SDRAM"
+    ],
+    [
+      "2e1b19da-54b1-4673-978a-9b566cf4d3a4",
+      "Flash"
+    ],
+    [
+      "73c75c40-2aae-40e8-bf44-f0fa61bf48aa",
+      "Prog"
+    ],
+    [
+      "c426c910-2c0b-48bc-996e-c9fdc578d333",
+      "FPGA"
+    ],
+    [
+      "b11f91dd-a2ee-4f0b-9627-9ceabcc3f9a8",
+      "Clock"
     ]
   ],
   "text_variables": {}
