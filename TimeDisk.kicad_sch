@@ -9141,6 +9141,31 @@
     )
   )
 
+  (symbol (lib_id "power:GND") (at 209.55 88.9 0) (mirror y) (unit 1)
+    (in_bom yes) (on_board yes) (dnp no)
+    (uuid 3ca5f170-9130-424c-a345-8cf63de7521d)
+    (property "Reference" "#PWR027" (at 209.55 95.25 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Value" "GND" (at 209.55 92.71 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Footprint" "" (at 209.55 88.9 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Datasheet" "" (at 209.55 88.9 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (pin "1" (uuid 31eecb8b-a1dc-4ade-b466-ad623fa855f8))
+    (instances
+      (project "TimeDisk"
+        (path "/4fa10683-33cd-4dcd-8acc-2415cd63c62a"
+          (reference "#PWR027") (unit 1)
+        )
+      )
+    )
+  )
+
   (symbol (lib_id "power:GND") (at 29.21 195.58 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 3cd07c68-2e16-4c42-99dc-20c6114acf2b)
