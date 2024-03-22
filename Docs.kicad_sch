@@ -5,9 +5,9 @@
   (paper "USLetter")
 
   (title_block
-    (title "Time Machine")
-    (date "2019-10-13")
-    (rev "0.9")
+    (title "GW4206B (TimeDisk)")
+    (date "2024-03-21")
+    (rev "1.1")
     (company "Garrett's Workshop")
   )
 
