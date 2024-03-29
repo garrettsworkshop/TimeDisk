@@ -12186,7 +12186,7 @@
   (gr_text "Toward Rear" (at 244.221 113.7285 -90) (layer "B.SilkS") (tstamp 57221982-3889-4a41-8b4f-024fa51dc3e5)
     (effects (font (size 1.27 1.27) (thickness 0.2)) (justify mirror))
   )
-  (gr_text "B11" (at 230.0605 129.921) (layer "B.SilkS") (tstamp 9d8aac0d-5d8f-4fd7-ad52-42ea87328cc4)
+  (gr_text "B10" (at 230.0605 129.921) (layer "B.SilkS") (tstamp 9d8aac0d-5d8f-4fd7-ad52-42ea87328cc4)
     (effects (font (size 0.8128 0.8128) (thickness 0.2032)) (justify mirror))
   )
   (gr_text "JLCJLCJLCJLC" (at 213.36 111.633) (layer "F.SilkS") (tstamp 00000000-0000-0000-0000-00005d390294)
