@@ -30,3 +30,4 @@ TimeDisk-backups/*
 *.qws
 /cpld/incremental_db/*
 /cpld/db/*
+cpld/output_files/TimeDisk.cdf
