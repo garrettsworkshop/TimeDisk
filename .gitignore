@@ -26,3 +26,7 @@ fp-info-cache
 *.kicad_prl
 TimeDisk-backups/*
 *.lck
+
+*.qws
+/cpld/incremental_db/*
+/cpld/db/*

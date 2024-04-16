@@ -1,7 +1,0 @@
-
-State Machine - |TimeDisk|US
-Name US.state_bit_1 US.state_bit_0 
-US.00 0 0 
-US.01 1 1 
-US.10 1 0 
-US.11 0 1 
