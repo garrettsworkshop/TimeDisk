@@ -5,13 +5,13 @@
       "Application": "Pcbnew",
       "Version": "7.0.10"
     },
-    "CreationDate": "2024-04-16T12:02:25-04:00"
+    "CreationDate": "2024-04-24T04:09:30-04:00"
   },
   "GeneralSpecs": {
     "ProjectId": {
       "Name": "TimeDisk",
       "GUID": "54696d65-4469-4736-9b2e-6b696361645f",
-      "Revision": "1.1"
+      "Revision": "1.0"
     },
     "Size": {
       "X": 107.719,
