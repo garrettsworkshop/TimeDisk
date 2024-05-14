@@ -1,6 +1,6 @@
 Assembler report for TimeDisk
-Thu Sep 21 22:42:01 2023
-Quartus II 32-bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
+Tue May 14 02:45:17 2024
+Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
 
 
 ---------------------
@@ -37,7 +37,7 @@ applicable agreement for further details.
 +---------------------------------------------------------------+
 ; Assembler Summary                                             ;
 +-----------------------+---------------------------------------+
-; Assembler Status      ; Successful - Thu Sep 21 22:42:01 2023 ;
+; Assembler Status      ; Successful - Tue May 14 02:45:17 2024 ;
 ; Revision Name         ; TimeDisk                              ;
 ; Top-level Entity Name ; TimeDisk                              ;
 ; Family                ; MAX7000S                              ;
@@ -89,7 +89,7 @@ applicable agreement for further details.
 +----------------+---------------------------------------------------------+
 ; Device         ; EPM7128SLC84-15                                         ;
 ; JTAG usercode  ; 0x00000000                                              ;
-; Checksum       ; 0x0019022D                                              ;
+; Checksum       ; 0x001A0EB3                                              ;
 +----------------+---------------------------------------------------------+
 
 
@@ -97,14 +97,14 @@ applicable agreement for further details.
 ; Assembler Messages ;
 +--------------------+
 Info: *******************************************************************
-Info: Running Quartus II 32-bit Assembler
+Info: Running Quartus II 64-Bit Assembler
     Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
-    Info: Processing started: Thu Sep 21 22:42:00 2023
+    Info: Processing started: Tue May 14 02:45:16 2024
 Info: Command: quartus_asm --read_settings_files=off --write_settings_files=off TimeDisk -c TimeDisk
 Info (115030): Assembler is generating device programming files
-Info: Quartus II 32-bit Assembler was successful. 0 errors, 0 warnings
-    Info: Peak virtual memory: 533 megabytes
-    Info: Processing ended: Thu Sep 21 22:42:01 2023
+Info: Quartus II 64-Bit Assembler was successful. 0 errors, 0 warnings
+    Info: Peak virtual memory: 12881 megabytes
+    Info: Processing ended: Tue May 14 02:45:17 2024
     Info: Elapsed time: 00:00:01
     Info: Total CPU time (on all processors): 00:00:01
 

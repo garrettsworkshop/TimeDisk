@@ -1,8 +1,20 @@
-module TimeDisk(C7M, PHI1, nRES,
+module TimeDisk(C7M, PHI1, nRES, nIRQ,
 				   A, RAH, RA11, RAL, nWE, D, RD, nINH,
 				   nDEVSEL, nIOSEL, nIOSTRB,
 				   nRAMROMCS, RAMROMCSgb, RAMCS, nROMCS);
-
+	/* Select Signals */
+	`define BankSELA  (A[3:0]==4'hF)
+	`define IRQSELA   (A[3:0]==4'hE)
+	`define SigSEL3A  (A[3:0]==4'h7)
+	`define SigSEL2A  (A[3:0]==4'h6)
+	`define SigSEL1A  (A[3:0]==4'h5)
+	`define SigSEL0A  (A[3:0]==4'h4)
+	`define SigSELA   (A[3:2]==2'b01)
+	`define RAMSELA   (A[3:0]==4'h3)
+	`define AddrHSELA (A[3:0]==4'h2)
+	`define AddrMSELA (A[3:0]==4'h1)
+	`define AddrLSELA (A[3:0]==4'h0)
+	
 	/* Clock, Reset */
 	input C7M, PHI1; // Clock inputs
 	input nRES; // Reset
@@ -13,102 +25,114 @@ module TimeDisk(C7M, PHI1, nRES,
 	reg [2:0] S = 0;
 	always @(negedge C7M) PHI0rf[1:0] <= { PHI0rf[0], !PHI1 };
 	always @(posedge C7M) begin
-		if (PHI0rf[1] && !PHI0rf[0] && PHI1) S <= 1;
-		else if (S==0) S <= 0;
-		else if (S==7) S <= 7;
-		else S <= S+3'h1;
+		S[2:0] <= (PHI0rf[1] && !PHI0rf[0] && PHI1) ? 3'h1 :
+			S==0 ? 3'h0 :
+			S==7 ? 3'h7 : S+3'h1;
 	end
 	
-	/* Reset input synchronization */
-	reg nRESr0; always @(posedge C7M) nRESr0 <= nRES;
-	reg nRESr;
+	/* Reset synchronization */
+	reg nRESr0 = 0, nRESr = 0;
+	always @(negedge C7M) nRESr0 <= nRES;
+	always @(negedge C7M) if (S==1) nRESr <= nRESr0;
+
+	/* Mode jumper loading */
+	reg ModeLoaded = 0, Mode = 0;
 	always @(posedge C7M) begin
-		if (S==1) nRESr <= nRESr0;
-		else nRESr <= !(!nRESr || !nRESr0); 
-	end
-
-	/* Mode and revision load */
-	reg ModeLoaded;
-	reg Mode; reg Rev;
-	always @(posedge PHI1) begin
-		ModeLoaded <= 1;
-		if (!ModeLoaded) begin
-			Mode <= RA11;
-			Rev <= RAL[2];
+		if (S==2) begin
+			if (nRESr) ModeLoaded <= 1;
+			if (!ModeLoaded) Mode <= RA11;
 		end
 	end
 
-	/* Timer enable */
-	reg TimerUnlock = 0;
-	reg US = 0;
-	always @(posedge PHI1, negedge nRES) begin
-		if (!nRES) begin
-			TimerUnlock <= 0;
-			US <= 0;
-		end else if (!nDEVSEL || !nIOSEL) begin
-			if (SigWR && US==0 && D[7:0]==8'hC1) begin
-				US <= 1;
-			end else if (SigWR && US==1 && D[7:0]==8'hAD) begin
-				TimerUnlock <= 1;
-				US <= 0;
-			end else if (SigWR && US==1 && D[7:0]==8'hAC) begin
-				TimerUnlock <= 0;
-				US <= 0;
-			end else US <= 0;
+	/* Long cycle detect */
+	reg LongCycle; always @(negedge C7M) LongCycle <= S==7 && !PHI1;
+
+	/* Timer command sequence */
+	/*reg [2:0] CS;
+	always @(posedge C7M) begin
+		if (!nRESr) CS <= 0;
+		else if (S==5 && !nDEVSEL && `SigSELA) case (CS)
+			0: CS <= D[7:0]==8'hFF ? 1 : 0;
+			1: CS <= D[7:0]==8'h00 ? 2 : 0;
+			2: CS <= D[7:0]==8'h55 ? 3 : 0;
+			3: CS <= D[7:0]==8'hAA ? 4 : 0;
+			4: CS <= D[7:0]==8'hC1 ? 5 : 0;
+			5: CS <= D[7:0]==8'hAD ? 6 : 0;
+			6: CS <= 7;
+			7: CS <= 0;
+		endcase
+	end*/
+
+	/* Timer enable command */
+	/*reg TimerRegENCmd;
+	always @(posedge C7M) begin
+		if (!nRESr) TimerRegENCmd <= 0;
+		else if (S==5 && SigSEL) begin
+			TimerRegENCmd <= CS==6 && D[7:0]==8'h01;
 		end
 	end
+	reg TimerRegEN;
+	always @(posedge C7M) begin
+		if (!nRESr) TimerRegEN <= 0;
+		else if (S==5 && SigSEL && TimerRegENCmd) begin
+			TimerRegEN <= D[0];
+		end
+	end*/
 
-	/* Timer control */
-	reg TimerMode;
-	reg IRQEN;
-	always @(posedge PHI1, negedge nRES) begin
-		if (!nRES) begin
+	/* Timer control register */
+	/*reg NTSCnPAL, IRQEN;
+	always @(posedge C7M) begin
+		if (!nRESr) begin
+			NTSCnPAL <= 0;
 			IRQEN <= 0;
-			TimerMode <= 0;
-		end else if (IRQWR) begin
-			IRQEN <= D[7] && TimerUnlock;
-			TimerMode <= D[6];
+		end else if (S==5 && TimerRegEN && IRQWR) begin
+			NTSCnPAL <= D[2];
+			IRQEN <= D[1];
 		end
-	end
+	end*/
 	
-	/* Timer */
-	reg [14:0] Timer;
-	always @(posedge PHI1, negedge nRES) begin
-		if (!nRES) Timer <= 0;
-		else if (Timer==0) begin
-			case (TimerMode)
-				0: Timer <= 17029; // NTSC frame
-				1: Timer <= 20279; // PAL frame
-			endcase
+	/* Timer reset */
+	/*reg TimerReset;
+	always @(posedge C7M) begin
+		if (S==5) begin
+			TimerReset <= TimerRegEN && IRQWR && D[0];
 		end
-		else Timer <= Timer-15'h1;
-	end
-		
-	/* IRQ generation */
-	reg IRQRDr = 0;
-	always @(posedge C7M) if (S==6) IRQRDr <= IRQRD;
-	reg IRQ = 0;
-	always @(posedge C7M, negedge nRES) begin
-		if (!nRES) IRQ <= 0;
-		else if (S==2) begin
-			if (Timer==1 && IRQEN) IRQ <= 1;
-			else if (IRQRDr) IRQ <= 0;
-		end
-	end
+	end*/
 
-	/* IRQ multiplexing with RA[1:0] */
-	reg RA0_IRQ, RA1_CLK;
-	always @(negedge C7M) begin
+	/* Timer */
+	/*reg [8:0] Timer;
+	wire Timer0; LCELL Timer0_MC (.in(Timer==0), .out(Timer0));
+	always @(posedge PHI1) begin
+		if (TimerReset) Timer <= 0;
+		else if (LongCycle) begin
+			if (NTSCnPAL ? Timer==261 : Timer==311) Timer <= 0;
+			else Timer[8:0] <= Timer[8:0]+9'h1;
+		end
+	end*/
+
+	/* IRQ generation */
+	output nIRQ = 1'bZ;
+	/*reg IRQ = 0;
+	output nIRQ = IRQ ? 1'b0 : 1'bZ;
+	always @(posedge C7M) begin
+		if (!IRQEN) IRQ <= 0;
+		else if (S==5 && IRQRD) IRQ <= 0;
+		else if (S==7 && Timer0) IRQ <= 1;
+	end*/
+
+	/* RA[2:0] multiplexing */
+	reg RA2_RA0, RA1_CLK;
+	always @(posedge C7M) begin
 		case (S)
 			1: begin
 				RA1_CLK <= 0;
-				RA0_IRQ <= IRQ;
+				RA2_RA0 <= Addr[0];
 			end 2: begin
 				RA1_CLK <= 1;
-				RA0_IRQ <= IRQ;
-			end default: begin
+				RA2_RA0 <= Addr[0];
+			end 3: begin
 				RA1_CLK <= Addr[1];
-				RA0_IRQ <= Addr[0];
+				RA2_RA0 <= Addr[2];
 			end
 		endcase
 	end
@@ -130,25 +154,16 @@ module TimeDisk(C7M, PHI1, nRES,
 		(!Mode && !nIOSTRB) ? 1'b1 :
 		( Mode && !nIOSEL)  ? 1'b0 :
 		( Mode && !nIOSTRB) ? Bank[0] : Addr[11];
-	inout [10:0] RAL;
+	output [10:1] RAL;
 	assign RAL[10:3] = Addr[10:3]; // RA[10:3] only used for RAM
-	assign RAL[2] = !ModeLoaded ? 1'bZ : Addr[2]; // RA[2] used for rev load
-	assign RAL[1:0] = {RA1_CLK, RA0_IRQ}; //RA[1:0] uesd to set IRQ pin
+	assign RAL[2:1] = {RA2_RA0, RA1_CLK}; //RA[2:1] uesd to set RA0
 	
-	/* Select Signals */
-	`define BankSELA  (A[3:0]==4'hF)
-	`define IRQSELA   (A[3:0]==4'hE)
-	`define SigSELA   (A[3:0]==4'h4)
-	`define RAMSELA   (A[3:0]==4'h3)
-	`define AddrHSELA (A[3:0]==4'h2)
-	`define AddrMSELA (A[3:0]==4'h1)
-	`define AddrLSELA (A[3:0]==4'h0)
+	/* More select Signals */
 	wire BankWR = (`BankSELA && !nWE && !nDEVSEL && REGEN);
+	wire IRQRD; LCELL IRQRD_MC (.in(!nDEVSEL && `IRQSELA &&  nWE), .out(IRQRD));
+	wire IRQWR; LCELL IRQWR_MC (.in(!nDEVSEL && `IRQSELA && !nWE), .out(IRQWR));
+	wire SigSEL = !nDEVSEL && `SigSELA;
 	`define RAMSEL (`RAMSELA && !nDEVSEL && REGEN)
-	wire IRQSEL =  `IRQSELA && !nWE && !nDEVSEL;
-	wire IRQWR = IRQSEL && !nWE;
-	wire IRQRD = IRQSEL &&  nWE;
-	wire SigWR = `SigSELA && !nWE && !nDEVSEL;
 	wire RAMSEL_BUF; LCELL RAMSEL_MC (.in(`RAMSEL), .out(RAMSEL_BUF));
 	wire AddrHWR; LCELL AddrHWR_MC (.in(`AddrHSELA && !nWE && !nDEVSEL && REGEN), .out(AddrHWR));
 	wire AddrMWR; LCELL AddrMWR_MC (.in(`AddrMSELA && !nWE && !nDEVSEL && REGEN), .out(AddrMWR));
@@ -164,14 +179,24 @@ module TimeDisk(C7M, PHI1, nRES,
 		 (!nIOSEL && RAMROMCSgb) || (!nIOSTRB && IOROMEN));
 	wire [7:0] Dout = 
 		nDEVSEL ? RD[7:0] :
-		`BankSELA ? { Rev, 6'h00, Bank[0] } :
-		`IRQSELA ? { IRQ, 7'b000000 } : 
-		`SigSELA ? 8'h06 :
+		`SigSEL3A ? 8'h10 : // Hex 10 (meaning firmware 1.0)
+		`SigSEL2A ? 8'h42 : // ASCII "B" (meaning rev. B)
+		`SigSEL1A ? 8'h06 : // Hex 06 (meaning "4206")
+		`SigSEL0A ? 8'h47 : // ASCII "G" (meaning "GW")
 		`RAMSELA ? RD[7:0] :
 		`AddrHSELA ? { 4'hF, Addr[19:16] } : 
 		`AddrMSELA ? Addr[15:8] : 
 		`AddrLSELA ? Addr[7:0] : 8'h00;
 	inout [7:0] D = DOE ? Dout : 8'bZ;
+
+	/* State-based data bus and ROM CS gating */
+	reg CSDBEN = 0; // ROM CS and data bus driver gating
+	always @(posedge C7M) begin
+		// Only select ROM and drive Apple II data bus after S4 to avoid bus fight.
+		// Thus we wait 1.5 7M cycles (210 ns) into PHI0 before driving.
+		// Same for driving the ROM/SRAM data bus (RD).
+		CSDBEN <= (S==4 || S==5 || S==6 || S==7);
+	end
 
 	/* SRAM and ROM Control Signals */
 	input RAMROMCSgb; // nRAMROMCS as gated by DS1215, then inverted
@@ -185,33 +210,23 @@ module TimeDisk(C7M, PHI1, nRES,
 	
 	/* IOSTRB ROM enable */
 	reg IOROMEN = 0; // IOSTRB ROM enable
-	wire RESIO; LCELL RESIO_MC (.in(!nIOSTRB && A[10:0]==11'h7FF), .out(RESIO));
+	wire RESIO; LCELL RESIO_MC (.in((!nIOSTRB && A[10:0]==11'h7FF) || !nRESr), .out(RESIO));
 	always @(posedge C7M, posedge RESIO) begin
 		if (RESIO) IOROMEN <= 0;
-		else if (S==1 && !nRESr) IOROMEN <= 0;
-		else if (S==6 && !nIOSEL) IOROMEN <= 1;
-	end
-
-	/* State-based data bus and ROM CS gating */
-	reg CSDBEN = 0; // ROM CS and data bus driver gating
-	always @(posedge C7M) begin
-		// Only select ROM and drive Apple II data bus after S4 to avoid bus fight.
-		// Thus we wait 1.5 7M cycles (210 ns) into PHI0 before driving.
-		// Same for driving the ROM/SRAM data bus (RD).
-		CSDBEN <= (S==4 || S==5 || S==6 || S==7);
+		else if (S==5 && !nIOSEL) IOROMEN <= 1;
 	end
 
 	/* DEVSEL register enable */
 	reg REGEN = 0; // Register enable
-	always @(posedge C7M) begin
-		if (S==1 && !nRESr) REGEN <= 0;
-		else if (S==6 && !nIOSEL) REGEN <= 1;
+	always @(posedge C7M, negedge nRESr) begin
+		if (!nRESr) REGEN <= 0;
+		else if (S==5 && !nIOSEL) REGEN <= 1;
 	end
 
 	/* Increment Control */
-	reg IncAddrL = 0, IncAddrM = 0, IncAddrH = 0;
-	always @(negedge C7M) begin
-		if (S==1 && !nRESr) begin
+	reg IncAddrL, IncAddrM, IncAddrH;
+	always @(posedge C7M, negedge nRESr) begin
+		if (!nRESr) begin
 			Addr <= 0;
 			Bank <= 0;
 			IncAddrL <= 0;
@@ -219,23 +234,23 @@ module TimeDisk(C7M, PHI1, nRES,
 			IncAddrH <= 0;
 		end else begin
 			// Increment address register
-			if (S==1 & IncAddrL) begin
+			if (S==1 && IncAddrL) begin
 				IncAddrL <= 0;
 				Addr[7:0] <= Addr[7:0]+8'h1;
 				IncAddrM <= Addr[7:0] == 8'hFF;
-			end else if (S==2 & IncAddrM) begin
+			end else if (S==2 && IncAddrM) begin
 				IncAddrM <= 0;
 				Addr[15:8] <= Addr[15:8]+8'h1;
 				IncAddrH <= Addr[15:8] == 8'hFF;
-			end else if (S==3 & IncAddrH) begin
+			end else if (S==3 && IncAddrH) begin
 				IncAddrH <= 0;
 				Addr[19:16] <= Addr[19:16]+4'h1;
-			end else if (S==6) begin // Set register in middle of S6 if accessed.
-				if(BankWR) Bank[7:0] <= D[7:0];
+			end else if (S==5) begin // Set register at end of S5 if accessed.
+				if (BankWR) Bank[7:0] <= D[7:0];
 				
 				IncAddrL <= RAMSEL_BUF;
-				IncAddrM <= AddrLWR & Addr[7] & ~D[7];
-				IncAddrH <= AddrMWR & Addr[15] & ~D[7];
+				IncAddrM <= AddrLWR && Addr[7] && ~D[7];
+				IncAddrH <= AddrMWR && Addr[15] && ~D[7];
 				
 				if (AddrHWR) Addr[19:16] <= D[3:0]; // Addr hi
 				if (AddrMWR) Addr[15:8] <= D[7:0]; // Addr mid

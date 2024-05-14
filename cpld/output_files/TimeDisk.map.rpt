@@ -1,6 +1,6 @@
 Analysis & Synthesis report for TimeDisk
-Thu Sep 21 22:41:57 2023
-Quartus II 32-bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
+Tue May 14 02:45:13 2024
+Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
 
 
 ---------------------
@@ -13,13 +13,10 @@ Quartus II 32-bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edit
   5. Analysis & Synthesis Source Files Read
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
-  8. Registers Removed During Synthesis
-  9. Removed Registers Triggering Further Register Optimizations
- 10. Parameter Settings for Inferred Entity Instance: lpm_add_sub:Add3
- 11. Parameter Settings for Inferred Entity Instance: lpm_add_sub:Add2
- 12. Parameter Settings for Inferred Entity Instance: lpm_add_sub:Add1
- 13. Analysis & Synthesis Messages
- 14. Analysis & Synthesis Suppressed Messages
+  8. Parameter Settings for Inferred Entity Instance: lpm_add_sub:Add2
+  9. Parameter Settings for Inferred Entity Instance: lpm_add_sub:Add1
+ 10. Analysis & Synthesis Messages
+ 11. Analysis & Synthesis Suppressed Messages
 
 
 
@@ -45,12 +42,12 @@ applicable agreement for further details.
 +-------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                  ;
 +-----------------------------+-------------------------------------------------+
-; Analysis & Synthesis Status ; Successful - Thu Sep 21 22:41:57 2023           ;
-; Quartus II 32-bit Version   ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition ;
+; Analysis & Synthesis Status ; Successful - Tue May 14 02:45:13 2024           ;
+; Quartus II 64-Bit Version   ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition ;
 ; Revision Name               ; TimeDisk                                        ;
 ; Top-level Entity Name       ; TimeDisk                                        ;
 ; Family                      ; MAX7000S                                        ;
-; Total macrocells            ; 104                                             ;
+; Total macrocells            ; 87                                              ;
 ; Total pins                  ; 64                                              ;
 +-----------------------------+-------------------------------------------------+
 
@@ -156,14 +153,15 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +----------------------+----------------------+
 ; Resource             ; Usage                ;
 +----------------------+----------------------+
-; Logic cells          ; 104                  ;
-; Total registers      ; 56                   ;
+; Logic cells          ; 87                   ;
+; Total registers      ; 45                   ;
 ; I/O pins             ; 64                   ;
-; Parallel expanders   ; 14                   ;
-; Maximum fan-out node ; C7M                  ;
-; Maximum fan-out      ; 37                   ;
-; Total fan-out        ; 968                  ;
-; Average fan-out      ; 5.76                 ;
+; Shareable expanders  ; 1                    ;
+; Parallel expanders   ; 7                    ;
+; Maximum fan-out node ; S[2]                 ;
+; Maximum fan-out      ; 45                   ;
+; Total fan-out        ; 737                  ;
+; Average fan-out      ; 4.85                 ;
 +----------------------+----------------------+
 
 
@@ -172,60 +170,8 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +----------------------------+------------+------+---------------------+--------------+
 ; Compilation Hierarchy Node ; Macrocells ; Pins ; Full Hierarchy Name ; Library Name ;
 +----------------------------+------------+------+---------------------+--------------+
-; |TimeDisk                  ; 104        ; 64   ; |TimeDisk           ; work         ;
+; |TimeDisk                  ; 87         ; 64   ; |TimeDisk           ; work         ;
 +----------------------------+------------+------+---------------------+--------------+
-
-
-+---------------------------------------------------------------------------------+
-; Registers Removed During Synthesis                                              ;
-+----------------------------------------+----------------------------------------+
-; Register name                          ; Reason for Removal                     ;
-+----------------------------------------+----------------------------------------+
-; ModeLoaded                             ; Stuck at VCC due to stuck port data_in ;
-; Mode                                   ; Stuck at GND due to stuck port data_in ;
-; Rev                                    ; Stuck at GND due to stuck port data_in ;
-; Bank[1..7]                             ; Lost fanout                            ;
-; IRQRDr                                 ; Stuck at GND due to stuck port data_in ;
-; Total Number of Removed Registers = 11 ;                                        ;
-+----------------------------------------+----------------------------------------+
-
-
-+----------------------------------------------------------------------------------------------------------------------+
-; Removed Registers Triggering Further Register Optimizations                                                          ;
-+---------------+---------------------------+--------------------------------------------------------------------------+
-; Register name ; Reason for Removal        ; Registers Removed due to This Register                                   ;
-+---------------+---------------------------+--------------------------------------------------------------------------+
-; ModeLoaded    ; Stuck at VCC              ; Mode, Rev, Bank[1], Bank[2], Bank[3], Bank[4], Bank[5], Bank[6], Bank[7] ;
-;               ; due to stuck port data_in ;                                                                          ;
-+---------------+---------------------------+--------------------------------------------------------------------------+
-
-
-+-------------------------------------------------------------------+
-; Parameter Settings for Inferred Entity Instance: lpm_add_sub:Add3 ;
-+------------------------+-------------+----------------------------+
-; Parameter Name         ; Value       ; Type                       ;
-+------------------------+-------------+----------------------------+
-; LPM_WIDTH              ; 8           ; Untyped                    ;
-; LPM_REPRESENTATION     ; UNSIGNED    ; Untyped                    ;
-; LPM_DIRECTION          ; ADD         ; Untyped                    ;
-; ONE_INPUT_IS_CONSTANT  ; YES         ; Untyped                    ;
-; LPM_PIPELINE           ; 0           ; Untyped                    ;
-; MAXIMIZE_SPEED         ; 5           ; Untyped                    ;
-; REGISTERED_AT_END      ; 0           ; Untyped                    ;
-; OPTIMIZE_FOR_SPEED     ; 5           ; Untyped                    ;
-; USE_CS_BUFFERS         ; 1           ; Untyped                    ;
-; CARRY_CHAIN            ; MANUAL      ; Untyped                    ;
-; CARRY_CHAIN_LENGTH     ; 48          ; CARRY_CHAIN_LENGTH         ;
-; DEVICE_FAMILY          ; MAX7000S    ; Untyped                    ;
-; USE_WYS                ; OFF         ; Untyped                    ;
-; STYLE                  ; FAST        ; Untyped                    ;
-; CBXI_PARAMETER         ; add_sub_rnh ; Untyped                    ;
-; AUTO_CARRY_CHAINS      ; ON          ; AUTO_CARRY                 ;
-; IGNORE_CARRY_BUFFERS   ; OFF         ; IGNORE_CARRY               ;
-; AUTO_CASCADE_CHAINS    ; ON          ; AUTO_CASCADE               ;
-; IGNORE_CASCADE_BUFFERS ; OFF         ; IGNORE_CASCADE             ;
-+------------------------+-------------+----------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
 +-------------------------------------------------------------------+
@@ -261,7 +207,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +------------------------+-------------+----------------------------+
 ; Parameter Name         ; Value       ; Type                       ;
 +------------------------+-------------+----------------------------+
-; LPM_WIDTH              ; 15          ; Untyped                    ;
+; LPM_WIDTH              ; 8           ; Untyped                    ;
 ; LPM_REPRESENTATION     ; UNSIGNED    ; Untyped                    ;
 ; LPM_DIRECTION          ; ADD         ; Untyped                    ;
 ; ONE_INPUT_IS_CONSTANT  ; YES         ; Untyped                    ;
@@ -275,7 +221,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; DEVICE_FAMILY          ; MAX7000S    ; Untyped                    ;
 ; USE_WYS                ; OFF         ; Untyped                    ;
 ; STYLE                  ; FAST        ; Untyped                    ;
-; CBXI_PARAMETER         ; add_sub_feh ; Untyped                    ;
+; CBXI_PARAMETER         ; add_sub_rnh ; Untyped                    ;
 ; AUTO_CARRY_CHAINS      ; ON          ; AUTO_CARRY                 ;
 ; IGNORE_CARRY_BUFFERS   ; OFF         ; IGNORE_CARRY               ;
 ; AUTO_CASCADE_CHAINS    ; ON          ; AUTO_CASCADE               ;
@@ -288,70 +234,35 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; Analysis & Synthesis Messages ;
 +-------------------------------+
 Info: *******************************************************************
-Info: Running Quartus II 32-bit Analysis & Synthesis
+Info: Running Quartus II 64-Bit Analysis & Synthesis
     Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
-    Info: Processing started: Thu Sep 21 22:41:55 2023
+    Info: Processing started: Tue May 14 02:45:11 2024
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off TimeDisk -c TimeDisk
 Warning (20028): Parallel compilation is not licensed and has been disabled
 Info (12021): Found 1 design units, including 1 entities, in source file timedisk.v
     Info (12023): Found entity 1: TimeDisk
 Info (12127): Elaborating entity "TimeDisk" for the top level hierarchy
-Info (10264): Verilog HDL Case Statement information at TimeDisk.v(102): all case item expressions in this case statement are onehot
-Info (278001): Inferred 3 megafunctions from design logic
-    Info (278002): Inferred adder/subtractor megafunction ("lpm_add_sub") from the following logic: "Add3"
+Warning (10036): Verilog HDL or VHDL warning at TimeDisk.v(48): object "LongCycle" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at TimeDisk.v(165): object "SigSEL" assigned a value but never read
+Info (278001): Inferred 2 megafunctions from design logic
     Info (278002): Inferred adder/subtractor megafunction ("lpm_add_sub") from the following logic: "Add2"
     Info (278002): Inferred adder/subtractor megafunction ("lpm_add_sub") from the following logic: "Add1"
-Info (12130): Elaborated megafunction instantiation "lpm_add_sub:Add3"
-Info (12133): Instantiated megafunction "lpm_add_sub:Add3" with the following parameter:
+Info (12130): Elaborated megafunction instantiation "lpm_add_sub:Add2"
+Info (12133): Instantiated megafunction "lpm_add_sub:Add2" with the following parameter:
     Info (12134): Parameter "LPM_WIDTH" = "8"
     Info (12134): Parameter "LPM_DIRECTION" = "ADD"
     Info (12134): Parameter "LPM_REPRESENTATION" = "UNSIGNED"
     Info (12134): Parameter "ONE_INPUT_IS_CONSTANT" = "YES"
-Info (12131): Elaborated megafunction instantiation "lpm_add_sub:Add3|addcore:adder[0]", which is child of megafunction instantiation "lpm_add_sub:Add3"
-Info (12131): Elaborated megafunction instantiation "lpm_add_sub:Add3|addcore:adder[0]|a_csnbuffer:oflow_node", which is child of megafunction instantiation "lpm_add_sub:Add3"
-Info (12131): Elaborated megafunction instantiation "lpm_add_sub:Add3|addcore:adder[0]|a_csnbuffer:result_node", which is child of megafunction instantiation "lpm_add_sub:Add3"
-Info (12131): Elaborated megafunction instantiation "lpm_add_sub:Add3|look_add:look_ahead_unit", which is child of megafunction instantiation "lpm_add_sub:Add3"
-Info (12131): Elaborated megafunction instantiation "lpm_add_sub:Add3|altshift:result_ext_latency_ffs", which is child of megafunction instantiation "lpm_add_sub:Add3"
-Info (12131): Elaborated megafunction instantiation "lpm_add_sub:Add3|altshift:carry_ext_latency_ffs", which is child of megafunction instantiation "lpm_add_sub:Add3"
-Info (12130): Elaborated megafunction instantiation "lpm_add_sub:Add1"
-Info (12133): Instantiated megafunction "lpm_add_sub:Add1" with the following parameter:
-    Info (12134): Parameter "LPM_WIDTH" = "15"
-    Info (12134): Parameter "LPM_DIRECTION" = "ADD"
-    Info (12134): Parameter "LPM_REPRESENTATION" = "UNSIGNED"
-    Info (12134): Parameter "ONE_INPUT_IS_CONSTANT" = "YES"
-Info (12131): Elaborated megafunction instantiation "lpm_add_sub:Add1|addcore:adder[1]", which is child of megafunction instantiation "lpm_add_sub:Add1"
-Info (12131): Elaborated megafunction instantiation "lpm_add_sub:Add1|look_add:look_ahead_unit", which is child of megafunction instantiation "lpm_add_sub:Add1"
-Info (12131): Elaborated megafunction instantiation "lpm_add_sub:Add1|altshift:result_ext_latency_ffs", which is child of megafunction instantiation "lpm_add_sub:Add1"
-Info (13014): Ignored 30 buffer(s)
-    Info (13019): Ignored 30 SOFT buffer(s)
-Warning (13034): The following nodes have both tri-state and non-tri-state drivers
-    Warning (13035): Inserted always-enabled tri-state buffer between "RAL[0]" and its non-tri-state driver.
-    Warning (13035): Inserted always-enabled tri-state buffer between "RAL[1]" and its non-tri-state driver.
-    Warning (13035): Inserted always-enabled tri-state buffer between "RAL[3]" and its non-tri-state driver.
-    Warning (13035): Inserted always-enabled tri-state buffer between "RAL[4]" and its non-tri-state driver.
-    Warning (13035): Inserted always-enabled tri-state buffer between "RAL[5]" and its non-tri-state driver.
-    Warning (13035): Inserted always-enabled tri-state buffer between "RAL[6]" and its non-tri-state driver.
-    Warning (13035): Inserted always-enabled tri-state buffer between "RAL[7]" and its non-tri-state driver.
-    Warning (13035): Inserted always-enabled tri-state buffer between "RAL[8]" and its non-tri-state driver.
-    Warning (13035): Inserted always-enabled tri-state buffer between "RAL[9]" and its non-tri-state driver.
-    Warning (13035): Inserted always-enabled tri-state buffer between "RAL[10]" and its non-tri-state driver.
-Warning (13009): TRI or OPNDRN buffers permanently enabled
-    Warning (13010): Node "RA11~synth"
-    Warning (13010): Node "RAL[0]~synth"
-    Warning (13010): Node "RAL[1]~synth"
-    Warning (13010): Node "RAL[2]~synth"
-    Warning (13010): Node "RAL[3]~synth"
-    Warning (13010): Node "RAL[4]~synth"
-    Warning (13010): Node "RAL[5]~synth"
-    Warning (13010): Node "RAL[6]~synth"
-    Warning (13010): Node "RAL[7]~synth"
-    Warning (13010): Node "RAL[8]~synth"
-    Warning (13010): Node "RAL[9]~synth"
-    Warning (13010): Node "RAL[10]~synth"
+Info (12131): Elaborated megafunction instantiation "lpm_add_sub:Add2|addcore:adder[0]", which is child of megafunction instantiation "lpm_add_sub:Add2"
+Info (12131): Elaborated megafunction instantiation "lpm_add_sub:Add2|addcore:adder[0]|a_csnbuffer:oflow_node", which is child of megafunction instantiation "lpm_add_sub:Add2"
+Info (12131): Elaborated megafunction instantiation "lpm_add_sub:Add2|addcore:adder[0]|a_csnbuffer:result_node", which is child of megafunction instantiation "lpm_add_sub:Add2"
+Info (12131): Elaborated megafunction instantiation "lpm_add_sub:Add2|look_add:look_ahead_unit", which is child of megafunction instantiation "lpm_add_sub:Add2"
+Info (12131): Elaborated megafunction instantiation "lpm_add_sub:Add2|altshift:result_ext_latency_ffs", which is child of megafunction instantiation "lpm_add_sub:Add2"
+Info (12131): Elaborated megafunction instantiation "lpm_add_sub:Add2|altshift:carry_ext_latency_ffs", which is child of megafunction instantiation "lpm_add_sub:Add2"
+Info (13014): Ignored 16 buffer(s)
+    Info (13019): Ignored 16 SOFT buffer(s)
 Info (280013): Promoted pin-driven signal(s) to global signal
     Info (280014): Promoted clock signal driven by pin "C7M" to global clock signal
-    Info (280015): Promoted clear signal driven by pin "nRES" to global clear signal
-Info (17049): 7 registers lost all their fanouts during netlist optimizations.
 Warning (21074): Design contains 6 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "A[11]"
     Warning (15610): No output dependent on input pin "A[12]"
@@ -359,15 +270,16 @@ Warning (21074): Design contains 6 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "A[14]"
     Warning (15610): No output dependent on input pin "A[15]"
     Warning (15610): No output dependent on input pin "nINH"
-Info (21057): Implemented 168 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 152 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 25 input pins
-    Info (21059): Implemented 11 output pins
-    Info (21060): Implemented 28 bidirectional pins
-    Info (21063): Implemented 104 macrocells
+    Info (21059): Implemented 22 output pins
+    Info (21060): Implemented 17 bidirectional pins
+    Info (21063): Implemented 87 macrocells
+    Info (21073): Implemented 1 shareable expanders
 Info (144001): Generated suppressed messages file /Repos/TimeDisk/cpld/output_files/TimeDisk.map.smsg
-Info: Quartus II 32-bit Analysis & Synthesis was successful. 0 errors, 32 warnings
-    Info: Peak virtual memory: 575 megabytes
-    Info: Processing ended: Thu Sep 21 22:41:57 2023
+Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 10 warnings
+    Info: Peak virtual memory: 12958 megabytes
+    Info: Processing ended: Tue May 14 02:45:13 2024
     Info: Elapsed time: 00:00:02
     Info: Total CPU time (on all processors): 00:00:02
 
